@@ -4,33 +4,152 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0E2A3F">
+<meta name="theme-color" content="#121C26">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Revision">
 <title>Revision</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0E2A3F;--ink:#0F2233;--muted:#5F7385;--line:#D3E0EB;--paper:#EDF2F6;--sky:#3A86C8}
+:root{--ink:#121C26;--text:#16222E;--muted:#5E6E7E;--line:#DCE3EA;--paper:#EEF2F5;--card:#fff;
+  --display:'Space Grotesk',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,system-ui,sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;padding:calc(32px + env(safe-area-inset-top)) 16px 48px}
-main{max-width:720px;margin:0 auto}
-h1{font-family:'Space Grotesk',sans-serif;font-size:2rem;letter-spacing:-.02em;margin-bottom:6px}
-p.sub{color:var(--muted);margin-bottom:24px}
-.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-a.card{display:block;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;text-decoration:none;color:inherit;box-shadow:0 6px 20px rgba(15,34,51,.07)}
-a.card:hover{border-color:var(--sky)}
-.subj{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);margin-bottom:6px}
-.t{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:4px}
-.d{color:var(--muted);font-size:.9rem}
+body{font-family:var(--body);background:var(--paper);color:var(--text);min-height:100vh;-webkit-tap-highlight-color:transparent}
+
+/* HERO */
+.hero{background:var(--ink);color:#fff;padding:calc(36px + env(safe-area-inset-top)) 20px 92px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;opacity:.5;
+  background:radial-gradient(600px 300px at 85% 10%,rgba(58,134,200,.35),transparent 70%),radial-gradient(500px 280px at 10% 110%,rgba(161,61,36,.35),transparent 70%)}
+.hero-in{position:relative;max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;opacity:.6;margin-bottom:10px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:-.03em;line-height:1}
+.lede{margin-top:12px;opacity:.75;font-size:1rem;max-width:460px;line-height:1.5}
+.mat{display:inline-flex;align-items:center;gap:6px;margin-top:16px;min-height:44px;padding:10px 16px;border-radius:12px;background:#fff;color:var(--ink);text-decoration:none;font-weight:700;font-size:.92rem;box-shadow:0 6px 18px rgba(0,0,0,.18);transition:transform .15s}
+.mat:hover{transform:translateY(-2px)}
+.next{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:16px 20px;min-width:250px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.next .lbl{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.next .what{font-family:var(--display);font-weight:600;font-size:1.25rem;margin-top:6px}
+.next .when{font-size:.9rem;opacity:.8;margin-top:2px}
+.next .big{font-family:var(--mono);font-weight:600;font-size:2.2rem;line-height:1;margin-top:10px}
+.next .big small{font-size:.85rem;opacity:.7;font-weight:500}
+
+/* GRID */
+main{max-width:1080px;margin:-56px auto 0;padding:0 16px 56px;position:relative}
+.grid{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1040px){.grid{grid-template-columns:repeat(3,1fr)}}
+.tile{display:flex;flex-direction:column;background:var(--card);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;
+  box-shadow:0 1px 2px rgba(18,28,38,.06),0 12px 32px rgba(18,28,38,.10);transition:transform .2s ease,box-shadow .2s ease}
+.tile:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(18,28,38,.06),0 20px 44px rgba(18,28,38,.16)}
+.tile:active{transform:translateY(-1px)}
+.art{height:150px;position:relative;background-size:cover;background-position:center}
+.art .icon{position:absolute;left:20px;bottom:-22px;width:52px;height:52px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 6px 16px rgba(18,28,38,.18)}
+.art .badge{position:absolute;right:14px;top:14px;font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;color:#fff;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.25);padding:5px 9px;border-radius:999px}
+.body{padding:34px 20px 20px;display:flex;flex-direction:column;flex:1}
+.subj{font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.t{font-family:var(--display);font-weight:700;font-size:1.4rem;letter-spacing:-.01em;margin:6px 0 6px;line-height:1.15}
+.d{color:var(--muted);font-size:.92rem;line-height:1.5}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{font-size:.76rem;font-weight:600;padding:5px 10px;border-radius:8px;background:var(--paper);color:var(--text)}
+.chip.mono{font-family:var(--mono)}
+.foot{margin-top:auto;padding-top:18px;display:flex;justify-content:space-between;align-items:center}
+.open{font-weight:700;font-size:.92rem}
+.arrow{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;transition:transform .2s}
+.tile:hover .arrow{transform:translateX(3px)}
+
+/* per-subject */
+.met .art{background-color:#0E2A3F;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='150' viewBox='0 0 400 150'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.18' stroke-width='1.5'%3E%3Cellipse cx='300' cy='70' rx='28' ry='18'/%3E%3Cellipse cx='300' cy='70' rx='58' ry='38'/%3E%3Cellipse cx='300' cy='70' rx='92' ry='60'/%3E%3Cellipse cx='300' cy='70' rx='130' ry='84'/%3E%3Cellipse cx='40' cy='150' rx='60' ry='40'/%3E%3Cellipse cx='40' cy='150' rx='110' ry='72'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='.4' font-family='Arial' font-weight='700' font-size='18'%3E%3Ctext x='294' y='77'%3EL%3C/text%3E%3Ctext x='34' y='138'%3EH%3C/text%3E%3C/g%3E%3C/svg%3E")}
+.met .subj{color:#3A86C8}.met .arrow{background:#164A73}
+.spa .art{background-color:#4A1D14;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='150' viewBox='0 0 400 150'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.2' stroke-width='2'%3E%3Ccircle cx='310' cy='70' r='46'/%3E%3Ccircle cx='310' cy='70' r='35'/%3E%3Cpath d='M150 40q12-10 24 0t24 0t24 0t24 0M150 62q12-10 24 0t24 0t24 0t24 0M150 84q12-10 24 0t24 0t24 0t24 0M150 106q12-10 24 0t24 0t24 0t24 0'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='.38' font-family='Arial' font-weight='700' text-anchor='middle'%3E%3Ctext x='310' y='68' font-size='12'%3EESPA%C3%91A%3C/text%3E%3Ctext x='310' y='84' font-size='9'%3E2026%3C/text%3E%3C/g%3E%3C/svg%3E")}
+.spa .subj{color:#A13D24}.spa .arrow{background:#A13D24}
+.bio .art{background-color:#5C1E45;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='150' viewBox='0 0 400 150'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.22' stroke-width='1.5'%3E%3Cellipse cx='300' cy='75' rx='80' ry='52'/%3E%3Ccircle cx='310' cy='70' r='18'/%3E%3Ccircle cx='255' cy='95' r='7'/%3E%3Ccircle cx='350' cy='100' r='6'/%3E%3Ccircle cx='265' cy='50' r='5'/%3E%3Cpath d='M60 20v110M60 50l-30-20M60 50l30-20M60 80l-30-20M60 80l30-20M60 110l-30-20M60 110l30-20'/%3E%3C/g%3E%3C/svg%3E")}
+.bio .subj{color:#B0337C}.bio .arrow{background:#B0337C}
+
+.tip{max-width:1080px;margin:8px auto 0;padding:0 16px 40px;color:var(--muted);font-size:.86rem;text-align:center}
+.tip b{color:var(--text)}
 </style>
 </head>
 <body>
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <div class="eyebrow">Margot · Year 8</div>
+      <h1>Revision</h1>
+      <p class="lede">Pick a subject. Every correct answer earns coins, and your progress is saved on this device.</p>
+      <a class="mat" href="materials/">📂 Class materials from Google Classroom →</a>
+    </div>
+    <div class="next" id="next" hidden>
+      <div class="lbl">Next test</div>
+      <div class="what" id="next-what"></div>
+      <div class="when" id="next-when"></div>
+      <div class="big" id="next-big"></div>
+    </div>
+  </div>
+</header>
+
 <main>
-  <h1>Revision</h1>
-  <p class="sub">Year 8 study apps, one per topic.</p>
   <div class="grid">
-    <a class="card" href="meteorology/"><div class="subj">Geography</div><div class="t">Meteorology</div><div class="d">Flashcards, quiz, exam practice and games.</div></a>
-    <a class="card" href="spanish/"><div class="subj">Spanish</div><div class="t">El pretérito · Las vacaciones</div><div class="d">Past tense, holiday sentences, writing and translation practice.</div></a>
-    <a class="card" href="https://jamesmandikos.github.io/margot-bio-world/"><div class="subj">Biology</div><div class="t">Classification</div><div class="d">The original biology app.</div></a>
+    <a class="tile met" href="meteorology/" data-test="2026-11-16" data-key="margot-weather-world-v1" data-exam="13">
+      <div class="art"><span class="badge" data-countdown></span><div class="icon">⛅</div></div>
+      <div class="body">
+        <div class="subj">Geography</div>
+        <div class="t">Meteorology</div>
+        <div class="d">Climate factors, rainfall, pressure, fronts, global circulation, UK climate and climate change.</div>
+        <div class="chips"><span class="chip">Test Mon 16 Nov</span><span class="chip mono" data-stats></span></div>
+        <div class="foot"><span class="open">Open Weather Station</span><span class="arrow">→</span></div>
+      </div>
+    </a>
+    <a class="tile spa" href="spanish/" data-test="2026-11-17" data-key="margot-spanish-preterite-v1" data-exam="15">
+      <div class="art"><span class="badge" data-countdown></span><div class="icon">🧳</div></div>
+      <div class="body">
+        <div class="subj">Spanish</div>
+        <div class="t">El pretérito · Las vacaciones</div>
+        <div class="d">Past-tense endings, fui/fue/fueron, a/en/con, holiday sentences, writing and translation.</div>
+        <div class="chips"><span class="chip">Assessment Tue 17 Nov</span><span class="chip mono" data-stats></span></div>
+        <div class="foot"><span class="open">Open El Pretérito</span><span class="arrow">→</span></div>
+      </div>
+    </a>
+    <a class="tile bio" href="https://jamesmandikos.github.io/margot-bio-world/">
+      <div class="art"><div class="icon">🔬</div></div>
+      <div class="body">
+        <div class="subj">Biology</div>
+        <div class="t">Classification</div>
+        <div class="d">Kingdoms, the classification hierarchy, cells and identification keys.</div>
+        <div class="chips"><span class="chip">Year 7 topic</span></div>
+        <div class="foot"><span class="open">Open Bio World</span><span class="arrow">→</span></div>
+      </div>
+    </a>
   </div>
 </main>
+<p class="tip">On iPad: open a subject in Safari, tap <b>Share</b> then <b>Add to Home Screen</b> to keep it as an app.</p>
+
+<script>
+(function(){
+  var today=new Date();today.setHours(0,0,0,0);
+  function days(iso){var d=new Date(iso+'T00:00:00');return Math.round((d-today)/864e5);}
+  function label(n){return n<0?'Done ✓':n===0?'Today':n===1?'Tomorrow':'In '+n+' days';}
+  var upcoming=[];
+  document.querySelectorAll('.tile[data-test]').forEach(function(t){
+    var n=days(t.dataset.test);
+    var b=t.querySelector('[data-countdown]');if(b)b.textContent=label(n);
+    if(n>=0)upcoming.push({n:n,name:t.querySelector('.t').textContent,date:t.dataset.test});
+    var s=t.querySelector('[data-stats]'),txt='';
+    try{
+      var st=JSON.parse(localStorage.getItem(t.dataset.key)||'null');
+      if(st){var done=(st.exScores||[]).filter(function(x){return x!==null&&x!==undefined}).length;
+        txt='🪙 '+(st.coins||0)+' · '+done+'/'+t.dataset.exam+' written';}
+    }catch(e){}
+    if(s){if(txt)s.textContent=txt;else s.remove();}
+  });
+  upcoming.sort(function(a,b){return a.n-b.n});
+  if(upcoming.length){
+    var u=upcoming[0],d=new Date(u.date+'T00:00:00');
+    document.getElementById('next-what').textContent=u.name;
+    document.getElementById('next-when').textContent=d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+    document.getElementById('next-big').innerHTML=u.n===0?'Today':u.n===1?'1 <small>day to go</small>':u.n+' <small>days to go</small>';
+    document.getElementById('next').hidden=false;
+  }
+})();
+</script>
 </body>
 </html>
