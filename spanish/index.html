@@ -303,6 +303,32 @@ canvas{display:block;width:100%;background:#E3EEF7}
 .ex-point.ex-acc span::after{content:" (check accents)";color:#B3261E;font-weight:700;font-size:.85em}
 .ex-point.ex-self span::after{content:" (you decide)";color:var(--muted);font-size:.85em}
 .ex-share-msg{margin-top:8px;color:var(--muted);font-size:.85rem;white-space:pre-wrap;text-align:left}
+.end-card{padding:18px}
+.end-tab{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:1.05rem}
+.end-tab th,.end-tab td{padding:10px 12px;text-align:left}
+.end-tab thead th{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-align:center;border-radius:10px 10px 0 0}
+.end-tab thead small{font-family:var(--body);letter-spacing:0;font-weight:500;opacity:.8}
+.end-tab tbody th{font-weight:700;white-space:nowrap}
+.end-tab tbody th small{display:block;font-weight:500;color:var(--muted);font-size:.75rem}
+.end-tab td{text-align:center;font-family:var(--mono);font-size:1.05rem}
+.end-tab td b{font-weight:700}
+.c-ar{background:#FBEDE6;color:#7A2A17}.c-ir{background:#E3F0F4;color:#134B5E}
+.end-tab b.acc{background:#FFE08A;border-radius:3px;padding:0 1px;color:#4A1D14}
+.tricks{display:grid;gap:12px;margin:18px 0}
+@media(min-width:768px){.tricks{grid-template-columns:1fr 1fr}}
+.trick{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+.trick .tn{flex-shrink:0;width:32px;height:32px;border-radius:9px;background:var(--deep);color:#fff;font-family:var(--mono);font-weight:600;display:flex;align-items:center;justify-content:center}
+.trick h4{font-family:var(--display);font-size:1.02rem;margin-bottom:4px}
+.trick p{font-size:.92rem;line-height:1.55;color:var(--text)}
+.dr-grid{display:grid;gap:8px}
+@media(min-width:768px){.dr-grid{grid-template-columns:1fr 1fr}}
+.dr-row{display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:10px;font-weight:700}
+.dr-row input{font-family:var(--mono);font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--mist);min-height:44px;width:100%}
+.dr-row input:focus{outline:none;border-color:var(--sky);background:#fff}
+.dr-row input.ok{border-color:var(--mint);background:var(--mintl)}
+.dr-row input.bad{border-color:var(--red);background:var(--redl)}
+.dr-row input.acc{border-color:var(--yellow);background:var(--yellowl)}
+.dr-row i{font-style:normal;font-family:var(--mono);font-size:.85rem;color:var(--muted);min-width:70px}
 </style>
 </head>
 <body>
@@ -322,6 +348,7 @@ canvas{display:block;width:100%;background:#E3EEF7}
 
 <div class="tabs">
   <button class="tab active" id="tab-fc"    onclick="showTab('flashcards',this)">Flashcards</button>
+  <button class="tab"        id="tab-end"   onclick="showTab('endings',this)">Endings</button>
   <button class="tab"        id="tab-quiz"  onclick="showTab('quiz',this)">Quiz</button>
   <button class="tab"        id="tab-exam"  onclick="showTab('exam',this)">Writing</button>
   <button class="tab"        id="tab-games" onclick="showTab('games',this)">Games</button>
@@ -358,6 +385,47 @@ canvas{display:block;width:100%;background:#E3EEF7}
     <button class="btn btn-nav" id="fc-next" onclick="fcNav(1)">Next →</button>
   </div>
   <div class="fc-score-bar" id="fc-dots"></div>
+</div>
+
+<!-- ═══ ENDINGS ═══ -->
+<div id="endings" class="section">
+  <div style="margin-bottom:16px">
+    <div class="sec-title">Remember the endings</div>
+    <p class="sec-sub">Two sets to learn, not three: <b>-ER and -IR verbs share the same endings</b>.</p>
+  </div>
+  <div class="quiz-card end-card">
+    <table class="end-tab">
+      <thead><tr><th></th><th class="c-ar">-AR<br><small>viajar</small></th><th class="c-ir">-ER / -IR<br><small>comer · escribir</small></th></tr></thead>
+      <tbody>
+        <tr><th>yo <small>I</small></th><td class="c-ar">viaj<b class="acc">é</b></td><td class="c-ir">com<b class="acc">í</b></td></tr>
+        <tr><th>tú <small>you</small></th><td class="c-ar">viaj<b>aste</b></td><td class="c-ir">com<b>iste</b></td></tr>
+        <tr><th>él / ella <small>he / she</small></th><td class="c-ar">viaj<b class="acc">ó</b></td><td class="c-ir">com<b class="acc">ió</b></td></tr>
+        <tr><th>nosotros <small>we</small></th><td class="c-ar">viaj<b>amos</b></td><td class="c-ir">com<b>imos</b></td></tr>
+        <tr><th>vosotros <small>you all</small></th><td class="c-ar">viaj<b>asteis</b></td><td class="c-ir">com<b>isteis</b></td></tr>
+        <tr><th>ellos / ellas <small>they</small></th><td class="c-ar">viaj<b>aron</b></td><td class="c-ir">com<b>ieron</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tricks">
+    <div class="trick"><div class="tn">1</div><div><h4>Swap the A for an I</h4><p>Learn the -AR row, then change <b>a → i</b> for -ER/-IR: aste → <b>i</b>ste, amos → <b>i</b>mos, asteis → <b>i</b>steis. Three small twists: é → <b>í</b>, ó → <b>ió</b>, and aron → <b>ie</b>ron.</p></div></div>
+    <div class="trick"><div class="tn">2</div><div><h4>Only "I" and "he/she" wear a hat</h4><p>The accent sits on <b>yo</b> and <b>él/ella</b> only: viaj<b>é</b>, viaj<b>ó</b>, com<b>í</b>, com<b>ió</b>. It changes the meaning: <i>hablo</i> = I speak, <i>habló</i> = he spoke.</p></div></div>
+    <div class="trick"><div class="tn">3</div><div><h4>Chant it as a rhythm</h4><p><b>é · aste · ó · amos · asteis · aron</b><br><b>í · iste · ió · imos · isteis · ieron</b><br>Say each line three times out loud, clapping on every ending.</p></div></div>
+    <div class="trick"><div class="tn">4</div><div><h4>"You" in the paST has ST</h4><p>tú → -a<b>st</b>e / -i<b>st</b>e, vosotros → -a<b>st</b>eis / -i<b>st</b>eis. And never add an s: <i>viajaste</i>, not <s>viajastes</s>.</p></div></div>
+    <div class="trick"><div class="tn">5</div><div><h4>"We" can look like the present</h4><p>-AR nosotros is the same in both tenses: <i>viajamos</i> = we travel / we travelled. Put a time phrase in (<i>el año pasado viajamos…</i>) so the marker sees it's past. -ER changes: com<b>e</b>mos → com<b>i</b>mos.</p></div></div>
+    <div class="trick"><div class="tn">6</div><div><h4>Fui = I went AND I was</h4><p>Ir and ser share one irregular set: <b>fui, fuiste, fue, fuimos, fuisteis, fueron</b>. No accents at all. Spelling changes only in yo: ju<b>gué</b>, sa<b>qué</b>.</p></div></div>
+  </div>
+  <div class="quiz-card drill">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+      <div class="quiz-topic">Drill · fill in the table</div><span class="ex-marks" id="dr-score"></span>
+    </div>
+    <div class="quiz-q" id="dr-verb"></div>
+    <div class="dr-grid" id="dr-grid"></div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">
+      <button class="btn btn-primary" onclick="drCheck()">Check</button>
+      <button class="btn btn-nav" onclick="drNew()">New verb →</button>
+    </div>
+    <div class="ex-result" id="dr-msg"></div>
+  </div>
 </div>
 
 <!-- ═══ QUIZ ═══ -->
@@ -900,6 +968,7 @@ function showTab(id,el){
   if(id==='shop'){buildShop();drawAvatar();}
   if(id==='games'){buildUnlockGrid();document.getElementById('tab-games').classList.remove('has-new');}
   if(id==='exam')renderExam();
+  if(id==='endings')renderEndings();
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -1545,6 +1614,30 @@ function exShare(){
   else if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>{msg.textContent='Copied. Paste it into a message.';},()=>{msg.textContent=text;});}
   else{msg.textContent=text;}
 }
+const DR_VERBS=[['viajar','to travel'],['nadar','to swim'],['bailar','to dance'],['comprar','to buy'],['visitar','to visit'],['tomar','to take'],['escuchar','to listen'],['mandar','to send'],['descansar','to rest'],['montar','to ride'],['hablar','to speak'],['comer','to eat'],['beber','to drink'],['aprender','to learn'],['correr','to run'],['perder','to lose'],['escribir','to write'],['salir','to go out'],['vivir','to live'],['subir','to go up']];
+const DR_P=['yo','tú','él / ella','nosotros','vosotros','ellos'];
+const DR_AR=['é','aste','ó','amos','asteis','aron'],DR_IR=['í','iste','ió','imos','isteis','ieron'];
+let drV=null,drDone=false,drRight=0,drTotal=0;
+function drForms(v){const st=v.slice(0,-2),e=v.endsWith('ar')?DR_AR:DR_IR;return e.map(x=>st+x);}
+function drNew(){
+  let v;do{v=DR_VERBS[Math.floor(Math.random()*DR_VERBS.length)];}while(drV&&v[0]===drV[0]);
+  drV=v;drDone=false;
+  document.getElementById('dr-verb').innerHTML='<b>'+v[0]+'</b> <span style="color:var(--muted);font-weight:500">('+v[1]+')</span> · write all six preterite forms';
+  document.getElementById('dr-grid').innerHTML=DR_P.map((p,i)=>'<label class="dr-row"><span>'+p+'</span><input id="dr-'+i+'" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false"><i id="dr-m'+i+'"></i></label>').join('');
+  document.getElementById('dr-msg').textContent='Tip: type accents by holding the letter down on the iPad keyboard.';
+}
+function drCheck(){
+  const f=drForms(drV[0]);let ok=0,acc=0;
+  f.forEach((want,i)=>{const inp=document.getElementById('dr-'+i),got=inp.value.trim().toLowerCase(),m=document.getElementById('dr-m'+i);
+    inp.classList.remove('ok','bad','acc');
+    if(got===want){ok++;inp.classList.add('ok');m.textContent='✓';}
+    else if(stripAcc(got)===stripAcc(want)&&got){acc++;inp.classList.add('acc');m.textContent=want;}
+    else{inp.classList.add('bad');m.textContent=want;}});
+  if(!drDone){drDone=true;drRight+=ok;drTotal+=6;if(ok)addCoins(ok);document.getElementById('dr-score').textContent=drRight+' / '+drTotal+' right';}
+  document.getElementById('dr-msg').textContent=ok===6?'All six correct, accents too.':ok+' / 6 correct'+(acc?' · '+acc+' just need the accent':'')+'. The right form is shown next to each one.';
+  if(ok===6)playHappy();else playFlip();
+}
+function renderEndings(){if(!drV)drNew();}
 function renderExam(){
   const e=EXAM[exIdx];
   document.getElementById('ex-topic').textContent=e.topic;
