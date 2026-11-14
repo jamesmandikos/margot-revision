@@ -292,12 +292,16 @@ canvas{display:block;width:100%;background:#E3EEF7}
   .ex-layout #ex-mark .ex-model{margin-top:0}
 }
 
+.home{display:inline-block;color:#fff;opacity:.75;text-decoration:none;font-weight:600;font-size:.88rem;margin-bottom:12px;min-height:24px}
+.home:hover{opacity:1}
+.tab.has-new::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-left:7px;vertical-align:middle}
 </style>
 </head>
 <body>
 <header>
   <div class="hdr-inner">
     <div>
+      <a class="home" href="../">← All revision</a>
       <div class="eyebrow">Margot · Year 8 Spanish</div>
       <h1>El Pretérito</h1>
       <div class="hdr-sub">Las vacaciones · assessment on Tuesday 17 November</div>
@@ -843,19 +847,15 @@ function updateCoinDisplay(){
   document.getElementById('shop-coins').textContent=coins;
 }
 function checkUnlocks(streak){
-  if(!unlocked.creature&&streak>=UNLOCKS.creature){
-    unlocked.creature=true;
-    showModal('🎯','Verb Catcher Unlocked!',`You got ${UNLOCKS.creature} in a row! Catch each falling verb before it lands.`,'🎯 Play now',()=>openGame('creature'));
-    playUnlock();confetti(60);buildUnlockGrid();
-  }else if(!unlocked.cell&&totalCorrect>=UNLOCKS.cell){
-    unlocked.cell=true;
-    showModal('🧱','Sentence Builder Unlocked!',`${UNLOCKS.cell} correct answers! Build holiday sentences in the right word order.`,'🧱 Play now',()=>openGame('cell'));
-    playUnlock();confetti(70);buildUnlockGrid();
-  }else if(!unlocked.blitz&&totalCorrect>=UNLOCKS.blitz){
-    unlocked.blitz=true;
-    showModal('⚡','Spanish Blitz Unlocked!',`${UNLOCKS.blitz} correct answers — you legend! ⚡ Answer as fast as you can before the timer runs out!`,'⚡ Play Now!',()=>openGame('blitz'));
-    playUnlock();confetti(80);buildUnlockGrid();
-  }
+  // Unlock quietly while she studies: no pop-up, confetti or fanfare. The Games tab gets a dot instead.
+  let changed=false;
+  if(!unlocked.creature&&streak>=UNLOCKS.creature){unlocked.creature=true;changed=true;}
+  if(!unlocked.cell&&totalCorrect>=UNLOCKS.cell){unlocked.cell=true;changed=true;}
+  if(!unlocked.blitz&&totalCorrect>=UNLOCKS.blitz){unlocked.blitz=true;changed=true;}
+  if(!changed)return;
+  buildUnlockGrid();
+  const t=document.getElementById('tab-games');
+  if(t&&!t.classList.contains('active'))t.classList.add('has-new');
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -868,7 +868,7 @@ function showTab(id,el){
   if(el)el.classList.add('active');
   if(id==='quiz'&&qIdx===0&&!qAnswered)initQuiz();
   if(id==='shop'){buildShop();drawAvatar();}
-  if(id==='games')buildUnlockGrid();
+  if(id==='games'){buildUnlockGrid();document.getElementById('tab-games').classList.remove('has-new');}
   if(id==='exam')renderExam();
 }
 
@@ -997,13 +997,13 @@ function quizAnswer(chosen,btnEl){
   const card=document.getElementById('quiz-card-el');
   const r=btnEl.getBoundingClientRect();
   if(correct){
-    playHappy();confetti(28);
+    playHappy();
     card.classList.add('bounce');setTimeout(()=>card.classList.remove('bounce'),500);
-    burst('⭐',r.left+r.width/2-16,r.top-36);
+    
     coinPop(r.left+r.width/2,r.top-10,coinEarned);
     const left=UNLOCKS.creature-quizStreak;
-    if(!unlocked.creature&&left>0)showBanner(`🔥 ${quizStreak} in a row! ${left} more to unlock Verb Catcher 🎯`);
-    if(quizStreak>0&&quizStreak%5===0&&unlocked.creature)showBanner(`🔥 ${quizStreak} in a row! You're unstoppable!`);
+    
+    
   }else{playSad();card.classList.add('shake');setTimeout(()=>card.classList.remove('shake'),450);}
   qResults.push({q:q.q,correct,topic:q.topic,explain:q.explain,chosen,right:q.ans,opts:q.opts});
   document.getElementById('q-next').style.display='inline-flex';
@@ -1018,7 +1018,7 @@ function showResults(){
   circle.style.color=pct>=80?'#3DD68C':pct>=60?'#F59E0B':'#FF4D6D';
   document.getElementById('r-num').textContent=qScore;
   document.getElementById('r-den').textContent=`/ ${quizOrder.length}`;
-  if(pct>=80){playHappy();confetti(70);}else if(pct>=60)playFlip();else playSad();
+  if(pct>=80){playHappy();}else if(pct>=60)playFlip();else playSad();
   let title,sub;
   if(pct===100){title="Perfect score";sub="Every answer right. Excellent.";}
   else if(pct>=80){title="Great work";sub="Nearly perfect. Check the ones you missed below.";}
@@ -1514,7 +1514,7 @@ function exSubmit(){
   const first=exScores[exIdx]===null;
   exScores[exIdx]=Math.max(got,exScores[exIdx]||0);
   const r=document.getElementById('ex-result');
-  if(got===e.points.length){playHappy();confetti(40);r.textContent=`🎉 Full marks: ${got}/${e.marks}!`;}
+  if(got===e.points.length){playHappy();r.textContent=`🎉 Full marks: ${got}/${e.marks}!`;}
   else if(got>0){playCoin();r.textContent=`👍 ${got}/${e.marks}. Add the missing points and try again later!`;}
   else{playSad();r.textContent='💜 Read the model answer, then try writing it from memory.';}
   if(first&&got>0){addCoins(got);totalCorrect+=got;checkUnlocks(0);}
