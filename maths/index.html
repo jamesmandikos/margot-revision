@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#221C4A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Averages">
+<meta name="robots" content="noindex, nofollow">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACP0lEQVR4nOzdMUoDQQBA0VUsrAR7Ky+ihTbB1sreVvAC4gUEW3srWzst9FaWtqL5QZJsJPG9cncZQvhMBrKzu3N4MBlgmu0BgjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJg7Qz8MXr+8OwmJOjy2FTmDlI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQO0lpuarL1aDXMHCRxkMRBEgdJHCRxkMRBEgdJHCRxkMRBEgdJHCRxkDyHdEXW8TaDrcODybCY3dvTOvVx8zLSxc/H59+OnL09/duLZ3x1P0/9np8VkjhI4iAtYc2xeuMt7tZx5PGYOUjiIImDJA6SOEjiIImDJA6SOEgj/mVvL/y6M3OQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcpCW8jOfq+mLq8f39vcHI44882/3d4zCvJbzLfr4PzWr8cRxsKmsOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJg/QJAAD//37c5t8AAAAGSURBVAMA+f5CydKhOwoAAAAASUVORK5CYII=">
+<title>Maths · Averages</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* Palette: graph paper / indigo. Old variable names kept so the template's inline styles and JS still resolve. */
+:root{
+  --navy:#221C4A;--ink:#1D1A33;--deep:#3D348B;--sky:#2A9D8F;--sky2:#9BD3CB;--line:#DDDBEA;--mist:#F6F5FB;--paper:#EFEEF5;
+  --pink:var(--sky);--pink2:var(--sky2);--pink3:var(--line);--pink4:var(--mist);
+  --hot:var(--deep);--purple:var(--navy);--lavender:#C9D6E3;
+  --mint:#2E9E6B;--mintl:#DDF2E8;--red:#D64545;--redl:#FBE4E4;
+  --yellow:#F2B33D;--yellowl:#FDF2DA;--orange:#E0892B;
+  --blue:var(--sky);--bluel:#E4E1F5;--text:var(--ink);--muted:#6A6785;--coin:#C98F12;
+  --display:'Space Grotesk',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  --radius:14px;--shadow:0 1px 2px rgba(15,34,51,.06),0 6px 20px rgba(15,34,51,.07);
+}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);min-height:100vh;color:var(--text);overflow-x:hidden;
+  padding-bottom:env(safe-area-inset-bottom);-webkit-tap-highlight-color:transparent}
+button,textarea,label{touch-action:manipulation}
+.deco{display:none}
+
+/* HEADER — synoptic chart: isobars + a weather front along the bottom */
+header{position:relative;z-index:1;color:#fff;background-color:var(--navy);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='260' viewBox='0 0 900 260'%3E%3Cdefs%3E%3Cpattern id='g' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M20 0H0V20' fill='none' stroke='%23ffffff' stroke-opacity='.06'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='900' height='260' fill='url(%23g)'/%3E%3Cg fill='%23ffffff' fill-opacity='.12'%3E%3Crect x='560' y='150' width='34' height='90'/%3E%3Crect x='604' y='100' width='34' height='140'/%3E%3Crect x='648' y='60' width='34' height='180'/%3E%3Crect x='692' y='120' width='34' height='120'/%3E%3Crect x='736' y='170' width='34' height='70'/%3E%3C/g%3E%3Cpath d='M540 118H800' stroke='%232A9D8F' stroke-opacity='.7' stroke-width='2' stroke-dasharray='8 6'/%3E%3Ctext x='806' y='123' fill='%23ffffff' fill-opacity='.45' font-family='Georgia' font-style='italic' font-size='18'%3Ex%CC%84%3C/text%3E%3C/svg%3E");
+  background-size:cover;background-position:center;padding:calc(18px + env(safe-area-inset-top)) 20px 26px;border-bottom:3px solid var(--sky)}
+.hdr-inner{max-width:980px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-bottom:6px}
+header h1{font-family:var(--display);font-weight:700;font-size:2.1rem;letter-spacing:-.02em;line-height:1.05}
+.hdr-sub{font-size:.9rem;opacity:.8;margin-top:6px}
+.coin-bar{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:8px 14px;font-family:var(--mono);font-weight:600;font-size:1.05rem}
+.coin-lbl{font-family:var(--body);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7}
+
+/* TABS — segmented control */
+.tabs{display:flex;justify-content:center;gap:4px;margin:18px auto 0;padding:4px;max-width:max-content;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);position:relative;z-index:2;flex-wrap:wrap}
+.tab{background:transparent;color:var(--muted);border:0;border-radius:9px;padding:10px 16px;font-family:var(--body);font-weight:700;font-size:.88rem;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap;min-height:44px}
+.tab.active{background:var(--navy);color:#fff}
+.tab:not(.active):hover{color:var(--ink);background:var(--mist)}
+
+/* SECTION */
+.section{display:none;padding:22px 16px 64px;max-width:760px;margin:0 auto;position:relative;z-index:1}
+.section.active{display:block}
+.sec-title{font-family:var(--display);font-weight:700;font-size:1.45rem;color:var(--ink);letter-spacing:-.01em;margin-bottom:4px}
+.sec-sub{color:var(--muted);font-size:.9rem;line-height:1.5}
+
+/* BANNER */
+.streak-banner{text-align:center;padding:10px 16px;font-weight:700;font-size:.9rem;color:#fff;background:var(--deep);display:none;position:sticky;top:0;z-index:50}
+.streak-banner.show{display:block}
+
+/* FLASHCARDS */
+.topic-filter{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:18px}
+.filter-btn{background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px 12px;font-family:var(--body);font-weight:600;font-size:.78rem;cursor:pointer;color:var(--muted);transition:all .15s;min-height:36px}
+.filter-btn.active{background:var(--deep);color:#fff;border-color:var(--deep)}
+.filter-btn:hover:not(.active){border-color:var(--sky);color:var(--deep)}
+.fc-meta{text-align:center;margin-bottom:12px}
+.fc-progress{font-family:var(--mono);font-size:.85rem;color:var(--muted);margin-bottom:6px}
+.fc-topic-badge{display:inline-block;background:var(--bluel);color:var(--deep);font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:5px 12px;border-radius:6px}
+.card-scene{perspective:1400px;width:100%;max-width:680px;margin:0 auto;height:270px;cursor:pointer}
+.card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.card-inner.flipped{transform:rotateY(180deg)}
+/* Belt and braces for Safari: hide the face that should be at the back, switching halfway through the turn */
+.card-back{opacity:0;transition:opacity 0s linear .25s}
+.card-inner.flipped .card-back{opacity:1}
+.card-front{transition:opacity 0s linear .25s}
+.card-inner.flipped .card-front{opacity:0}
+.card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center}
+.card-front{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.card-back{background:var(--navy);color:#fff;transform:rotateY(180deg);box-shadow:var(--shadow);
+  background-image:linear-gradient(160deg,rgba(42,157,143,.25),transparent 60%)}
+.q-label,.a-label{font-family:var(--mono);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em;margin-bottom:12px;opacity:.6}
+.card-front .q-label{color:var(--muted)}
+.q-text{font-family:var(--display);font-weight:600;font-size:1.35rem;color:var(--ink);line-height:1.35}
+.a-text{font-size:1rem;line-height:1.6;font-weight:500}
+.card-hint{text-align:center;color:var(--muted);font-size:.8rem;margin-top:10px}
+.fc-rating{display:none;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.fc-rating.show{display:flex}
+.fc-controls{display:flex;justify-content:center;gap:10px;margin-top:14px;align-items:center}
+.fc-score-bar{display:flex;gap:4px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.score-dot{width:10px;height:10px;border-radius:3px;background:var(--line);transition:all .3s}
+.score-dot.got-it{background:var(--mint)}
+.score-dot.almost{background:var(--yellow)}
+.score-dot.missed{background:var(--red)}
+
+/* BUTTONS */
+.btn{font-family:var(--body);font-weight:700;border:none;border-radius:10px;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px}
+.btn:active{transform:translateY(1px)}
+.btn-nav{background:#fff;color:var(--deep);border:1px solid var(--line);padding:9px 18px;font-size:.9rem}
+.btn-nav:hover{border-color:var(--sky)}
+.btn-nav:disabled{opacity:.35;cursor:not-allowed}
+.btn-got{background:var(--mint);color:#fff;padding:9px 16px;font-size:.86rem}
+.btn-almost{background:var(--yellow);color:#4A3500;padding:9px 16px;font-size:.86rem}
+.btn-miss{background:var(--red);color:#fff;padding:9px 16px;font-size:.86rem}
+.btn-primary{background:var(--deep);color:#fff;padding:11px 24px;font-size:.95rem}
+.btn-primary:hover{background:var(--navy)}
+.btn-mint{background:var(--mint);color:#fff;padding:11px 22px;font-size:.95rem}
+.btn-game{background:var(--sky);color:#fff;padding:11px 22px;font-size:.95rem}
+.btn-game:hover{background:var(--deep)}
+.btn-shop{background:#fff;color:var(--deep);border:1px solid var(--line);padding:11px 22px;font-size:.95rem}
+
+/* QUIZ */
+.quiz-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px}
+.q-progress-label,.q-score-live{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+.progress-wrap{background:var(--line);border-radius:4px;height:6px;margin-bottom:18px;overflow:hidden}
+.progress-fill{height:100%;background:var(--sky);transition:width .4s}
+.quiz-card{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:26px;margin-bottom:14px;border:1px solid var(--line)}
+.quiz-topic{font-family:var(--mono);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--sky);margin-bottom:8px}
+.quiz-q{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--ink);line-height:1.45;margin-bottom:18px}
+.options{display:grid;gap:8px}
+.option{background:var(--mist);border:1px solid var(--line);border-radius:12px;padding:13px 15px;cursor:pointer;font-weight:600;font-size:.93rem;color:var(--ink);text-align:left;transition:border-color .15s,background .15s;display:flex;align-items:center;gap:12px;min-height:52px;font-family:var(--body)}
+.option:hover:not(.locked){border-color:var(--sky);background:#fff}
+.opt-letter{background:#fff;color:var(--deep);font-family:var(--mono);font-weight:600;font-size:.85rem;width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--line)}
+.option.correct{background:var(--mintl);border-color:var(--mint);color:#0B5234}
+.option.correct .opt-letter{background:var(--mint);color:#fff;border-color:var(--mint)}
+.option.wrong{background:var(--redl);border-color:var(--red);color:#7A1616}
+.option.wrong .opt-letter{background:var(--red);color:#fff;border-color:var(--red)}
+.option.locked{cursor:default}
+.feedback-box{display:none;border-radius:12px;padding:13px 16px;font-size:.92rem;line-height:1.6;font-weight:500;margin-top:14px}
+.feedback-box.show{display:block;animation:popIn .3s}
+.feedback-box.correct-fb{background:var(--mintl);color:#0B5234;border-left:4px solid var(--mint)}
+.feedback-box.wrong-fb{background:var(--yellowl);color:#4A3500;border-left:4px solid var(--yellow)}
+@keyframes popIn{0%{opacity:0;transform:translateY(4px)}100%{opacity:1;transform:translateY(0)}}
+.quiz-next-wrap{display:flex;justify-content:flex-end}
+
+/* GAMES HUB */
+.unlock-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:20px}
+.unlock-card{background:#fff;border-radius:16px;padding:20px;text-align:left;border:1px solid var(--line);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.unlock-card.locked{opacity:.6}
+.unlock-card.unlocked{border-top:4px solid var(--sky)}
+.unlock-card h3{font-family:var(--display);font-weight:700;font-size:1.05rem;margin-bottom:4px;color:var(--ink)}
+.unlock-card p{font-size:.82rem;color:var(--muted);margin-bottom:12px;line-height:1.45}
+.unlock-emoji{font-size:1.8rem;margin-bottom:8px}
+.unlock-req{display:inline-block;font-size:.72rem;font-weight:700;padding:4px 9px;border-radius:6px;margin-bottom:8px}
+.unlock-req.done{background:var(--mintl);color:#0B5234}
+.unlock-req.todo{background:var(--mist);color:var(--muted)}
+
+/* GAMES */
+.game-wrap{background:#fff;border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden;margin-bottom:14px}
+.game-hdr{background:var(--navy);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.game-hdr h2{font-family:var(--display);font-weight:700;font-size:1.15rem}
+.game-stats{display:flex;gap:16px;flex-wrap:wrap}
+.gstat{text-align:center}
+.gstat-val{font-family:var(--mono);font-weight:600;font-size:1.05rem}
+.gstat-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;opacity:.65}
+canvas{display:block;width:100%;background:#E3EEF7}
+.game-q-box{padding:16px 18px;border-top:1px solid var(--line);text-align:center}
+.game-q-text{font-family:var(--display);font-weight:600;font-size:1.08rem;color:var(--ink);margin-bottom:10px;line-height:1.4}
+.game-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 16px}
+.game-opt{background:var(--mist);border:1px solid var(--line);border-radius:11px;padding:12px;cursor:pointer;font-weight:600;font-size:.9rem;color:var(--ink);transition:border-color .15s,background .15s;text-align:center;font-family:var(--body);min-height:48px}
+.game-opt:hover:not(.locked){border-color:var(--sky);background:#fff}
+.game-opt.correct{background:var(--mintl);border-color:var(--mint);color:#0B5234}
+.game-opt.wrong{background:var(--redl);border-color:var(--red);color:#7A1616}
+.game-opt.locked{cursor:default}
+.blitz-q{font-family:var(--display);font-weight:600;font-size:1.25rem;color:var(--ink);text-align:center;padding:20px 18px 12px;line-height:1.4}
+.blitz-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 16px 16px}
+.blitz-opt{background:var(--mist);border:1px solid var(--line);border-radius:11px;padding:13px;cursor:pointer;font-weight:600;font-size:.9rem;color:var(--ink);transition:border-color .12s,background .12s;text-align:center;font-family:var(--body);min-height:52px}
+.blitz-opt:hover:not(.locked){background:#fff;border-color:var(--sky)}
+.blitz-opt.correct{background:var(--mintl);border-color:var(--mint);color:#0B5234}
+.blitz-opt.wrong{background:var(--redl);border-color:var(--red)}
+.blitz-opt.locked{cursor:default}
+.blitz-timer-bar{height:6px;background:var(--line);margin:0 16px 4px;border-radius:3px;overflow:hidden}
+.blitz-timer-fill{height:100%;transition:width .1s linear}
+.game-over-box{padding:32px;text-align:center}
+.game-over-box h2{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--ink);margin-bottom:8px}
+.game-over-box p{color:var(--muted);margin-bottom:20px;line-height:1.5}
+
+/* PROCESS BUILDER */
+.pb-built{list-style:none;counter-reset:step;margin:14px 16px 4px;min-height:4px}
+.pb-built li{counter-increment:step;position:relative;background:var(--mintl);border:1px solid var(--mint);border-radius:11px;padding:10px 12px 10px 44px;margin-bottom:6px;font-weight:600;font-size:.9rem;color:#0B5234;animation:popIn .25s ease;line-height:1.4}
+.pb-built li::before{content:counter(step);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:6px;background:var(--mint);color:#fff;font-family:var(--mono);font-size:.8rem;display:flex;align-items:center;justify-content:center}
+.pb-pool{display:grid;grid-template-columns:1fr;gap:8px;padding:8px 16px 18px}
+.pb-step{background:var(--mist);border:1px dashed var(--sky2);border-radius:11px;padding:12px 14px;cursor:pointer;font-weight:600;font-size:.9rem;color:var(--ink);text-align:left;font-family:var(--body);transition:border-color .15s,background .15s;min-height:48px;line-height:1.4}
+.pb-step:hover{border-style:solid;border-color:var(--sky);background:#fff}
+.pb-wrong{background:var(--redl)!important;border-color:var(--red)!important;animation:shake .4s}
+
+/* RESULTS */
+.results-card{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:34px 24px;text-align:center;border:1px solid var(--line)}
+.score-circle{width:120px;height:120px;border-radius:50%;margin:0 auto 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid currentColor}
+.score-num{font-family:var(--mono);font-weight:600;font-size:2.4rem}
+.score-den{font-family:var(--mono);font-size:.85rem;opacity:.7}
+.results-card h2{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--ink);margin-bottom:6px}
+.results-card>p{color:var(--muted);margin-bottom:22px}
+.result-item{display:flex;align-items:flex-start;gap:9px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.88rem;text-align:left}
+.result-item:last-child{border-bottom:none}
+.ri-q{font-weight:600;color:var(--ink)}
+.ri-a{color:var(--muted);font-size:.8rem;margin-top:2px}
+
+/* EXAM */
+.ex-marks{font-family:var(--mono);background:var(--yellowl);color:#6B4D00;font-weight:600;font-size:.76rem;border-radius:6px;padding:4px 9px}
+.ex-ans{width:100%;min-height:150px;margin-top:6px;border:1px solid var(--line);border-radius:12px;padding:14px;font-family:var(--body);font-size:16px;line-height:1.55;color:var(--ink);resize:vertical;background:var(--mist)}
+.ex-ans:focus{outline:none;border-color:var(--sky);background:#fff}
+.ex-h{font-family:var(--mono);font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--sky);margin-bottom:8px}
+.ex-model{background:var(--mist);border-left:4px solid var(--sky);border-radius:10px;padding:14px 16px;margin-top:16px;line-height:1.6;font-size:.95rem}
+.ex-point{display:flex;gap:10px;align-items:flex-start;padding:8px 4px;font-weight:500;font-size:.93rem;cursor:pointer;line-height:1.45;min-height:44px}
+.ex-point input{margin-top:2px;width:20px;height:20px;accent-color:var(--deep);flex-shrink:0}
+.ex-result{text-align:center;font-weight:700;margin-top:12px;color:var(--deep)}
+.ex-count{font-family:var(--mono);font-weight:600;color:var(--muted);align-self:center;font-size:.85rem}
+
+/* AVATAR */
+.shop-layout{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:start}
+@media(max-width:600px){.shop-layout{grid-template-columns:1fr}}
+.avatar-preview{background:#fff;border-radius:18px;padding:18px;text-align:center;border:1px solid var(--line);box-shadow:var(--shadow);position:sticky;top:10px}
+.avatar-preview h3{font-family:var(--display);font-weight:700;font-size:1rem;color:var(--ink);margin-bottom:10px}
+.avatar-canvas-wrap{width:140px;height:180px;margin:0 auto 10px;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.avatar-coin-display{font-family:var(--mono);font-weight:600;font-size:1rem;color:var(--coin)}
+.shop-panel{display:flex;flex-direction:column;gap:12px}
+.shop-cat{background:#fff;border-radius:16px;padding:16px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.shop-cat h3{font-family:var(--display);font-weight:600;font-size:.98rem;color:var(--ink);margin-bottom:12px}
+.shop-items{display:flex;flex-wrap:wrap;gap:8px}
+.shop-item{background:var(--mist);border:1px solid var(--line);border-radius:11px;padding:8px 10px;cursor:pointer;text-align:center;transition:border-color .15s;min-width:76px;min-height:64px}
+.shop-item:hover:not(.owned):not(.active-item){border-color:var(--sky)}
+.shop-item.active-item{border:2px solid var(--deep);background:#fff}
+.shop-item.owned{border-color:var(--mint)}
+.shop-item .si-emoji{font-size:1.4rem;display:block;margin-bottom:2px}
+.shop-item .si-name{font-size:.68rem;font-weight:600;color:var(--ink);display:block}
+.shop-item .si-price{font-family:var(--mono);font-size:.66rem;font-weight:600;color:var(--coin);display:block}
+.shop-item .si-price.free{color:var(--mint)}
+.shop-item .si-price.equipped{color:var(--deep)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(34,28,74,.55);z-index:200;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.modal-box{background:#fff;border-radius:20px;padding:32px 28px;text-align:center;max-width:420px;width:90%;box-shadow:0 20px 56px rgba(14,42,63,.3);animation:popIn .3s}
+.modal-box h2{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--ink);margin-bottom:8px}
+.modal-box p{color:var(--muted);margin-bottom:22px;line-height:1.6}
+.modal-emoji{font-size:2.8rem;margin-bottom:10px;display:block}
+
+/* FX */
+.confetti-piece{position:fixed;pointer-events:none;z-index:9999;animation:confettiFall linear forwards}
+@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(540deg);opacity:0}}
+.starburst{position:fixed;pointer-events:none;z-index:9998;animation:starBurst .7s ease forwards}
+@keyframes starBurst{0%{transform:scale(0);opacity:1}60%{transform:scale(1.3);opacity:1}100%{transform:scale(1);opacity:0}}
+.coin-pop{position:fixed;pointer-events:none;z-index:9997;font-family:var(--mono);font-weight:600;font-size:1.1rem;color:var(--coin);animation:coinFloat .9s ease forwards}
+@keyframes coinFloat{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-50px)}}
+@keyframes bounceIn{0%{transform:scale(.97)}60%{transform:scale(1.01)}100%{transform:scale(1)}}
+.bounce{animation:bounceIn .35s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.shake{animation:shake .4s}
+
+/* Touch screens: no hover lift, bigger targets */
+@media (hover:none){
+  .option:hover:not(.locked),.game-opt:hover:not(.locked),.blitz-opt:hover:not(.locked),.pb-step:hover{background:var(--mist);border-color:var(--line)}
+  .pb-step:hover{border-style:dashed;border-color:var(--sky2)}
+}
+
+/* Phone */
+@media (max-width:560px){
+  header h1{font-size:1.7rem}
+  .tabs{max-width:calc(100% - 24px)}
+  .tab{padding:9px 11px;font-size:.8rem}
+  .quiz-card{padding:20px}
+}
+
+/* iPad portrait and up */
+@media (min-width:768px){
+  .section{max-width:900px;padding:28px 28px 72px}
+  header{padding-left:32px;padding-right:32px;padding-bottom:36px}
+  header h1{font-size:2.6rem}
+  .tab{padding:11px 22px;font-size:.95rem}
+  .card-scene{height:340px;max-width:760px}
+  .q-text{font-size:1.65rem}
+  .a-text{font-size:1.12rem}
+  .quiz-card{padding:32px 36px}
+  .quiz-q{font-size:1.4rem}
+  .options{grid-template-columns:1fr 1fr;gap:10px}
+  .option{font-size:1rem;min-height:64px}
+  .game-opts{grid-template-columns:repeat(4,1fr)}
+  .blitz-q{font-size:1.5rem}
+  .blitz-opt{font-size:1rem;min-height:64px}
+  .pb-pool{grid-template-columns:1fr 1fr}
+  .pb-step,.pb-built li{font-size:.98rem}
+  .ex-ans{min-height:200px}
+  .ex-model{font-size:1.02rem}
+  .ex-point{font-size:1rem}
+  .shop-layout{grid-template-columns:230px 1fr}
+}
+
+/* iPad landscape: exam answer and marking side by side */
+@media (min-width:1080px){
+  .section{max-width:1040px}
+  .hdr-inner{max-width:1040px}
+  .ex-layout{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .ex-layout #ex-mark .ex-model{margin-top:0}
+}
+
+.home{display:inline-block;color:#fff;opacity:.75;text-decoration:none;font-weight:600;font-size:.88rem;margin-bottom:12px;min-height:24px}
+.home:hover{opacity:1}
+.tab.has-new::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-left:7px;vertical-align:middle}
+#ex-model{white-space:pre-line}
+.ftab-wrap{overflow-x:auto;margin:12px 0 10px;-webkit-overflow-scrolling:touch}
+.ftab{border-collapse:collapse;font-family:var(--mono);font-size:.92rem;font-weight:500;background:#fff}
+.ftab th,.ftab td{border:1px solid var(--line);padding:7px 12px;text-align:center;white-space:nowrap}
+.ftab th{background:var(--mist);font-family:var(--body);font-weight:700;text-align:left;color:var(--deep)}
+</style>
+</head>
+<body>
+<header>
+  <div class="hdr-inner">
+    <div>
+      <a class="home" href="../">← All revision</a>
+      <div class="eyebrow">Margot · Year 8 Maths</div>
+      <h1>Averages</h1>
+      <div class="hdr-sub">Mean, median, mode and range · quiz on Tuesday 17 November, 11:15</div>
+    </div>
+    <div class="coin-bar"><span>🪙</span><span id="coin-display">0</span><span class="coin-lbl">coins</span></div>
+  </div>
+</header>
+
+<div class="streak-banner" id="streak-banner"></div>
+
+<div class="tabs">
+  <button class="tab active" id="tab-fc"    onclick="showTab('flashcards',this)">Flashcards</button>
+  <button class="tab"        id="tab-quiz"  onclick="showTab('quiz',this)">Quiz</button>
+  <button class="tab"        id="tab-exam"  onclick="showTab('exam',this)">Exam practice</button>
+  <button class="tab"        id="tab-games" onclick="showTab('games',this)">Games</button>
+  <button class="tab"        id="tab-shop"  onclick="showTab('shop',this)">Avatar</button>
+</div>
+
+<!-- ═══ FLASHCARDS ═══ -->
+<div id="flashcards" class="section active">
+  <div class="topic-filter" id="fc-filter"></div>
+  <div class="fc-meta">
+    <div class="fc-progress" id="fc-progress"></div>
+    <span class="fc-topic-badge" id="fc-badge"></span>
+  </div>
+  <div class="card-scene" onclick="flipCard()">
+    <div class="card-inner" id="card-inner">
+      <div class="card-face card-front">
+        <div class="q-label">Question</div>
+        <div class="q-text" id="fc-question"></div>
+      </div>
+      <div class="card-face card-back">
+        <div class="a-label">Answer</div>
+        <div class="a-text" id="fc-answer"></div>
+      </div>
+    </div>
+  </div>
+  <p class="card-hint">Tap the card to flip it</p>
+  <div class="fc-rating" id="fc-rating">
+    <button class="btn btn-got" onclick="rateCard('got-it')">Got it</button>
+    <button class="btn btn-almost" onclick="rateCard('almost')">Almost</button>
+    <button class="btn btn-miss" onclick="rateCard('missed')">Missed</button>
+  </div>
+  <div class="fc-controls">
+    <button class="btn btn-nav" id="fc-prev" onclick="fcNav(-1)">← Previous</button>
+    <button class="btn btn-nav" id="fc-next" onclick="fcNav(1)">Next →</button>
+  </div>
+  <div class="fc-score-bar" id="fc-dots"></div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div id="quiz" class="section">
+  <div id="quiz-body">
+    <div class="quiz-top">
+      <span class="q-progress-label" id="q-progress">Q 1/27</span>
+      <span class="q-score-live" id="q-score-live">⭐0 🔥0 🪙0</span>
+    </div>
+    <div class="progress-wrap"><div class="progress-fill" id="q-bar" style="width:0%"></div></div>
+    <div class="quiz-card" id="quiz-card-el">
+      <div class="quiz-topic" id="q-topic"></div>
+      <div class="quiz-q" id="q-text"></div>
+      <div class="options" id="q-options"></div>
+      <div class="feedback-box" id="q-feedback"></div>
+    </div>
+    <div class="quiz-next-wrap">
+      <button class="btn btn-primary" id="q-next" onclick="nextQuestion()" style="display:none">Next →</button>
+    </div>
+  </div>
+  <div id="quiz-results" style="display:none">
+    <div class="results-card">
+      <div class="score-circle" id="r-circle"><span class="score-num" id="r-num"></span><span class="score-den" id="r-den"></span></div>
+      <h2 id="r-title"></h2><p id="r-sub"></p>
+      <div style="text-align:left;margin-bottom:20px" id="r-breakdown"></div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="restartQuiz()">Try again</button>
+        <button class="btn btn-game" onclick="showTab('games',document.getElementById('tab-games'))">Games</button>
+        <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Avatar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GAMES HUB ═══ -->
+<div id="games" class="section">
+  <div style="margin-bottom:18px">
+    <div class="sec-title">Games</div>
+    <p class="sec-sub">Correct answers anywhere in the app unlock more games.</p>
+  </div>
+  <div class="unlock-grid" id="unlock-grid"></div>
+
+  <!-- CREATURE CATCHER -->
+  <div id="game-creature" style="display:none">
+    <div class="game-wrap">
+      <div class="game-hdr">
+        <h2>🧮 Quick Calc</h2>
+        <div class="game-stats">
+          <div class="gstat"><div class="gstat-val" id="cc-score">0</div><div class="gstat-label">Score</div></div>
+          <div class="gstat"><div class="gstat-val" id="cc-streak">0🔥</div><div class="gstat-label">Streak</div></div>
+          <div class="gstat"><div class="gstat-val" id="cc-lives">❤️❤️❤️</div><div class="gstat-label">Lives</div></div>
+          <div class="gstat"><div class="gstat-val" id="cc-level">1</div><div class="gstat-label">Level</div></div>
+        </div>
+      </div>
+      <canvas id="cc-canvas" width="720" height="200"></canvas>
+      <div class="game-q-box">
+        <div class="game-q-text" id="cc-q">Get ready...</div>
+      </div>
+      <div class="game-opts" id="cc-opts"></div>
+      <div class="game-over-box" id="cc-over" style="display:none">
+        <div style="font-size:3.5rem;margin-bottom:8px" id="cc-over-emoji">😢</div>
+        <h2 id="cc-over-title">Game Over!</h2>
+        <p id="cc-over-msg"></p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-game" onclick="startCreatureCatcher()">Play again</button>
+          <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Spend coins</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS BUILDER -->
+  <div id="game-cell" style="display:none">
+    <div class="game-wrap">
+      <div class="game-hdr">
+        <h2>🧩 Method Builder</h2>
+        <div class="game-stats">
+          <div class="gstat"><div class="gstat-val" id="pb-score">0</div><div class="gstat-label">Score</div></div>
+          <div class="gstat"><div class="gstat-val" id="pb-lives">❤️❤️❤️❤️❤️</div><div class="gstat-label">Lives</div></div>
+          <div class="gstat"><div class="gstat-val" id="pb-round">1/9</div><div class="gstat-label">Method</div></div>
+        </div>
+      </div>
+      <div id="pb-play">
+        <div class="game-q-box"><div class="game-q-text" id="pb-title">Tap the steps in the right order!</div></div>
+        <ol class="pb-built" id="pb-built"></ol>
+        <div class="pb-pool" id="pb-pool"></div>
+      </div>
+      <div class="game-over-box" id="pb-over" style="display:none">
+        <div style="font-size:3.5rem;margin-bottom:8px" id="pb-over-emoji">😢</div>
+        <h2 id="pb-over-title">Out of lives!</h2>
+        <p id="pb-over-msg"></p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-game" onclick="startProcessBuilder()">Play again</button>
+          <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Spend coins</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KINGDOM BLITZ -->
+  <div id="game-blitz" style="display:none">
+    <div class="game-wrap">
+      <div class="game-hdr">
+        <h2>⚡ Maths Blitz</h2>
+        <div class="game-stats">
+          <div class="gstat"><div class="gstat-val" id="bl-score">0</div><div class="gstat-label">Score</div></div>
+          <div class="gstat"><div class="gstat-val" id="bl-q-num">1/15</div><div class="gstat-label">Q</div></div>
+          <div class="gstat"><div class="gstat-val" id="bl-streak">0🔥</div><div class="gstat-label">Streak</div></div>
+        </div>
+      </div>
+      <div style="padding:8px 16px 0">
+        <div class="blitz-timer-bar"><div class="blitz-timer-fill" id="bl-timer-fill" style="width:100%;background:var(--mint)"></div></div>
+        <div style="text-align:right;font-family:var(--display);font-size:.85rem;color:var(--muted);margin-bottom:6px" id="bl-timer-label">10s</div>
+      </div>
+      <div class="blitz-q" id="bl-q"></div>
+      <div class="blitz-opts" id="bl-opts"></div>
+      <div class="game-over-box" id="bl-over" style="display:none">
+        <div style="font-size:3.5rem;margin-bottom:8px" id="bl-over-emoji">⚡</div>
+        <h2 id="bl-over-title">Blitz Over!</h2>
+        <p id="bl-over-msg"></p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-game" onclick="startBlitz()">Play again</button>
+          <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Spend coins</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EXAM PRACTICE ═══ -->
+<div id="exam" class="section">
+  <div style="margin-bottom:16px">
+    <div class="sec-title">Exam practice</div>
+    <p class="sec-sub">Write your answer, compare it with the model answer, then tick the points you made (1 coin per point). Show your working: for tables write the fx (or midpoint × f) column, both totals and the division. Check your answer is sensible.</p>
+  </div>
+  <div class="quiz-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+      <div class="quiz-topic" id="ex-topic"></div>
+      <span class="ex-marks" id="ex-marks"></span>
+    </div>
+    <div class="quiz-q" id="ex-q"></div>
+    <div class="ex-layout">
+      <div>
+        <textarea class="ex-ans" id="ex-ans" placeholder="Write your answer here…" oninput="exAnswers[exIdx]=this.value"></textarea>
+        <div style="text-align:center;margin-top:12px"><button class="btn btn-primary" id="ex-reveal" onclick="exReveal()">Check my answer</button></div>
+      </div>
+      <div id="ex-mark" style="display:none">
+        <div class="ex-model"><div class="ex-h">Model answer</div><p id="ex-model"></p></div>
+        <div class="ex-h" style="margin-top:16px">Tick the points you made</div>
+        <div id="ex-points"></div>
+        <div style="text-align:center;margin-top:10px"><button class="btn btn-game" id="ex-submit" onclick="exSubmit()">Mark it</button></div>
+        <div class="ex-result" id="ex-result"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fc-controls">
+    <button class="btn btn-nav" onclick="exNav(-1)">← Previous</button>
+    <span class="ex-count" id="ex-count"></span>
+    <button class="btn btn-nav" onclick="exNav(1)">Next →</button>
+  </div>
+</div>
+
+<!-- ═══ AVATAR SHOP ═══ -->
+<div id="shop" class="section">
+  <div style="margin-bottom:16px">
+    <div class="sec-title">Avatar</div>
+    <p class="sec-sub">Spend the coins you earn revising.</p>
+  </div>
+  <div class="shop-layout">
+    <div class="avatar-preview">
+      <h3>✨ Your Look</h3>
+      <div class="avatar-canvas-wrap">
+        <canvas id="avatar-canvas" width="140" height="180"></canvas>
+      </div>
+      <div class="avatar-coin-display">🪙 <span id="shop-coins">0</span></div>
+    </div>
+    <div class="shop-panel" id="shop-panel"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="unlock-modal" style="display:none">
+  <div class="modal-box">
+    <span class="modal-emoji" id="modal-emoji">🎮</span>
+    <h2 id="modal-title">Unlocked!</h2>
+    <p id="modal-msg"></p>
+    <button class="btn btn-game" id="modal-btn" style="font-size:1rem;padding:12px 32px" onclick="closeModal()">Let's go</button>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// AUDIO
+// ═══════════════════════════════════════════════════════════
+const AC=new(window.AudioContext||window.webkitAudioContext)();
+function tone(f,t,v,s,d){const o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.value=f;g.gain.setValueAtTime(0,AC.currentTime+s);g.gain.linearRampToValueAtTime(v,AC.currentTime+s+.04);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+s+d);o.connect(g);g.connect(AC.destination);o.start(AC.currentTime+s);o.stop(AC.currentTime+s+d+.05)}
+function playHappy(){[523,659,784,1047].forEach((f,i)=>tone(f,'sine',.2,i*.11,.26))}
+function playSad(){[392,349,311,261].forEach((f,i)=>tone(f,'triangle',.16,i*.13,.3))}
+function playFlip(){const o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.setValueAtTime(300,AC.currentTime);o.frequency.linearRampToValueAtTime(600,AC.currentTime+.12);g.gain.setValueAtTime(.09,AC.currentTime);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+.18);o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+.22)}
+function playUnlock(){[523,659,784,1047,1319,1568].forEach((f,i)=>tone(f,'sine',.18,i*.09,.32))}
+function playCoin(){tone(1200,'sine',.14,0,.12);tone(1500,'sine',.12,.08,.1)}
+function playCatch(){[880,1108].forEach((f,i)=>tone(f,'sine',.16,i*.07,.18))}
+function playMiss(){tone(200,'sawtooth',.13,0,.38)}
+function playTick(){tone(800,'square',.06,0,.06)}
+function playBlitzRight(){[660,880].forEach((f,i)=>tone(f,'sine',.15,i*.06,.18))}
+function playBlitzWrong(){tone(180,'sawtooth',.12,0,.3)}
+
+// ═══════════════════════════════════════════════════════════
+// FX
+// ═══════════════════════════════════════════════════════════
+const CC=['#3D348B','#2A9D8F','#F2A541','#2E9E6B','#221C4A','#9BD3CB','#E76F51'];
+function confetti(n=50){for(let i=0;i<n;i++){const e=document.createElement('div');e.className='confetti-piece';e.style.cssText=`left:${Math.random()*100}vw;top:-20px;background:${CC[Math.floor(Math.random()*CC.length)]};width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${1.2+Math.random()*1.8}s;animation-delay:${Math.random()*.5}s`;document.body.appendChild(e);setTimeout(()=>e.remove(),3500)}}
+function burst(emoji,x,y,sz=2){const e=document.createElement('div');e.className='starburst';e.textContent=emoji;e.style.cssText=`left:${x}px;top:${y}px;font-size:${sz}rem`;document.body.appendChild(e);setTimeout(()=>e.remove(),800)}
+function coinPop(x,y,amt){const e=document.createElement('div');e.className='coin-pop';e.textContent=`+${amt}🪙`;e.style.cssText=`left:${x}px;top:${y}px`;document.body.appendChild(e);setTimeout(()=>e.remove(),1000)}
+
+// ═══════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════
+let coins=0,totalCorrect=0,quizStreak=0,sessionStreak=0;
+const UNLOCKS={creature:2,cell:8,blitz:15};
+let unlocked={creature:false,cell:false,blitz:false};
+let activeGame=null;
+
+// ═══════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════
+const FLASHCARDS=[{"topic": "Mean", "q": "What is the MEAN?", "a": "Add up all the values, then divide by how many values there are."}, {"topic": "Median", "q": "What is the MEDIAN?", "a": "The middle value when the data is in ORDER. Position = (n + 1) ÷ 2."}, {"topic": "Median", "q": "Median with an EVEN number of values?", "a": "Find the two middle values and go halfway between them, e.g. 4 and 7, so the median is 5.5."}, {"topic": "Mode & range", "q": "What is the MODE?", "a": "The most common value. There can be more than one mode, or none."}, {"topic": "Mode & range", "q": "What is the RANGE?", "a": "Largest value − smallest value. It measures how SPREAD OUT the data is (it is not an average)."}, {"topic": "Mean", "q": "Memory trick for the three averages?", "a": "MODE = MOST. MEDIAN = MIDDLE (like the median strip in the middle of a road). MEAN = the 'mean' one: you have to work it out."}, {"topic": "Frequency tables", "q": "What does a frequency table show?", "a": "Each VALUE and how many times it happened (its FREQUENCY)."}, {"topic": "Frequency tables", "q": "Mean from a frequency table?", "a": "Add an fx column (value × frequency). Mean = Σfx ÷ Σf, which is the total of fx divided by the total frequency."}, {"topic": "Frequency tables", "q": "Most common mistake with frequency-table means?", "a": "Dividing by the number of columns, or adding up the values without multiplying by the frequencies. Always divide by the TOTAL FREQUENCY."}, {"topic": "Frequency tables", "q": "Mode from a frequency table?", "a": "The VALUE with the highest frequency, not the frequency itself."}, {"topic": "Frequency tables", "q": "Median from a frequency table?", "a": "Find n = Σf, then position (n+1)÷2. Add running totals down the table until you reach that position."}, {"topic": "Frequency tables", "q": "Range from a frequency table?", "a": "Largest value with a frequency − smallest value with a frequency."}, {"topic": "Grouped tables", "q": "What is the MIDPOINT of a class?", "a": "(lower end + upper end) ÷ 2, e.g. 40–54 → (40 + 54) ÷ 2 = 47."}, {"topic": "Grouped tables", "q": "Estimated mean from a grouped table?", "a": "Use the midpoint as x for each group. Work out midpoint × frequency, add them up, then divide by the total frequency."}, {"topic": "Grouped tables", "q": "Why is a grouped mean only an ESTIMATE?", "a": "We don't know the actual values in each group, so we assume they are all at the midpoint."}, {"topic": "Grouped tables", "q": "What is the MODAL CLASS?", "a": "The group (class) with the highest frequency."}, {"topic": "Grouped tables", "q": "How do you find the class containing the MEDIAN?", "a": "Position = (n+1)÷2. Add running totals until you pass that position. That class contains the median."}, {"topic": "Missing values", "q": "Mean of 6 numbers is 9. What is their TOTAL?", "a": "6 × 9 = 54. Total = mean × how many. This is the key trick for missing-number questions."}, {"topic": "Missing values", "q": "How do you find a missing number when you know the mean?", "a": "Total needed = mean × how many numbers. Subtract the numbers you know. What is left is the missing number."}, {"topic": "Missing values", "q": "Missing frequency x when you know the mean?", "a": "Write Σfx and Σf using x, set Σfx ÷ Σf = mean, then solve the equation."}, {"topic": "Mean", "q": "Can the mean be a decimal even if all the data are whole numbers?", "a": "Yes, e.g. mean goals 1.85. Don't round it to a whole number unless the question says to."}, {"topic": "Median", "q": "First step for the median of a list?", "a": "PUT THE NUMBERS IN ORDER. Forgetting this is the most common mistake."}, {"topic": "Mode & range", "q": "Range with negative numbers, e.g. −3 to 8?", "a": "8 − (−3) = 8 + 3 = 11."}];
+const QUIZ=[{"topic": "Frequency tables", "q": "Goals per match: 0 | 1 | 2 | 3 | 4  ·  Frequency: 4 | 6 | 5 | 3 | 2. What is the mode?", "opts": ["6", "2", "1", "1.5"], "ans": 2, "explain": "The mode is the VALUE with the highest frequency: 1 (frequency 6). Not the frequency itself."}, {"topic": "Grouped tables", "q": "Height (cm): 140 < h ≤ 150 | 150 < h ≤ 160 | 160 < h ≤ 170 | 170 < h ≤ 180  ·  Frequency: 4 | 11 | 8 | 2. Estimate the mean (2 d.p. if needed).", "opts": ["158.2", "163.2", "988.75", "160"], "ans": 0, "explain": "Midpoints: 145, 155, 165, 175. Σ(mid × f) = 3955. Σf = 25. Estimate = 3955 ÷ 25 = 158.2."}, {"topic": "Mode & range", "q": "Find the mode of: 4, 2, 2, 4, 8, 9, 4, 3, 4", "opts": ["4.44", "9", "5", "4"], "ans": 3, "explain": "The mode is the most common value: 4 appears 4 times."}, {"topic": "Median", "q": "Find the median of: 11, 7, 4, 20, 2, 1", "opts": ["12", "7.5", "5.5", "7"], "ans": 2, "explain": "Put them in order first: 1, 2, 4, 7, 11, 20. Position (6+1)÷2 = 3.5: halfway between 4 and 7, so 5.5."}, {"topic": "Frequency tables", "q": "Nail length (cm): 2 | 3 | 4 | 5 | 6 | 7  ·  Frequency: 4 | 7 | 9 | 12 | 10 | 8. What is the mode?", "opts": ["7", "6", "5", "12"], "ans": 2, "explain": "The mode is the VALUE with the highest frequency: 5 (frequency 12). Not the frequency itself."}, {"topic": "Grouped tables", "q": "Time (min): 0 < t ≤ 10 | 10 < t ≤ 20 | 20 < t ≤ 30 | 30 < t ≤ 40  ·  Frequency: 3 | 9 | 6 | 2. Which class contains the median?", "opts": ["0 < t ≤ 10", "10 < t ≤ 20", "30 < t ≤ 40", "20 < t ≤ 30"], "ans": 1, "explain": "n = 20, median position (20+1)÷2 = 10.5. Running totals: 3, 12, 18, 20. Position 10.5 is in 10 < t ≤ 20."}, {"topic": "Mode & range", "q": "Find the range of: 19, -2, 23, 13, -1, -2", "opts": ["-21", "23", "25", "21"], "ans": 2, "explain": "Largest − smallest = 23 − (-2) = 25."}, {"topic": "Frequency tables", "q": "Price of butter (p): 49 | 50 | 51 | 52 | 53 | 54  ·  Frequency: 2 | 3 | 5 | 10 | 6 | 4. What is the median?", "opts": ["51.9", "15", "49", "52"], "ans": 3, "explain": "n = 30, so the median is at position (30+1)÷2 = 15.5. Running totals: 49→2, 50→5, 51→10, 52→20, 53→26, 54→30. Position 15.5 falls at 52."}, {"topic": "Median", "q": "Find the median of: 3, 2, 17, 1, 20, 16, 13, 10", "opts": ["10.25", "10.5", "13", "11.5"], "ans": 3, "explain": "Put them in order first: 1, 2, 3, 10, 13, 16, 17, 20. Position (8+1)÷2 = 4.5: halfway between 10 and 13, so 11.5."}, {"topic": "Missing values", "q": "Stars: 1 | 2 | 3 | 4 | 5 · Frequency: 2 | 5 | x | 10 | 3. The mean is 3.28. Find x.", "opts": ["5", "10", "4", "6"], "ans": 0, "explain": "Σfx = 2 + 10 + 3x + 40 + 15 = 67 + 3x. Σf = 20 + x. (67 + 3x) ÷ (20 + x) = 3.28. Try x = 5: 82 ÷ 25 = 3.28 ✓."}, {"topic": "Frequency tables", "q": "Devices per house: 1 | 2 | 3 | 4 | 5  ·  Frequency: 6 | 14 | 17 | 9 | 4. Find the mean (to 2 d.p. if needed).", "opts": ["3", "2.82", "10", "28.2"], "ans": 1, "explain": "Σfx = 141, Σf = 50. Mean = 141 ÷ 50 = 2.82. (Divide by the total frequency, not the number of columns.)"}, {"topic": "Frequency tables", "q": "Nail length (cm): 2 | 3 | 4 | 5 | 6 | 7  ·  Frequency: 4 | 7 | 9 | 12 | 10 | 8. What is the median?", "opts": ["5", "4.82", "25", "2"], "ans": 0, "explain": "n = 50, so the median is at position (50+1)÷2 = 25.5. Running totals: 2→4, 3→11, 4→20, 5→32, 6→42, 7→50. Position 25.5 falls at 5."}, {"topic": "Mode & range", "q": "Find the mode of: 5, 2, 6, 5, 4, 6, 3, 9, 6", "opts": ["9", "6", "5", "5.11"], "ans": 1, "explain": "The mode is the most common value: 6 appears 3 times."}, {"topic": "Grouped tables", "q": "Time (min): 0 < t ≤ 10 | 10 < t ≤ 20 | 20 < t ≤ 30 | 30 < t ≤ 40  ·  Frequency: 3 | 9 | 6 | 2. Estimate the mean (2 d.p. if needed).", "opts": ["18.5", "23.5", "92.5", "20"], "ans": 0, "explain": "Midpoints: 5, 15, 25, 35. Σ(mid × f) = 370. Σf = 20. Estimate = 370 ÷ 20 = 18.5."}, {"topic": "Frequency tables", "q": "Cats owned: 0 | 1 | 2 | 3  ·  Frequency: 9 | 12 | 6 | 3. What is the median?", "opts": ["15", "1.1", "1", "2"], "ans": 2, "explain": "n = 30, so the median is at position (30+1)÷2 = 15.5. Running totals: 0→9, 1→21, 2→27, 3→30. Position 15.5 falls at 1."}, {"topic": "Frequency tables", "q": "Number of siblings: 0 | 1 | 2 | 3 | 4  ·  Frequency: 5 | 11 | 8 | 4 | 2. What is the mode?", "opts": ["1", "11", "2", "4"], "ans": 0, "explain": "The mode is the VALUE with the highest frequency: 1 (frequency 11). Not the frequency itself."}, {"topic": "Frequency tables", "q": "Price of butter (p): 49 | 50 | 51 | 52 | 53 | 54  ·  Frequency: 2 | 3 | 5 | 10 | 6 | 4. What is the mode?", "opts": ["54", "52", "10", "53"], "ans": 1, "explain": "The mode is the VALUE with the highest frequency: 52 (frequency 10). Not the frequency itself."}, {"topic": "Frequency tables", "q": "Cats owned: 0 | 1 | 2 | 3  ·  Frequency: 9 | 12 | 6 | 3. What is the mode?", "opts": ["12", "1", "3", "2"], "ans": 1, "explain": "The mode is the VALUE with the highest frequency: 1 (frequency 12). Not the frequency itself."}, {"topic": "Mean", "q": "Find the mean of: 11, 6, 1, 8, 2, 1, 11, 8", "opts": ["48", "6", "7", "6.86"], "ans": 1, "explain": "Add them up: 48. Divide by how many there are (8): 48 ÷ 8 = 6."}, {"topic": "Mean", "q": "Find the mean of: 11, 13, 11, 11, 11, 5, 13, 9", "opts": ["11", "84", "10.5", "12"], "ans": 2, "explain": "Add them up: 84. Divide by how many there are (8): 84 ÷ 8 = 10.5."}, {"topic": "Frequency tables", "q": "Devices per house: 1 | 2 | 3 | 4 | 5  ·  Frequency: 6 | 14 | 17 | 9 | 4. What is the mode?", "opts": ["17", "5", "3", "4"], "ans": 2, "explain": "The mode is the VALUE with the highest frequency: 3 (frequency 17). Not the frequency itself."}, {"topic": "Frequency tables", "q": "Price of butter (p): 49 | 50 | 51 | 52 | 53 | 54  ·  Frequency: 2 | 3 | 5 | 10 | 6 | 4. Find the mean (to 2 d.p. if needed).", "opts": ["51.9", "259.5", "51.5", "5"], "ans": 0, "explain": "Σfx = 1557, Σf = 30. Mean = 1557 ÷ 30 = 51.9. (Divide by the total frequency, not the number of columns.)"}, {"topic": "Mode & range", "q": "Find the range of: 16, 25, 8, 23, -3, 10", "opts": ["22", "-6", "25", "28"], "ans": 3, "explain": "Largest − smallest = 25 − (-3) = 28."}, {"topic": "Frequency tables", "q": "Goals per match: 0 | 1 | 2 | 3 | 4  ·  Frequency: 4 | 6 | 5 | 3 | 2. What is the median?", "opts": ["1.5", "1.65", "10", "2"], "ans": 0, "explain": "n = 20, so the median is at position (20+1)÷2 = 10.5. Running totals: 0→4, 1→10, 2→15, 3→18, 4→20. Position 10.5 falls at 1.5."}, {"topic": "Grouped tables", "q": "Height (cm): 140 < h ≤ 150 | 150 < h ≤ 160 | 160 < h ≤ 170 | 170 < h ≤ 180  ·  Frequency: 4 | 11 | 8 | 2. What is the modal class?", "opts": ["170 < h ≤ 180", "140 < h ≤ 150", "160 < h ≤ 170", "150 < h ≤ 160"], "ans": 3, "explain": "The class with the highest frequency (11): 150 < h ≤ 160."}, {"topic": "Missing values", "q": "The mean of six numbers is 9. The mean of five of them is 8. What is the sixth number?", "opts": ["14", "1", "9", "17"], "ans": 0, "explain": "Total of six = 6 × 9 = 54. Total of five = 5 × 8 = 40. Sixth = 54 − 40 = 14."}, {"topic": "Grouped tables", "q": "Why is the mean from a grouped frequency table only an ESTIMATE?", "opts": ["We don't know the exact values in each group, so we use midpoints", "Because we round the answer", "Because the frequencies are guesses", "Because there's no mode"], "ans": 0, "explain": "Grouped data hides the actual values, so we assume each one sits at the midpoint."}, {"topic": "Mode & range", "q": "Find the mode of: 7, 8, 8, 5, 7, 2, 8, 5, 2, 8", "opts": ["8", "9", "6", "7"], "ans": 0, "explain": "The mode is the most common value: 8 appears 4 times."}, {"topic": "Grouped tables", "q": "Letters delivered: 0–2 | 3–4 | 5–7 | 8–12  ·  Frequency: 10 | 8 | 5 | 3. Estimate the mean (2 d.p. if needed).", "opts": ["3.77", "4.73", "5.12", "24.5"], "ans": 0, "explain": "Midpoints: 1, 3.5, 6, 10. Σ(mid × f) = 98. Σf = 26. Estimate = 98 ÷ 26 = 3.77."}, {"topic": "Grouped tables", "q": "Height (cm): 140 < h ≤ 150 | 150 < h ≤ 160 | 160 < h ≤ 170 | 170 < h ≤ 180  ·  Frequency: 4 | 11 | 8 | 2. Which class contains the median?", "opts": ["160 < h ≤ 170", "170 < h ≤ 180", "150 < h ≤ 160", "140 < h ≤ 150"], "ans": 2, "explain": "n = 25, median position (25+1)÷2 = 13. Running totals: 4, 15, 23, 25. Position 13 is in 150 < h ≤ 160."}, {"topic": "Grouped tables", "q": "What is the midpoint of the class 10 < t ≤ 20?", "opts": ["15", "10", "20", "14.5"], "ans": 0, "explain": "(10 + 20) ÷ 2 = 15."}, {"topic": "Grouped tables", "q": "Mark: 40–54 | 55–69 | 70–84 | 85–99  ·  Frequency: 5 | 8 | 7 | 4. What is the modal class?", "opts": ["40–54", "70–84", "55–69", "85–99"], "ans": 2, "explain": "The class with the highest frequency (8): 55–69."}, {"topic": "Frequency tables", "q": "Nail length (cm): 2 | 3 | 4 | 5 | 6 | 7  ·  Frequency: 4 | 7 | 9 | 12 | 10 | 8. Find the mean (to 2 d.p. if needed).", "opts": ["8.33", "4.82", "4.5", "40.17"], "ans": 1, "explain": "Σfx = 241, Σf = 50. Mean = 241 ÷ 50 = 4.82. (Divide by the total frequency, not the number of columns.)"}, {"topic": "Median", "q": "Find the median of: 15, 17, 14, 7, 8, 8, 18", "opts": ["14", "15", "7", "12.43"], "ans": 0, "explain": "Put them in order first: 7, 8, 8, 14, 15, 17, 18. Position (7+1)÷2 = 4, so the median is 14."}, {"topic": "Frequency tables", "q": "Number of siblings: 0 | 1 | 2 | 3 | 4  ·  Frequency: 5 | 11 | 8 | 4 | 2. Find the mean (to 2 d.p. if needed).", "opts": ["9.4", "1.57", "6", "2"], "ans": 1, "explain": "Σfx = 47, Σf = 30. Mean = 47 ÷ 30 = 1.57. (Divide by the total frequency, not the number of columns.)"}, {"topic": "Frequency tables", "q": "Devices per house: 1 | 2 | 3 | 4 | 5  ·  Frequency: 6 | 14 | 17 | 9 | 4. What is the median?", "opts": ["3", "25", "2.82", "1"], "ans": 0, "explain": "n = 50, so the median is at position (50+1)÷2 = 25.5. Running totals: 1→6, 2→20, 3→37, 4→46, 5→50. Position 25.5 falls at 3."}, {"topic": "Grouped tables", "q": "Letters delivered: 0–2 | 3–4 | 5–7 | 8–12  ·  Frequency: 10 | 8 | 5 | 3. Which class contains the median?", "opts": ["0–2", "5–7", "3–4", "8–12"], "ans": 2, "explain": "n = 26, median position (26+1)÷2 = 13.5. Running totals: 10, 18, 23, 26. Position 13.5 is in 3–4."}, {"topic": "Missing values", "q": "Four test marks have a mean of 7. Three of them are 5, 8 and 6. What is the fourth?", "opts": ["9", "7", "28", "6"], "ans": 0, "explain": "Total = 4 × 7 = 28. 28 − (5 + 8 + 6) = 28 − 19 = 9."}, {"topic": "Frequency tables", "q": "Weight of apple (g): 70 | 80 | 90 | 100 | 110 | 120  ·  Frequency: 2 | 7 | 9 | 11 | 8 | 3. Find the mean (to 2 d.p. if needed).", "opts": ["96.25", "6.67", "641.67", "95"], "ans": 0, "explain": "Σfx = 3850, Σf = 40. Mean = 3850 ÷ 40 = 96.25. (Divide by the total frequency, not the number of columns.)"}, {"topic": "Frequency tables", "q": "Cats owned: 0 | 1 | 2 | 3  ·  Frequency: 9 | 12 | 6 | 3. Find the mean (to 2 d.p. if needed).", "opts": ["7.5", "1.1", "1.5", "8.25"], "ans": 1, "explain": "Σfx = 33, Σf = 30. Mean = 33 ÷ 30 = 1.1. (Divide by the total frequency, not the number of columns.)"}, {"topic": "Mode & range", "q": "Find the range of: 2, 2, 23, 15, 19, 25, 14", "opts": ["12", "27", "23", "25"], "ans": 2, "explain": "Largest − smallest = 25 − 2 = 23."}, {"topic": "Mean", "q": "Find the mean of: 5, 8, 5, 4, 3, 8, 9", "opts": ["42", "5", "7", "6"], "ans": 3, "explain": "Add them up: 42. Divide by how many there are (7): 42 ÷ 7 = 6."}, {"topic": "Grouped tables", "q": "Mark: 40–54 | 55–69 | 70–84 | 85–99  ·  Frequency: 5 | 8 | 7 | 4. Estimate the mean (2 d.p. if needed).", "opts": ["409.5", "68.25", "75.25", "69.5"], "ans": 1, "explain": "Midpoints: 47, 62, 77, 92. Σ(mid × f) = 1638. Σf = 24. Estimate = 1638 ÷ 24 = 68.25."}, {"topic": "Frequency tables", "q": "Number of siblings: 0 | 1 | 2 | 3 | 4  ·  Frequency: 5 | 11 | 8 | 4 | 2. What is the median?", "opts": ["1", "2", "1.57", "15"], "ans": 0, "explain": "n = 30, so the median is at position (30+1)÷2 = 15.5. Running totals: 0→5, 1→16, 2→24, 3→28, 4→30. Position 15.5 falls at 1."}, {"topic": "Grouped tables", "q": "Letters delivered: 0–2 | 3–4 | 5–7 | 8–12  ·  Frequency: 10 | 8 | 5 | 3. What is the modal class?", "opts": ["8–12", "0–2", "3–4", "5–7"], "ans": 1, "explain": "The class with the highest frequency (10): 0–2."}, {"topic": "Grouped tables", "q": "Mark: 40–54 | 55–69 | 70–84 | 85–99  ·  Frequency: 5 | 8 | 7 | 4. Which class contains the median?", "opts": ["55–69", "40–54", "70–84", "85–99"], "ans": 0, "explain": "n = 24, median position (24+1)÷2 = 12.5. Running totals: 5, 13, 20, 24. Position 12.5 is in 55–69."}, {"topic": "Median", "q": "Find the median of: 3, 10, 1, 17, 6, 7, 14, 4, 17", "opts": ["6", "7", "8.78", "8"], "ans": 1, "explain": "Put them in order first: 1, 3, 4, 6, 7, 10, 14, 17, 17. Position (9+1)÷2 = 5, so the median is 7."}, {"topic": "Frequency tables", "q": "Weight of apple (g): 70 | 80 | 90 | 100 | 110 | 120  ·  Frequency: 2 | 7 | 9 | 11 | 8 | 3. What is the median?", "opts": ["96.25", "100", "20", "70"], "ans": 1, "explain": "n = 40, so the median is at position (40+1)÷2 = 20.5. Running totals: 70→2, 80→9, 90→18, 100→29, 110→37, 120→40. Position 20.5 falls at 100."}, {"topic": "Grouped tables", "q": "What is the midpoint of the class 55–69?", "opts": ["62", "60", "14", "57"], "ans": 0, "explain": "(55 + 69) ÷ 2 = 124 ÷ 2 = 62."}, {"topic": "Median", "q": "Find the median of: 14, 4, 11, 6, 4, 18, 6, 10, 11", "opts": ["10", "9.33", "4", "11"], "ans": 0, "explain": "Put them in order first: 4, 4, 6, 6, 10, 11, 11, 14, 18. Position (9+1)÷2 = 5, so the median is 10."}, {"topic": "Missing values", "q": "A team scored 2, 3, 1, 0, 4, 1 goals. How many must they score in the next match for a mean of 2?", "opts": ["3", "2", "1", "14"], "ans": 0, "explain": "Seven matches × 2 = 14 goals needed. They have 11, so they need 3."}, {"topic": "Mode & range", "q": "Find the range of: 14, 10, 25, 25, 10, 17, 2", "opts": ["25", "23", "27", "-12"], "ans": 1, "explain": "Largest − smallest = 25 − 2 = 23."}, {"topic": "Grouped tables", "q": "Time (min): 0 < t ≤ 10 | 10 < t ≤ 20 | 20 < t ≤ 30 | 30 < t ≤ 40  ·  Frequency: 3 | 9 | 6 | 2. What is the modal class?", "opts": ["0 < t ≤ 10", "10 < t ≤ 20", "20 < t ≤ 30", "30 < t ≤ 40"], "ans": 1, "explain": "The class with the highest frequency (9): 10 < t ≤ 20."}, {"topic": "Mean", "q": "Find the mean of: 10, 9, 11, 5, 4, 3, 7, 15", "opts": ["12", "8", "64", "9.14"], "ans": 1, "explain": "Add them up: 64. Divide by how many there are (8): 64 ÷ 8 = 8."}, {"topic": "Frequency tables", "q": "Goals per match: 0 | 1 | 2 | 3 | 4  ·  Frequency: 4 | 6 | 5 | 3 | 2. Find the mean (to 2 d.p. if needed).", "opts": ["1.65", "2", "6.6", "4"], "ans": 0, "explain": "Σfx = 33, Σf = 20. Mean = 33 ÷ 20 = 1.65. (Divide by the total frequency, not the number of columns.)"}, {"topic": "Mean", "q": "Find the mean of: 12, 15, 12, 6, 7", "opts": ["12", "52", "13", "10.4"], "ans": 3, "explain": "Add them up: 52. Divide by how many there are (5): 52 ÷ 5 = 10.4."}, {"topic": "Frequency tables", "q": "Weight of apple (g): 70 | 80 | 90 | 100 | 110 | 120  ·  Frequency: 2 | 7 | 9 | 11 | 8 | 3. What is the mode?", "opts": ["11", "100", "120", "101"], "ans": 1, "explain": "The mode is the VALUE with the highest frequency: 100 (frequency 11). Not the frequency itself."}, {"topic": "Mode & range", "q": "Find the mode of: 1, 1, 8, 7, 2, 3, 1, 8, 4, 3, 2", "opts": ["3.64", "3", "8", "1"], "ans": 3, "explain": "The mode is the most common value: 1 appears 3 times."}];
+const CREATURES=[{"emoji": "📏", "name": "9, 12, 2, 2, 12", "q": "What is the median?", "correct": "9", "wrong": ["2", "7.4", "12"]}, {"emoji": "📏", "name": "8, 5, 7, 5, 6", "q": "What is the median?", "correct": "6", "wrong": ["7", "6.2", "8"]}, {"emoji": "🔁", "name": "1, 5, 4, 11, 1", "q": "What is the mode?", "correct": "1", "wrong": ["11", "4", "5"]}, {"emoji": "🔁", "name": "11, 6, 5, 11", "q": "What is the mode?", "correct": "11", "wrong": ["8.5", "4", "5"]}, {"emoji": "🔁", "name": "3, 2, 2, 3, 3", "q": "What is the mode?", "correct": "3", "wrong": ["5", "2", "6"]}, {"emoji": "📏", "name": "4, 11, 7, 1, 9", "q": "What is the median?", "correct": "7", "wrong": ["6.4", "11", "1"]}, {"emoji": "↔️", "name": "3, 7, 7", "q": "What is the range?", "correct": "4", "wrong": ["7", "3", "17"]}, {"emoji": "📏", "name": "3, 10, 8", "q": "What is the median?", "correct": "8", "wrong": ["10", "7", "3"]}, {"emoji": "↔️", "name": "11, 8, 12, 10, 9", "q": "What is the range?", "correct": "4", "wrong": ["12", "8", "50"]}, {"emoji": "🔁", "name": "4, 10, 9, 12, 4", "q": "What is the mode?", "correct": "4", "wrong": ["12", "9", "5"]}, {"emoji": "🔁", "name": "3, 7, 6, 2, 3", "q": "What is the mode?", "correct": "3", "wrong": ["7", "5", "2"]}, {"emoji": "🔁", "name": "4, 11, 8, 4", "q": "What is the mode?", "correct": "4", "wrong": ["11", "6", "7"]}, {"emoji": "📏", "name": "11, 11, 4, 2, 7", "q": "What is the median?", "correct": "7", "wrong": ["4", "11", "2"]}, {"emoji": "➗", "name": "5, 11, 9, 9, 6", "q": "What is the mean?", "correct": "8", "wrong": ["9", "40", "6"]}, {"emoji": "➗", "name": "7, 7, 4", "q": "What is the mean?", "correct": "6", "wrong": ["7", "18", "3"]}, {"emoji": "➗", "name": "8, 6, 10", "q": "What is the mean?", "correct": "8", "wrong": ["24", "4", "3"]}, {"emoji": "➗", "name": "1, 10, 7, 10", "q": "What is the mean?", "correct": "7", "wrong": ["8.5", "28", "9"]}, {"emoji": "🔁", "name": "11, 5, 6, 9, 10, 11", "q": "What is the mode?", "correct": "11", "wrong": ["9.5", "6", "5"]}, {"emoji": "📏", "name": "10, 9, 10, 11, 10", "q": "What is the median?", "correct": "10", "wrong": ["11", "9", "13"]}, {"emoji": "↔️", "name": "9, 11, 11", "q": "What is the range?", "correct": "2", "wrong": ["11", "9", "31"]}, {"emoji": "↔️", "name": "3, 3, 11", "q": "What is the range?", "correct": "8", "wrong": ["11", "3", "17"]}, {"emoji": "🔁", "name": "1, 4, 10, 1", "q": "What is the mode?", "correct": "1", "wrong": ["10", "2.5", "4"]}, {"emoji": "📏", "name": "1, 8, 1, 9, 9", "q": "What is the median?", "correct": "8", "wrong": ["1", "5.6", "9"]}, {"emoji": "➗", "name": "8, 9, 7", "q": "What is the mean?", "correct": "8", "wrong": ["24", "2", "3"]}];
+const PROCESSES=[{"name": "Mean of a list", "emoji": "➗", "steps": ["Add up all the values", "Count how many values there are", "Divide the total by how many"]}, {"name": "Median of a list", "emoji": "📏", "steps": ["Put the values in order, smallest first", "Work out the position (n + 1) ÷ 2", "Read off the value at that position (halfway if it's between two)"]}, {"name": "Range", "emoji": "↔️", "steps": ["Find the largest value", "Find the smallest value", "Subtract the smallest from the largest"]}, {"name": "Mean from a frequency table", "emoji": "📊", "steps": ["Add an fx column to the table", "Multiply each value by its frequency", "Add up the fx column (Σfx)", "Add up the frequencies (Σf)", "Divide Σfx by Σf"]}, {"name": "Median from a frequency table", "emoji": "🔢", "steps": ["Add up the frequencies to get n", "Work out the position (n + 1) ÷ 2", "Add running totals down the table", "Find the first value whose running total reaches that position"]}, {"name": "Estimated mean (grouped)", "emoji": "📦", "steps": ["Find the midpoint of each group", "Multiply each midpoint by its frequency", "Add up the midpoint × frequency column", "Divide by the total frequency", "Say it is an estimate, because we used midpoints"]}, {"name": "Missing number from a mean", "emoji": "❓", "steps": ["Multiply the mean by how many numbers there are", "This gives the total the numbers must add up to", "Add up the numbers you know", "Subtract: total − known numbers = missing number"]}, {"name": "Missing frequency x", "emoji": "🧮", "steps": ["Write Σfx using x", "Write Σf using x", "Set Σfx ÷ Σf equal to the mean", "Multiply out and solve the equation for x", "Check by putting x back in"]}];
+const EXAM=[{"topic": "Grouped tables", "marks": 5, "q": "Mark: 40–54 | 55–69 | 70–84 | 85–99  ·  Frequency: 5 | 8 | 7 | 4. (a) Find the modal class. (b) Find the class containing the median. (c) Estimate the mean. (d) Why is it only an estimate?", "points": ["(a) Modal class 55–69", "Midpoints: 47, 62, 77, 92", "Σ(mid × f) = 1638 and Σf = 24", "(c) Estimated mean = 68.25", "(d) We don't know the exact values in each group, so we use the midpoints"], "model": "(a) Modal class = 55–69 (highest frequency, 8).\n(b) n = 24, position (24+1)÷2 = 12.5; running totals 5, 13, 20, 24, so the median is in 55–69.\n(c) Midpoints 47, 62, 77, 92. mid × f: 235, 496, 539, 368. Total 1638. Estimate = 1638 ÷ 24 = 68.25.\n(d) It's an estimate because we don't know the actual values inside each group; we assume each value is at the midpoint."}, {"topic": "Grouped tables", "marks": 5, "q": "Letters delivered: 0–2 | 3–4 | 5–7 | 8–12  ·  Frequency: 10 | 8 | 5 | 3. (a) Find the modal class. (b) Find the class containing the median. (c) Estimate the mean. (d) Why is it only an estimate?", "points": ["(a) Modal class 0–2", "Midpoints: 1, 3.5, 6, 10", "Σ(mid × f) = 98 and Σf = 26", "(c) Estimated mean = 3.77", "(d) We don't know the exact values in each group, so we use the midpoints"], "model": "(a) Modal class = 0–2 (highest frequency, 10).\n(b) n = 26, position (26+1)÷2 = 13.5; running totals 10, 18, 23, 26, so the median is in 3–4.\n(c) Midpoints 1, 3.5, 6, 10. mid × f: 10, 28, 30, 30. Total 98. Estimate = 98 ÷ 26 = 3.77.\n(d) It's an estimate because we don't know the actual values inside each group; we assume each value is at the midpoint."}, {"topic": "Grouped tables", "marks": 5, "q": "Time (min): 0 < t ≤ 10 | 10 < t ≤ 20 | 20 < t ≤ 30 | 30 < t ≤ 40  ·  Frequency: 3 | 9 | 6 | 2. (a) Find the modal class. (b) Find the class containing the median. (c) Estimate the mean. (d) Why is it only an estimate?", "points": ["(a) Modal class 10 < t ≤ 20", "Midpoints: 5, 15, 25, 35", "Σ(mid × f) = 370 and Σf = 20", "(c) Estimated mean = 18.5", "(d) We don't know the exact values in each group, so we use the midpoints"], "model": "(a) Modal class = 10 < t ≤ 20 (highest frequency, 9).\n(b) n = 20, position (20+1)÷2 = 10.5; running totals 3, 12, 18, 20, so the median is in 10 < t ≤ 20.\n(c) Midpoints 5, 15, 25, 35. mid × f: 15, 135, 150, 70. Total 370. Estimate = 370 ÷ 20 = 18.5.\n(d) It's an estimate because we don't know the actual values inside each group; we assume each value is at the midpoint."}, {"topic": "Grouped tables", "marks": 5, "q": "Height (cm): 140 < h ≤ 150 | 150 < h ≤ 160 | 160 < h ≤ 170 | 170 < h ≤ 180  ·  Frequency: 4 | 11 | 8 | 2. (a) Find the modal class. (b) Find the class containing the median. (c) Estimate the mean. (d) Why is it only an estimate?", "points": ["(a) Modal class 150 < h ≤ 160", "Midpoints: 145, 155, 165, 175", "Σ(mid × f) = 3955 and Σf = 25", "(c) Estimated mean = 158.2", "(d) We don't know the exact values in each group, so we use the midpoints"], "model": "(a) Modal class = 150 < h ≤ 160 (highest frequency, 11).\n(b) n = 25, position (25+1)÷2 = 13; running totals 4, 15, 23, 25, so the median is in 150 < h ≤ 160.\n(c) Midpoints 145, 155, 165, 175. mid × f: 580, 1705, 1320, 350. Total 3955. Estimate = 3955 ÷ 25 = 158.2.\n(d) It's an estimate because we don't know the actual values inside each group; we assume each value is at the midpoint."}, {"topic": "Frequency tables", "marks": 3, "q": "Weight of apple (g): 70 | 80 | 90 | 100 | 110 | 120  ·  Frequency: 2 | 7 | 9 | 11 | 8 | 3. Calculate the mean.", "points": ["fx column: 140, 560, 810, 1100, 880, 360", "Σfx = 3850 and Σf = 40", "Mean = 3850 ÷ 40 = 96.25"], "model": "Multiply each value by its frequency: 70×2=140, 80×7=560, 90×9=810, 100×11=1100, 110×8=880, 120×3=360.\nΣfx = 3850. Total frequency Σf = 40.\nMean = 3850 ÷ 40 = 96.25."}, {"topic": "Frequency tables", "marks": 3, "q": "Price of butter (p): 49 | 50 | 51 | 52 | 53 | 54  ·  Frequency: 2 | 3 | 5 | 10 | 6 | 4. Calculate the mean.", "points": ["fx column: 98, 150, 255, 520, 318, 216", "Σfx = 1557 and Σf = 30", "Mean = 1557 ÷ 30 = 51.9"], "model": "Multiply each value by its frequency: 49×2=98, 50×3=150, 51×5=255, 52×10=520, 53×6=318, 54×4=216.\nΣfx = 1557. Total frequency Σf = 30.\nMean = 1557 ÷ 30 = 51.9."}, {"topic": "Frequency tables", "marks": 3, "q": "Nail length (cm): 2 | 3 | 4 | 5 | 6 | 7  ·  Frequency: 4 | 7 | 9 | 12 | 10 | 8. Calculate the mean.", "points": ["fx column: 8, 21, 36, 60, 60, 56", "Σfx = 241 and Σf = 50", "Mean = 241 ÷ 50 = 4.82"], "model": "Multiply each value by its frequency: 2×4=8, 3×7=21, 4×9=36, 5×12=60, 6×10=60, 7×8=56.\nΣfx = 241. Total frequency Σf = 50.\nMean = 241 ÷ 50 = 4.82."}, {"topic": "Frequency tables", "marks": 6, "q": "Robbie played 20 matches. Goals: 0 | 1 | 2 | 3 | 4  ·  Frequency: 4 | 6 | 5 | 3 | 2. Find (a) the mean, (b) the median, (c) the mode, (d) the range.", "points": ["Σfx = 33", "(a) Mean = 33 ÷ 20 = 1.65", "Median position (20+1)÷2 = 10.5", "(b) Median = 1.5", "(c) Mode = 1 (highest frequency, 6)", "(d) Range = 4 − 0 = 4"], "model": "(a) fx: 0, 6, 10, 9, 8. Σfx = 33, Σf = 20. Mean = 33 ÷ 20 = 1.65 goals.\n(b) Position (20+1)÷2 = 10.5. Running totals 4, 10, 15, 18, 20. The 10th value is 1 and the 11th is 2, so median = 1.5.\n(c) Mode = 1 goal.\n(d) Range = 4 − 0 = 4."}, {"topic": "Missing values", "marks": 3, "q": "The mean of six numbers is 9. The mean of five of the numbers is 8. Work out the sixth number.", "points": ["Total of six = 6 × 9 = 54", "Total of five = 5 × 8 = 40", "Sixth number = 54 − 40 = 14"], "model": "Total of all six = 6 × 9 = 54.\nTotal of the five = 5 × 8 = 40.\nSixth number = 54 − 40 = 14."}, {"topic": "Missing values", "marks": 3, "q": "A football team has scored 2, 3, 1, 0, 4, 1 goals. How many must they score in the next match to have a mean of 2 goals?", "points": ["After 7 matches, total needed = 7 × 2 = 14", "Goals so far = 11", "Next match = 14 − 11 = 3"], "model": "After the next match there will be 7 matches. For a mean of 2 they need 7 × 2 = 14 goals.\nSo far: 2+3+1+0+4+1 = 11.\nThey need 14 − 11 = 3 goals."}, {"topic": "Missing values", "marks": 4, "q": "Hotel star ratings. Stars: 1 | 2 | 3 | 4 | 5 · Frequency: 2 | 5 | x | 10 | 3. The mean rating is 3.28. Find x.", "points": ["Σfx = 67 + 3x", "Σf = 20 + x", "(67 + 3x) ÷ (20 + x) = 3.28", "x = 5"], "model": "Σfx = 1×2 + 2×5 + 3x + 4×10 + 5×3 = 67 + 3x. Σf = 20 + x.\n(67 + 3x) = 3.28(20 + x) = 65.6 + 3.28x\n67 − 65.6 = 3.28x − 3x → 1.4 = 0.28x → x = 5."}, {"topic": "Mean", "marks": 4, "q": "These are the marks gained in a test: 7, 1, 6, 9, 3, 7, 2, 7, 6, 5. Find (a) the mode, (b) the median, (c) the mean, (d) the range.", "points": ["(a) Mode = 7", "In order: 1, 2, 3, 5, 6, 6, 7, 7, 7, 9 so (b) median = 6", "(c) Mean = 53 ÷ 10 = 5.3", "(d) Range = 9 − 1 = 8"], "model": "In order: 1, 2, 3, 5, 6, 6, 7, 7, 7, 9.\n(a) Mode = 7 (three times).\n(b) 10 values, position 5.5: halfway between 6 and 6, so 6.\n(c) Total = 53, mean = 53 ÷ 10 = 5.3.\n(d) Range = 9 − 1 = 8."}];
+
+// ═══════════════════════════════════════════════════════════
+// SHOP DATA
+// ═══════════════════════════════════════════════════════════
+const SHOP_CATS=[
+  {id:'bg',label:'🎨 Background',items:[
+    {id:'bg0',name:'Plain',emoji:'⬜',price:0,free:true},
+    {id:'bg1',name:'Starry',emoji:'🌌',price:15},
+    {id:'bg2',name:'Rainbow',emoji:'🌈',price:20},
+    {id:'bg3',name:'Flowers',emoji:'🌸',price:25},
+    {id:'bg4',name:'Lab',emoji:'🔬',price:30},
+    {id:'bg5',name:'Space',emoji:'🚀',price:40},
+  ]},
+  {id:'skin',label:'👤 Skin Tone',items:[
+    {id:'sk0',name:'Peach',emoji:'🎀',price:0,free:true},
+    {id:'sk1',name:'Honey',emoji:'🍯',price:5},
+    {id:'sk2',name:'Bronze',emoji:'🤎',price:5},
+    {id:'sk3',name:'Ebony',emoji:'🖤',price:5},
+  ]},
+  {id:'hair',label:'💇 Hair',items:[
+    {id:'h0',name:'Brown',emoji:'🟫',price:0,free:true},
+    {id:'h1',name:'Blonde',emoji:'💛',price:10},
+    {id:'h2',name:'Pink',emoji:'🩷',price:15},
+    {id:'h3',name:'Purple',emoji:'💜',price:15},
+    {id:'h4',name:'Rainbow',emoji:'🌈',price:30},
+    {id:'h5',name:'Silver',emoji:'🩶',price:20},
+  ]},
+  {id:'outfit',label:'👗 Outfit',items:[
+    {id:'o0',name:'Lab Coat',emoji:'🥼',price:0,free:true},
+    {id:'o1',name:'Princess',emoji:'👑',price:20},
+    {id:'o2',name:'Space Suit',emoji:'👩‍🚀',price:35},
+    {id:'o3',name:'Butterfly',emoji:'🦋',price:25},
+    {id:'o4',name:'Witch',emoji:'🧙‍♀️',price:30},
+    {id:'o5',name:'Superhero',emoji:'🦸‍♀️',price:40},
+  ]},
+  {id:'acc',label:'✨ Accessory',items:[
+    {id:'ac0',name:'None',emoji:'❌',price:0,free:true},
+    {id:'ac1',name:'Glasses',emoji:'🤓',price:8},
+    {id:'ac2',name:'Crown',emoji:'👑',price:20},
+    {id:'ac3',name:'Flowers',emoji:'💐',price:12},
+    {id:'ac4',name:'Stars',emoji:'⭐',price:15},
+    {id:'ac5',name:'Wand',emoji:'🪄',price:25},
+  ]},
+  {id:'pet',label:'🐾 Pet',items:[
+    {id:'p0',name:'None',emoji:'❌',price:0,free:true},
+    {id:'p1',name:'Cat',emoji:'🐱',price:15},
+    {id:'p2',name:'Bunny',emoji:'🐰',price:15},
+    {id:'p3',name:'Dragon',emoji:'🐉',price:40},
+    {id:'p4',name:'Unicorn',emoji:'🦄',price:50},
+    {id:'p5',name:'Frog',emoji:'🐸',price:20},
+  ]},
+];
+let avatarOwned={bg:'bg0',skin:'sk0',hair:'h0',outfit:'o0',acc:'ac0',pet:'p0'};
+let avatarEquipped={bg:'bg0',skin:'sk0',hair:'h0',outfit:'o0',acc:'ac0',pet:'p0'};
+
+// ═══════════════════════════════════════════════════════════
+// COINS + UNLOCK
+// ═══════════════════════════════════════════════════════════
+function addCoins(n,x,y){
+  coins+=n;
+  updateCoinDisplay();
+  playCoin();
+  if(x&&y) coinPop(x,y,n);
+}
+function updateCoinDisplay(){
+  document.getElementById('coin-display').textContent=coins;
+  document.getElementById('shop-coins').textContent=coins;
+}
+function checkUnlocks(streak){
+  // Unlock quietly while she studies: no pop-up, confetti or fanfare. The Games tab gets a dot instead.
+  let changed=false;
+  if(!unlocked.creature&&streak>=UNLOCKS.creature){unlocked.creature=true;changed=true;}
+  if(!unlocked.cell&&totalCorrect>=UNLOCKS.cell){unlocked.cell=true;changed=true;}
+  if(!unlocked.blitz&&totalCorrect>=UNLOCKS.blitz){unlocked.blitz=true;changed=true;}
+  if(!changed)return;
+  buildUnlockGrid();
+  const t=document.getElementById('tab-games');
+  if(t&&!t.classList.contains('active'))t.classList.add('has-new');
+}
+
+// ═══════════════════════════════════════════════════════════
+// TABS
+// ═══════════════════════════════════════════════════════════
+function showTab(id,el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(el)el.classList.add('active');
+  if(id==='quiz'&&qIdx===0&&!qAnswered)initQuiz();
+  if(id==='shop'){buildShop();drawAvatar();}
+  if(id==='games'){buildUnlockGrid();document.getElementById('tab-games').classList.remove('has-new');}
+  if(id==='exam')renderExam();
+}
+
+// ═══════════════════════════════════════════════════════════
+// BANNER + MODAL
+// ═══════════════════════════════════════════════════════════
+function showBanner(msg,dur=3200){
+  const b=document.getElementById('streak-banner');
+  b.textContent=msg;b.classList.add('show');
+  clearTimeout(b._t);b._t=setTimeout(()=>b.classList.remove('show'),dur);
+}
+let _modalCb=null;
+function showModal(emoji,title,msg,btnLabel,cb){
+  document.getElementById('modal-emoji').textContent=emoji;
+  document.getElementById('modal-title').textContent=title;
+  document.getElementById('modal-msg').textContent=msg;
+  document.getElementById('modal-btn').textContent=btnLabel;
+  _modalCb=cb;
+  document.getElementById('unlock-modal').style.display='flex';
+}
+function closeModal(){
+  document.getElementById('unlock-modal').style.display='none';
+  if(_modalCb){_modalCb();_modalCb=null;}
+}
+
+// ═══════════════════════════════════════════════════════════
+// FLASHCARDS
+// ═══════════════════════════════════════════════════════════
+let fcCards=[...FLASHCARDS],fcIdx=0,fcFlipped=false;
+let fcRatings=new Array(FLASHCARDS.length).fill(null),fcFilter='All';
+const allTopics=['All',...new Set(FLASHCARDS.map(f=>f.topic))];
+function buildFilterButtons(){
+  const w=document.getElementById('fc-filter');w.innerHTML='';
+  allTopics.forEach(t=>{
+    const b=document.createElement('button');
+    b.className='filter-btn'+(t===fcFilter?' active':'');
+    b.textContent=t;b.onclick=()=>{fcFilter=t;applyFCFilter();buildFilterButtons()};
+    w.appendChild(b);
+  });
+}
+function applyFCFilter(){
+  fcCards=fcFilter==='All'?[...FLASHCARDS]:FLASHCARDS.filter(f=>f.topic===fcFilter);
+  fcIdx=0;fcRatings=new Array(fcCards.length).fill(null);renderFC();
+}
+function renderFC(){
+  const c=fcCards[fcIdx];
+  document.getElementById('fc-question').textContent=c.q;
+  document.getElementById('fc-answer').textContent=c.a;
+  document.getElementById('fc-badge').textContent='🏷 '+c.topic;
+  document.getElementById('fc-progress').textContent=`Card ${fcIdx+1} of ${fcCards.length}`;
+  document.getElementById('fc-prev').disabled=fcIdx===0;
+  document.getElementById('fc-next').disabled=fcIdx===fcCards.length-1;
+  document.getElementById('card-inner').classList.remove('flipped');
+  document.getElementById('fc-rating').classList.remove('show');
+  fcFlipped=false;renderDots();
+}
+function flipCard(){
+  fcFlipped=!fcFlipped;
+  document.getElementById('card-inner').classList.toggle('flipped',fcFlipped);
+  if(fcFlipped){playFlip();document.getElementById('fc-rating').classList.add('show');}
+  else document.getElementById('fc-rating').classList.remove('show');
+}
+function rateCard(r){
+  fcRatings[fcIdx]=r;
+  if(r==='got-it')playHappy();else if(r==='missed')playSad();
+  renderDots();if(fcIdx<fcCards.length-1){fcIdx++;renderFC();}
+}
+function fcNav(dir){fcIdx=Math.max(0,Math.min(fcCards.length-1,fcIdx+dir));renderFC();}
+function renderDots(){
+  const w=document.getElementById('fc-dots');w.innerHTML='';
+  fcRatings.forEach((r,i)=>{
+    const d=document.createElement('div');d.className='score-dot'+(r?' '+r:'');
+    d.style.outline=i===fcIdx?'2px solid #3D348B':'none';d.style.outlineOffset='2px';
+    w.appendChild(d);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// QUIZ
+// ═══════════════════════════════════════════════════════════
+let qIdx=0,qScore=0,qAnswered=false,qResults=[],quizOrder=[];
+function shuffle(a){const r=[...a];for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]]}return r}
+function initQuiz(){
+  quizOrder=shuffle(QUIZ).slice(0,20);qIdx=0;qScore=0;qAnswered=false;qResults=[];quizStreak=0;
+  document.getElementById('quiz-body').style.display='block';
+  document.getElementById('quiz-results').style.display='none';
+  renderQuestion();
+}
+function renderQuestion(){
+  const q=quizOrder[qIdx];
+  document.getElementById('q-progress').textContent=`Q ${qIdx+1}/${quizOrder.length}`;
+  document.getElementById('q-score-live').textContent=`⭐${qScore} 🔥${quizStreak} 🪙${coins}`;
+  document.getElementById('q-bar').style.width=`${(qIdx/quizOrder.length)*100}%`;
+  document.getElementById('q-topic').textContent=q.topic;
+  document.getElementById('q-text').innerHTML=fmtQ(q.q);
+  document.getElementById('q-next').style.display='none';
+  const fb=document.getElementById('q-feedback');fb.className='feedback-box';fb.textContent='';
+  qAnswered=false;
+  const opts=document.getElementById('q-options');opts.innerHTML='';
+  const letters=['A','B','C','D'];
+  q.opts.forEach((opt,i)=>{
+    const btn=document.createElement('button');
+    btn.className='option';
+    btn.innerHTML=`<span class="opt-letter">${letters[i]}</span>${opt}`;
+    btn.onclick=()=>quizAnswer(i,btn);opts.appendChild(btn);
+  });
+}
+function quizAnswer(chosen,btnEl){
+  if(qAnswered)return;qAnswered=true;
+  const q=quizOrder[qIdx];const correct=chosen===q.ans;
+  let coinEarned=0;
+  if(correct){
+    qScore++;quizStreak++;sessionStreak++;totalCorrect++;
+    coinEarned=1+(quizStreak>=5?2:quizStreak>=3?1:0);
+    addCoins(coinEarned);
+    checkUnlocks(quizStreak);
+  }else{quizStreak=0;sessionStreak=0;}
+  document.querySelectorAll('.option').forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===q.ans)b.classList.add('correct');
+    else if(i===chosen&&!correct)b.classList.add('wrong');
+  });
+  const fb=document.getElementById('q-feedback');
+  fb.className='feedback-box show '+(correct?'correct-fb':'wrong-fb');
+  fb.textContent=(correct?'🎉 Correct! ':'💡 Not quite — ')+q.explain;
+  const card=document.getElementById('quiz-card-el');
+  const r=btnEl.getBoundingClientRect();
+  if(correct){
+    playHappy();
+    card.classList.add('bounce');setTimeout(()=>card.classList.remove('bounce'),500);
+    
+    coinPop(r.left+r.width/2,r.top-10,coinEarned);
+    const left=UNLOCKS.creature-quizStreak;
+    
+    
+  }else{playSad();card.classList.add('shake');setTimeout(()=>card.classList.remove('shake'),450);}
+  qResults.push({q:q.q,correct,topic:q.topic,explain:q.explain,chosen,right:q.ans,opts:q.opts});
+  document.getElementById('q-next').style.display='inline-flex';
+  document.getElementById('q-score-live').textContent=`⭐${qScore} 🔥${quizStreak} 🪙${coins}`;
+}
+function nextQuestion(){qIdx++;if(qIdx>=quizOrder.length)showResults();else renderQuestion();}
+function showResults(){
+  document.getElementById('quiz-body').style.display='none';
+  document.getElementById('quiz-results').style.display='block';
+  const pct=Math.round((qScore/quizOrder.length)*100);
+  const circle=document.getElementById('r-circle');
+  circle.style.color=pct>=80?'#3DD68C':pct>=60?'#F59E0B':'#FF4D6D';
+  document.getElementById('r-num').textContent=qScore;
+  document.getElementById('r-den').textContent=`/ ${quizOrder.length}`;
+  if(pct>=80){playHappy();}else if(pct>=60)playFlip();else playSad();
+  let title,sub;
+  if(pct===100){title="Perfect score";sub="Every answer right. Excellent.";}
+  else if(pct>=80){title="Great work";sub="Nearly perfect. Check the ones you missed below.";}
+  else if(pct>=60){title="Good effort";sub="Revise the topics below on the flashcards, then try again.";}
+  else{title="Keep going";sub="Work through the flashcards for these topics, then try again.";}
+  document.getElementById('r-title').textContent=title;
+  document.getElementById('r-sub').textContent=sub;
+  const bd=document.getElementById('r-breakdown');
+  bd.innerHTML='<div style="font-family:var(--display);font-size:1rem;color:var(--hot);margin-bottom:10px">Your answers:</div>';
+  qResults.forEach(r=>{
+    const d=document.createElement('div');d.className='result-item';
+    d.innerHTML=`<div>${r.correct?'✅':'❌'}</div><div><div class="ri-q">${r.q}</div>${!r.correct?`<div class="ri-a">✔ ${r.opts[r.right]}</div>`:''}</div>`;
+    bd.appendChild(d);
+  });
+}
+function restartQuiz(){initQuiz();}
+
+// ═══════════════════════════════════════════════════════════
+// GAMES HUB
+// ═══════════════════════════════════════════════════════════
+const GAME_DEFS=[
+  {id:'creature',emoji:'🧮',name:'Quick Calc',desc:'Work out the average for each falling set of numbers before it lands!',unlock:UNLOCKS.creature,unlockDesc:'Get 2 in a row in the quiz',fn:startCreatureCatcher},
+  {id:'cell',emoji:'🧩',name:'Method Builder',desc:'Put the steps for each averages method in the right order.',unlock:UNLOCKS.cell,unlockDesc:`Get ${UNLOCKS.cell} correct answers`,fn:startProcessBuilder},
+  {id:'blitz',emoji:'⚡',name:'Maths Blitz',desc:'Fast-fire questions — answer before the timer runs out!',unlock:UNLOCKS.blitz,unlockDesc:`Get ${UNLOCKS.blitz} correct answers`,fn:startBlitz},
+];
+function buildUnlockGrid(){
+  const g=document.getElementById('unlock-grid');g.innerHTML='';
+  ['game-creature','game-cell','game-blitz'].forEach(id=>document.getElementById(id).style.display='none');
+  GAME_DEFS.forEach(gd=>{
+    const isUnlocked=unlocked[gd.id];
+    const div=document.createElement('div');
+    div.className='unlock-card'+(isUnlocked?'  unlocked':' locked');
+    const progress=gd.id==='creature'?`${Math.min(quizStreak,gd.unlock)}/${gd.unlock} streak`:
+                   `${Math.min(totalCorrect,gd.unlock)}/${gd.unlock} correct`;
+    div.innerHTML=`
+      <div class="unlock-emoji">${gd.emoji}</div>
+      <h3>${gd.name}</h3>
+      <p>${gd.desc}</p>
+      <span class="unlock-req ${isUnlocked?'done':'todo'}">${isUnlocked?'✅ Unlocked!':'🔒 '+gd.unlockDesc}</span>
+      ${!isUnlocked?`<div style="font-size:.72rem;color:var(--muted);font-weight:700;margin-bottom:8px">${progress}</div>`:''}
+    `;
+    if(isUnlocked){
+      const btn=document.createElement('button');
+      btn.className='btn btn-game';btn.textContent='▶ Play';btn.style.fontSize='.88rem';btn.style.padding='8px 18px';
+      btn.onclick=()=>openGame(gd.id);
+      div.appendChild(btn);
+    }
+    g.appendChild(div);
+  });
+}
+function openGame(id){
+  buildUnlockGrid();
+  document.getElementById(`game-${id}`).style.display='block';
+  GAME_DEFS.find(g=>g.id===id).fn();
+  document.getElementById(`game-${id}`).scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 1: CREATURE CATCHER
+// ═══════════════════════════════════════════════════════════
+let ccScore=0,ccStreak=0,ccLives=3,ccLevel=1,ccRunning=false;
+let ccCreature=null,ccY=0,ccSpeed=0.5,ccAnswered=false,ccRAF=null;
+const ccCanvas=document.getElementById('cc-canvas');
+const ccCtx=ccCanvas.getContext('2d');
+
+function startCreatureCatcher(){
+  ccScore=0;ccStreak=0;ccLives=3;ccLevel=1;ccAnswered=false;ccRunning=true;
+  document.getElementById('cc-over').style.display='none';
+  document.getElementById('cc-opts').style.display='grid';
+  document.getElementById('cc-q').parentElement.style.display='block';
+  updateCCStats();ccNextCreature();
+  if(ccRAF)cancelAnimationFrame(ccRAF);ccLoop();
+}
+function ccNextCreature(){
+  const c=CREATURES[Math.floor(Math.random()*CREATURES.length)];
+  const opts=shuffle([c.correct,...shuffle(c.wrong).slice(0,3)]);
+  ccCreature={...c,opts};ccY=0;ccAnswered=false;
+  ccSpeed=0.38+ccLevel*0.14;
+  document.getElementById('cc-q').textContent=`${c.emoji} ${c.name} — ${c.q}`;
+  const w=document.getElementById('cc-opts');w.innerHTML='';
+  opts.forEach(o=>{
+    const btn=document.createElement('button');btn.className='game-opt';btn.textContent=o;
+    btn.onclick=()=>ccAnswer(o,c.correct,btn);w.appendChild(btn);
+  });
+}
+function ccAnswer(chosen,correct,btnEl){
+  if(ccAnswered)return;ccAnswered=true;
+  const ok=chosen===correct;
+  document.querySelectorAll('.game-opt').forEach(b=>{
+    b.classList.add('locked');
+    if(b.textContent===correct)b.classList.add('correct');
+    else if(b===btnEl&&!ok)b.classList.add('wrong');
+  });
+  if(ok){
+    playCatch();ccStreak++;ccScore+=10+ccStreak*2;
+    totalCorrect++;addCoins(1);checkUnlocks(0);
+    burst('⭐',window.innerWidth/2-16,window.innerHeight/2-50);
+    showBanner(ccStreak>1?`🔥 ${ccStreak} in a row! Caught it!`:'✅ Caught it! +coins');
+    if(ccStreak%3===0){ccLevel=Math.min(6,ccLevel+1);showBanner(`⬆️ Level ${ccLevel}! Faster now...`,2000);}
+  }else{
+    playMiss();ccStreak=0;ccLives--;
+    showBanner(`💔 That was a ${correct}! ${ccLives} lives left`);
+    if(ccLives<=0){ccEnd();return;}
+  }
+  updateCCStats();setTimeout(ccNextCreature,800);
+}
+function ccLoop(){
+  if(!ccRunning)return;
+  ccCtx.clearRect(0,0,ccCanvas.width,ccCanvas.height);
+  // sky gradient
+  const grad=ccCtx.createLinearGradient(0,0,0,ccCanvas.height);
+  grad.addColorStop(0,'#E6E3F5');grad.addColorStop(1,'#F7F6FC');
+  ccCtx.fillStyle=grad;ccCtx.fillRect(0,0,ccCanvas.width,ccCanvas.height);
+  // clouds
+  [[60,40],[180,25],[320,50],[480,30],[600,45]].forEach(([x,y])=>{
+    ccCtx.fillStyle='rgba(255,255,255,0.7)';
+    ccCtx.beginPath();ccCtx.ellipse(x,y,30,18,0,0,Math.PI*2);ccCtx.fill();
+    ccCtx.beginPath();ccCtx.ellipse(x+20,y+5,22,14,0,0,Math.PI*2);ccCtx.fill();
+  });
+  // ground
+  ccCtx.fillStyle='#C9C4E6';ccCtx.fillRect(0,ccCanvas.height-16,ccCanvas.width,16);
+  ccCtx.fillStyle='#3D348B';ccCtx.fillRect(0,ccCanvas.height-18,ccCanvas.width,4);
+  if(ccCreature&&!ccAnswered){
+    ccY+=ccSpeed;
+    if(ccY>=ccCanvas.height-68&&!ccAnswered){
+      ccAnswered=true;playMiss();ccStreak=0;ccLives--;
+      showBanner(`💔 ${ccCreature.name} got away! It was a ${ccCreature.correct}. ${ccLives} lives left`);
+      updateCCStats();
+      if(ccLives<=0){ccEnd();return;}else setTimeout(ccNextCreature,1200);
+    }
+    const x=ccCanvas.width/2;
+    // shadow
+    ccCtx.fillStyle='rgba(34,28,74,0.10)';
+    ccCtx.beginPath();const sw=28*(ccY/(ccCanvas.height-68));
+    ccCtx.ellipse(x,ccCanvas.height-20,sw,6,0,0,Math.PI*2);ccCtx.fill();
+    // creature
+    ccCtx.font=`${50+Math.sin(Date.now()*.005)*3}px serif`;
+    ccCtx.textAlign='center';ccCtx.textBaseline='middle';
+    ccCtx.fillText(ccCreature.emoji,x,ccY+20);
+    // name tag
+    ccCtx.fillStyle='#1D1A33';ccCtx.font='bold 13px Inter,sans-serif';
+    ccCtx.fillText(ccCreature.name,x,ccY+50);
+  }
+  ccRAF=requestAnimationFrame(ccLoop);
+}
+function updateCCStats(){
+  document.getElementById('cc-score').textContent=ccScore;
+  document.getElementById('cc-streak').textContent=ccStreak+'🔥';
+  document.getElementById('cc-lives').textContent='❤️'.repeat(Math.max(0,ccLives));
+  document.getElementById('cc-level').textContent=ccLevel;
+}
+function ccEnd(){
+  ccRunning=false;cancelAnimationFrame(ccRAF);
+  document.getElementById('cc-opts').style.display='none';
+  document.getElementById('cc-q').parentElement.style.display='none';
+  const ov=document.getElementById('cc-over');ov.style.display='block';
+  const emoji=ccScore>=200?'🏆':ccScore>=100?'🌟':ccScore>=50?'😊':'😢';
+  const msg=ccScore>=200?`Score: ${ccScore} — you're a champion! 🌟`:ccScore>=100?`Score: ${ccScore} — brilliant catching! 💪`:`Score: ${ccScore} — try again to beat your score!`;
+  document.getElementById('cc-over-emoji').textContent=emoji;
+  document.getElementById('cc-over-title').textContent=ccScore>=100?'Amazing!':'Game Over!';
+  document.getElementById('cc-over-msg').textContent=msg;
+  if(ccScore>=100)confetti(50);
+  ccCtx.clearRect(0,0,ccCanvas.width,ccCanvas.height);
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 2: PROCESS BUILDER — tap the steps of each process in order
+// ═══════════════════════════════════════════════════════════
+const PB_MAX_LIVES=5;
+let pbOrder=[],pbIdx=0,pbNext=0,pbLives=PB_MAX_LIVES,pbScore=0;
+function startProcessBuilder(){
+  pbOrder=shuffle(PROCESSES);pbIdx=0;pbLives=PB_MAX_LIVES;pbScore=0;
+  document.getElementById('pb-over').style.display='none';
+  document.getElementById('pb-play').style.display='block';
+  pbRound();
+}
+function pbRound(){
+  if(pbIdx>=pbOrder.length){pbWin();return;}
+  const p=pbOrder[pbIdx];pbNext=0;
+  document.getElementById('pb-title').textContent=`${p.emoji} ${p.name}: tap the steps in order`;
+  document.getElementById('pb-built').innerHTML='';
+  const pool=document.getElementById('pb-pool');pool.innerHTML='';
+  shuffle(p.steps.map((s,i)=>i)).forEach(i=>{
+    const b=document.createElement('button');b.className='pb-step';b.textContent=p.steps[i];
+    b.onclick=()=>pbTap(i,b);pool.appendChild(b);
+  });
+  updatePBStats();
+}
+function pbTap(i,btn){
+  const p=pbOrder[pbIdx];
+  if(i===pbNext){
+    playCatch();pbNext++;pbScore+=5;
+    const li=document.createElement('li');li.textContent=p.steps[i];
+    document.getElementById('pb-built').appendChild(li);btn.remove();
+    if(pbNext===p.steps.length){
+      pbScore+=10;totalCorrect++;addCoins(2);checkUnlocks(0);confetti(30);
+      pbLives=Math.min(PB_MAX_LIVES,pbLives+1);
+      showBanner(`🧩 ${p.name}: done! +2 coins`);
+      pbIdx++;updatePBStats();setTimeout(pbRound,1600);return;
+    }
+  }else{
+    playMiss();pbLives--;
+    btn.classList.add('pb-wrong');setTimeout(()=>btn.classList.remove('pb-wrong'),450);
+    showBanner(pbNext===0?'🤔 Not the first step — where do you start?':'🤔 Not next — what do you do after that?');
+    if(pbLives<=0){updatePBStats();pbEnd();return;}
+  }
+  updatePBStats();
+}
+function updatePBStats(){
+  document.getElementById('pb-score').textContent=pbScore;
+  document.getElementById('pb-lives').textContent='❤️'.repeat(Math.max(0,pbLives));
+  document.getElementById('pb-round').textContent=`${Math.min(pbIdx+1,pbOrder.length)}/${pbOrder.length}`;
+}
+function pbEnd(){
+  document.getElementById('pb-play').style.display='none';
+  document.getElementById('pb-over').style.display='block';
+  document.getElementById('pb-over-emoji').textContent=pbIdx>=5?'🌟':'😢';
+  document.getElementById('pb-over-title').textContent='Out of lives!';
+  document.getElementById('pb-over-msg').textContent=`You built ${pbIdx} of ${pbOrder.length} methods (score ${pbScore}). Check the flashcards and try again!`;
+}
+function pbWin(){
+  confetti(80);playUnlock();addCoins(10);
+  document.getElementById('pb-play').style.display='none';
+  document.getElementById('pb-over').style.display='block';
+  document.getElementById('pb-over-emoji').textContent='🏆';
+  document.getElementById('pb-over-title').textContent='All methods built!';
+  document.getElementById('pb-over-msg').textContent=`Score ${pbScore}. You know every method step by step. +10 bonus coins! 🪙`;
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 3: KINGDOM BLITZ
+// ═══════════════════════════════════════════════════════════
+let blScore=0,blStreak=0,blQIdx=0,blOrder=[],blRunning=false;
+let blTimer=10,blTimerInterval=null,blAnswered=false;
+const BLITZ_TOTAL=15;
+
+function startBlitz(){
+  blScore=0;blStreak=0;blQIdx=0;blAnswered=false;blRunning=true;
+  blOrder=shuffle(QUIZ).slice(0,BLITZ_TOTAL);
+  document.getElementById('bl-over').style.display='none';
+  updateBlitzStats();blNextQ();
+}
+function blNextQ(){
+  if(blQIdx>=BLITZ_TOTAL){blEnd();return;}
+  const q=blOrder[blQIdx];
+  blAnswered=false;blTimer=10;
+  document.getElementById('bl-q').innerHTML=fmtQ(q.q);
+  const opts=document.getElementById('bl-opts');opts.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const btn=document.createElement('button');btn.className='blitz-opt';btn.textContent=o;
+    btn.onclick=()=>blAnswer(i,q.ans,btn);opts.appendChild(btn);
+  });
+  document.getElementById('bl-q-num').textContent=`${blQIdx+1}/${BLITZ_TOTAL}`;
+  updateBlitzTimer();
+  clearInterval(blTimerInterval);
+  blTimerInterval=setInterval(()=>{
+    if(!blRunning)return;
+    blTimer-=.1;updateBlitzTimer();
+    if(blTimer<=0){clearInterval(blTimerInterval);blTimeOut();}
+  },100);
+}
+function updateBlitzTimer(){
+  const pct=Math.max(0,(blTimer/10)*100);
+  const fill=document.getElementById('bl-timer-fill');
+  fill.style.width=pct+'%';
+  fill.style.background=pct>60?'var(--mint)':pct>30?'var(--yellow)':'var(--red)';
+  document.getElementById('bl-timer-label').textContent=Math.ceil(Math.max(0,blTimer))+'s';
+}
+function blAnswer(chosen,correct,btnEl){
+  if(blAnswered)return;blAnswered=true;clearInterval(blTimerInterval);
+  const ok=chosen===correct;
+  document.querySelectorAll('.blitz-opt').forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===correct)b.classList.add('correct');
+    else if(b===btnEl&&!ok)b.classList.add('wrong');
+  });
+  if(ok){
+    playBlitzRight();blStreak++;
+    const bonus=Math.ceil(blTimer);blScore+=10+bonus+(blStreak>=3?5:0);
+    totalCorrect++;addCoins(1);checkUnlocks(0);
+    showBanner(`✅ +${10+bonus}pts! (speed bonus: +${bonus}) ${blStreak>=3?'🔥 STREAK!':''}`);
+  }else{
+    playBlitzWrong();blStreak=0;
+    showBanner('❌ Wrong! No points this round.');
+  }
+  updateBlitzStats();
+  blQIdx++;
+  setTimeout(blNextQ,700);
+}
+function blTimeOut(){
+  if(blAnswered)return;blAnswered=true;
+  playMiss();blStreak=0;
+  document.querySelectorAll('.blitz-opt').forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===blOrder[blQIdx].ans)b.classList.add('correct');
+  });
+  showBanner('⏱️ Time\'s up!');updateBlitzStats();
+  blQIdx++;setTimeout(blNextQ,800);
+}
+function updateBlitzStats(){
+  document.getElementById('bl-score').textContent=blScore;
+  document.getElementById('bl-streak').textContent=blStreak+'🔥';
+}
+function blEnd(){
+  blRunning=false;clearInterval(blTimerInterval);
+  document.getElementById('bl-over').style.display='block';
+  const pct=Math.round((blScore/150)*100);
+  const emoji=blScore>=120?'⚡🏆':blScore>=80?'⚡🌟':blScore>=40?'⚡😊':'⚡😅';
+  let title=blScore>=100?'Blitz Champion!':blScore>=60?'Great Speed!':'Keep Practising!';
+  let msg=`Score: ${blScore}/150. ${blScore>=100?'You were lightning fast! ⚡':'Try to answer faster for speed bonuses! ⏱️'}`;
+  document.getElementById('bl-over-emoji').textContent=emoji;
+  document.getElementById('bl-over-title').textContent=title;
+  document.getElementById('bl-over-msg').textContent=msg;
+  if(blScore>=80)confetti(50);
+  if(blScore>=100)addCoins(5);
+}
+
+// ═══════════════════════════════════════════════════════════
+// AVATAR SHOP
+// ═══════════════════════════════════════════════════════════
+const BG_COLORS={bg0:'#FFF0F8',bg1:'#1A0A2E',bg2:null,bg3:'#FFF0F8',bg4:'#0A1A2E',bg5:'#050510'};
+const BG_STARS={bg1:true,bg4:false,bg5:true};
+
+function buildShop(){
+  const panel=document.getElementById('shop-panel');panel.innerHTML='';
+  SHOP_CATS.forEach(cat=>{
+    const div=document.createElement('div');div.className='shop-cat';
+    div.innerHTML=`<h3>${cat.label}</h3><div class="shop-items" id="si-${cat.id}"></div>`;
+    panel.appendChild(div);
+    const wrap=div.querySelector('.shop-items');
+    cat.items.forEach(item=>{
+      const isOwned=avatarOwned[cat.id]===item.id||item.free;
+      const isEquipped=avatarEquipped[cat.id]===item.id;
+      const canAfford=coins>=item.price;
+      const el=document.createElement('div');
+      el.className='shop-item'+(isEquipped?' active-item':isOwned?' owned':'');
+      el.innerHTML=`<span class="si-emoji">${item.emoji}</span><span class="si-name">${item.name}</span><span class="si-price ${isEquipped?'equipped':item.free?'free':''}">${isEquipped?'Equipped ✓':isOwned?'Equip ✨':item.price===0?'Free!':'🪙'+item.price}</span>`;
+      el.onclick=()=>shopAction(cat.id,item,isOwned||item.free,canAfford);
+      wrap.appendChild(el);
+    });
+  });
+}
+function shopAction(catId,item,owned,canAfford){
+  if(avatarEquipped[catId]===item.id)return;
+  if(!owned){
+    if(!canAfford){showBanner(`💸 Need ${item.price-coins} more coins! Keep answering questions! 🎯`);return;}
+    coins-=item.price;updateCoinDisplay();
+    avatarOwned[catId]=item.id;
+    playCoin();burst('🪙',window.innerWidth/2,window.innerHeight/2);
+  }
+  avatarEquipped[catId]=item.id;
+  playFlip();drawAvatar();buildShop();
+  showBanner('Avatar updated ✓');
+}
+
+function drawAvatar(){
+  const canvas=document.getElementById('avatar-canvas');
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height;
+  ctx.clearRect(0,0,W,H);
+
+  const bg=avatarEquipped.bg,sk=avatarEquipped.skin,hr=avatarEquipped.hair;
+  const ot=avatarEquipped.outfit,ac=avatarEquipped.acc,pt=avatarEquipped.pet;
+
+  // Background
+  const bgDef=SHOP_CATS[0].items.find(i=>i.id===bg);
+  if(bg==='bg2'){
+    const rg=['#FF6EB4','#FFAA00','#FFD600','#3DD68C','#4488FF','#C855F0'];
+    rg.forEach((c,i)=>{ctx.fillStyle=c;ctx.fillRect(0,i*(H/rg.length),W,H/rg.length+1)});
+  }else if(bg==='bg3'){
+    ctx.fillStyle='#FFF0F8';ctx.fillRect(0,0,W,H);
+    ['🌸','🌺','🌷','✿','🌼'].forEach((f,i)=>{
+      ctx.font='20px serif';ctx.textAlign='center';
+      ctx.fillText(f,(i%3)*50+25,Math.floor(i/3)*50+25);
+    });
+  }else{
+    ctx.fillStyle=BG_COLORS[bg]||'#FFF0F8';ctx.fillRect(0,0,W,H);
+    if(BG_STARS[bg]){
+      for(let i=0;i<30;i++){
+        ctx.fillStyle=`rgba(255,255,255,${.4+Math.random()*.6})`;
+        ctx.beginPath();ctx.arc(Math.random()*W,Math.random()*H,Math.random()*1.5+.5,0,Math.PI*2);ctx.fill();
+      }
+    }
+    if(bg==='bg4'){ctx.fillStyle='rgba(100,200,255,.1)';ctx.font='18px serif';ctx.textAlign='center';ctx.fillText('🔬',110,30);ctx.fillText('⚗️',30,80);ctx.fillText('🧬',20,160);}
+  }
+
+  // Skin tones
+  const skinColors={sk0:'#FFCBA4',sk1:'#D4956A',sk2:'#A0633C',sk3:'#4A2915'};
+  const skinC=skinColors[sk]||'#FFCBA4';
+
+  // Body / outfit
+  const outfitEmojis={o0:'🥼',o1:'👑',o2:'👩‍🚀',o3:'🦋',o4:'🧙‍♀️',o5:'🦸‍♀️'};
+  const outfitColors={o0:'#EEEEFF',o1:'#FFD700',o2:'#CCDDEE',o3:'#FFB3D9',o4:'#2D0044',o5:'#FF3366'};
+  ctx.fillStyle=outfitColors[ot]||'#EEEEFF';
+  // torso
+  ctx.beginPath();ctx.roundRect(W/2-30,H/2+10,60,55,10);ctx.fill();
+  // arms
+  ctx.fillStyle=skinC;
+  ctx.beginPath();ctx.roundRect(W/2-50,H/2+14,22,40,8);ctx.fill();
+  ctx.beginPath();ctx.roundRect(W/2+28,H/2+14,22,40,8);ctx.fill();
+  // outfit emoji overlay
+  ctx.font='28px serif';ctx.textAlign='center';
+  ctx.fillText(outfitEmojis[ot]||'🥼',W/2,H/2+45);
+
+  // Neck
+  ctx.fillStyle=skinC;ctx.beginPath();ctx.roundRect(W/2-10,H/2-5,20,20,4);ctx.fill();
+
+  // Face
+  ctx.fillStyle=skinC;ctx.beginPath();ctx.ellipse(W/2,H/2-28,30,34,0,0,Math.PI*2);ctx.fill();
+  // eyes
+  ctx.fillStyle='#3D1A4E';
+  ctx.beginPath();ctx.ellipse(W/2-11,H/2-28,5,6,0,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(W/2+11,H/2-28,5,6,0,0,Math.PI*2);ctx.fill();
+  // eye shine
+  ctx.fillStyle='white';
+  ctx.beginPath();ctx.ellipse(W/2-9,H/2-31,2,2,0,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(W/2+13,H/2-31,2,2,0,0,Math.PI*2);ctx.fill();
+  // smile
+  ctx.strokeStyle='#3D1A4E';ctx.lineWidth=2;ctx.lineCap='round';
+  ctx.beginPath();ctx.arc(W/2,H/2-22,12,0.2,Math.PI-0.2);ctx.stroke();
+  // rosy cheeks
+  ctx.fillStyle='rgba(255,110,180,.25)';
+  ctx.beginPath();ctx.ellipse(W/2-20,H/2-20,9,6,-.2,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(W/2+20,H/2-20,9,6,.2,0,Math.PI*2);ctx.fill();
+
+  // Hair
+  const hairColors={h0:'#6B3A2A',h1:'#F4C430',h2:'#FF6EB4',h3:'#9B59B6',h4:null,h5:'#C0C0C0'};
+  if(hr==='h4'){
+    // rainbow hair
+    const rc=['#FF6EB4','#FFAA00','#FFD600','#3DD68C','#4488FF','#C855F0'];
+    rc.forEach((c,i)=>{
+      ctx.fillStyle=c;
+      ctx.beginPath();ctx.ellipse(W/2+(i-2.5)*10,H/2-60,6,30,0,0,Math.PI*2);ctx.fill();
+    });
+  }else{
+    ctx.fillStyle=hairColors[hr]||'#6B3A2A';
+    // top
+    ctx.beginPath();ctx.ellipse(W/2,H/2-52,32,22,0,Math.PI,Math.PI*2);ctx.fill();
+    // sides
+    ctx.beginPath();ctx.ellipse(W/2-28,H/2-36,9,22,-.2,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.ellipse(W/2+28,H/2-36,9,22,.2,0,Math.PI*2);ctx.fill();
+  }
+
+  // Accessory
+  const accEmojis={ac0:'',ac1:'🤓',ac2:'👑',ac3:'💐',ac4:'⭐',ac5:'🪄'};
+  const accE=accEmojis[ac];
+  if(accE){
+    ctx.font=ac==='ac1'?'20px serif':'22px serif';ctx.textAlign='center';
+    if(ac==='ac1')ctx.fillText(accE,W/2,H/2-18);
+    else if(ac==='ac2')ctx.fillText(accE,W/2,H/2-75);
+    else if(ac==='ac3')ctx.fillText(accE,W/2-2,H/2-70);
+    else if(ac==='ac4'){ctx.fillText('⭐',W/2-38,H/2-55);ctx.fillText('⭐',W/2+38,H/2-55);}
+    else ctx.fillText(accE,W/2+44,H/2+30);
+  }
+
+  // Pet
+  const petEmojis={p0:'',p1:'🐱',p2:'🐰',p3:'🐉',p4:'🦄',p5:'🐸'};
+  const petE=petEmojis[pt];
+  if(petE){ctx.font='26px serif';ctx.textAlign='center';ctx.fillText(petE,W/2+52,H/2+65);}
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXAM PRACTICE
+// ═══════════════════════════════════════════════════════════
+let exIdx=0,exAnswers=new Array(EXAM.length).fill(''),exScores=new Array(EXAM.length).fill(null);
+function fmtQ(s){
+  const esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const m=s.match(/^(.*?)([A-Za-z][^:|·.]*): ((?:[^|·]+\|)+[^|·]+?)\s*·\s*Frequency: ((?:[^|.]+\|)+[^|.]+?)\.\s*(.*)$/);
+  if(!m)return esc(s);
+  const xs=m[3].split('|').map(x=>x.trim()),fs=m[4].split('|').map(x=>x.trim());
+  if(xs.length!==fs.length)return esc(s);
+  const row=(h,v)=>'<tr><th>'+esc(h)+'</th>'+v.map(x=>'<td>'+esc(x)+'</td>').join('')+'</tr>';
+  return esc(m[1])+'<div class="ftab-wrap"><table class="ftab">'+row(m[2].trim(),xs)+row('Frequency',fs)+'</table></div>'+esc(m[5]);
+}
+function renderExam(){
+  const e=EXAM[exIdx];
+  document.getElementById('ex-topic').textContent=e.topic;
+  document.getElementById('ex-marks').textContent=`${e.marks} mark${e.marks>1?'s':''}`;
+  document.getElementById('ex-q').innerHTML=fmtQ(e.q);
+  document.getElementById('ex-ans').value=exAnswers[exIdx]||'';
+  document.getElementById('ex-count').textContent=`${exIdx+1} / ${EXAM.length}`+(exScores[exIdx]!==null?`  ·  ✅ ${exScores[exIdx]}/${e.marks}`:'');
+  document.getElementById('ex-mark').style.display='none';
+  document.getElementById('ex-reveal').style.display='inline-flex';
+  document.getElementById('ex-result').textContent='';
+  document.getElementById('ex-submit').style.display='inline-flex';
+  document.getElementById('ex-model').textContent=e.model;
+  const pts=document.getElementById('ex-points');pts.innerHTML='';
+  e.points.forEach((p,i)=>{
+    const l=document.createElement('label');l.className='ex-point';
+    l.innerHTML=`<input type="checkbox" id="ex-p${i}"> <span></span>`;l.querySelector('span').textContent=p;
+    pts.appendChild(l);
+  });
+}
+function exReveal(){
+  playFlip();
+  document.getElementById('ex-mark').style.display='block';
+  document.getElementById('ex-reveal').style.display='none';
+}
+function exSubmit(){
+  const e=EXAM[exIdx];
+  const got=e.points.filter((p,i)=>document.getElementById('ex-p'+i).checked).length;
+  const first=exScores[exIdx]===null;
+  exScores[exIdx]=Math.max(got,exScores[exIdx]||0);
+  const r=document.getElementById('ex-result');
+  if(got===e.points.length){playHappy();r.textContent=`🎉 Full marks: ${got}/${e.marks}!`;}
+  else if(got>0){playCoin();r.textContent=`👍 ${got}/${e.marks}. Add the missing points and try again later!`;}
+  else{playSad();r.textContent='💜 Read the model answer, then try writing it from memory.';}
+  if(first&&got>0){addCoins(got);totalCorrect+=got;checkUnlocks(0);}
+  document.getElementById('ex-submit').style.display='none';
+  saveState();
+}
+function exNav(d){exIdx=(exIdx+d+EXAM.length)%EXAM.length;renderExam();}
+
+// ═══════════════════════════════════════════════════════════
+// SAVE PROGRESS (this device only)
+// ═══════════════════════════════════════════════════════════
+const SAVE_KEY='margot-maths-averages-v1';
+function saveState(){
+  try{localStorage.setItem(SAVE_KEY,JSON.stringify({coins,totalCorrect,unlocked,avatarOwned,avatarEquipped,exAnswers,exScores}));}catch(e){}
+}
+function loadState(){
+  try{
+    const s=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');if(!s)return;
+    coins=s.coins||0;totalCorrect=s.totalCorrect||0;
+    Object.assign(unlocked,s.unlocked||{});Object.assign(avatarOwned,s.avatarOwned||{});Object.assign(avatarEquipped,s.avatarEquipped||{});
+    if(Array.isArray(s.exAnswers))s.exAnswers.forEach((a,i)=>{if(i<EXAM.length)exAnswers[i]=a||''});
+    if(Array.isArray(s.exScores))s.exScores.forEach((a,i)=>{if(i<EXAM.length)exScores[i]=a});
+  }catch(e){}
+}
+setInterval(saveState,3000);
+window.addEventListener('pagehide',saveState);
+loadState();updateCoinDisplay();
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+buildFilterButtons();renderFC();buildUnlockGrid();drawAvatar();
+</script>
+</body>
+</html>

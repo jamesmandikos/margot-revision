@@ -7,6 +7,17 @@ P = lambda i: f"https://docs.google.com/presentation/d/{i}/edit"
 F = lambda i: f"https://drive.google.com/file/d/{i}/view"
 
 SUBJECTS = [
+  {"cls": "avg", "subj": "Maths", "title": "Averages", "when": "Quiz Tuesday 17 November, 11:15", "icon": "📊",
+   "app": "../maths/", "classwork": "https://classroom.google.com/w/ODc3MjE5OTk2Njc5/t/all",
+   "groups": [
+     ("Notes and worksheets (9–11 Nov)", [
+       ("Intro to averages notes", "PDF", F("19-NOutYfTlD5zV3lvOtqKN0R_h9PH57J")),
+       ("Sheet 1.1: basic mean, median, mode and range", "PDF", F("104vwlSlatVQrOyO82sEHPq-BcEIc9H5l")),
+       ("Sheet 2.1: frequency tables Q1–5", "PDF", F("1c87fIcoCAiJ3ZhHleLl7lV8jNk1v41Ae")),
+       ("Grouped frequency tables (notes)", "PDF", F("1JzAa-RQfuGr4J_c7oy4EhdgBBK9vCWLL")),
+       ("Homework 2.4: averages from a frequency table", "PDF", F("1Kb7kDKxHYkBPSDPFvJheR8vSlN6wEwTh")),
+     ]),
+   ]},
   {"cls": "met", "subj": "Geography", "title": "Meteorology", "when": "Test Monday 16 November", "icon": "⛅",
    "app": "../meteorology/", "classwork": "https://classroom.google.com/w/ODc3MTYzNzUzMjA4/t/all",
    "groups": [
