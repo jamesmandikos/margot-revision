@@ -295,6 +295,14 @@ canvas{display:block;width:100%;background:#E3EEF7}
 .home{display:inline-block;color:#fff;opacity:.75;text-decoration:none;font-weight:600;font-size:.88rem;margin-bottom:12px;min-height:24px}
 .home:hover{opacity:1}
 .tab.has-new::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-left:7px;vertical-align:middle}
+.ex-auto{margin:14px 0 2px;padding:10px 12px;border-radius:10px;background:var(--bluel);font-size:.9rem;line-height:1.5}
+.ex-auto:empty{display:none}
+.ex-auto span{color:var(--muted)}
+.ex-auto .acc{color:#B3261E;font-weight:700}
+.ex-point.ex-hit span{color:#0B5234}
+.ex-point.ex-acc span::after{content:" (check accents)";color:#B3261E;font-weight:700;font-size:.85em}
+.ex-point.ex-self span::after{content:" (you decide)";color:var(--muted);font-size:.85em}
+.ex-share-msg{margin-top:8px;color:var(--muted);font-size:.85rem;white-space:pre-wrap;text-align:left}
 </style>
 </head>
 <body>
@@ -498,7 +506,8 @@ canvas{display:block;width:100%;background:#E3EEF7}
       </div>
       <div id="ex-mark" style="display:none">
         <div class="ex-model"><div class="ex-h">Model answer</div><p id="ex-model"></p></div>
-        <div class="ex-h" style="margin-top:16px">Tick the points you made</div>
+        <div class="ex-auto" id="ex-auto"></div>
+        <div class="ex-h" style="margin-top:12px">Tick the points you made</div>
         <div id="ex-points"></div>
         <div style="text-align:center;margin-top:10px"><button class="btn btn-game" id="ex-submit" onclick="exSubmit()">Mark it</button></div>
         <div class="ex-result" id="ex-result"></div>
@@ -510,6 +519,7 @@ canvas{display:block;width:100%;background:#E3EEF7}
     <span class="ex-count" id="ex-count"></span>
     <button class="btn btn-nav" onclick="exNav(1)">Next →</button>
   </div>
+  <div style="text-align:center;margin-top:14px"><button class="btn btn-shop" onclick="exShare()">Send my answers</button><div class="ex-share-msg" id="ex-share-msg"></div></div>
 </div>
 
 <!-- ═══ AVATAR SHOP ═══ -->
@@ -778,6 +788,26 @@ const EXAM=[
   {topic:"Writing",marks:6,q:"Write about the BEST and the WORST thing about your last holidays.",points:["Lo mejor (de mis vacaciones) fue que…","At least one preterite verb in the best sentence","A connective: sin embargo / pero / aunque","Lo peor fue que…","A negative (no + verb)","Correct accents on yo forms (é / í)"],model:"Lo mejor de mis vacaciones fue que saqué selfis para mi Instagram y nadé en el mar. Sin embargo, lo peor fue que no hizo sol y perdí mi pasaporte."},
   {topic:"Writing",marks:6,q:"Write a short paragraph (40–50 words) about a past holiday, using at least three preterite verbs and two different people.",points:["A time phrase (el año pasado, el primer día, el último día)","Three or more preterite verbs","A 'we' or 'they' form (fuimos, comieron…)","a / en / con used correctly","A connective and an opinion","Adjectives after the noun and agreeing"],model:"El año pasado fui a Italia con mis padres. Fuimos en avión. El primer día visité los monumentos y comí muchos helados. Mis padres tomaron el sol en la playa. Lo mejor fue que probé la gastronomía local. Sin embargo, lo peor fue que mi hermano perdió su pasaporte."},
 ];
+
+const PRET="=me alojé|=visité|=comí|=nadé|=compré|=jugué|=tomé|=saqué|=bebí|=salí|=probé|=descansé|=bailé|=conocí|=vi|=monté|=escuché|=mandé|=perdí|=vomité|=viajé|=hice|=fui|=fuimos|=visitamos|=comimos|=nadamos|=fueron|=comieron|=tomaron|=viajamos".split("|");
+const EXAM_KEYS=[
+  [[["el verano pasado"]],[["=fui"]],[["a españa"]],[["con mis padres"]],[["en avión"]]],
+  [[["lo mejor fue que"]],[["=nadé"]],[["en el mar"]]],
+  [[["lo peor fue que"]],[["=perdí"]],[["mi pasaporte"]]],
+  [[["=bebimos"]],[["limonada"]],[["=comimos"],["pizza"]],[["restaurante pequeño"]]],
+  [[["el año pasado"]],[["=viajé"],["francia"]],[["=hablé"],["español"]],[["unos turistas","algunos turistas","con turistas","los turistas"]]],
+  [[["el primer día"]],[["=salí"]],[["=comí"]],[["muchos helados"]]],
+  [[["last day"]],[["visited"],["castle"]],[["took"],["photo","picture"]]],
+  [[["friends"],["=ran","=run"],["beach"]],[["=ate"],["churro"]]],
+  [[["=viajé"]],[["=viajaste"]],[["=viajó"]],[["=viajamos"]],[["=viajasteis"]],[["=viajaron"]]],
+  [[["=escribí"]],[["=escribiste"]],[["=escribió"]],[["=escribimos"]],[["=escribisteis"]],[["=escribieron"]]],
+  [[["=fui"]],[["=fuiste"]],[["=fue"]],[["=fuimos"]],[["=fuisteis"]],[["=fueron"]]],
+  [[["=comí"]],[["=comió"]]],
+  [[["el verano pasado","el año pasado","en mis últimas vacaciones","el mes pasado","=hace","la semana pasada"]],[["=fui","=fuimos","=fue","=fueron"],["~\\ba [a-záéíóúñ]"]],[["~\\bcon (mi|mis|el|la|los|las)\\b"]],[["~\\b(en (avión|coche|tren|barco|autocar|bicicleta|ferry|taxi|moto|motocicleta|yate)|a pie|a caballo)\\b"]],[PRET.filter(v=>v!=="=fui"&&v!=="=fuimos")],[["me gustó","=fue","divertid","aburrid","genial","bonit","guay"]]],
+  [[["lo mejor"]],[PRET],[["sin embargo","=pero","aunque"]],[["lo peor"]],[["~\\bno [a-záéíóúñ]+"]],null],
+  [[["el año pasado","el verano pasado","el primer día","el último día","en mis últimas vacaciones","=hace","el mes pasado"]],null,[["~\\b[a-záéíóúñ]+(aron|ieron|amos|imos)\\b","=fueron","=fuimos"]],[["~\\b(a [a-záéíóúñ]|en (avión|coche|tren|barco|autocar|bicicleta|ferry|taxi)|con (mi|mis)\\b)"]],[["sin embargo","=pero","aunque","también","porque"],["me gustó","=fue","lo mejor","lo peor","divertid","aburrid"]],null],
+];
+EXAM.forEach((e,i)=>{e.keys=EXAM_KEYS[i];});
 
 // ═══════════════════════════════════════════════════════════
 // SHOP DATA
@@ -1484,6 +1514,37 @@ function drawAvatar(){
 // EXAM PRACTICE
 // ═══════════════════════════════════════════════════════════
 let exIdx=0,exAnswers=new Array(EXAM.length).fill(''),exScores=new Array(EXAM.length).fill(null);
+const MARK_MODE='words';
+function normA(s){s=String(s||'').toLowerCase().replace(/[–—−]/g,'-').replace(/[’‘]/g,"'");return MARK_MODE==='maths'?s.replace(/\s+/g,''):s.replace(/\s+/g,' ');}
+const stripAcc=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'');
+function altTest(a,x){
+  if(x[0]==='~')return new RegExp(x.slice(1),'i').test(a);
+  if(x[0]==='#'){const n=x.slice(1).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return new RegExp('(^|[^0-9.])'+n+'($|[^0-9])').test(a);}
+  if(x[0]==='='){const w=x.slice(1).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return new RegExp('(^|[^a-z0-9áéíóúñü])'+w+'($|[^a-z0-9áéíóúñü])','i').test(a);}
+  return a.includes(x);
+}
+function altHit(a,x){x=normA(x);if(altTest(a,x))return 2;const sx=stripAcc(x);return (sx!==x&&altTest(stripAcc(a),sx))?1:0;}
+function autoMark(e,raw){
+  const a=normA(raw);
+  return (e.keys||[]).map(groups=>{
+    if(!groups)return null;let acc=false;
+    for(const g of groups){let best=0;for(const x of g)best=Math.max(best,altHit(a,x));if(!best)return{hit:false};if(best===1)acc=true;}
+    return{hit:true,acc};
+  });
+}
+function exShare(){
+  const lines=[document.title+': my exam answers ('+new Date().toLocaleDateString('en-GB')+')',''];
+  let n=0;
+  EXAM.forEach((e,i)=>{const a=(exAnswers[i]||'').trim();if(!a)return;n++;
+    const r=autoMark(e,a).filter(x=>x!==null),got=r.filter(x=>x.hit).length;
+    lines.push('Q'+(i+1)+' ('+e.marks+' marks): '+e.q,'My answer: '+a,'Auto-mark: '+got+'/'+r.length+(exScores[i]!==null&&exScores[i]!==undefined?' · my mark: '+exScores[i]+'/'+e.marks:''),'');});
+  const msg=document.getElementById('ex-share-msg');
+  if(!n){msg.textContent='Write at least one answer first.';return;}
+  const text=lines.join('\n');
+  if(navigator.share){navigator.share({title:document.title+' answers',text:text}).catch(()=>{});}
+  else if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>{msg.textContent='Copied. Paste it into a message.';},()=>{msg.textContent=text;});}
+  else{msg.textContent=text;}
+}
 function renderExam(){
   const e=EXAM[exIdx];
   document.getElementById('ex-topic').textContent=e.topic;
@@ -1493,7 +1554,7 @@ function renderExam(){
   document.getElementById('ex-count').textContent=`${exIdx+1} / ${EXAM.length}`+(exScores[exIdx]!==null?`  ·  ✅ ${exScores[exIdx]}/${e.marks}`:'');
   document.getElementById('ex-mark').style.display='none';
   document.getElementById('ex-reveal').style.display='inline-flex';
-  document.getElementById('ex-result').textContent='';
+  document.getElementById('ex-result').textContent='';document.getElementById('ex-auto').textContent='';
   document.getElementById('ex-submit').style.display='inline-flex';
   document.getElementById('ex-model').textContent=e.model;
   const pts=document.getElementById('ex-points');pts.innerHTML='';
@@ -1507,6 +1568,15 @@ function exReveal(){
   playFlip();
   document.getElementById('ex-mark').style.display='block';
   document.getElementById('ex-reveal').style.display='none';
+  const e=EXAM[exIdx],raw=(exAnswers[exIdx]||'').trim(),box=document.getElementById('ex-auto');
+  if(!raw){box.textContent='Write an answer first, then press Check my answer to have it marked.';return;}
+  const res=autoMark(e,raw);let got=0,auto=0,acc=0;
+  res.forEach((r,i)=>{const cb=document.getElementById('ex-p'+i);if(!cb)return;const lab=cb.parentElement;
+    if(r===null){lab.classList.add('ex-self');return;}
+    auto++;if(r.hit){cb.checked=true;got++;lab.classList.add('ex-hit');if(r.acc){acc++;lab.classList.add('ex-acc');}}else lab.classList.add('ex-miss');});
+  const self=res.filter(r=>r===null).length;
+  box.innerHTML='<b>Auto-marked: '+got+' / '+auto+'</b>'+(self?' · '+self+' point'+(self>1?'s':'')+' for you to judge':'')+(acc?' · <span class="acc">check accents ('+acc+')</span>':'')
+    +'<br><span>Compare with the model answer and change any tick that is wrong, then press Mark it.</span>';
 }
 function exSubmit(){
   const e=EXAM[exIdx];

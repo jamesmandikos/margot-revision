@@ -295,6 +295,14 @@ canvas{display:block;width:100%;background:#E3EEF7}
 .home{display:inline-block;color:#fff;opacity:.75;text-decoration:none;font-weight:600;font-size:.88rem;margin-bottom:12px;min-height:24px}
 .home:hover{opacity:1}
 .tab.has-new::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-left:7px;vertical-align:middle}
+.ex-auto{margin:14px 0 2px;padding:10px 12px;border-radius:10px;background:var(--bluel);font-size:.9rem;line-height:1.5}
+.ex-auto:empty{display:none}
+.ex-auto span{color:var(--muted)}
+.ex-auto .acc{color:#B3261E;font-weight:700}
+.ex-point.ex-hit span{color:#0B5234}
+.ex-point.ex-acc span::after{content:" (check accents)";color:#B3261E;font-weight:700;font-size:.85em}
+.ex-point.ex-self span::after{content:" (you decide)";color:var(--muted);font-size:.85em}
+.ex-share-msg{margin-top:8px;color:var(--muted);font-size:.85rem;white-space:pre-wrap;text-align:left}
 </style>
 </head>
 <body>
@@ -498,7 +506,8 @@ canvas{display:block;width:100%;background:#E3EEF7}
       </div>
       <div id="ex-mark" style="display:none">
         <div class="ex-model"><div class="ex-h">Model answer</div><p id="ex-model"></p></div>
-        <div class="ex-h" style="margin-top:16px">Tick the points you made</div>
+        <div class="ex-auto" id="ex-auto"></div>
+        <div class="ex-h" style="margin-top:12px">Tick the points you made</div>
         <div id="ex-points"></div>
         <div style="text-align:center;margin-top:10px"><button class="btn btn-game" id="ex-submit" onclick="exSubmit()">Mark it</button></div>
         <div class="ex-result" id="ex-result"></div>
@@ -510,6 +519,7 @@ canvas{display:block;width:100%;background:#E3EEF7}
     <span class="ex-count" id="ex-count"></span>
     <button class="btn btn-nav" onclick="exNav(1)">Next →</button>
   </div>
+  <div style="text-align:center;margin-top:14px"><button class="btn btn-shop" onclick="exShare()">Send my answers</button><div class="ex-share-msg" id="ex-share-msg"></div></div>
 </div>
 
 <!-- ═══ AVATAR SHOP ═══ -->
@@ -797,6 +807,23 @@ const EXAM=[
   {topic:"Climate Change",marks:3,q:"Using an example, explain what a positive feedback cycle is.",points:["An initial change causes further changes that amplify the original change","Example: rising temperatures melt ice","Less reflective ice and more dark ocean, so more radiation is absorbed and temperatures rise further (albedo)"],model:"A positive feedback cycle is when an initial change causes further changes that amplify it. For example, rising global temperatures melt ice. Ice is light and reflects sunlight (the albedo effect), so losing it exposes more dark ocean, which absorbs more radiation, making temperatures rise even more."},
   {topic:"Climate Graphs",marks:3,q:"Kew Gardens: max temperature 23.8°C (Jul), min 8.6°C (Jan); rainfall totals 631.3 mm for the year. Calculate the temperature range and the average monthly rainfall.",points:["Range = 23.8 − 8.6","= 15.2°C","Average rainfall = 631.3 ÷ 12 = 52.6 mm"],model:"Temperature range = 23.8 − 8.6 = 15.2°C. Average monthly rainfall = 631.3 ÷ 12 = 52.6 mm (to 1 d.p.)."},
 ];
+
+const EXAM_KEYS=[
+  [[["day to day","day-to-day","daily","short term","short-term","particular time","right now","today"]],[["long term","long-term","average","pattern","30 year","thirty year","over many years"]]],
+  [[["differential heating","latitude"]],[["curv","round","sphere"]],[["equator"],["small","concentrat","direct"]],[["pole"],["larger","bigger","spread","wider"]]],
+  [[["altitude","height","higher up","elevation"]],[["1°c","1 °c","1c","1 degree","one degree"],["100"]],[["978","1000","1,000","1 km","1km","10°","10 degrees","10c","10 c"]]],
+  [[["prevailing","wind","westerl","south-west","south west","atlantic"],["moist","wet","water vapour","warm"]],[["rise","rising","forced up","goes up"],["hill","mountain","high land","relief"]],[["cool"],["condens"]],[["descend","sink","goes down","other side"],["dry","drier","rain shadow"]]],
+  [[["latitude","equator","tropic"]],[["concentrat","intense","stronger","more sun","more heat","hotter","heats"]],[["rise","rising"],["less dense","expand","warm air","heated"]],[["cool"],["condens"]]],
+  [[["sink","descend"]],[["summer"],["sun","dry","hot","clear"]],[["night","drought","fire"]],[["winter"],["frost","cold"]]],
+  [[["cold air"],["replace","push","behind","advanc"]],[["dens","heav"],["under","wedge","beneath","below"]],[["forced","quick","rapid","steep","fast"],["rise","up"]],[["condens","cool"],["thick cloud","cumulonimbus","heavy rain","thunder","storm"]]],
+  [[["hadley"],["ferrel"],["polar"]],[["equator"],["rise","rising","low pressure"]],[["30"],["sink","descend","high pressure"]],[["dry","desert","little rain","no rain","no cloud"]]],
+  [[["higher latitude","high latitude","further north","more north","in the north"]],[["polar"]],[["atlantic","moist","westerl","prevailing"],["mountain","relief","hill"]],[["lower latitude","low latitude","further south","more south","in the south"]],[["tropical","continent","africa","warm air"]],[["dry"],["continental","europe","rain shadow","shelter"]]],
+  [[["cool"]],[["ash"],["block","sunlight","sun"]],[["sulfur","sulphur","so2","aerosol"]],[["pinatubo","0.5","1991"]]],
+  [[["fossil","coal","oil","gas","petrol","car","factor","power station","burning"]],[["deforest","cutting down","chopping","trees","forest"]]],
+  [[["amplif","increase","speed","accelerat","bigger","worse","more"],["change","further","again","cycle","loop"]],[["ice"],["melt"]],[["albedo","reflect"],["absorb","dark","ocean","sea"]]],
+  [[["23.8"],["8.6"]],[["15.2"]],[["52.6"]]],
+];
+EXAM.forEach((e,i)=>{e.keys=EXAM_KEYS[i];});
 
 // ═══════════════════════════════════════════════════════════
 // SHOP DATA
@@ -1503,6 +1530,37 @@ function drawAvatar(){
 // EXAM PRACTICE
 // ═══════════════════════════════════════════════════════════
 let exIdx=0,exAnswers=new Array(EXAM.length).fill(''),exScores=new Array(EXAM.length).fill(null);
+const MARK_MODE='stems';
+function normA(s){s=String(s||'').toLowerCase().replace(/[–—−]/g,'-').replace(/[’‘]/g,"'");return MARK_MODE==='maths'?s.replace(/\s+/g,''):s.replace(/\s+/g,' ');}
+const stripAcc=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'');
+function altTest(a,x){
+  if(x[0]==='~')return new RegExp(x.slice(1),'i').test(a);
+  if(x[0]==='#'){const n=x.slice(1).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return new RegExp('(^|[^0-9.])'+n+'($|[^0-9])').test(a);}
+  if(x[0]==='='){const w=x.slice(1).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return new RegExp('(^|[^a-z0-9áéíóúñü])'+w+'($|[^a-z0-9áéíóúñü])','i').test(a);}
+  return a.includes(x);
+}
+function altHit(a,x){x=normA(x);if(altTest(a,x))return 2;const sx=stripAcc(x);return (sx!==x&&altTest(stripAcc(a),sx))?1:0;}
+function autoMark(e,raw){
+  const a=normA(raw);
+  return (e.keys||[]).map(groups=>{
+    if(!groups)return null;let acc=false;
+    for(const g of groups){let best=0;for(const x of g)best=Math.max(best,altHit(a,x));if(!best)return{hit:false};if(best===1)acc=true;}
+    return{hit:true,acc};
+  });
+}
+function exShare(){
+  const lines=[document.title+': my exam answers ('+new Date().toLocaleDateString('en-GB')+')',''];
+  let n=0;
+  EXAM.forEach((e,i)=>{const a=(exAnswers[i]||'').trim();if(!a)return;n++;
+    const r=autoMark(e,a).filter(x=>x!==null),got=r.filter(x=>x.hit).length;
+    lines.push('Q'+(i+1)+' ('+e.marks+' marks): '+e.q,'My answer: '+a,'Auto-mark: '+got+'/'+r.length+(exScores[i]!==null&&exScores[i]!==undefined?' · my mark: '+exScores[i]+'/'+e.marks:''),'');});
+  const msg=document.getElementById('ex-share-msg');
+  if(!n){msg.textContent='Write at least one answer first.';return;}
+  const text=lines.join('\n');
+  if(navigator.share){navigator.share({title:document.title+' answers',text:text}).catch(()=>{});}
+  else if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>{msg.textContent='Copied. Paste it into a message.';},()=>{msg.textContent=text;});}
+  else{msg.textContent=text;}
+}
 function renderExam(){
   const e=EXAM[exIdx];
   document.getElementById('ex-topic').textContent=e.topic;
@@ -1512,7 +1570,7 @@ function renderExam(){
   document.getElementById('ex-count').textContent=`${exIdx+1} / ${EXAM.length}`+(exScores[exIdx]!==null?`  ·  ✅ ${exScores[exIdx]}/${e.marks}`:'');
   document.getElementById('ex-mark').style.display='none';
   document.getElementById('ex-reveal').style.display='inline-flex';
-  document.getElementById('ex-result').textContent='';
+  document.getElementById('ex-result').textContent='';document.getElementById('ex-auto').textContent='';
   document.getElementById('ex-submit').style.display='inline-flex';
   document.getElementById('ex-model').textContent=e.model;
   const pts=document.getElementById('ex-points');pts.innerHTML='';
@@ -1526,6 +1584,15 @@ function exReveal(){
   playFlip();
   document.getElementById('ex-mark').style.display='block';
   document.getElementById('ex-reveal').style.display='none';
+  const e=EXAM[exIdx],raw=(exAnswers[exIdx]||'').trim(),box=document.getElementById('ex-auto');
+  if(!raw){box.textContent='Write an answer first, then press Check my answer to have it marked.';return;}
+  const res=autoMark(e,raw);let got=0,auto=0,acc=0;
+  res.forEach((r,i)=>{const cb=document.getElementById('ex-p'+i);if(!cb)return;const lab=cb.parentElement;
+    if(r===null){lab.classList.add('ex-self');return;}
+    auto++;if(r.hit){cb.checked=true;got++;lab.classList.add('ex-hit');if(r.acc){acc++;lab.classList.add('ex-acc');}}else lab.classList.add('ex-miss');});
+  const self=res.filter(r=>r===null).length;
+  box.innerHTML='<b>Auto-marked: '+got+' / '+auto+'</b>'+(self?' · '+self+' point'+(self>1?'s':'')+' for you to judge':'')+(acc?' · <span class="acc">check accents ('+acc+')</span>':'')
+    +'<br><span>Compare with the model answer and change any tick that is wrong, then press Mark it.</span>';
 }
 function exSubmit(){
   const e=EXAM[exIdx];
