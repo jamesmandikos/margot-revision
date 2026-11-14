@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#4A1D14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="El Pretérito">
+<meta name="robots" content="noindex, nofollow">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAQAElEQVR4nOxdCVwb150ekBD3fYhDiBvbgI0vjC9824nv23GaXpukTTbtdvvLpt20adJzu91eSdO0adM27m+7bmIndmI7seMzxif4BMxhzH0j7hskcew3etJDkZhBwmgkyHzh5zxJTwMz883/fv8n3RQZxIgQMRacGREiOCCSQwQnRHKI4IRIDhGcEMkhghMiOURwQiSHCE6I5BDBCZEcIjghkkMEJ0RyiOCESA4RnBDJIYITIjlEcEIkhwhOiOQQwQmRHCI4IZJDBCdEcojghEgOEZwQySGCEyI5RHBCJIcITojkEMEJkRwiOCFlPpdwlki8/fzdPDxcZDKJ1EX3L/s/fKTVaoYGB7Ua/Iuhpr+3t6utlflc4nNBDtz44PCIoNBwb39/L18//Hh4eVl1hL6enp7ODvx0t7e3NNY319eBQMx0h9N0XSsrlcnCo2NCIiKDwsID5aHMZKNV1QiKNNXVNFRWQMQw0xHTkBwhEYrY5JToGUkQGDzT+nq6uzs7tGo1ZAC0CP7TatR430Xm6iJzkbrIoGbAMG9WzHjzHAdfriouKsu/B64w0wvThxyu7h5xKbPjZ6fidpp/2t/b01RX29JQz6qGjo7O1hbGGvgGBnn7+cFMgRwC+dw8PM3ndHe0l+bngSXq/j5mWmA6kMPL1zcpLT1h9lyT90GI+soKlhP1dV3tbczkwcc/IDhCAZaEx8S6uXuYfFpyL6fgRlZvVxczxTG1yeEXFJySviQyPtHZedQnh3qoKXlQeb+osbpyZGSEsSWcnJxCldExs5IU8QnE2SEYHh6ufnD/Xvb1Ke3pTFVyQLAvWLUmesYs4zehNYpz7tSUPhDelYB9E5U4M3HufBPjt6Ko4Hbmp1NU0Uw9cuBhnTFvwZwly2A50jfrK8shyaFBGHtDHqlMTksPi4qh72jUAzlXLpXk5TBTDVOMHIGhYUs2bIR5SF5Ca0BO3Mu61tHSzDgS/EPkKYsWQ9+ByuSd9pamrNOn2ppUzNTBlCEHrvKcpcuT0xYbX+5rpz52NFoYI0Aemr7+kYBgOXkJKoPH97KuMlMEkgRfD8bh4e7puXrn3piZSYQZMDnvXr6IB3Ggz6F1Odyl0rxchE+CIyIkEgn+eCgd/NRVlCM2zzg8poDkCFFEZmzZTj3GNlXjpY+O9XZ1Mg8HpFe8fHzdPD1lrq66wJfMxZU1YhAWQ0oFd1SjVg8gsTIZPrCnj+/KbTv9g0PIS5Dm8kfHHD9o5ujkSJgzN23NeiIwIJaL7tzMuZw5MQcVdkAwQliKSJ+AAAQ9Xd3cLfyieqAf4dTO1tam2ho4RO3NTYz1gLM9d/nKWQvSyMuRkeHss6fLCu4xDgyHJse8jJVJC9PJGDfo2qmPGqoqGSsRNWMWPF65Umkch3gYQKioamoqiwuriu8zViIsKnr55m0yVzfyEvZH3nXHNUEclBx4zpZu3ILIAXkJHxVyeKCv1/IjIN4QN3tO9Mwkfk4g3TrQ36vu60NqHtKeYe0bL5g4rh4e7h6eGPN8FyypKCosK8hrU1nhg+DgyzdvR3SVvKy4X5h1+iSCZozjwRHJAd2/ctsuuSKSvMTlu/7Jx5arkgC5PHVpRnh0rPlHPV2d1SXFjVVVvd1dIAT0xbhHg/aBXQI1hBxvZEKip7eP+Zy6irK861cspwi05LJNWyn1VbU1F48dGdRoGAeDw5EDzFi/73H/IL3tdv/u7dsXz1v4XVh8qcsyImLiTN5X1dXUlZfVV5Rbm28zB0IsEbFxSKnIIyJNPqotL827dsVyi2TR2g2wqMi4rVl19vA7jsYPxyIHgtBgRqA8jLy8l30Nl9uSL0KLz81YEZ+SSqMgiEvCQKktKwUnMGYmG/iNoIgiLh4ShcZqId4QCc25egkujyUHWbByzcz5C8kYqvPC0cMOVUPkWORYvXMPVQd3r2QW3sy25Ft4/iAwqPeB6wunBuGm4aEhxvYAoZH8m7VgESIZ5B3YzrlXL5fey7Xk67MXL0MqgIxB5czjRxmHgQMFwaCGEW8m4/t3b1kiM2Dcrdm1LzF1nlTqQt5prK769IP3kZW1dT6WYmR4WFVTjSQwPGRvP3+8I3VxUcTGI9jVUDV+kRjcY4RYgsMjMNYdwa+mtIRxDDgKOaCA45Jnk3FlcRFiAON+JVQZtXbPY74BgeRld2fH9dMf5167bAslMi7wSyuLCtuaGgPDwl3dWE8VEbaYpJTWxoZxCzug/sAJEiLDv1IXKSjOOAAcghyxybPhX5AxzLorHx8f9ysQxenrHyVu6uCg9l7W9aunTti9eKK7vR02x/DQMKJt8MYhQmKTUiDCmupq+L8IhYKcIhE8weEKhGUf3nZ+eNifHLgiq3fsJtU6iChf/PDICK/Tj7D3qh27qe2J4ATs/JqSYsH0CD/wZ4AKcG5hq0JfsNVAkUp41+P+hUgvh0ZFk3pVmLrVD4o1A3YQgcawMzlgza3bs99dt1AAIeqzhw7yK2mpTAZVEhoZRV52tLacO/xOT2cH42BAvA7xUzi9ru6smezjH4CoF0IsPMEuPBK1ZSUxs5JBKWdniVwZVZafZ1/G25kcaavX4SlhdA/chSOHejr50mmu7h4bWEdXX2qlqq0+f+SQun/8QJZdgOxdeWF+cHg4jA9GV+gKpxeWMo+zio9aGhugiSBv3Dw84H/BD2fsB3uSQ65Qpq1ZR8bwTaoe8KUqIDPW791PE5sIm14+8aGDryyCL115vxA+iJ+uOgnBeCgOmNs8PnZfdxeb2VcoGV1lU2N1ZV93N2Mn2I0cTs7Oa3fvk+kM++b62utnTvFMhp2xdvdjuFjkJfJVtz497yBGBj/wR0KbODk7kWwA+AH9Asbw/PGIhskjozx92Dh9UHgE4iX2OlO7kSMlbbEyYQaj8zXOvfeuljtyjCdpxdYdYcpo8rLgZlauZWFTxwECIRKphCTbcNeRHKjmFZMQGAjewEh3c/cYGhpstlNtrH3IAZs8Y+t24qEgZ82vWZG4j0ueQ8ZwdLPPfsJMQSB0ERQeTpxVKBoITjCGazIeFScnZ4TRGFZ4hFcUFWjtkXaxTwuG9A2PSiTsWkVEropu3eCZGRYVTUs6OttaLQmBOCwunzhGoxfJixbDPuWZDAHZrfPCEPxduHodYw/YgRwhishwQ+U+xACPdwcJvHzzNjJGwuLCEcfKS1mLQa3mwgfvkQCuE8Nm7d25F/vDaL1xTh8mjoxLCLDBWvBxYQdypCxaTAb1leU8ohVKZ+X2XaRoCnoXGRMEQpgpDrgeiPIND7PeCk5t5badxmv1TABN1Fijj6PPXryUERxCk8M3MIgu+EHilGcmUp20quPqqY/aVI3MtACiwFkG1yxQHkaV5pjIz75OBsjk+QUJnT8Xmhw0PY0QVktDPdc0D2/vpDT9VYP2ReyImUaoKCosun2TjFMWL8HJcs2EZKVF6slpixlhISg5YKvTpDy/2EhbvZ5YrEhB5V69zEw73L18kdibOM0Fq9byzKQXKmrGLE9dsFUwCEqOhDlzSbasrUnFY23AhUPWioxzrl6aEsEua4GToqRXxieGKqO4ZjZUVbQ1sSoVly5hTiojIAQlR8ysJDIo5HVfFxqepI6WZhspFCRoYO2mrVk/ZhuWCSN+duqWrzxFfpBs459cVVzUaagxmL9yNc/M4rt3yCB6ZhIjIIRrGAd5QO4E3FGkH7mmwVz1Cwom47uXM5lJBQTSK3/7Pzymxh2htGr1nUsXf/6vTz58fe9P/+8w4URXWyvCvuPOh3JZtX03BjC98Vdx1fhUlz5IW7seAQ9Pb5/g8AjBlsoJJzmiZ+p7aSDXwBOuSEpbRAatqkb4uszk4cmXfvSnC9eQRjfpFebi6pq+/pFDeQ/mr1jNPAQytu4gzOjv7X1mzTJLVtnUlZchDUvGSQsXcU0DazGTjIUUHgKRA958lKHRCmx1rmnIa9NajduZF5jJw7q9+3c/8w1am87obqFxjTik2g8PHMQfwEwU//Liy4xODn3zkZWW16TlXr1EBhCZXmN1MyNABJ0M8IwZn4VNIRA5giMUpKQPzxOySlzTYg1lpJAZk5htQrr/uZ/9D32JgP3umdF7ZkXvSFD8++Z1tFZI6uLyvTffZiaK3z7/bz99+stfX73EqgpQTFYZighjZiVzTWuorCChVYTOgsLCGUEgkM0RYlgCVFdRzuN90ATbBPrgvHnuiky3TP7AL35qkoL56n/+wNWwSP9B7t0Xdm2mHyEh/uW0OYcLysAMvJy7fAWi+021NYGhYb98T3+QHz35BLWLIV2UOm/84rEj//j1L8ibUEwvvPbH5LR0n4BAzcAAQjjv/v7Vyyc+ZCzDg5w7ZIlUTFIyV/cOJBmQniQ6Ra5QCmN2CCQ5QhT6paG47pxzIhSksfDIyHBjldXl15EJiaFR0fihoRQKurYd+PW3/tXkU/VA/8l/HKAvSakzQjLkaPihFUbkUOTNGfMW0t/7zt37yAH5h8hhzSBdglv44h/+8uIf/8pYhoaqSpwy+0t9/Xikgspw6ejFtDWEIAfS08FhEWTMU4eN54YMGmuqBye1twlddqvu76urKDOfkHn8AzpOSJ3LWIMfHfgnzZ8NarVULmZs2b5s4xZLjgAzhXYz49Es9LmCGHZyFuLGCfE7EFQgDkJ/bw9PlSh94idWOAnhXHm/ED9lBXkmH5EqCoaNt7aP+V3jPhmkBMlCwEOh8asLR9/bER/xeOqMVoMD8uxPfmHhceoMp0yjf+ZAsJis/MbFDAiRM7aHEOSgZ8JjqcFQp+sZJ0YOtjZTB7r6zXI4O41eB6sCsunrHqHjP/7gu/hud0f7sb/9mbwTIJdb6FnQU/bw8uZJtdALKAw5hDBIvQ2xQp5eemQ9IKNrmDGxTksrtu5092SDbDACmE8+Nv4IN8xfdzW9/cb2FeNmz6FjyB6GGyY3OzI+gY7fKyg3n4PQnyXOS2drS19PN1m0EhyuQPB0zGm4gKRxw7jh10mBEJLDx18v1XGTuOYER+jJUVM6kXg5whiEGcDNC+dMPqUaHcEMUnsHwIR84XdvkqDtmp176eT7t2+ZfJ024mF0eTLjj4yfcicDjCeYW8dcqC0rJQP6nJiDXkBvwyW1KYSQHD50OWsH5+ojWroxAZ2yctuub//6dTKGcVdu1mjr/p1bM+YtIGP4nN/ZzdqJz/7kv+GGwGw8e+ifG/Y/QSfnmTmTxvVapKkcRUt9PWkLAIXy8pf2ma/VK7p1k7EMOPHE1HmMbrks15wewwWkVpRNYXPJQZr2kXE3t76gocn2FuvasW1/6pnvvvFn2lHuN89/03zO2//9E9pgOiktHekV2DekZBfhjY1f/AoNqCM+1q7TfcZOTUr6EjJAro6EQxiD7qCWLF5C1OdcuYSfxRs2vvzX/33uZ7/c+tWnh0cs7efU1qzXuVy6j9FV0dI5AsRJbS45KMd7ujq5bD0QiGZH1da0FkVa9es/8m5jrwAAEABJREFU/BkZwxT9n298bcwKZOQm/vTK9//9V6+Rl8ikvH+/EhFu/D0ml/i/nn2SDNiGk2o1kRObvvhV34BAUDx1+QqTIx989ZdgJyn1+87rf3r08S/h/kFh4bBI4mg1agu7uDCsm61fuufu6QWyjpl+Gh4agk2GaJCTkzNMeB41PSmwueSgpsBAL2ciirZRwNW0qnXa86++QQYIMLywYyNPbfqZQweP/PkPlJ24ncj9mj98f72UvePpZ8n4XvY1OhnaZ96KVRiY/Hn9PT0Hf6MPzJMey5ip76SrVr+4bwdjMXDjtVp9WphHawz09ZABvbC2g83JQeUw2QdpTFCxYVVHYjxe1Gg//MZrxTl36EdQHH84k/nyX/+x9NHRSPnb//WjZ9csrSktMXkocYP7DcTFX/K1V37K+js4yJceK757m/IJ/AO98g11WaRIGHj3979FSgUHMT5mR0vzK1/Zb+2TTU/fjfvG0wUs0knqnMkDm6sVeg5a7uXzUpmeQFatisajRvVC1IyZ9H1d6w42/IAwdknu3WtGbi08AvCD0dnIqcsyIMzuXskcZFcQOX37V79bu3c/BmX5eSSTgoM/v/1RJO0WrVmPoG05d0PZrDOn9iTFwI5JXZ4B1waJIZ46Nx7g9Mk2Uy4yzhuvVRvIIbM6nGMtBCCHQXJwa1/acM0qycF2wqitIa7p0o1bXnrr758efQ+Cff2+x+mEYwfeGvO7MDiME2OY+eoL3zr42q+e/N4r+Nd4Jqhz7bNREy4gfHnj3BnmIUCtZp7eqVQATyDWZy0EJAd3nZWLYY56wLpG9z9+8ok3TmfCFMATDw1irESAo2/90UTa8wNU+8U3vsbYD1Rw0otmDiO1YnNyCGBz6B+CQS0nOaQGKWrtLghVxfdfenxXu1ngFZLg9y/+B4wMZkphgEqOz0ZTjDEqOWRT3+ZgDAadJTmLCSQb865f/eLClIWr1yWnpSsTZzbX1948fzbn6qXpuikwvYzTIc5B3TMePUpbPZnvtGghbn16Dj/MFIe7wWvjKXUelcS2X3dvc3LQJ1jiwvm7KDkE8N0dGdSD5fPsDJdRa/ttsG0vOagBxW1dU3PE1WMKbBtlO7gZTp/PPjNIDgH2ehJAcujPgceAGpUcHp9ryWGkVngkh8u4cyYLNicHvfFS7p3lyUYnzFiRwTkzPZbOZ+NCOYXdWTljt2AI8JXu28xmMlvate+fsmg/wA0Z/rGRbG3RyYut1fWWpj8AHy+JWjOs1lhREOTsNLIy3T8xxj04wKW7d7hONXDhWkdb5xj2MhWc9IKYg8bHtNqpb3NQ75RnY5tuQ/WeE+Pk6u5hvEVvYozHvGS2ZmJ4eISLHP6+UjKnu2fQQnIsnusTEcpWaeTd77GQHHCktq8L2pAR8Ou/VJdVW9o+NjxE9h9PR3p5jl7npATPtUsDTl1sPX7+M2tbYG/h9Mm4k3vZy2iqodeKrYkmBpvHOWhZF099CuwS+qw4rE36w2/FPLoyEPE2y7/iKnP6zteVlBldPVpE/BmWZ06b1wSlp36mHNDN8PD09XRz9aLUFQaMXzk1WbC55NBlmdkCOIlE6unjw9UlvqujnYgW/+AQa7eKralXv/53tjK7r9/SPTQOvN8IBYFBZa2lMsDLw+oHKX2ej4c7+1sg9n78u4rGFi1UzJN7w9JS2eKVLWsDs3NHZSGt8eERG0jTO+nKXbs7OwRoPiBEJRg4TqojffwDucjRrlKRhT3h0TF06Z8JUmd6rl/uHxbi2tE1eOte96lMvUzy8ZY8ksEm/VWtmora0WjpmiV+C1K85UEy3BuYI6cvt+UW6UXxvCSv+ChWwX9wpqmillUrUgmzcVXAvCRvHy+ps8Spp3fwZl7X+avtfQMjMqnTN7+sILcZeGK7vLt36I3/rdMOsrdnVpz7hoxARZgMPntNg/r0pVaqdAJ8XTSaIZlMkpndAWbgneERp5MX2wg58Knx2dH+ce3clbY0C91je7HBCEMOaBbSkhcisaGqYsw5TXU1ZM+icLNNuAhmz/RaMFu/vxoEtSLMTRHq+pdD7CIAX2/pjDj2TofLZQePsVdWKnV66bmocPloENrXx+W5KI9LNzrIhLlJXsTmANUIOb7/XBR5h8DTXbJlTfD8ZJ8fv14pkzmT4xOQaS4uTiDHzg1B0DX0owA/l9RZXsfONoMBePnhmRb8QFoMsyzS66NHVuhvcEPTqK0DfUG7YTVxrwP1CdB/l6fgchIhRIFxe5O+8o+nJV5Trf6KyFxdx1z1JXNxHhwcLi7rwzNN3lk4x8fdbWwLYO+mYMoMaHoYqmS8YpFfjGKMtMXsGZ7klvf2D1291XEztwu/i2HZ5rppVcDg0HCvkcKCMMDL4aERZYQrZQZ+RWu73n3Yvj44yH/0qYO0IMwAS577YsTiefqCyE8ujz79OGWZIZ+iquFc90VXJExsb1trIYTkoAs7QxSRXHOQ7+5sbfHV9QiHgDVvFwbV8JPXK1WtWjeZ029/kCCRsJc7OEBm7mvgHqxI05dh/vNYY+YNdhnVD78VjTuNWz4r3pOICmPMT9Ybgx2d2ovZHThmcoLH8oW+UBCFJb0D6pHnf1b6m+/HEdPytQO1RHHs36y3EjDnd39nyf30PtgTrHjbu0n+5kHT5azffSYqJlK/Nufjiy238kYNDrI7AKMroeWJgNHSeZ5VpZMIIcgBAxP+CBx0Lx9fdy8vrjR6XUWZnhwxceZb8apaNGAGBgOaEQgPqAmMvT0l5scJCZQRnwJUIMwAXn2bvZpdPWNbrKVVA0t11emQHy99IxpfLK/tv5XbfeVW5xB31WJoiP5Z7x8YWraAlQe9A/rjR4aZRvzWLfOnzHj3hOrTrM/oBUoO2ofDHF6+vsRmx4M0KZuojwuBFlKravWVUbT9hjkqDRs8B8jlrmYZuNb20YDg4JDeUJeMwQ3cYP09U2tH7XnQgosZwPU7HVVGbotU6pwY7fmF7aGvvRyfEMW5q7m7q/7qwRj68q5Q/KxK1/uZnh6mT11ygt5FP36uxYQZru7uAcF6fcGzy3WIwiA2hGqFLhA5qGaRR3JqFljpxHdHLMi89TPikoxl6OzWk8BFOmqRwDoJC4awGdv9g1nw8zer/na4vrSyj1gbBHA0nn2Cc9k79SVVLeri8j7jn6JS0whVmMEGOnfV9KGPiNWvj4WDyuPG002shdEpjGD9OWgnFi5nhKCiqJA0Kk2cO5/LoR0XtQ16GQAbNjrCtbKOtTC+sF2+aI4vDBeE4f/8ToPJV2BhxCndI8JcD51sqq5TR4a5QgsQyxF2hs7dGOUZjYNR7VZY0vfuR6yFiF+H2AaOUFplWgz7zrFGby+pWjNkHnona5mA8oJ8hgPsWgeD6hFsEwWByAEDU6MekLm6IbcUGhXdWFU55rTS/NyU9CXOzs5BoWERsXE8CpgHMErgJYbpDALYgAhXaDQjC1NYOxH3dczI956NIcS7iYpwP/BefUubFqEU8pFGO0yYMWTQZeuW+yNMAu1w7W7XRp23kpHm29s3VFrV99S+cDAA79zK6yJuNsX+rXI4uhh0dFWXVI5SJzI+gew9NTw8bN4fgCJUGU0C5wN9va1CNXMWSK0gnEdbgUUbmoOZA7YqXcc8L2PVhIud3npX7+zAqYEAWJHuRx739q5BOCPm8xH8GNbFIvx9pM8/pfz5d+Koj3ruil4LNLfpjZ65s7zXLgsICZadvNBK/GrYKFvWBn37SSVhBtzaA++bCieJ4UobF7vhBOcuX0nGOHGeilfapZOno9qkQ7huglRNKBNm8HSDL7iRRQa+AYHGnfOMg8V0PDzM3vJhM0OiXqX58esVNPBAgBjJz/9QOagLa9IjkAG0wG//VtPc+pn5kBkfnmk+dk4fzH7/k2a8Qz/19pBoBke+98tyWBjDhr8A9gqsFhxq0Mz2HTYEwYxPJCYphQQ9R5gReuLmkEiltGtIxX3hyCHoduXb/uVrZC3XpY8+5Ok+u2rH7gidadLb3XX8wF8eZtdxpL6U4W5q7XCjSqMZHD8Z4QG7NcQVAVZVs6aj2/T3gtKKMFb71DaoP7vybSQc33Jxqq6zIvuPJ2T7U8+QxEJteWnmMc6NyqNmzFq+aSujs1iPv/0WIxQE7WBMReKMufN5puVcuTSicys8vX0SZj9UQ2dYf1DwuGeWMANAJgVGSXF5vzkzGFZQMTgUfsyWbDrVN2msYgajM7oJM3Cy/P3d6eUqz7/HCAhByQF7k6w1RaqFJ5QOd64kV99NcPaSZQIs0BAeOCm6eP9Bzl0+D1YRSTp2DA0Nldyzusniw0BQcsDgKi/Uc59/d5ncq5dI2034NzPnpzHTDkkLF5E2VwP9fTmGPrVjgu5dVF5wT+BNdIXebyU/O4sUIvDvLqNRq2nj85T0xXbZxMp2QJotybB5Ck6TZ5EBMm0kW4uLVnAzixEWQpOjt6uTbi6cks4nPErv5ZJuWhKJdPXOPQJvNWI7wCTH6Uh0kf/6ynKe9dkMu1WP/hLB0eUqhbEd7LDHW8EN/dZUysQZ/CLhysnjpHwQsbM1u/ca9+aaosApsFst606kr6f76skTPJMhYCLj2IZ0sFj59y6yEexAjo6WFhLzQA5lyYaNPJEuqNjLHx8nasjHL2DVzt3Oznb4gycLzhIJFYE4qUvHP9Bwdx5wcnZe8sgmMkZYvVuQ0i8T2GfTYeQVE+bMk+i6PSGbz7PZW193F7gRqqtjgGfr7ec3sXaDjoCMLdvDoqLJGEZo9YNinsnJaemkqyQMc4RA7LL01z7kwKkOajWkiCE4QsG/43JTXY1vYKCfrtSD7NMjWFpyEjF3+Yp4Q8wGVtfti3wbhiD+sWLrDiImb2deaPpcbVcOtKkaFfEJyMM5O0sC5WEVhfk8k2vKSoIjIsh2JPJIpdRFatW2FXbHvBWrkg1bhDbWVF068SHDXTsOPbt6525ysoh/ZNlve3a7kYPR8YM8TJ4+bMpUxSMPRkYQbg+PjiWlUMHhisDQ0NqyMtqYy2EhdZGt2LYjLkm/j0xbk+rC0cP8CQHIGJJUgh168cMjPKvfbA17kgOnDRmAO83o4oDN9XU8bfMRWgU/QqOjCT+Qr1Igp19RprV9J4IJw8Pbe92e/bRIp61ZdeHIYZ7GeYxOLqavf4QsfcvPvl4pYJrNHPYkB6OTFqFKJSxNtvorJrayqGCQu7MALJXK+0VyhQLzGd3CwNikFFCqr9sRtzFHzHv9vsdpg16cKWQGf1tSnBG+QtoRqGqr6cbV9oKdyQF9UVdRHpcyG1cE6QZ5ZBSeFZ5WpBDIyFn7B4eQTDe+hax3D291nV0QmzwbFiXtV1NbVpJ57Ai/x4HTX7vnMdJNsL+v99zhdwdt32SBH/Ymh24ZfquqMWZWMgwxqAxEfiAeeOw1RAiqiosQHGH3pNFBmZCIMDMsGM2ApWsbbQcEQBGfgPlJO24jfnXj/Bn+1YuIaiAEQvtAkrsAAAY6SURBVBJsmAkZY5fAhgnsTw5GF1Pv7+1V6OpsYaX7BARUlxTzfwVSGgpFEZdA2pbjKwmp81zd3VsbGoaG7NMNDIm0+StWL96wkTZkVg/0Zx4/yh8gJ1i+aavCUGacfe50XXkp4wBwCHIwOjNeKnMhjw5CGm4e7uNunwDrtep+ESxZYqLiSYXUSZiTCtUDKSLkJucISMxckIYYFxFm5E2c0dnD/+xoHl/fpa1ZF2fYFjP/xvWi25ZutGBrOAo5gMaqShrsCgwNY3vQ1o0T7ILlX5afNzQ0FBQejngJo6uoC4+OiZ45C5mLrjYhVv5EzZi5YtvO6MSZdOsFrVaTd/1K1umTlnhSsxcvSzKEQGBvmW8WY0cIWiY4LvAIrtnzmNywz2hxzh0LewTCaUxbvd5kg7Tuzo7a0hKE222x0SYc1Mj4RMTxvD6bLka87ub5M/2WdVZJW7s+cY5+XQKCYxeOvjdizb4AtoZjkYPR9WfdsO8LdDv78sL866dPWvhdaKU5S5ebL6ob6OvFPastLW2srhx+iKuPzFmYMloRHw/7wM2sfVlDdWXu1ct0979xsfTRzXQvyPaWpjPvHhzU2tk9MYHDkYPRLbRfvWtfUGgYedlQVZF5/APLM09cFGF0agieMxxL/Gt5H0+pTBYRExcZn4BIzJjdVK2lBRTQyu27wDPyEs7a+SOHLN+ZRTA4IjkYcvm27aQtKxDGQCC5t9uKahdYLQifIA7N1RwXRFEPDGgG+vEvbgw8C3jCMCdlbm4yVzcIMPg+GLi6udG+/aZH0GoqCgvgjFi1ysjL13fltl1UNNZXliPV4pj9lh2UHIzO9YfgpSugcCuvnjyBS8lYiciExNhZKXKl0mWSNigBJ1TV1eVF+TyrK7gAq2jpo1toR0AE9K5/8rGQjpVVcFxyECxcvc54HUPhrWx24cKErqZ/iDw4LDw4QgGfCDlxuo3tuIBQge/T2draXFcL23ZijVMgk+ZlrDLeOB3nQutkHROOTg4ACZSFa9bR5x7pq6zTpx6+tQ3ZmdDN0xMmDhQHnmayVwG7u5tGA6XDqp3e3p6uzodZVUWAAC6kIOk+wrAL47Q4BVpL67CYAuRgdDnYjK07/AwXF5Kj+O7t3GuXHc28NwcyJnOXr0xMnUeDYx2tLZnHjiIfxDg8HCgIxgMIdgS73Dw8yIJ0EgyN1aXchOlxMzHA3Fm9Y2+YMooyoyQv59KJDwRefjJhTA3JQSGPVCJ5YRx3UtXV5Gddc7TCMPhZKelLaCUHw0bk2rPPnp7Y3m/2whQjB6OzFVIWLUbIWWLUTL2loT4/+7rxTsH2QkRsXEr6UhqkYXRlKAU3swtuXB92pOinJZh65CBA8jZ9/SMmka7OttaygnuIPSAkyggLBEwRVok1tFSgQFA868wnSDszUxBTlRwEocqo5EWLTSiCB5SsJKstK7V1CAHJoIi4eORUoUdM1tQgbFpwI2tq6RETTG1yECAYmrJoiUnWjdGlVOorK1S1NU21NZPrHXj7+YcoIkMjlWHRMebxkurSB1AibSoVM8UxHchBAEUTm5yCh5g0vTBBX09PU10N0h9gSXdHR2drC2MNEKLw9vMDJ0BEmJljbg+CX1GWnwu9JvyiVhth+pCDAroGul+ZMEMi5WuHh6AncvoIeZEVVvgPgS/4nFIXGf7DvwhRIOXm7es3JtuMwRo6RQVTWoOMiWlIDgLc1/DomOBwRUhEREDI5HdwaGtqbKqrgzRqqKxw/FjcxDBtyWEMiBDk8YNCw739/aF9vFhh4GXVEaAyoI9YldTe3tJYjwzLdN231hifC3KYA8ESGBAIuSKlIoH+YP+VkvQNtMsQq2fwr1a3hVRvF/fuONMbAjWpdTQglwabtPNzetMtxRRudyHC1hDJIYITIjlEcEIkhwhOiOQQwQmRHCI4IZJDBCdEcojghEgOEZwQySGCEyI5RHBCJIcITojkEMEJkRwiOCGSQwQnRHKI4IRIDhGckD4W7ceIEDEWRMkhghMiOURwQiSHCE6I5BDBCZEcIjghkkMEJ0RyiOCESA4RnBDJIYITIjlEcEIkhwhOiOQQwQmRHCI4IZJDBCdEcojghEgOEZwQySGCEyI5RHBCJIcITvw/AAAA//+sGU8sAAAABklEQVQDAFB4vAqPKFWOAAAAAElFTkSuQmCC">
+<title>Spanish · El Pretérito</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* Palette: Spanish postcard. Old variable names kept so the template's inline styles and JS still resolve. */
+:root{
+  --navy:#4A1D14;--ink:#2A1A14;--deep:#A13D24;--sky:#1F6F8B;--sky2:#E3B26B;--line:#E8DCCB;--mist:#FBF6EF;--paper:#F4EDE3;
+  --pink:var(--sky);--pink2:var(--sky2);--pink3:var(--line);--pink4:var(--mist);
+  --hot:var(--deep);--purple:var(--navy);--lavender:#C9D6E3;
+  --mint:#2E9E6B;--mintl:#DDF2E8;--red:#D64545;--redl:#FBE4E4;
+  --yellow:#F2B33D;--yellowl:#FDF2DA;--orange:#E0892B;
+  --blue:var(--sky);--bluel:#F3E3CC;--text:var(--ink);--muted:#7A6457;--coin:#C98F12;
+  --display:'Space Grotesk',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  --radius:14px;--shadow:0 1px 2px rgba(15,34,51,.06),0 6px 20px rgba(15,34,51,.07);
+}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);min-height:100vh;color:var(--text);overflow-x:hidden;
+  padding-bottom:env(safe-area-inset-bottom);-webkit-tap-highlight-color:transparent}
+button,textarea,label{touch-action:manipulation}
+.deco{display:none}
+
+/* HEADER — synoptic chart: isobars + a weather front along the bottom */
+header{position:relative;z-index:1;color:#fff;background-color:var(--navy);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='260' viewBox='0 0 900 260'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.12' stroke-width='2'%3E%3Ccircle cx='740' cy='110' r='62'/%3E%3Ccircle cx='740' cy='110' r='48'/%3E%3Cpath d='M560 70q15 -12 30 0t30 0t30 0t30 0M560 95q15 -12 30 0t30 0t30 0t30 0M560 120q15 -12 30 0t30 0t30 0t30 0M560 145q15 -12 30 0t30 0t30 0t30 0'/%3E%3Crect x='70' y='150' width='92' height='112' rx='4' stroke-dasharray='6 5'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='.22' font-family='Arial' font-weight='700' text-anchor='middle'%3E%3Ctext x='740' y='104' font-size='15'%3EESPA%C3%91A%3C/text%3E%3Ctext x='740' y='126' font-size='11'%3EVACACIONES%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-size:cover;background-position:center;padding:calc(18px + env(safe-area-inset-top)) 20px 26px;border-bottom:3px solid var(--sky)}
+.hdr-inner{max-width:980px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-bottom:6px}
+header h1{font-family:var(--display);font-weight:700;font-size:2.1rem;letter-spacing:-.02em;line-height:1.05}
+.hdr-sub{font-size:.9rem;opacity:.8;margin-top:6px}
+.coin-bar{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:8px 14px;font-family:var(--mono);font-weight:600;font-size:1.05rem}
+.coin-lbl{font-family:var(--body);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7}
+
+/* TABS — segmented control */
+.tabs{display:flex;justify-content:center;gap:4px;margin:18px auto 0;padding:4px;max-width:max-content;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);position:relative;z-index:2;flex-wrap:wrap}
+.tab{background:transparent;color:var(--muted);border:0;border-radius:9px;padding:10px 16px;font-family:var(--body);font-weight:700;font-size:.88rem;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap;min-height:44px}
+.tab.active{background:var(--navy);color:#fff}
+.tab:not(.active):hover{color:var(--ink);background:var(--mist)}
+
+/* SECTION */
+.section{display:none;padding:22px 16px 64px;max-width:760px;margin:0 auto;position:relative;z-index:1}
+.section.active{display:block}
+.sec-title{font-family:var(--display);font-weight:700;font-size:1.45rem;color:var(--ink);letter-spacing:-.01em;margin-bottom:4px}
+.sec-sub{color:var(--muted);font-size:.9rem;line-height:1.5}
+
+/* BANNER */
+.streak-banner{text-align:center;padding:10px 16px;font-weight:700;font-size:.9rem;color:#fff;background:var(--deep);display:none;position:sticky;top:0;z-index:50}
+.streak-banner.show{display:block}
+
+/* FLASHCARDS */
+.topic-filter{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:18px}
+.filter-btn{background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px 12px;font-family:var(--body);font-weight:600;font-size:.78rem;cursor:pointer;color:var(--muted);transition:all .15s;min-height:36px}
+.filter-btn.active{background:var(--deep);color:#fff;border-color:var(--deep)}
+.filter-btn:hover:not(.active){border-color:var(--sky);color:var(--deep)}
+.fc-meta{text-align:center;margin-bottom:12px}
+.fc-progress{font-family:var(--mono);font-size:.85rem;color:var(--muted);margin-bottom:6px}
+.fc-topic-badge{display:inline-block;background:var(--bluel);color:var(--deep);font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:5px 12px;border-radius:6px}
+.card-scene{perspective:1400px;width:100%;max-width:680px;margin:0 auto;height:270px;cursor:pointer}
+.card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.card-inner.flipped{transform:rotateY(180deg)}
+/* Belt and braces for Safari: hide the face that should be at the back, switching halfway through the turn */
+.card-back{opacity:0;transition:opacity 0s linear .25s}
+.card-inner.flipped .card-back{opacity:1}
+.card-front{transition:opacity 0s linear .25s}
+.card-inner.flipped .card-front{opacity:0}
+.card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center}
+.card-front{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.card-back{background:var(--navy);color:#fff;transform:rotateY(180deg);box-shadow:var(--shadow);
+  background-image:linear-gradient(160deg,rgba(227,162,59,.22),transparent 60%)}
+.q-label,.a-label{font-family:var(--mono);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em;margin-bottom:12px;opacity:.6}
+.card-front .q-label{color:var(--muted)}
+.q-text{font-family:var(--display);font-weight:600;font-size:1.35rem;color:var(--ink);line-height:1.35}
+.a-text{font-size:1rem;line-height:1.6;font-weight:500}
+.card-hint{text-align:center;color:var(--muted);font-size:.8rem;margin-top:10px}
+.fc-rating{display:none;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.fc-rating.show{display:flex}
+.fc-controls{display:flex;justify-content:center;gap:10px;margin-top:14px;align-items:center}
+.fc-score-bar{display:flex;gap:4px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.score-dot{width:10px;height:10px;border-radius:3px;background:var(--line);transition:all .3s}
+.score-dot.got-it{background:var(--mint)}
+.score-dot.almost{background:var(--yellow)}
+.score-dot.missed{background:var(--red)}
+
+/* BUTTONS */
+.btn{font-family:var(--body);font-weight:700;border:none;border-radius:10px;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px}
+.btn:active{transform:translateY(1px)}
+.btn-nav{background:#fff;color:var(--deep);border:1px solid var(--line);padding:9px 18px;font-size:.9rem}
+.btn-nav:hover{border-color:var(--sky)}
+.btn-nav:disabled{opacity:.35;cursor:not-allowed}
+.btn-got{background:var(--mint);color:#fff;padding:9px 16px;font-size:.86rem}
+.btn-almost{background:var(--yellow);color:#4A3500;padding:9px 16px;font-size:.86rem}
+.btn-miss{background:var(--red);color:#fff;padding:9px 16px;font-size:.86rem}
+.btn-primary{background:var(--deep);color:#fff;padding:11px 24px;font-size:.95rem}
+.btn-primary:hover{background:var(--navy)}
+.btn-mint{background:var(--mint);color:#fff;padding:11px 22px;font-size:.95rem}
+.btn-game{background:var(--sky);color:#fff;padding:11px 22px;font-size:.95rem}
+.btn-game:hover{background:var(--deep)}
+.btn-shop{background:#fff;color:var(--deep);border:1px solid var(--line);padding:11px 22px;font-size:.95rem}
+
+/* QUIZ */
+.quiz-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px}
+.q-progress-label,.q-score-live{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+.progress-wrap{background:var(--line);border-radius:4px;height:6px;margin-bottom:18px;overflow:hidden}
+.progress-fill{height:100%;background:var(--sky);transition:width .4s}
+.quiz-card{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:26px;margin-bottom:14px;border:1px solid var(--line)}
+.quiz-topic{font-family:var(--mono);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--sky);margin-bottom:8px}
+.quiz-q{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--ink);line-height:1.45;margin-bottom:18px}
+.options{display:grid;gap:8px}
+.option{background:var(--mist);border:1px solid var(--line);border-radius:12px;padding:13px 15px;cursor:pointer;font-weight:600;font-size:.93rem;color:var(--ink);text-align:left;transition:border-color .15s,background .15s;display:flex;align-items:center;gap:12px;min-height:52px;font-family:var(--body)}
+.option:hover:not(.locked){border-color:var(--sky);background:#fff}
+.opt-letter{background:#fff;color:var(--deep);font-family:var(--mono);font-weight:600;font-size:.85rem;width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--line)}
+.option.correct{background:var(--mintl);border-color:var(--mint);color:#0B5234}
+.option.correct .opt-letter{background:var(--mint);color:#fff;border-color:var(--mint)}
+.option.wrong{background:var(--redl);border-color:var(--red);color:#7A1616}
+.option.wrong .opt-letter{background:var(--red);color:#fff;border-color:var(--red)}
+.option.locked{cursor:default}
+.feedback-box{display:none;border-radius:12px;padding:13px 16px;font-size:.92rem;line-height:1.6;font-weight:500;margin-top:14px}
+.feedback-box.show{display:block;animation:popIn .3s}
+.feedback-box.correct-fb{background:var(--mintl);color:#0B5234;border-left:4px solid var(--mint)}
+.feedback-box.wrong-fb{background:var(--yellowl);color:#4A3500;border-left:4px solid var(--yellow)}
+@keyframes popIn{0%{opacity:0;transform:translateY(4px)}100%{opacity:1;transform:translateY(0)}}
+.quiz-next-wrap{display:flex;justify-content:flex-end}
+
+/* GAMES HUB */
+.unlock-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:20px}
+.unlock-card{background:#fff;border-radius:16px;padding:20px;text-align:left;border:1px solid var(--line);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.unlock-card.locked{opacity:.6}
+.unlock-card.unlocked{border-top:4px solid var(--sky)}
+.unlock-card h3{font-family:var(--display);font-weight:700;font-size:1.05rem;margin-bottom:4px;color:var(--ink)}
+.unlock-card p{font-size:.82rem;color:var(--muted);margin-bottom:12px;line-height:1.45}
+.unlock-emoji{font-size:1.8rem;margin-bottom:8px}
+.unlock-req{display:inline-block;font-size:.72rem;font-weight:700;padding:4px 9px;border-radius:6px;margin-bottom:8px}
+.unlock-req.done{background:var(--mintl);color:#0B5234}
+.unlock-req.todo{background:var(--mist);color:var(--muted)}
+
+/* GAMES */
+.game-wrap{background:#fff;border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden;margin-bottom:14px}
+.game-hdr{background:var(--navy);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.game-hdr h2{font-family:var(--display);font-weight:700;font-size:1.15rem}
+.game-stats{display:flex;gap:16px;flex-wrap:wrap}
+.gstat{text-align:center}
+.gstat-val{font-family:var(--mono);font-weight:600;font-size:1.05rem}
+.gstat-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;opacity:.65}
+canvas{display:block;width:100%;background:#E3EEF7}
+.game-q-box{padding:16px 18px;border-top:1px solid var(--line);text-align:center}
+.game-q-text{font-family:var(--display);font-weight:600;font-size:1.08rem;color:var(--ink);margin-bottom:10px;line-height:1.4}
+.game-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 16px}
+.game-opt{background:var(--mist);border:1px solid var(--line);border-radius:11px;padding:12px;cursor:pointer;font-weight:600;font-size:.9rem;color:var(--ink);transition:border-color .15s,background .15s;text-align:center;font-family:var(--body);min-height:48px}
+.game-opt:hover:not(.locked){border-color:var(--sky);background:#fff}
+.game-opt.correct{background:var(--mintl);border-color:var(--mint);color:#0B5234}
+.game-opt.wrong{background:var(--redl);border-color:var(--red);color:#7A1616}
+.game-opt.locked{cursor:default}
+.blitz-q{font-family:var(--display);font-weight:600;font-size:1.25rem;color:var(--ink);text-align:center;padding:20px 18px 12px;line-height:1.4}
+.blitz-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 16px 16px}
+.blitz-opt{background:var(--mist);border:1px solid var(--line);border-radius:11px;padding:13px;cursor:pointer;font-weight:600;font-size:.9rem;color:var(--ink);transition:border-color .12s,background .12s;text-align:center;font-family:var(--body);min-height:52px}
+.blitz-opt:hover:not(.locked){background:#fff;border-color:var(--sky)}
+.blitz-opt.correct{background:var(--mintl);border-color:var(--mint);color:#0B5234}
+.blitz-opt.wrong{background:var(--redl);border-color:var(--red)}
+.blitz-opt.locked{cursor:default}
+.blitz-timer-bar{height:6px;background:var(--line);margin:0 16px 4px;border-radius:3px;overflow:hidden}
+.blitz-timer-fill{height:100%;transition:width .1s linear}
+.game-over-box{padding:32px;text-align:center}
+.game-over-box h2{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--ink);margin-bottom:8px}
+.game-over-box p{color:var(--muted);margin-bottom:20px;line-height:1.5}
+
+/* PROCESS BUILDER */
+.pb-built{list-style:none;counter-reset:step;margin:14px 16px 4px;min-height:4px}
+.pb-built li{counter-increment:step;position:relative;background:var(--mintl);border:1px solid var(--mint);border-radius:11px;padding:10px 12px 10px 44px;margin-bottom:6px;font-weight:600;font-size:.9rem;color:#0B5234;animation:popIn .25s ease;line-height:1.4}
+.pb-built li::before{content:counter(step);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:6px;background:var(--mint);color:#fff;font-family:var(--mono);font-size:.8rem;display:flex;align-items:center;justify-content:center}
+.pb-pool{display:grid;grid-template-columns:1fr;gap:8px;padding:8px 16px 18px}
+.pb-step{background:var(--mist);border:1px dashed var(--sky2);border-radius:11px;padding:12px 14px;cursor:pointer;font-weight:600;font-size:.9rem;color:var(--ink);text-align:left;font-family:var(--body);transition:border-color .15s,background .15s;min-height:48px;line-height:1.4}
+.pb-step:hover{border-style:solid;border-color:var(--sky);background:#fff}
+.pb-wrong{background:var(--redl)!important;border-color:var(--red)!important;animation:shake .4s}
+
+/* RESULTS */
+.results-card{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:34px 24px;text-align:center;border:1px solid var(--line)}
+.score-circle{width:120px;height:120px;border-radius:50%;margin:0 auto 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid currentColor}
+.score-num{font-family:var(--mono);font-weight:600;font-size:2.4rem}
+.score-den{font-family:var(--mono);font-size:.85rem;opacity:.7}
+.results-card h2{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--ink);margin-bottom:6px}
+.results-card>p{color:var(--muted);margin-bottom:22px}
+.result-item{display:flex;align-items:flex-start;gap:9px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.88rem;text-align:left}
+.result-item:last-child{border-bottom:none}
+.ri-q{font-weight:600;color:var(--ink)}
+.ri-a{color:var(--muted);font-size:.8rem;margin-top:2px}
+
+/* EXAM */
+.ex-marks{font-family:var(--mono);background:var(--yellowl);color:#6B4D00;font-weight:600;font-size:.76rem;border-radius:6px;padding:4px 9px}
+.ex-ans{width:100%;min-height:150px;margin-top:6px;border:1px solid var(--line);border-radius:12px;padding:14px;font-family:var(--body);font-size:16px;line-height:1.55;color:var(--ink);resize:vertical;background:var(--mist)}
+.ex-ans:focus{outline:none;border-color:var(--sky);background:#fff}
+.ex-h{font-family:var(--mono);font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--sky);margin-bottom:8px}
+.ex-model{background:var(--mist);border-left:4px solid var(--sky);border-radius:10px;padding:14px 16px;margin-top:16px;line-height:1.6;font-size:.95rem}
+.ex-point{display:flex;gap:10px;align-items:flex-start;padding:8px 4px;font-weight:500;font-size:.93rem;cursor:pointer;line-height:1.45;min-height:44px}
+.ex-point input{margin-top:2px;width:20px;height:20px;accent-color:var(--deep);flex-shrink:0}
+.ex-result{text-align:center;font-weight:700;margin-top:12px;color:var(--deep)}
+.ex-count{font-family:var(--mono);font-weight:600;color:var(--muted);align-self:center;font-size:.85rem}
+
+/* AVATAR */
+.shop-layout{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:start}
+@media(max-width:600px){.shop-layout{grid-template-columns:1fr}}
+.avatar-preview{background:#fff;border-radius:18px;padding:18px;text-align:center;border:1px solid var(--line);box-shadow:var(--shadow);position:sticky;top:10px}
+.avatar-preview h3{font-family:var(--display);font-weight:700;font-size:1rem;color:var(--ink);margin-bottom:10px}
+.avatar-canvas-wrap{width:140px;height:180px;margin:0 auto 10px;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.avatar-coin-display{font-family:var(--mono);font-weight:600;font-size:1rem;color:var(--coin)}
+.shop-panel{display:flex;flex-direction:column;gap:12px}
+.shop-cat{background:#fff;border-radius:16px;padding:16px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.shop-cat h3{font-family:var(--display);font-weight:600;font-size:.98rem;color:var(--ink);margin-bottom:12px}
+.shop-items{display:flex;flex-wrap:wrap;gap:8px}
+.shop-item{background:var(--mist);border:1px solid var(--line);border-radius:11px;padding:8px 10px;cursor:pointer;text-align:center;transition:border-color .15s;min-width:76px;min-height:64px}
+.shop-item:hover:not(.owned):not(.active-item){border-color:var(--sky)}
+.shop-item.active-item{border:2px solid var(--deep);background:#fff}
+.shop-item.owned{border-color:var(--mint)}
+.shop-item .si-emoji{font-size:1.4rem;display:block;margin-bottom:2px}
+.shop-item .si-name{font-size:.68rem;font-weight:600;color:var(--ink);display:block}
+.shop-item .si-price{font-family:var(--mono);font-size:.66rem;font-weight:600;color:var(--coin);display:block}
+.shop-item .si-price.free{color:var(--mint)}
+.shop-item .si-price.equipped{color:var(--deep)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(74,29,20,.55);z-index:200;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.modal-box{background:#fff;border-radius:20px;padding:32px 28px;text-align:center;max-width:420px;width:90%;box-shadow:0 20px 56px rgba(14,42,63,.3);animation:popIn .3s}
+.modal-box h2{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--ink);margin-bottom:8px}
+.modal-box p{color:var(--muted);margin-bottom:22px;line-height:1.6}
+.modal-emoji{font-size:2.8rem;margin-bottom:10px;display:block}
+
+/* FX */
+.confetti-piece{position:fixed;pointer-events:none;z-index:9999;animation:confettiFall linear forwards}
+@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(540deg);opacity:0}}
+.starburst{position:fixed;pointer-events:none;z-index:9998;animation:starBurst .7s ease forwards}
+@keyframes starBurst{0%{transform:scale(0);opacity:1}60%{transform:scale(1.3);opacity:1}100%{transform:scale(1);opacity:0}}
+.coin-pop{position:fixed;pointer-events:none;z-index:9997;font-family:var(--mono);font-weight:600;font-size:1.1rem;color:var(--coin);animation:coinFloat .9s ease forwards}
+@keyframes coinFloat{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-50px)}}
+@keyframes bounceIn{0%{transform:scale(.97)}60%{transform:scale(1.01)}100%{transform:scale(1)}}
+.bounce{animation:bounceIn .35s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.shake{animation:shake .4s}
+
+/* Touch screens: no hover lift, bigger targets */
+@media (hover:none){
+  .option:hover:not(.locked),.game-opt:hover:not(.locked),.blitz-opt:hover:not(.locked),.pb-step:hover{background:var(--mist);border-color:var(--line)}
+  .pb-step:hover{border-style:dashed;border-color:var(--sky2)}
+}
+
+/* Phone */
+@media (max-width:560px){
+  header h1{font-size:1.7rem}
+  .tabs{max-width:calc(100% - 24px)}
+  .tab{padding:9px 11px;font-size:.8rem}
+  .quiz-card{padding:20px}
+}
+
+/* iPad portrait and up */
+@media (min-width:768px){
+  .section{max-width:900px;padding:28px 28px 72px}
+  header{padding-left:32px;padding-right:32px;padding-bottom:36px}
+  header h1{font-size:2.6rem}
+  .tab{padding:11px 22px;font-size:.95rem}
+  .card-scene{height:340px;max-width:760px}
+  .q-text{font-size:1.65rem}
+  .a-text{font-size:1.12rem}
+  .quiz-card{padding:32px 36px}
+  .quiz-q{font-size:1.4rem}
+  .options{grid-template-columns:1fr 1fr;gap:10px}
+  .option{font-size:1rem;min-height:64px}
+  .game-opts{grid-template-columns:repeat(4,1fr)}
+  .blitz-q{font-size:1.5rem}
+  .blitz-opt{font-size:1rem;min-height:64px}
+  .pb-pool{grid-template-columns:1fr 1fr}
+  .pb-step,.pb-built li{font-size:.98rem}
+  .ex-ans{min-height:200px}
+  .ex-model{font-size:1.02rem}
+  .ex-point{font-size:1rem}
+  .shop-layout{grid-template-columns:230px 1fr}
+}
+
+/* iPad landscape: exam answer and marking side by side */
+@media (min-width:1080px){
+  .section{max-width:1040px}
+  .hdr-inner{max-width:1040px}
+  .ex-layout{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .ex-layout #ex-mark .ex-model{margin-top:0}
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="hdr-inner">
+    <div>
+      <div class="eyebrow">Margot · Year 8 Spanish</div>
+      <h1>El Pretérito</h1>
+      <div class="hdr-sub">Las vacaciones · assessment on Tuesday 17 November</div>
+    </div>
+    <div class="coin-bar"><span>🪙</span><span id="coin-display">0</span><span class="coin-lbl">coins</span></div>
+  </div>
+</header>
+
+<div class="streak-banner" id="streak-banner"></div>
+
+<div class="tabs">
+  <button class="tab active" id="tab-fc"    onclick="showTab('flashcards',this)">Flashcards</button>
+  <button class="tab"        id="tab-quiz"  onclick="showTab('quiz',this)">Quiz</button>
+  <button class="tab"        id="tab-exam"  onclick="showTab('exam',this)">Writing</button>
+  <button class="tab"        id="tab-games" onclick="showTab('games',this)">Games</button>
+  <button class="tab"        id="tab-shop"  onclick="showTab('shop',this)">Avatar</button>
+</div>
+
+<!-- ═══ FLASHCARDS ═══ -->
+<div id="flashcards" class="section active">
+  <div class="topic-filter" id="fc-filter"></div>
+  <div class="fc-meta">
+    <div class="fc-progress" id="fc-progress"></div>
+    <span class="fc-topic-badge" id="fc-badge"></span>
+  </div>
+  <div class="card-scene" onclick="flipCard()">
+    <div class="card-inner" id="card-inner">
+      <div class="card-face card-front">
+        <div class="q-label">Question</div>
+        <div class="q-text" id="fc-question"></div>
+      </div>
+      <div class="card-face card-back">
+        <div class="a-label">Answer</div>
+        <div class="a-text" id="fc-answer"></div>
+      </div>
+    </div>
+  </div>
+  <p class="card-hint">Tap the card to flip it</p>
+  <div class="fc-rating" id="fc-rating">
+    <button class="btn btn-got" onclick="rateCard('got-it')">Got it</button>
+    <button class="btn btn-almost" onclick="rateCard('almost')">Almost</button>
+    <button class="btn btn-miss" onclick="rateCard('missed')">Missed</button>
+  </div>
+  <div class="fc-controls">
+    <button class="btn btn-nav" id="fc-prev" onclick="fcNav(-1)">← Previous</button>
+    <button class="btn btn-nav" id="fc-next" onclick="fcNav(1)">Next →</button>
+  </div>
+  <div class="fc-score-bar" id="fc-dots"></div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div id="quiz" class="section">
+  <div id="quiz-body">
+    <div class="quiz-top">
+      <span class="q-progress-label" id="q-progress">Q 1/27</span>
+      <span class="q-score-live" id="q-score-live">⭐0 🔥0 🪙0</span>
+    </div>
+    <div class="progress-wrap"><div class="progress-fill" id="q-bar" style="width:0%"></div></div>
+    <div class="quiz-card" id="quiz-card-el">
+      <div class="quiz-topic" id="q-topic"></div>
+      <div class="quiz-q" id="q-text"></div>
+      <div class="options" id="q-options"></div>
+      <div class="feedback-box" id="q-feedback"></div>
+    </div>
+    <div class="quiz-next-wrap">
+      <button class="btn btn-primary" id="q-next" onclick="nextQuestion()" style="display:none">Next →</button>
+    </div>
+  </div>
+  <div id="quiz-results" style="display:none">
+    <div class="results-card">
+      <div class="score-circle" id="r-circle"><span class="score-num" id="r-num"></span><span class="score-den" id="r-den"></span></div>
+      <h2 id="r-title"></h2><p id="r-sub"></p>
+      <div style="text-align:left;margin-bottom:20px" id="r-breakdown"></div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="restartQuiz()">Try again</button>
+        <button class="btn btn-game" onclick="showTab('games',document.getElementById('tab-games'))">Games</button>
+        <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Avatar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GAMES HUB ═══ -->
+<div id="games" class="section">
+  <div style="margin-bottom:18px">
+    <div class="sec-title">Games</div>
+    <p class="sec-sub">Correct answers anywhere in the app unlock more games.</p>
+  </div>
+  <div class="unlock-grid" id="unlock-grid"></div>
+
+  <!-- CREATURE CATCHER -->
+  <div id="game-creature" style="display:none">
+    <div class="game-wrap">
+      <div class="game-hdr">
+        <h2>🎯 Verb Catcher</h2>
+        <div class="game-stats">
+          <div class="gstat"><div class="gstat-val" id="cc-score">0</div><div class="gstat-label">Score</div></div>
+          <div class="gstat"><div class="gstat-val" id="cc-streak">0🔥</div><div class="gstat-label">Streak</div></div>
+          <div class="gstat"><div class="gstat-val" id="cc-lives">❤️❤️❤️</div><div class="gstat-label">Lives</div></div>
+          <div class="gstat"><div class="gstat-val" id="cc-level">1</div><div class="gstat-label">Level</div></div>
+        </div>
+      </div>
+      <canvas id="cc-canvas" width="720" height="200"></canvas>
+      <div class="game-q-box">
+        <div class="game-q-text" id="cc-q">Get ready...</div>
+      </div>
+      <div class="game-opts" id="cc-opts"></div>
+      <div class="game-over-box" id="cc-over" style="display:none">
+        <div style="font-size:3.5rem;margin-bottom:8px" id="cc-over-emoji">😢</div>
+        <h2 id="cc-over-title">Game Over!</h2>
+        <p id="cc-over-msg"></p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-game" onclick="startCreatureCatcher()">Play again</button>
+          <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Spend coins</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS BUILDER -->
+  <div id="game-cell" style="display:none">
+    <div class="game-wrap">
+      <div class="game-hdr">
+        <h2>🧱 Sentence Builder</h2>
+        <div class="game-stats">
+          <div class="gstat"><div class="gstat-val" id="pb-score">0</div><div class="gstat-label">Score</div></div>
+          <div class="gstat"><div class="gstat-val" id="pb-lives">❤️❤️❤️❤️❤️</div><div class="gstat-label">Lives</div></div>
+          <div class="gstat"><div class="gstat-val" id="pb-round">1/9</div><div class="gstat-label">Sentence</div></div>
+        </div>
+      </div>
+      <div id="pb-play">
+        <div class="game-q-box"><div class="game-q-text" id="pb-title">Tap the chunks in the right order!</div></div>
+        <ol class="pb-built" id="pb-built"></ol>
+        <div class="pb-pool" id="pb-pool"></div>
+      </div>
+      <div class="game-over-box" id="pb-over" style="display:none">
+        <div style="font-size:3.5rem;margin-bottom:8px" id="pb-over-emoji">😢</div>
+        <h2 id="pb-over-title">Out of lives!</h2>
+        <p id="pb-over-msg"></p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-game" onclick="startProcessBuilder()">Play again</button>
+          <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Spend coins</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KINGDOM BLITZ -->
+  <div id="game-blitz" style="display:none">
+    <div class="game-wrap">
+      <div class="game-hdr">
+        <h2>⚡ Spanish Blitz</h2>
+        <div class="game-stats">
+          <div class="gstat"><div class="gstat-val" id="bl-score">0</div><div class="gstat-label">Score</div></div>
+          <div class="gstat"><div class="gstat-val" id="bl-q-num">1/15</div><div class="gstat-label">Q</div></div>
+          <div class="gstat"><div class="gstat-val" id="bl-streak">0🔥</div><div class="gstat-label">Streak</div></div>
+        </div>
+      </div>
+      <div style="padding:8px 16px 0">
+        <div class="blitz-timer-bar"><div class="blitz-timer-fill" id="bl-timer-fill" style="width:100%;background:var(--mint)"></div></div>
+        <div style="text-align:right;font-family:var(--display);font-size:.85rem;color:var(--muted);margin-bottom:6px" id="bl-timer-label">10s</div>
+      </div>
+      <div class="blitz-q" id="bl-q"></div>
+      <div class="blitz-opts" id="bl-opts"></div>
+      <div class="game-over-box" id="bl-over" style="display:none">
+        <div style="font-size:3.5rem;margin-bottom:8px" id="bl-over-emoji">⚡</div>
+        <h2 id="bl-over-title">Blitz Over!</h2>
+        <p id="bl-over-msg"></p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-game" onclick="startBlitz()">Play again</button>
+          <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Spend coins</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EXAM PRACTICE ═══ -->
+<div id="exam" class="section">
+  <div style="margin-bottom:16px">
+    <div class="sec-title">Writing &amp; translation</div>
+    <p class="sec-sub">Write your answer, compare it with the model answer, then tick the points you made (1 coin per point). Accents count: <b>é, í, ó, ió</b>. Use a time phrase, a connective and an opinion in longer answers.</p>
+  </div>
+  <div class="quiz-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+      <div class="quiz-topic" id="ex-topic"></div>
+      <span class="ex-marks" id="ex-marks"></span>
+    </div>
+    <div class="quiz-q" id="ex-q"></div>
+    <div class="ex-layout">
+      <div>
+        <textarea class="ex-ans" id="ex-ans" placeholder="Write your answer here…" oninput="exAnswers[exIdx]=this.value"></textarea>
+        <div style="text-align:center;margin-top:12px"><button class="btn btn-primary" id="ex-reveal" onclick="exReveal()">Check my answer</button></div>
+      </div>
+      <div id="ex-mark" style="display:none">
+        <div class="ex-model"><div class="ex-h">Model answer</div><p id="ex-model"></p></div>
+        <div class="ex-h" style="margin-top:16px">Tick the points you made</div>
+        <div id="ex-points"></div>
+        <div style="text-align:center;margin-top:10px"><button class="btn btn-game" id="ex-submit" onclick="exSubmit()">Mark it</button></div>
+        <div class="ex-result" id="ex-result"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fc-controls">
+    <button class="btn btn-nav" onclick="exNav(-1)">← Previous</button>
+    <span class="ex-count" id="ex-count"></span>
+    <button class="btn btn-nav" onclick="exNav(1)">Next →</button>
+  </div>
+</div>
+
+<!-- ═══ AVATAR SHOP ═══ -->
+<div id="shop" class="section">
+  <div style="margin-bottom:16px">
+    <div class="sec-title">Avatar</div>
+    <p class="sec-sub">Spend the coins you earn revising.</p>
+  </div>
+  <div class="shop-layout">
+    <div class="avatar-preview">
+      <h3>✨ Your Look</h3>
+      <div class="avatar-canvas-wrap">
+        <canvas id="avatar-canvas" width="140" height="180"></canvas>
+      </div>
+      <div class="avatar-coin-display">🪙 <span id="shop-coins">0</span></div>
+    </div>
+    <div class="shop-panel" id="shop-panel"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="unlock-modal" style="display:none">
+  <div class="modal-box">
+    <span class="modal-emoji" id="modal-emoji">🎮</span>
+    <h2 id="modal-title">Unlocked!</h2>
+    <p id="modal-msg"></p>
+    <button class="btn btn-game" id="modal-btn" style="font-size:1rem;padding:12px 32px" onclick="closeModal()">Let's go</button>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// AUDIO
+// ═══════════════════════════════════════════════════════════
+const AC=new(window.AudioContext||window.webkitAudioContext)();
+function tone(f,t,v,s,d){const o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.value=f;g.gain.setValueAtTime(0,AC.currentTime+s);g.gain.linearRampToValueAtTime(v,AC.currentTime+s+.04);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+s+d);o.connect(g);g.connect(AC.destination);o.start(AC.currentTime+s);o.stop(AC.currentTime+s+d+.05)}
+function playHappy(){[523,659,784,1047].forEach((f,i)=>tone(f,'sine',.2,i*.11,.26))}
+function playSad(){[392,349,311,261].forEach((f,i)=>tone(f,'triangle',.16,i*.13,.3))}
+function playFlip(){const o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.setValueAtTime(300,AC.currentTime);o.frequency.linearRampToValueAtTime(600,AC.currentTime+.12);g.gain.setValueAtTime(.09,AC.currentTime);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+.18);o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+.22)}
+function playUnlock(){[523,659,784,1047,1319,1568].forEach((f,i)=>tone(f,'sine',.18,i*.09,.32))}
+function playCoin(){tone(1200,'sine',.14,0,.12);tone(1500,'sine',.12,.08,.1)}
+function playCatch(){[880,1108].forEach((f,i)=>tone(f,'sine',.16,i*.07,.18))}
+function playMiss(){tone(200,'sawtooth',.13,0,.38)}
+function playTick(){tone(800,'square',.06,0,.06)}
+function playBlitzRight(){[660,880].forEach((f,i)=>tone(f,'sine',.15,i*.06,.18))}
+function playBlitzWrong(){tone(180,'sawtooth',.12,0,.3)}
+
+// ═══════════════════════════════════════════════════════════
+// FX
+// ═══════════════════════════════════════════════════════════
+const CC=['#A13D24','#1F6F8B','#E3A23B','#2E9E6B','#4A1D14','#E3B26B','#C9653F'];
+function confetti(n=50){for(let i=0;i<n;i++){const e=document.createElement('div');e.className='confetti-piece';e.style.cssText=`left:${Math.random()*100}vw;top:-20px;background:${CC[Math.floor(Math.random()*CC.length)]};width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${1.2+Math.random()*1.8}s;animation-delay:${Math.random()*.5}s`;document.body.appendChild(e);setTimeout(()=>e.remove(),3500)}}
+function burst(emoji,x,y,sz=2){const e=document.createElement('div');e.className='starburst';e.textContent=emoji;e.style.cssText=`left:${x}px;top:${y}px;font-size:${sz}rem`;document.body.appendChild(e);setTimeout(()=>e.remove(),800)}
+function coinPop(x,y,amt){const e=document.createElement('div');e.className='coin-pop';e.textContent=`+${amt}🪙`;e.style.cssText=`left:${x}px;top:${y}px`;document.body.appendChild(e);setTimeout(()=>e.remove(),1000)}
+
+// ═══════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════
+let coins=0,totalCorrect=0,quizStreak=0,sessionStreak=0;
+const UNLOCKS={creature:2,cell:8,blitz:15};
+let unlocked={creature:false,cell:false,blitz:false};
+let activeGame=null;
+
+// ═══════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════
+const FLASHCARDS=[
+  {topic:"Preterite endings",q:"What is the preterite tense used for?",a:"The past tense, for saying what you DID (completed actions): comí = I ate, fui = I went."},
+  {topic:"Preterite endings",q:"-AR preterite endings (yo → ellos)?",a:"-é, -aste, -ó, -amos, -asteis, -aron\n(viajé, viajaste, viajó, viajamos, viajasteis, viajaron)"},
+  {topic:"Preterite endings",q:"-ER / -IR preterite endings (yo → ellos)?",a:"-í, -iste, -ió, -imos, -isteis, -ieron\n(comí, comiste, comió, comimos, comisteis, comieron)"},
+  {topic:"Preterite endings",q:"Which preterite forms have an ACCENT?",a:"Only YO and ÉL/ELLA: viajé / viajó, comí / comió. The accent matters: viajo = I travel, viajó = he/she travelled."},
+  {topic:"Preterite endings",q:"Conjugate VIAJAR (to travel) in the preterite.",a:"viajé, viajaste, viajó, viajamos, viajasteis, viajaron"},
+  {topic:"Preterite endings",q:"Conjugate ESCRIBIR (to write) in the preterite.",a:"escribí, escribiste, escribió, escribimos, escribisteis, escribieron"},
+  {topic:"Preterite endings",q:"Conjugate BEBER (to drink) in the preterite.",a:"bebí, bebiste, bebió, bebimos, bebisteis, bebieron"},
+  {topic:"Preterite endings",q:"How do you conjugate? (the class recap)",a:"Take the infinitive, remove -ar/-er/-ir, add the ending for the person. montar + -ó (ella) = Ella montó en bici. comer + -ieron (ellos) = Ellos comieron comida local."},
+  {topic:"Preterite endings",q:"Spelling changes in the YO form: jugar, sacar?",a:"jugar → jugué (I played); sacar → saqué (I took photos). The u / qu keeps the sound. Only in the yo form: jugó, sacó."},
+  {topic:"Preterite endings",q:"Why are viajamos and comemos tricky?",a:"-AR nosotros is the SAME in present and preterite: viajamos = we travel / we travelled. Use a time phrase (el año pasado) to show it's past. -ER changes: comemos (present) → comimos (preterite)."},
+
+  {topic:"Ir / Ser (fui)",q:"IR and SER in the preterite (to go / to be)?",a:"fui, fuiste, fue, fuimos, fuisteis, fueron. The same for both verbs!"},
+  {topic:"Ir / Ser (fui)",q:"What does FUE mean?",a:"He/she WENT, or it WAS. 'Mi hermano fue a Francia' = my brother went to France. 'Lo mejor fue que…' = the best thing was that…"},
+  {topic:"Ir / Ser (fui)",q:"'My parents and I went' in Spanish?",a:"Mis padres y yo fuimos (we)."},
+  {topic:"Ir / Ser (fui)",q:"'My grandparents went' in Spanish?",a:"Mis abuelos fueron (they)."},
+  {topic:"Ir / Ser (fui)",q:"Other irregulars from the sentence builder?",a:"vi = I saw (vi un partido), hice = I did (hice ciclismo), hizo sol = it was sunny, hizo frío = it was cold. No accents on vi, hice, hizo."},
+
+  {topic:"Holiday verbs",q:"Bailé en una discoteca",a:"I danced in a disco"},
+  {topic:"Holiday verbs",q:"Compré recuerdos",a:"I bought souvenirs"},
+  {topic:"Holiday verbs",q:"Tomé el sol",a:"I sunbathed"},
+  {topic:"Holiday verbs",q:"Nadé en la piscina / en el mar",a:"I swam in the pool / in the sea"},
+  {topic:"Holiday verbs",q:"Probé la gastronomía local",a:"I tried the local food"},
+  {topic:"Holiday verbs",q:"Saqué selfis / fotos",a:"I took selfies / photos"},
+  {topic:"Holiday verbs",q:"Visité monumentos",a:"I visited monuments"},
+  {topic:"Holiday verbs",q:"Salí con mis amigos",a:"I went out with my friends"},
+  {topic:"Holiday verbs",q:"Comí muchos helados y bebí limonada",a:"I ate a lot of ice creams and I drank lemonade"},
+  {topic:"Holiday verbs",q:"Conocí a un chico guapo / una chica guapa",a:"I met a good-looking boy / girl"},
+  {topic:"Holiday verbs",q:"Vi un partido en el estadio",a:"I saw a match at the stadium"},
+  {topic:"Holiday verbs",q:"Jugué al voleibol en la playa",a:"I played volleyball on the beach"},
+  {topic:"Holiday verbs",q:"Me mareé y vomité",a:"I felt dizzy and I was sick"},
+  {topic:"Holiday verbs",q:"Perdí mi pasaporte",a:"I lost my passport"},
+  {topic:"Holiday verbs",q:"Descansé en la playa",a:"I relaxed on the beach"},
+  {topic:"Holiday verbs",q:"Monté en bicicleta",a:"I rode a bike"},
+  {topic:"Holiday verbs",q:"Mandé SMS",a:"I sent text messages"},
+  {topic:"Holiday verbs",q:"Escribí postales",a:"I wrote postcards"},
+  {topic:"Holiday verbs",q:"Me alojé en un hotel de cinco estrellas",a:"I stayed in a five-star hotel (also: un apartamento, un chalet = villa, un cámping)"},
+  {topic:"Holiday verbs",q:"Me gustó",a:"I liked it. (Me gustó mucho la piscina = I really liked the pool.)"},
+
+  {topic:"Other people",q:"Bailó / Nadamos / Comieron?",a:"He/she danced / We swam / They ate"},
+  {topic:"Other people",q:"Jugamos / Bebió / Fuiste?",a:"We played / He/she drank / You went (did you go?)"},
+  {topic:"Other people",q:"Descansé / Probaron / Perdió / Vomitaron?",a:"I rested / They tried / He/she lost / They vomited"},
+  {topic:"Other people",q:"'My dad sunbathed' and 'My sister was sick'?",a:"Mi padre tomó el sol. Mi hermana vomitó."},
+  {topic:"Other people",q:"'They rode bikes' and 'They sent texts'?",a:"Montaron en bicicleta. Mandaron SMS."},
+  {topic:"Other people",q:"Who is the verb for? Mis ___ y yo / Mi ___ / Mis ___ / Mi familia",a:"Mis amigos y yo = WE (-amos/-imos). Mi hermano = HE/SHE (-ó/-ió). Mis padres = THEY (-aron/-ieron). Mi familia = IT, so he/she form (mi familia fue)."},
+
+  {topic:"Prepositions",q:"A, EN or CON?",a:"A + place (fui a España). EN + transport (en avión). CON + people (con mis padres)."},
+  {topic:"Prepositions",q:"Exceptions with transport?",a:"A pie (on foot) and a caballo (on horseback). All the others take EN: en coche, en tren, en avión."},
+  {topic:"Prepositions",q:"Transport: by coach, plane, boat, bike, motorbike, car, train, taxi",a:"en autocar, en avión, en barco, en bicicleta, en motocicleta, en coche, en tren, en taxi (also en ferry, en yate)"},
+  {topic:"Prepositions",q:"Who with: grandparents, friends, classmates, parents, cousins, neighbours",a:"con mis abuelos, con mis amigos, con mis compañeros de clase, con mis padres, con mis primos, con mis vecinos"},
+
+  {topic:"Time phrases",q:"Last year / last month / last summer",a:"El año pasado / el mes pasado / el verano pasado"},
+  {topic:"Time phrases",q:"In my last holidays / two years ago / two weeks ago",a:"En mis últimas vacaciones / hace dos años / hace dos semanas"},
+  {topic:"Time phrases",q:"Yesterday / last week / the first day / the last day",a:"Ayer / la semana pasada / el primer día / el último día"},
+
+  {topic:"Opinions & connectives",q:"The best thing was that… / The worst thing was that…",a:"Lo mejor fue que… / Lo peor fue que… (Lo mejor de mis vacaciones fue que…)"},
+  {topic:"Opinions & connectives",q:"However / although / but / also / because",a:"Sin embargo / aunque / pero / también / porque"},
+  {topic:"Opinions & connectives",q:"How do you make a sentence NEGATIVE?",a:"Put NO in front of the verb: no visité monumentos, no hizo sol, no salí con mis amigos."},
+
+  {topic:"Present tense",q:"Present tense regular endings (-ar)?",a:"-o, -as, -a, -amos, -áis, -an (hablo, hablas, habla, hablamos, habláis, hablan)"},
+  {topic:"Present tense",q:"Present tense regular endings (-er / -ir)?",a:"-er: -o, -es, -e, -emos, -éis, -en.  -ir: -o, -es, -e, -imos, -ís, -en."},
+  {topic:"Present tense",q:"IR (to go) in the present?",a:"voy, vas, va, vamos, vais, van"},
+  {topic:"Present tense",q:"SER (to be) in the present?",a:"soy, eres, es, somos, sois, son"},
+  {topic:"Present tense",q:"ESTAR (to be) in the present?",a:"estoy, estás, está, estamos, estáis, están"},
+  {topic:"Present tense",q:"TENER (to have) in the present?",a:"tengo, tienes, tiene, tenemos, tenéis, tienen"},
+  {topic:"Present tense",q:"Irregular 'I' forms to know",a:"salgo (I go out), hago (I do), tengo (I have), juego (I play), conozco (I meet), pruebo (I try)"},
+
+  {topic:"Word order & adjectives",q:"Where do adjectives go?",a:"Usually AFTER the noun: un chico guapo, un hotel caro, un viaje corto."},
+  {topic:"Word order & adjectives",q:"Adjective agreement rules?",a:"Adjectives match the noun: un chico guapo, una chica guapa, unos hoteles caros, unas playas bonitas."},
+  {topic:"Word order & adjectives",q:"Transport adjectives: expensive/cheap, slow/fast, dirty/clean, dangerous/safe",a:"caro/barato, lento/rápido, sucio/limpio, peligroso/seguro"},
+  {topic:"Word order & adjectives",q:"Uncomfortable/comfortable, polluting/eco-friendly, stressful/calm",a:"incómodo/cómodo, contaminante/ecológico, estresante/tranquilo"},
+
+  {topic:"Countries",q:"Germany, Denmark, Egypt, Scotland, Wales, Greece",a:"Alemania, Dinamarca, Egipto, Escocia, Gales, Grecia"},
+  {topic:"Countries",q:"England, Ireland, Italy, USA, Netherlands, Poland, Thailand, Turkey",a:"Inglaterra, Irlanda, Italia, los Estados Unidos, los Países Bajos, Polonia, Tailandia, Turquía"},
+  {topic:"Countries",q:"Abroad / to go abroad",a:"el extranjero / ir al extranjero (fui al extranjero = I went abroad)"},
+];
+
+const QUIZ=[
+  {topic:"Preterite endings",q:"'I travelled' =",opts:["viajo","viajé","viajó","viajamos"],ans:1,explain:"Yo + -AR ends in -é. Viajó = he/she travelled; viajo = I travel."},
+  {topic:"Preterite endings",q:"'He ate' =",opts:["comí","comió","comieron","come"],ans:1,explain:"Él + -ER ends in -ió."},
+  {topic:"Preterite endings",q:"'They swam' =",opts:["nadó","nadamos","nadaron","nadan"],ans:2,explain:"Ellos + -AR ends in -aron."},
+  {topic:"Preterite endings",q:"'We wrote' =",opts:["escribimos","escribieron","escribí","escribisteis"],ans:0,explain:"Nosotros + -IR ends in -imos."},
+  {topic:"Preterite endings",q:"'Did you buy?' (tú) =",opts:["compré","compraste","compró","comprasteis"],ans:1,explain:"Tú + -AR ends in -aste."},
+  {topic:"Preterite endings",q:"'You (plural) drank' =",opts:["bebisteis","bebieron","bebimos","bebiste"],ans:0,explain:"Vosotros + -ER/-IR ends in -isteis."},
+  {topic:"Preterite endings",q:"Mis hermanos ___ en la piscina. (nadar)",opts:["nadó","nadamos","nadaron","nadé"],ans:2,explain:"Mis hermanos = they, so -aron."},
+  {topic:"Preterite endings",q:"Mi hermana ___ muchas fotos. (sacar)",opts:["sacaron","sacó","saqué","sacaste"],ans:1,explain:"Mi hermana = she, so sacó. (Saqué is only 'I'.)"},
+  {topic:"Preterite endings",q:"En el restaurante, yo ___ paella y ___ limonada.",opts:["comió / bebió","comí / bebí","comemos / bebemos","comieron / bebieron"],ans:1,explain:"Yo, so -í: comí, bebí."},
+  {topic:"Preterite endings",q:"Mi familia y yo ___ a España. (viajar)",opts:["viajaron","viajé","viajamos","viajó"],ans:2,explain:"Mi familia y yo = we, so viajamos."},
+  {topic:"Preterite endings",q:"'I played volleyball' =",opts:["Jugé al voleibol","Jugué al voleibol","Jugó al voleibol","Juego al voleibol"],ans:1,explain:"jugar → jugué: add a u to keep the hard g sound."},
+  {topic:"Preterite endings",q:"Which form needs an accent?",opts:["nosotros","ellos","yo","vosotros"],ans:2,explain:"Yo (é/í) and él/ella (ó/ió) carry the accent."},
+  {topic:"Preterite endings",q:"Spot the mistake: 'Ayer mi madre comí un bocadillo.'",opts:["Ayer → Ayer fue","comí → comió","bocadillo → bocadilla","No mistake"],ans:1,explain:"Mi madre = she, so comió."},
+  {topic:"Preterite endings",q:"'Aprendieron' means…",opts:["I learnt","We learnt","They learnt","You learnt"],ans:2,explain:"-ieron = ellos/ellas: they learnt."},
+
+  {topic:"Ir / Ser (fui)",q:"'We went' =",opts:["fueron","fuimos","fui","vamos"],ans:1,explain:"fui, fuiste, fue, FUIMOS, fuisteis, fueron."},
+  {topic:"Ir / Ser (fui)",q:"Mis abuelos ___ en avión.",opts:["fue","fuimos","fueron","fui"],ans:2,explain:"Mis abuelos = they, so fueron."},
+  {topic:"Ir / Ser (fui)",q:"'Lo mejor FUE que…' — fue here means…",opts:["went","was","goes","will be"],ans:1,explain:"Fue is the preterite of both ir AND ser: here it means 'was'."},
+  {topic:"Ir / Ser (fui)",q:"'Did you go?' (tú) =",opts:["¿Fuiste?","¿Fue?","¿Fuisteis?","¿Vas?"],ans:0,explain:"Tú → fuiste."},
+  {topic:"Ir / Ser (fui)",q:"'It was sunny' =",opts:["Fue sol","Hizo sol","Hice sol","Es sol"],ans:1,explain:"Weather uses hacer: hizo sol / hizo frío."},
+  {topic:"Ir / Ser (fui)",q:"'I saw a match at the stadium' =",opts:["Vi un partido en el estadio","Ví un partido…","Veo un partido…","Vio un partido…"],ans:0,explain:"Vi (no accent) = I saw. Vio = he/she saw."},
+
+  {topic:"Holiday verbs",q:"'Perdí mi pasaporte' means…",opts:["I lost my passport","I found my passport","I forgot my passport","I lost my phone"],ans:0,explain:"Perder = to lose, so perdí = I lost."},
+  {topic:"Holiday verbs",q:"'I sunbathed' =",opts:["Tomé el sol","Hizo sol","Descansé el sol","Tomé la playa"],ans:0,explain:"Tomar el sol = to sunbathe."},
+  {topic:"Holiday verbs",q:"'Me mareé y vomité' means…",opts:["I got married and left","I felt dizzy and was sick","I swam and relaxed","I was bored and tired"],ans:1,explain:"Marearse = to feel dizzy or seasick; vomitar = to be sick."},
+  {topic:"Holiday verbs",q:"'I tried the local food' =",opts:["Probé la gastronomía local","Comí recuerdos","Visité la comida","Probó la gastronomía local"],ans:0,explain:"Probar = to try. Probé = I tried (probó = he/she tried)."},
+  {topic:"Holiday verbs",q:"'I stayed in a five-star hotel' =",opts:["Fui un hotel de cinco estrellas","Me alojé en un hotel de cinco estrellas","Me gustó un hotel cinco","Alojé a un hotel de estrellas"],ans:1,explain:"Me alojé en… = I stayed in…"},
+  {topic:"Holiday verbs",q:"'Conocí a una chica guapa' means…",opts:["I knew a pretty girl","I met a good-looking girl","I saw a girl","I called a girl"],ans:1,explain:"Conocer in the preterite = to meet (for the first time)."},
+  {topic:"Holiday verbs",q:"'Saqué selfis' means…",opts:["I took selfies","I sent selfies","I saw selfies","I deleted selfies"],ans:0,explain:"Sacar fotos/selfis = to take photos/selfies."},
+
+  {topic:"Prepositions",q:"Fui ___ Grecia.",opts:["en","a","con","de"],ans:1,explain:"A + place."},
+  {topic:"Prepositions",q:"Fuimos ___ coche.",opts:["a","con","en","por"],ans:2,explain:"En + transport."},
+  {topic:"Prepositions",q:"Fui ___ mis primos.",opts:["con","en","a","de"],ans:0,explain:"Con + people."},
+  {topic:"Prepositions",q:"'On foot' =",opts:["en pie","a pie","con pie","de pie"],ans:1,explain:"Exception: a pie (and a caballo)."},
+  {topic:"Prepositions",q:"'By coach' =",opts:["en autocar","en coche","a autocar","en autobús escolar"],ans:0,explain:"Autocar = coach. Coche = car."},
+
+  {topic:"Time phrases",q:"'Hace dos años' means…",opts:["In two years","Two years ago","For two years","Every two years"],ans:1,explain:"Hace + time = ago."},
+  {topic:"Time phrases",q:"'Last summer' =",opts:["El verano pasado","El pasado verano último","En verano","El último verano pasado"],ans:0,explain:"El verano pasado (el año pasado, el mes pasado)."},
+  {topic:"Time phrases",q:"'El primer día' means…",opts:["The last day","The first day","Every day","One day"],ans:1,explain:"Primer = first, último = last."},
+
+  {topic:"Opinions & connectives",q:"'Sin embargo' means…",opts:["although","however","because","also"],ans:1,explain:"Sin embargo = however; aunque = although."},
+  {topic:"Opinions & connectives",q:"'The worst thing was that it wasn't sunny' =",opts:["Lo peor fue que no hizo sol","Lo mejor fue que hizo sol","Lo peor es que hace sol","Lo peor fue que no hice sol"],ans:0,explain:"Lo peor fue que + no + hizo sol."},
+  {topic:"Opinions & connectives",q:"Make it negative: 'Salí con mis amigos'",opts:["Salí no con mis amigos","No salí con mis amigos","Salí con no mis amigos","Nunca salí no"],ans:1,explain:"No goes right before the verb."},
+  {topic:"Opinions & connectives",q:"Cross out the extra word: 'Lo mejor fue es que salí con mis amigos'",opts:["fue","es","que","con"],ans:1,explain:"Lo mejor fue que… does not need 'es'."},
+
+  {topic:"Present tense",q:"'I go' =",opts:["voy","vas","fui","va"],ans:0,explain:"Ir: voy, vas, va, vamos, vais, van."},
+  {topic:"Present tense",q:"'She is' (ser) =",opts:["eres","es","está","son"],ans:1,explain:"Ser: soy, eres, ES, somos, sois, son."},
+  {topic:"Present tense",q:"'We have' =",opts:["tienen","tenemos","tengo","tenéis"],ans:1,explain:"Tener: tengo, tienes, tiene, tenemos, tenéis, tienen."},
+  {topic:"Present tense",q:"'I go out' =",opts:["salo","salgo","salí","sale"],ans:1,explain:"Salir has an irregular yo form: salgo."},
+  {topic:"Present tense",q:"Hablar, 'they speak' =",opts:["hablan","hablaron","hablamos","habla"],ans:0,explain:"-AR present ellos: -an. (Hablaron = they spoke.)"},
+
+  {topic:"Word order & adjectives",q:"'A good-looking girl' =",opts:["una guapa chica","una chica guapo","una chica guapa","un chica guapa"],ans:2,explain:"Adjective after the noun, and it agrees (feminine -a)."},
+  {topic:"Word order & adjectives",q:"'The hotels were expensive' — the adjective is…",opts:["caro","cara","caros","caras"],ans:2,explain:"Los hoteles is masculine plural, so caros."},
+  {topic:"Word order & adjectives",q:"Opposite of 'peligroso'?",opts:["seguro","sucio","lento","caro"],ans:0,explain:"Peligroso = dangerous; seguro = safe."},
+  {topic:"Word order & adjectives",q:"'El viaje fue corto' means…",opts:["The trip was long","The trip was short","The trip was cheap","The trip was boring"],ans:1,explain:"Corto = short. (Aburrido = boring.)"},
+
+  {topic:"Countries",q:"'Los Países Bajos' is…",opts:["Belgium","The Netherlands","Denmark","Poland"],ans:1,explain:"Los Países Bajos = the Netherlands (Holland)."},
+  {topic:"Countries",q:"'Gales' is…",opts:["Wales","Scotland","Galicia","Ireland"],ans:0,explain:"Gales = Wales; Escocia = Scotland."},
+];
+
+const CREATURES=[
+  {emoji:"✈️",name:"viajaron",q:"Who did it?",correct:"They",wrong:["I","He/She","We"]},
+  {emoji:"🏊",name:"nadé",q:"Who did it?",correct:"I",wrong:["He/She","They","You"]},
+  {emoji:"🍦",name:"comió",q:"Who did it?",correct:"He/She",wrong:["I","We","They"]},
+  {emoji:"🥤",name:"bebimos",q:"Who did it?",correct:"We",wrong:["They","I","You (pl)"]},
+  {emoji:"🛍️",name:"compraste",q:"Who did it?",correct:"You",wrong:["I","He/She","We"]},
+  {emoji:"✍️",name:"escribisteis",q:"Who did it?",correct:"You (pl)",wrong:["We","They","You"]},
+  {emoji:"📸",name:"saqué",q:"Who did it?",correct:"I",wrong:["He/She","You","They"]},
+  {emoji:"🏐",name:"jugaron",q:"Who did it?",correct:"They",wrong:["We","I","He/She"]},
+  {emoji:"🕺",name:"bailó",q:"Who did it?",correct:"He/She",wrong:["I","They","We"]},
+  {emoji:"🎟️",name:"fuimos",q:"Who did it?",correct:"We",wrong:["They","I","He/She"]},
+  {emoji:"🧳",name:"fueron",q:"Who did it?",correct:"They",wrong:["We","He/She","You"]},
+  {emoji:"🚶",name:"fuiste",q:"Who did it?",correct:"You",wrong:["I","He/She","We"]},
+  {emoji:"🤢",name:"vomitaron",q:"Who did it?",correct:"They",wrong:["He/She","I","We"]},
+  {emoji:"🛂",name:"perdió",q:"Who did it?",correct:"He/She",wrong:["I","They","You"]},
+  {emoji:"🍽️",name:"probaron",q:"Who did it?",correct:"They",wrong:["We","He/She","I"]},
+  {emoji:"🇬🇷",name:"Fui ___ Grecia",q:"Which word fills the gap?",correct:"a",wrong:["en","con"]},
+  {emoji:"🚂",name:"Fuimos ___ tren",q:"Which word fills the gap?",correct:"en",wrong:["a","con"]},
+  {emoji:"👨‍👩‍👧",name:"Fui ___ mis padres",q:"Which word fills the gap?",correct:"con",wrong:["en","a"]},
+  {emoji:"🦶",name:"Fui ___ pie",q:"Which word fills the gap?",correct:"a",wrong:["en","con"]},
+  {emoji:"🛳️",name:"Fueron ___ barco",q:"Which word fills the gap?",correct:"en",wrong:["a","con"]},
+  {emoji:"🧑‍🤝‍🧑",name:"Salí ___ mis amigos",q:"Which word fills the gap?",correct:"con",wrong:["a","en"]},
+  {emoji:"☀️",name:"Hizo sol",q:"What does it mean?",correct:"It was sunny",wrong:["It was cold","I did sun","It is sunny"]},
+  {emoji:"🏨",name:"Me alojé en un cámping",q:"What does it mean?",correct:"I stayed at a campsite",wrong:["I went camping","I liked the campsite","I left the campsite"]},
+  {emoji:"🏟️",name:"Vi un partido",q:"What does it mean?",correct:"I saw a match",wrong:["I played a match","I went to a party","I won a match"]},
+  {emoji:"💌",name:"No escribí postales",q:"What does it mean?",correct:"I didn't write postcards",wrong:["I wrote postcards","I didn't send texts","I didn't buy postcards"]},
+  {emoji:"🏖️",name:"Descansé en la playa",q:"What does it mean?",correct:"I relaxed on the beach",wrong:["I danced on the beach","I sunbathed in the pool","I walked to the beach"]},
+  {emoji:"👍",name:"Lo mejor fue que…",q:"What does it mean?",correct:"The best thing was that…",wrong:["The worst thing was that…","I liked that…","However…"]},
+  {emoji:"👎",name:"Lo peor fue que…",q:"What does it mean?",correct:"The worst thing was that…",wrong:["The best thing was that…","Although…","Last year…"]},
+  {emoji:"⏳",name:"Hace dos semanas",q:"What does it mean?",correct:"Two weeks ago",wrong:["In two weeks","For two weeks","Last week"]},
+  {emoji:"🕰️",name:"comemos → ?",q:"Which is the PRETERITE (we ate)?",correct:"comimos",wrong:["comemos","comieron","comí"]},
+];
+
+const PROCESSES=[
+  {name:"Where I went",emoji:"🇩🇪",steps:["El verano pasado","fui","a Alemania","con mi familia"]},
+  {name:"The best thing",emoji:"👍",steps:["Lo mejor fue que","visité","los monumentos","en Berlín"]},
+  {name:"The worst thing",emoji:"👎",steps:["Lo peor fue que","perdí","mi pasaporte"]},
+  {name:"We went by plane",emoji:"✈️",steps:["El año pasado","mis padres y yo","fuimos","a Grecia","en avión"]},
+  {name:"Where I stayed",emoji:"🏨",steps:["Me alojé","en un hotel","de cinco estrellas","y me gustó mucho","la piscina"]},
+  {name:"Opinion with a reason",emoji:"🍦",steps:["Probé","la gastronomía local,","pero","no comí helados","porque hizo frío"]},
+  {name:"My brother's trip",emoji:"🚆",steps:["Hace dos años","mi hermano","fue","a Francia","en tren"]},
+  {name:"First day",emoji:"🏐",steps:["El primer día","jugué","al voleibol","en la playa"]},
+  {name:"Negative + however",emoji:"🕺",steps:["Sin embargo,","no bailé","en la discoteca","y no salí","con mis amigos"]},
+  {name:"They travelled",emoji:"🚗",steps:["Mis abuelos","fueron","a España","en coche"]},
+  {name:"Last day",emoji:"🏰",steps:["El último día","visitamos","un castillo antiguo","y sacamos","muchas fotos"]},
+];
+
+const EXAM=[
+  {topic:"Translation",marks:5,q:"Translate into Spanish: Last summer I went to Spain with my parents by plane.",points:["El verano pasado","fui (I went)","a España (a + place)","con mis padres (con + people)","en avión (en + transport)"],model:"El verano pasado fui a España con mis padres en avión."},
+  {topic:"Translation",marks:3,q:"Translate into Spanish: The best thing was that I swam in the sea.",points:["Lo mejor fue que","nadé (accent on é)","en el mar"],model:"Lo mejor fue que nadé en el mar."},
+  {topic:"Translation",marks:3,q:"Translate into Spanish: The worst thing was that I lost my passport.",points:["Lo peor fue que","perdí (accent on í)","mi pasaporte"],model:"Lo peor fue que perdí mi pasaporte."},
+  {topic:"Translation",marks:4,q:"Translate into Spanish: We drank lemonade and ate pizza in a small restaurant.",points:["Bebimos (we drank)","limonada","comimos pizza (we ate)","en un restaurante pequeño (adjective after the noun)"],model:"Bebimos limonada y comimos pizza en un restaurante pequeño."},
+  {topic:"Translation",marks:4,q:"Translate into Spanish: Last year I travelled to France and I spoke Spanish with some tourists.",points:["El año pasado","viajé a Francia","hablé español","con unos turistas"],model:"El año pasado viajé a Francia y hablé español con unos turistas."},
+  {topic:"Translation",marks:4,q:"Translate into Spanish: On the first day I went out and I ate lots of ice creams.",points:["El primer día","salí (I went out)","comí (I ate)","muchos helados"],model:"El primer día salí y comí muchos helados."},
+  {topic:"Translation",marks:3,q:"Translate into English: El último día de las vacaciones, visitamos un castillo antiguo y sacamos muchas fotos.",points:["On the last day of the holidays","we visited an old castle","and we took lots of photos"],model:"On the last day of the holidays, we visited an old castle and took lots of photos."},
+  {topic:"Translation",marks:2,q:"Translate into English: Mis amigos corrieron por la playa y comieron churros.",points:["My friends ran along the beach","and they ate churros"],model:"My friends ran along the beach and ate churros."},
+  {topic:"Grammar",marks:6,q:"Write out VIAJAR in the preterite for all six people (yo → ellos).",points:["viajé","viajaste","viajó","viajamos","viajasteis","viajaron"],model:"viajé, viajaste, viajó, viajamos, viajasteis, viajaron"},
+  {topic:"Grammar",marks:6,q:"Write out ESCRIBIR in the preterite for all six people.",points:["escribí","escribiste","escribió","escribimos","escribisteis","escribieron"],model:"escribí, escribiste, escribió, escribimos, escribisteis, escribieron"},
+  {topic:"Grammar",marks:6,q:"Write out IR (to go) in the preterite for all six people.",points:["fui","fuiste","fue","fuimos","fuisteis","fueron"],model:"fui, fuiste, fue, fuimos, fuisteis, fueron"},
+  {topic:"Grammar",marks:2,q:"Find and correct the mistake: 'Ayer mi madre comí un bocadillo de jamón en la cafetería.'",points:["The mistake is comí (that's 'I ate')","It should be comió: Ayer mi madre comió un bocadillo…"],model:"Mistake: comí. Mi madre = she, so it should be comió. 'Ayer mi madre comió un bocadillo de jamón en la cafetería.'"},
+  {topic:"Writing",marks:6,q:"Write 2–3 sentences: where did you go on your last holidays, who with, and how did you travel?",points:["A time phrase (En mis últimas vacaciones / El verano pasado…)","fui / fuimos + a + place","con + people","en + transport","A second preterite verb (e.g. me alojé, visité)","An opinion (me gustó / fue…)"],model:"En mis últimas vacaciones fui a Grecia con mi familia. Fuimos en avión y me alojé en un hotel de cinco estrellas. Me gustó mucho porque el viaje fue corto y no fue aburrido."},
+  {topic:"Writing",marks:6,q:"Write about the BEST and the WORST thing about your last holidays.",points:["Lo mejor (de mis vacaciones) fue que…","At least one preterite verb in the best sentence","A connective: sin embargo / pero / aunque","Lo peor fue que…","A negative (no + verb)","Correct accents on yo forms (é / í)"],model:"Lo mejor de mis vacaciones fue que saqué selfis para mi Instagram y nadé en el mar. Sin embargo, lo peor fue que no hizo sol y perdí mi pasaporte."},
+  {topic:"Writing",marks:6,q:"Write a short paragraph (40–50 words) about a past holiday, using at least three preterite verbs and two different people.",points:["A time phrase (el año pasado, el primer día, el último día)","Three or more preterite verbs","A 'we' or 'they' form (fuimos, comieron…)","a / en / con used correctly","A connective and an opinion","Adjectives after the noun and agreeing"],model:"El año pasado fui a Italia con mis padres. Fuimos en avión. El primer día visité los monumentos y comí muchos helados. Mis padres tomaron el sol en la playa. Lo mejor fue que probé la gastronomía local. Sin embargo, lo peor fue que mi hermano perdió su pasaporte."},
+];
+
+// ═══════════════════════════════════════════════════════════
+// SHOP DATA
+// ═══════════════════════════════════════════════════════════
+const SHOP_CATS=[
+  {id:'bg',label:'🎨 Background',items:[
+    {id:'bg0',name:'Plain',emoji:'⬜',price:0,free:true},
+    {id:'bg1',name:'Starry',emoji:'🌌',price:15},
+    {id:'bg2',name:'Rainbow',emoji:'🌈',price:20},
+    {id:'bg3',name:'Flowers',emoji:'🌸',price:25},
+    {id:'bg4',name:'Lab',emoji:'🔬',price:30},
+    {id:'bg5',name:'Space',emoji:'🚀',price:40},
+  ]},
+  {id:'skin',label:'👤 Skin Tone',items:[
+    {id:'sk0',name:'Peach',emoji:'🎀',price:0,free:true},
+    {id:'sk1',name:'Honey',emoji:'🍯',price:5},
+    {id:'sk2',name:'Bronze',emoji:'🤎',price:5},
+    {id:'sk3',name:'Ebony',emoji:'🖤',price:5},
+  ]},
+  {id:'hair',label:'💇 Hair',items:[
+    {id:'h0',name:'Brown',emoji:'🟫',price:0,free:true},
+    {id:'h1',name:'Blonde',emoji:'💛',price:10},
+    {id:'h2',name:'Pink',emoji:'🩷',price:15},
+    {id:'h3',name:'Purple',emoji:'💜',price:15},
+    {id:'h4',name:'Rainbow',emoji:'🌈',price:30},
+    {id:'h5',name:'Silver',emoji:'🩶',price:20},
+  ]},
+  {id:'outfit',label:'👗 Outfit',items:[
+    {id:'o0',name:'Lab Coat',emoji:'🥼',price:0,free:true},
+    {id:'o1',name:'Princess',emoji:'👑',price:20},
+    {id:'o2',name:'Space Suit',emoji:'👩‍🚀',price:35},
+    {id:'o3',name:'Butterfly',emoji:'🦋',price:25},
+    {id:'o4',name:'Witch',emoji:'🧙‍♀️',price:30},
+    {id:'o5',name:'Superhero',emoji:'🦸‍♀️',price:40},
+  ]},
+  {id:'acc',label:'✨ Accessory',items:[
+    {id:'ac0',name:'None',emoji:'❌',price:0,free:true},
+    {id:'ac1',name:'Glasses',emoji:'🤓',price:8},
+    {id:'ac2',name:'Crown',emoji:'👑',price:20},
+    {id:'ac3',name:'Flowers',emoji:'💐',price:12},
+    {id:'ac4',name:'Stars',emoji:'⭐',price:15},
+    {id:'ac5',name:'Wand',emoji:'🪄',price:25},
+  ]},
+  {id:'pet',label:'🐾 Pet',items:[
+    {id:'p0',name:'None',emoji:'❌',price:0,free:true},
+    {id:'p1',name:'Cat',emoji:'🐱',price:15},
+    {id:'p2',name:'Bunny',emoji:'🐰',price:15},
+    {id:'p3',name:'Dragon',emoji:'🐉',price:40},
+    {id:'p4',name:'Unicorn',emoji:'🦄',price:50},
+    {id:'p5',name:'Frog',emoji:'🐸',price:20},
+  ]},
+];
+let avatarOwned={bg:'bg0',skin:'sk0',hair:'h0',outfit:'o0',acc:'ac0',pet:'p0'};
+let avatarEquipped={bg:'bg0',skin:'sk0',hair:'h0',outfit:'o0',acc:'ac0',pet:'p0'};
+
+// ═══════════════════════════════════════════════════════════
+// COINS + UNLOCK
+// ═══════════════════════════════════════════════════════════
+function addCoins(n,x,y){
+  coins+=n;
+  updateCoinDisplay();
+  playCoin();
+  if(x&&y) coinPop(x,y,n);
+}
+function updateCoinDisplay(){
+  document.getElementById('coin-display').textContent=coins;
+  document.getElementById('shop-coins').textContent=coins;
+}
+function checkUnlocks(streak){
+  if(!unlocked.creature&&streak>=UNLOCKS.creature){
+    unlocked.creature=true;
+    showModal('🎯','Verb Catcher Unlocked!',`You got ${UNLOCKS.creature} in a row! Catch each falling verb before it lands.`,'🎯 Play now',()=>openGame('creature'));
+    playUnlock();confetti(60);buildUnlockGrid();
+  }else if(!unlocked.cell&&totalCorrect>=UNLOCKS.cell){
+    unlocked.cell=true;
+    showModal('🧱','Sentence Builder Unlocked!',`${UNLOCKS.cell} correct answers! Build holiday sentences in the right word order.`,'🧱 Play now',()=>openGame('cell'));
+    playUnlock();confetti(70);buildUnlockGrid();
+  }else if(!unlocked.blitz&&totalCorrect>=UNLOCKS.blitz){
+    unlocked.blitz=true;
+    showModal('⚡','Spanish Blitz Unlocked!',`${UNLOCKS.blitz} correct answers — you legend! ⚡ Answer as fast as you can before the timer runs out!`,'⚡ Play Now!',()=>openGame('blitz'));
+    playUnlock();confetti(80);buildUnlockGrid();
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// TABS
+// ═══════════════════════════════════════════════════════════
+function showTab(id,el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(el)el.classList.add('active');
+  if(id==='quiz'&&qIdx===0&&!qAnswered)initQuiz();
+  if(id==='shop'){buildShop();drawAvatar();}
+  if(id==='games')buildUnlockGrid();
+  if(id==='exam')renderExam();
+}
+
+// ═══════════════════════════════════════════════════════════
+// BANNER + MODAL
+// ═══════════════════════════════════════════════════════════
+function showBanner(msg,dur=3200){
+  const b=document.getElementById('streak-banner');
+  b.textContent=msg;b.classList.add('show');
+  clearTimeout(b._t);b._t=setTimeout(()=>b.classList.remove('show'),dur);
+}
+let _modalCb=null;
+function showModal(emoji,title,msg,btnLabel,cb){
+  document.getElementById('modal-emoji').textContent=emoji;
+  document.getElementById('modal-title').textContent=title;
+  document.getElementById('modal-msg').textContent=msg;
+  document.getElementById('modal-btn').textContent=btnLabel;
+  _modalCb=cb;
+  document.getElementById('unlock-modal').style.display='flex';
+}
+function closeModal(){
+  document.getElementById('unlock-modal').style.display='none';
+  if(_modalCb){_modalCb();_modalCb=null;}
+}
+
+// ═══════════════════════════════════════════════════════════
+// FLASHCARDS
+// ═══════════════════════════════════════════════════════════
+let fcCards=[...FLASHCARDS],fcIdx=0,fcFlipped=false;
+let fcRatings=new Array(FLASHCARDS.length).fill(null),fcFilter='All';
+const allTopics=['All',...new Set(FLASHCARDS.map(f=>f.topic))];
+function buildFilterButtons(){
+  const w=document.getElementById('fc-filter');w.innerHTML='';
+  allTopics.forEach(t=>{
+    const b=document.createElement('button');
+    b.className='filter-btn'+(t===fcFilter?' active':'');
+    b.textContent=t;b.onclick=()=>{fcFilter=t;applyFCFilter();buildFilterButtons()};
+    w.appendChild(b);
+  });
+}
+function applyFCFilter(){
+  fcCards=fcFilter==='All'?[...FLASHCARDS]:FLASHCARDS.filter(f=>f.topic===fcFilter);
+  fcIdx=0;fcRatings=new Array(fcCards.length).fill(null);renderFC();
+}
+function renderFC(){
+  const c=fcCards[fcIdx];
+  document.getElementById('fc-question').textContent=c.q;
+  document.getElementById('fc-answer').textContent=c.a;
+  document.getElementById('fc-badge').textContent='🏷 '+c.topic;
+  document.getElementById('fc-progress').textContent=`Card ${fcIdx+1} of ${fcCards.length}`;
+  document.getElementById('fc-prev').disabled=fcIdx===0;
+  document.getElementById('fc-next').disabled=fcIdx===fcCards.length-1;
+  document.getElementById('card-inner').classList.remove('flipped');
+  document.getElementById('fc-rating').classList.remove('show');
+  fcFlipped=false;renderDots();
+}
+function flipCard(){
+  fcFlipped=!fcFlipped;
+  document.getElementById('card-inner').classList.toggle('flipped',fcFlipped);
+  if(fcFlipped){playFlip();document.getElementById('fc-rating').classList.add('show');}
+  else document.getElementById('fc-rating').classList.remove('show');
+}
+function rateCard(r){
+  fcRatings[fcIdx]=r;
+  if(r==='got-it')playHappy();else if(r==='missed')playSad();
+  renderDots();if(fcIdx<fcCards.length-1){fcIdx++;renderFC();}
+}
+function fcNav(dir){fcIdx=Math.max(0,Math.min(fcCards.length-1,fcIdx+dir));renderFC();}
+function renderDots(){
+  const w=document.getElementById('fc-dots');w.innerHTML='';
+  fcRatings.forEach((r,i)=>{
+    const d=document.createElement('div');d.className='score-dot'+(r?' '+r:'');
+    d.style.outline=i===fcIdx?'2px solid #A13D24':'none';d.style.outlineOffset='2px';
+    w.appendChild(d);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// QUIZ
+// ═══════════════════════════════════════════════════════════
+let qIdx=0,qScore=0,qAnswered=false,qResults=[],quizOrder=[];
+function shuffle(a){const r=[...a];for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]]}return r}
+function initQuiz(){
+  quizOrder=shuffle(QUIZ).slice(0,20);qIdx=0;qScore=0;qAnswered=false;qResults=[];quizStreak=0;
+  document.getElementById('quiz-body').style.display='block';
+  document.getElementById('quiz-results').style.display='none';
+  renderQuestion();
+}
+function renderQuestion(){
+  const q=quizOrder[qIdx];
+  document.getElementById('q-progress').textContent=`Q ${qIdx+1}/${quizOrder.length}`;
+  document.getElementById('q-score-live').textContent=`⭐${qScore} 🔥${quizStreak} 🪙${coins}`;
+  document.getElementById('q-bar').style.width=`${(qIdx/quizOrder.length)*100}%`;
+  document.getElementById('q-topic').textContent=q.topic;
+  document.getElementById('q-text').textContent=q.q;
+  document.getElementById('q-next').style.display='none';
+  const fb=document.getElementById('q-feedback');fb.className='feedback-box';fb.textContent='';
+  qAnswered=false;
+  const opts=document.getElementById('q-options');opts.innerHTML='';
+  const letters=['A','B','C','D'];
+  q.opts.forEach((opt,i)=>{
+    const btn=document.createElement('button');
+    btn.className='option';
+    btn.innerHTML=`<span class="opt-letter">${letters[i]}</span>${opt}`;
+    btn.onclick=()=>quizAnswer(i,btn);opts.appendChild(btn);
+  });
+}
+function quizAnswer(chosen,btnEl){
+  if(qAnswered)return;qAnswered=true;
+  const q=quizOrder[qIdx];const correct=chosen===q.ans;
+  let coinEarned=0;
+  if(correct){
+    qScore++;quizStreak++;sessionStreak++;totalCorrect++;
+    coinEarned=1+(quizStreak>=5?2:quizStreak>=3?1:0);
+    addCoins(coinEarned);
+    checkUnlocks(quizStreak);
+  }else{quizStreak=0;sessionStreak=0;}
+  document.querySelectorAll('.option').forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===q.ans)b.classList.add('correct');
+    else if(i===chosen&&!correct)b.classList.add('wrong');
+  });
+  const fb=document.getElementById('q-feedback');
+  fb.className='feedback-box show '+(correct?'correct-fb':'wrong-fb');
+  fb.textContent=(correct?'🎉 Correct! ':'💡 Not quite — ')+q.explain;
+  const card=document.getElementById('quiz-card-el');
+  const r=btnEl.getBoundingClientRect();
+  if(correct){
+    playHappy();confetti(28);
+    card.classList.add('bounce');setTimeout(()=>card.classList.remove('bounce'),500);
+    burst('⭐',r.left+r.width/2-16,r.top-36);
+    coinPop(r.left+r.width/2,r.top-10,coinEarned);
+    const left=UNLOCKS.creature-quizStreak;
+    if(!unlocked.creature&&left>0)showBanner(`🔥 ${quizStreak} in a row! ${left} more to unlock Verb Catcher 🎯`);
+    if(quizStreak>0&&quizStreak%5===0&&unlocked.creature)showBanner(`🔥 ${quizStreak} in a row! You're unstoppable!`);
+  }else{playSad();card.classList.add('shake');setTimeout(()=>card.classList.remove('shake'),450);}
+  qResults.push({q:q.q,correct,topic:q.topic,explain:q.explain,chosen,right:q.ans,opts:q.opts});
+  document.getElementById('q-next').style.display='inline-flex';
+  document.getElementById('q-score-live').textContent=`⭐${qScore} 🔥${quizStreak} 🪙${coins}`;
+}
+function nextQuestion(){qIdx++;if(qIdx>=quizOrder.length)showResults();else renderQuestion();}
+function showResults(){
+  document.getElementById('quiz-body').style.display='none';
+  document.getElementById('quiz-results').style.display='block';
+  const pct=Math.round((qScore/quizOrder.length)*100);
+  const circle=document.getElementById('r-circle');
+  circle.style.color=pct>=80?'#3DD68C':pct>=60?'#F59E0B':'#FF4D6D';
+  document.getElementById('r-num').textContent=qScore;
+  document.getElementById('r-den').textContent=`/ ${quizOrder.length}`;
+  if(pct>=80){playHappy();confetti(70);}else if(pct>=60)playFlip();else playSad();
+  let title,sub;
+  if(pct===100){title="Perfect score";sub="Every answer right. Excellent.";}
+  else if(pct>=80){title="Great work";sub="Nearly perfect. Check the ones you missed below.";}
+  else if(pct>=60){title="Good effort";sub="Revise the topics below on the flashcards, then try again.";}
+  else{title="Keep going";sub="Work through the flashcards for these topics, then try again.";}
+  document.getElementById('r-title').textContent=title;
+  document.getElementById('r-sub').textContent=sub;
+  const bd=document.getElementById('r-breakdown');
+  bd.innerHTML='<div style="font-family:var(--display);font-size:1rem;color:var(--hot);margin-bottom:10px">Your answers:</div>';
+  qResults.forEach(r=>{
+    const d=document.createElement('div');d.className='result-item';
+    d.innerHTML=`<div>${r.correct?'✅':'❌'}</div><div><div class="ri-q">${r.q}</div>${!r.correct?`<div class="ri-a">✔ ${r.opts[r.right]}</div>`:''}</div>`;
+    bd.appendChild(d);
+  });
+}
+function restartQuiz(){initQuiz();}
+
+// ═══════════════════════════════════════════════════════════
+// GAMES HUB
+// ═══════════════════════════════════════════════════════════
+const GAME_DEFS=[
+  {id:'creature',emoji:'🎯',name:'Verb Catcher',desc:'Pick the right answer for each falling verb before it lands!',unlock:UNLOCKS.creature,unlockDesc:'Get 2 in a row in the quiz',fn:startCreatureCatcher},
+  {id:'cell',emoji:'🧱',name:'Sentence Builder',desc:'Put holiday sentences in order: time phrase, verb, place, transport, people.',unlock:UNLOCKS.cell,unlockDesc:`Get ${UNLOCKS.cell} correct answers`,fn:startProcessBuilder},
+  {id:'blitz',emoji:'⚡',name:'Spanish Blitz',desc:'Fast-fire questions — answer before the timer runs out!',unlock:UNLOCKS.blitz,unlockDesc:`Get ${UNLOCKS.blitz} correct answers`,fn:startBlitz},
+];
+function buildUnlockGrid(){
+  const g=document.getElementById('unlock-grid');g.innerHTML='';
+  ['game-creature','game-cell','game-blitz'].forEach(id=>document.getElementById(id).style.display='none');
+  GAME_DEFS.forEach(gd=>{
+    const isUnlocked=unlocked[gd.id];
+    const div=document.createElement('div');
+    div.className='unlock-card'+(isUnlocked?'  unlocked':' locked');
+    const progress=gd.id==='creature'?`${Math.min(quizStreak,gd.unlock)}/${gd.unlock} streak`:
+                   `${Math.min(totalCorrect,gd.unlock)}/${gd.unlock} correct`;
+    div.innerHTML=`
+      <div class="unlock-emoji">${gd.emoji}</div>
+      <h3>${gd.name}</h3>
+      <p>${gd.desc}</p>
+      <span class="unlock-req ${isUnlocked?'done':'todo'}">${isUnlocked?'✅ Unlocked!':'🔒 '+gd.unlockDesc}</span>
+      ${!isUnlocked?`<div style="font-size:.72rem;color:var(--muted);font-weight:700;margin-bottom:8px">${progress}</div>`:''}
+    `;
+    if(isUnlocked){
+      const btn=document.createElement('button');
+      btn.className='btn btn-game';btn.textContent='▶ Play';btn.style.fontSize='.88rem';btn.style.padding='8px 18px';
+      btn.onclick=()=>openGame(gd.id);
+      div.appendChild(btn);
+    }
+    g.appendChild(div);
+  });
+}
+function openGame(id){
+  buildUnlockGrid();
+  document.getElementById(`game-${id}`).style.display='block';
+  GAME_DEFS.find(g=>g.id===id).fn();
+  document.getElementById(`game-${id}`).scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 1: CREATURE CATCHER
+// ═══════════════════════════════════════════════════════════
+let ccScore=0,ccStreak=0,ccLives=3,ccLevel=1,ccRunning=false;
+let ccCreature=null,ccY=0,ccSpeed=0.5,ccAnswered=false,ccRAF=null;
+const ccCanvas=document.getElementById('cc-canvas');
+const ccCtx=ccCanvas.getContext('2d');
+
+function startCreatureCatcher(){
+  ccScore=0;ccStreak=0;ccLives=3;ccLevel=1;ccAnswered=false;ccRunning=true;
+  document.getElementById('cc-over').style.display='none';
+  document.getElementById('cc-opts').style.display='grid';
+  document.getElementById('cc-q').parentElement.style.display='block';
+  updateCCStats();ccNextCreature();
+  if(ccRAF)cancelAnimationFrame(ccRAF);ccLoop();
+}
+function ccNextCreature(){
+  const c=CREATURES[Math.floor(Math.random()*CREATURES.length)];
+  const opts=shuffle([c.correct,...shuffle(c.wrong).slice(0,3)]);
+  ccCreature={...c,opts};ccY=0;ccAnswered=false;
+  ccSpeed=0.38+ccLevel*0.14;
+  document.getElementById('cc-q').textContent=`${c.emoji} ${c.name} — ${c.q}`;
+  const w=document.getElementById('cc-opts');w.innerHTML='';
+  opts.forEach(o=>{
+    const btn=document.createElement('button');btn.className='game-opt';btn.textContent=o;
+    btn.onclick=()=>ccAnswer(o,c.correct,btn);w.appendChild(btn);
+  });
+}
+function ccAnswer(chosen,correct,btnEl){
+  if(ccAnswered)return;ccAnswered=true;
+  const ok=chosen===correct;
+  document.querySelectorAll('.game-opt').forEach(b=>{
+    b.classList.add('locked');
+    if(b.textContent===correct)b.classList.add('correct');
+    else if(b===btnEl&&!ok)b.classList.add('wrong');
+  });
+  if(ok){
+    playCatch();ccStreak++;ccScore+=10+ccStreak*2;
+    totalCorrect++;addCoins(1);checkUnlocks(0);
+    burst('⭐',window.innerWidth/2-16,window.innerHeight/2-50);
+    showBanner(ccStreak>1?`🔥 ${ccStreak} in a row! Caught it!`:'✅ Caught it! +coins');
+    if(ccStreak%3===0){ccLevel=Math.min(6,ccLevel+1);showBanner(`⬆️ Level ${ccLevel}! Faster now...`,2000);}
+  }else{
+    playMiss();ccStreak=0;ccLives--;
+    showBanner(`💔 That was a ${correct}! ${ccLives} lives left`);
+    if(ccLives<=0){ccEnd();return;}
+  }
+  updateCCStats();setTimeout(ccNextCreature,800);
+}
+function ccLoop(){
+  if(!ccRunning)return;
+  ccCtx.clearRect(0,0,ccCanvas.width,ccCanvas.height);
+  // sky gradient
+  const grad=ccCtx.createLinearGradient(0,0,0,ccCanvas.height);
+  grad.addColorStop(0,'#F6E3C8');grad.addColorStop(1,'#FBF6EF');
+  ccCtx.fillStyle=grad;ccCtx.fillRect(0,0,ccCanvas.width,ccCanvas.height);
+  // clouds
+  [[60,40],[180,25],[320,50],[480,30],[600,45]].forEach(([x,y])=>{
+    ccCtx.fillStyle='rgba(255,255,255,0.7)';
+    ccCtx.beginPath();ccCtx.ellipse(x,y,30,18,0,0,Math.PI*2);ccCtx.fill();
+    ccCtx.beginPath();ccCtx.ellipse(x+20,y+5,22,14,0,0,Math.PI*2);ccCtx.fill();
+  });
+  // ground
+  ccCtx.fillStyle='#E3C9A0';ccCtx.fillRect(0,ccCanvas.height-16,ccCanvas.width,16);
+  ccCtx.fillStyle='#A13D24';ccCtx.fillRect(0,ccCanvas.height-18,ccCanvas.width,4);
+  if(ccCreature&&!ccAnswered){
+    ccY+=ccSpeed;
+    if(ccY>=ccCanvas.height-68&&!ccAnswered){
+      ccAnswered=true;playMiss();ccStreak=0;ccLives--;
+      showBanner(`💔 ${ccCreature.name} got away! It was a ${ccCreature.correct}. ${ccLives} lives left`);
+      updateCCStats();
+      if(ccLives<=0){ccEnd();return;}else setTimeout(ccNextCreature,1200);
+    }
+    const x=ccCanvas.width/2;
+    // shadow
+    ccCtx.fillStyle='rgba(74,29,20,0.10)';
+    ccCtx.beginPath();const sw=28*(ccY/(ccCanvas.height-68));
+    ccCtx.ellipse(x,ccCanvas.height-20,sw,6,0,0,Math.PI*2);ccCtx.fill();
+    // creature
+    ccCtx.font=`${50+Math.sin(Date.now()*.005)*3}px serif`;
+    ccCtx.textAlign='center';ccCtx.textBaseline='middle';
+    ccCtx.fillText(ccCreature.emoji,x,ccY+20);
+    // name tag
+    ccCtx.fillStyle='#2A1A14';ccCtx.font='bold 13px Inter,sans-serif';
+    ccCtx.fillText(ccCreature.name,x,ccY+50);
+  }
+  ccRAF=requestAnimationFrame(ccLoop);
+}
+function updateCCStats(){
+  document.getElementById('cc-score').textContent=ccScore;
+  document.getElementById('cc-streak').textContent=ccStreak+'🔥';
+  document.getElementById('cc-lives').textContent='❤️'.repeat(Math.max(0,ccLives));
+  document.getElementById('cc-level').textContent=ccLevel;
+}
+function ccEnd(){
+  ccRunning=false;cancelAnimationFrame(ccRAF);
+  document.getElementById('cc-opts').style.display='none';
+  document.getElementById('cc-q').parentElement.style.display='none';
+  const ov=document.getElementById('cc-over');ov.style.display='block';
+  const emoji=ccScore>=200?'🏆':ccScore>=100?'🌟':ccScore>=50?'😊':'😢';
+  const msg=ccScore>=200?`Score: ${ccScore} — you're a champion! 🌟`:ccScore>=100?`Score: ${ccScore} — brilliant catching! 💪`:`Score: ${ccScore} — try again to beat your score!`;
+  document.getElementById('cc-over-emoji').textContent=emoji;
+  document.getElementById('cc-over-title').textContent=ccScore>=100?'Amazing!':'Game Over!';
+  document.getElementById('cc-over-msg').textContent=msg;
+  if(ccScore>=100)confetti(50);
+  ccCtx.clearRect(0,0,ccCanvas.width,ccCanvas.height);
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 2: PROCESS BUILDER — tap the steps of each process in order
+// ═══════════════════════════════════════════════════════════
+const PB_MAX_LIVES=5;
+let pbOrder=[],pbIdx=0,pbNext=0,pbLives=PB_MAX_LIVES,pbScore=0;
+function startProcessBuilder(){
+  pbOrder=shuffle(PROCESSES);pbIdx=0;pbLives=PB_MAX_LIVES;pbScore=0;
+  document.getElementById('pb-over').style.display='none';
+  document.getElementById('pb-play').style.display='block';
+  pbRound();
+}
+function pbRound(){
+  if(pbIdx>=pbOrder.length){pbWin();return;}
+  const p=pbOrder[pbIdx];pbNext=0;
+  document.getElementById('pb-title').textContent=`${p.emoji} ${p.name}: tap the chunks in order`;
+  document.getElementById('pb-built').innerHTML='';
+  const pool=document.getElementById('pb-pool');pool.innerHTML='';
+  shuffle(p.steps.map((s,i)=>i)).forEach(i=>{
+    const b=document.createElement('button');b.className='pb-step';b.textContent=p.steps[i];
+    b.onclick=()=>pbTap(i,b);pool.appendChild(b);
+  });
+  updatePBStats();
+}
+function pbTap(i,btn){
+  const p=pbOrder[pbIdx];
+  if(i===pbNext){
+    playCatch();pbNext++;pbScore+=5;
+    const li=document.createElement('li');li.textContent=p.steps[i];
+    document.getElementById('pb-built').appendChild(li);btn.remove();
+    if(pbNext===p.steps.length){
+      pbScore+=10;totalCorrect++;addCoins(2);checkUnlocks(0);confetti(30);
+      pbLives=Math.min(PB_MAX_LIVES,pbLives+1);
+      showBanner(`🧱 ${p.name}: built! +2 coins`);
+      pbIdx++;updatePBStats();setTimeout(pbRound,1600);return;
+    }
+  }else{
+    playMiss();pbLives--;
+    btn.classList.add('pb-wrong');setTimeout(()=>btn.classList.remove('pb-wrong'),450);
+    showBanner(pbNext===0?'🤔 Not the first chunk — how does the sentence start?':'🤔 Not next — what comes after that?');
+    if(pbLives<=0){updatePBStats();pbEnd();return;}
+  }
+  updatePBStats();
+}
+function updatePBStats(){
+  document.getElementById('pb-score').textContent=pbScore;
+  document.getElementById('pb-lives').textContent='❤️'.repeat(Math.max(0,pbLives));
+  document.getElementById('pb-round').textContent=`${Math.min(pbIdx+1,pbOrder.length)}/${pbOrder.length}`;
+}
+function pbEnd(){
+  document.getElementById('pb-play').style.display='none';
+  document.getElementById('pb-over').style.display='block';
+  document.getElementById('pb-over-emoji').textContent=pbIdx>=5?'🌟':'😢';
+  document.getElementById('pb-over-title').textContent='Out of lives!';
+  document.getElementById('pb-over-msg').textContent=`You built ${pbIdx} of ${pbOrder.length} sentences (score ${pbScore}). Check the flashcards and try again!`;
+}
+function pbWin(){
+  confetti(80);playUnlock();addCoins(10);
+  document.getElementById('pb-play').style.display='none';
+  document.getElementById('pb-over').style.display='block';
+  document.getElementById('pb-over-emoji').textContent='🏆';
+  document.getElementById('pb-over-title').textContent='All sentences built!';
+  document.getElementById('pb-over-msg').textContent=`Score ${pbScore}. Your word order is spot on. +10 bonus coins! 🪙`;
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 3: KINGDOM BLITZ
+// ═══════════════════════════════════════════════════════════
+let blScore=0,blStreak=0,blQIdx=0,blOrder=[],blRunning=false;
+let blTimer=10,blTimerInterval=null,blAnswered=false;
+const BLITZ_TOTAL=15;
+
+function startBlitz(){
+  blScore=0;blStreak=0;blQIdx=0;blAnswered=false;blRunning=true;
+  blOrder=shuffle(QUIZ).slice(0,BLITZ_TOTAL);
+  document.getElementById('bl-over').style.display='none';
+  updateBlitzStats();blNextQ();
+}
+function blNextQ(){
+  if(blQIdx>=BLITZ_TOTAL){blEnd();return;}
+  const q=blOrder[blQIdx];
+  blAnswered=false;blTimer=10;
+  document.getElementById('bl-q').textContent=q.q;
+  const opts=document.getElementById('bl-opts');opts.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const btn=document.createElement('button');btn.className='blitz-opt';btn.textContent=o;
+    btn.onclick=()=>blAnswer(i,q.ans,btn);opts.appendChild(btn);
+  });
+  document.getElementById('bl-q-num').textContent=`${blQIdx+1}/${BLITZ_TOTAL}`;
+  updateBlitzTimer();
+  clearInterval(blTimerInterval);
+  blTimerInterval=setInterval(()=>{
+    if(!blRunning)return;
+    blTimer-=.1;updateBlitzTimer();
+    if(blTimer<=0){clearInterval(blTimerInterval);blTimeOut();}
+  },100);
+}
+function updateBlitzTimer(){
+  const pct=Math.max(0,(blTimer/10)*100);
+  const fill=document.getElementById('bl-timer-fill');
+  fill.style.width=pct+'%';
+  fill.style.background=pct>60?'var(--mint)':pct>30?'var(--yellow)':'var(--red)';
+  document.getElementById('bl-timer-label').textContent=Math.ceil(Math.max(0,blTimer))+'s';
+}
+function blAnswer(chosen,correct,btnEl){
+  if(blAnswered)return;blAnswered=true;clearInterval(blTimerInterval);
+  const ok=chosen===correct;
+  document.querySelectorAll('.blitz-opt').forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===correct)b.classList.add('correct');
+    else if(b===btnEl&&!ok)b.classList.add('wrong');
+  });
+  if(ok){
+    playBlitzRight();blStreak++;
+    const bonus=Math.ceil(blTimer);blScore+=10+bonus+(blStreak>=3?5:0);
+    totalCorrect++;addCoins(1);checkUnlocks(0);
+    showBanner(`✅ +${10+bonus}pts! (speed bonus: +${bonus}) ${blStreak>=3?'🔥 STREAK!':''}`);
+  }else{
+    playBlitzWrong();blStreak=0;
+    showBanner('❌ Wrong! No points this round.');
+  }
+  updateBlitzStats();
+  blQIdx++;
+  setTimeout(blNextQ,700);
+}
+function blTimeOut(){
+  if(blAnswered)return;blAnswered=true;
+  playMiss();blStreak=0;
+  document.querySelectorAll('.blitz-opt').forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===blOrder[blQIdx].ans)b.classList.add('correct');
+  });
+  showBanner('⏱️ Time\'s up!');updateBlitzStats();
+  blQIdx++;setTimeout(blNextQ,800);
+}
+function updateBlitzStats(){
+  document.getElementById('bl-score').textContent=blScore;
+  document.getElementById('bl-streak').textContent=blStreak+'🔥';
+}
+function blEnd(){
+  blRunning=false;clearInterval(blTimerInterval);
+  document.getElementById('bl-over').style.display='block';
+  const pct=Math.round((blScore/150)*100);
+  const emoji=blScore>=120?'⚡🏆':blScore>=80?'⚡🌟':blScore>=40?'⚡😊':'⚡😅';
+  let title=blScore>=100?'Blitz Champion!':blScore>=60?'Great Speed!':'Keep Practising!';
+  let msg=`Score: ${blScore}/150. ${blScore>=100?'You were lightning fast! ⚡':'Try to answer faster for speed bonuses! ⏱️'}`;
+  document.getElementById('bl-over-emoji').textContent=emoji;
+  document.getElementById('bl-over-title').textContent=title;
+  document.getElementById('bl-over-msg').textContent=msg;
+  if(blScore>=80)confetti(50);
+  if(blScore>=100)addCoins(5);
+}
+
+// ═══════════════════════════════════════════════════════════
+// AVATAR SHOP
+// ═══════════════════════════════════════════════════════════
+const BG_COLORS={bg0:'#FFF0F8',bg1:'#1A0A2E',bg2:null,bg3:'#FFF0F8',bg4:'#0A1A2E',bg5:'#050510'};
+const BG_STARS={bg1:true,bg4:false,bg5:true};
+
+function buildShop(){
+  const panel=document.getElementById('shop-panel');panel.innerHTML='';
+  SHOP_CATS.forEach(cat=>{
+    const div=document.createElement('div');div.className='shop-cat';
+    div.innerHTML=`<h3>${cat.label}</h3><div class="shop-items" id="si-${cat.id}"></div>`;
+    panel.appendChild(div);
+    const wrap=div.querySelector('.shop-items');
+    cat.items.forEach(item=>{
+      const isOwned=avatarOwned[cat.id]===item.id||item.free;
+      const isEquipped=avatarEquipped[cat.id]===item.id;
+      const canAfford=coins>=item.price;
+      const el=document.createElement('div');
+      el.className='shop-item'+(isEquipped?' active-item':isOwned?' owned':'');
+      el.innerHTML=`<span class="si-emoji">${item.emoji}</span><span class="si-name">${item.name}</span><span class="si-price ${isEquipped?'equipped':item.free?'free':''}">${isEquipped?'Equipped ✓':isOwned?'Equip ✨':item.price===0?'Free!':'🪙'+item.price}</span>`;
+      el.onclick=()=>shopAction(cat.id,item,isOwned||item.free,canAfford);
+      wrap.appendChild(el);
+    });
+  });
+}
+function shopAction(catId,item,owned,canAfford){
+  if(avatarEquipped[catId]===item.id)return;
+  if(!owned){
+    if(!canAfford){showBanner(`💸 Need ${item.price-coins} more coins! Keep answering questions! 🎯`);return;}
+    coins-=item.price;updateCoinDisplay();
+    avatarOwned[catId]=item.id;
+    playCoin();burst('🪙',window.innerWidth/2,window.innerHeight/2);
+  }
+  avatarEquipped[catId]=item.id;
+  playFlip();drawAvatar();buildShop();
+  showBanner('Avatar updated ✓');
+}
+
+function drawAvatar(){
+  const canvas=document.getElementById('avatar-canvas');
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height;
+  ctx.clearRect(0,0,W,H);
+
+  const bg=avatarEquipped.bg,sk=avatarEquipped.skin,hr=avatarEquipped.hair;
+  const ot=avatarEquipped.outfit,ac=avatarEquipped.acc,pt=avatarEquipped.pet;
+
+  // Background
+  const bgDef=SHOP_CATS[0].items.find(i=>i.id===bg);
+  if(bg==='bg2'){
+    const rg=['#FF6EB4','#FFAA00','#FFD600','#3DD68C','#4488FF','#C855F0'];
+    rg.forEach((c,i)=>{ctx.fillStyle=c;ctx.fillRect(0,i*(H/rg.length),W,H/rg.length+1)});
+  }else if(bg==='bg3'){
+    ctx.fillStyle='#FFF0F8';ctx.fillRect(0,0,W,H);
+    ['🌸','🌺','🌷','✿','🌼'].forEach((f,i)=>{
+      ctx.font='20px serif';ctx.textAlign='center';
+      ctx.fillText(f,(i%3)*50+25,Math.floor(i/3)*50+25);
+    });
+  }else{
+    ctx.fillStyle=BG_COLORS[bg]||'#FFF0F8';ctx.fillRect(0,0,W,H);
+    if(BG_STARS[bg]){
+      for(let i=0;i<30;i++){
+        ctx.fillStyle=`rgba(255,255,255,${.4+Math.random()*.6})`;
+        ctx.beginPath();ctx.arc(Math.random()*W,Math.random()*H,Math.random()*1.5+.5,0,Math.PI*2);ctx.fill();
+      }
+    }
+    if(bg==='bg4'){ctx.fillStyle='rgba(100,200,255,.1)';ctx.font='18px serif';ctx.textAlign='center';ctx.fillText('🔬',110,30);ctx.fillText('⚗️',30,80);ctx.fillText('🧬',20,160);}
+  }
+
+  // Skin tones
+  const skinColors={sk0:'#FFCBA4',sk1:'#D4956A',sk2:'#A0633C',sk3:'#4A2915'};
+  const skinC=skinColors[sk]||'#FFCBA4';
+
+  // Body / outfit
+  const outfitEmojis={o0:'🥼',o1:'👑',o2:'👩‍🚀',o3:'🦋',o4:'🧙‍♀️',o5:'🦸‍♀️'};
+  const outfitColors={o0:'#EEEEFF',o1:'#FFD700',o2:'#CCDDEE',o3:'#FFB3D9',o4:'#2D0044',o5:'#FF3366'};
+  ctx.fillStyle=outfitColors[ot]||'#EEEEFF';
+  // torso
+  ctx.beginPath();ctx.roundRect(W/2-30,H/2+10,60,55,10);ctx.fill();
+  // arms
+  ctx.fillStyle=skinC;
+  ctx.beginPath();ctx.roundRect(W/2-50,H/2+14,22,40,8);ctx.fill();
+  ctx.beginPath();ctx.roundRect(W/2+28,H/2+14,22,40,8);ctx.fill();
+  // outfit emoji overlay
+  ctx.font='28px serif';ctx.textAlign='center';
+  ctx.fillText(outfitEmojis[ot]||'🥼',W/2,H/2+45);
+
+  // Neck
+  ctx.fillStyle=skinC;ctx.beginPath();ctx.roundRect(W/2-10,H/2-5,20,20,4);ctx.fill();
+
+  // Face
+  ctx.fillStyle=skinC;ctx.beginPath();ctx.ellipse(W/2,H/2-28,30,34,0,0,Math.PI*2);ctx.fill();
+  // eyes
+  ctx.fillStyle='#3D1A4E';
+  ctx.beginPath();ctx.ellipse(W/2-11,H/2-28,5,6,0,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(W/2+11,H/2-28,5,6,0,0,Math.PI*2);ctx.fill();
+  // eye shine
+  ctx.fillStyle='white';
+  ctx.beginPath();ctx.ellipse(W/2-9,H/2-31,2,2,0,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(W/2+13,H/2-31,2,2,0,0,Math.PI*2);ctx.fill();
+  // smile
+  ctx.strokeStyle='#3D1A4E';ctx.lineWidth=2;ctx.lineCap='round';
+  ctx.beginPath();ctx.arc(W/2,H/2-22,12,0.2,Math.PI-0.2);ctx.stroke();
+  // rosy cheeks
+  ctx.fillStyle='rgba(255,110,180,.25)';
+  ctx.beginPath();ctx.ellipse(W/2-20,H/2-20,9,6,-.2,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(W/2+20,H/2-20,9,6,.2,0,Math.PI*2);ctx.fill();
+
+  // Hair
+  const hairColors={h0:'#6B3A2A',h1:'#F4C430',h2:'#FF6EB4',h3:'#9B59B6',h4:null,h5:'#C0C0C0'};
+  if(hr==='h4'){
+    // rainbow hair
+    const rc=['#FF6EB4','#FFAA00','#FFD600','#3DD68C','#4488FF','#C855F0'];
+    rc.forEach((c,i)=>{
+      ctx.fillStyle=c;
+      ctx.beginPath();ctx.ellipse(W/2+(i-2.5)*10,H/2-60,6,30,0,0,Math.PI*2);ctx.fill();
+    });
+  }else{
+    ctx.fillStyle=hairColors[hr]||'#6B3A2A';
+    // top
+    ctx.beginPath();ctx.ellipse(W/2,H/2-52,32,22,0,Math.PI,Math.PI*2);ctx.fill();
+    // sides
+    ctx.beginPath();ctx.ellipse(W/2-28,H/2-36,9,22,-.2,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.ellipse(W/2+28,H/2-36,9,22,.2,0,Math.PI*2);ctx.fill();
+  }
+
+  // Accessory
+  const accEmojis={ac0:'',ac1:'🤓',ac2:'👑',ac3:'💐',ac4:'⭐',ac5:'🪄'};
+  const accE=accEmojis[ac];
+  if(accE){
+    ctx.font=ac==='ac1'?'20px serif':'22px serif';ctx.textAlign='center';
+    if(ac==='ac1')ctx.fillText(accE,W/2,H/2-18);
+    else if(ac==='ac2')ctx.fillText(accE,W/2,H/2-75);
+    else if(ac==='ac3')ctx.fillText(accE,W/2-2,H/2-70);
+    else if(ac==='ac4'){ctx.fillText('⭐',W/2-38,H/2-55);ctx.fillText('⭐',W/2+38,H/2-55);}
+    else ctx.fillText(accE,W/2+44,H/2+30);
+  }
+
+  // Pet
+  const petEmojis={p0:'',p1:'🐱',p2:'🐰',p3:'🐉',p4:'🦄',p5:'🐸'};
+  const petE=petEmojis[pt];
+  if(petE){ctx.font='26px serif';ctx.textAlign='center';ctx.fillText(petE,W/2+52,H/2+65);}
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXAM PRACTICE
+// ═══════════════════════════════════════════════════════════
+let exIdx=0,exAnswers=new Array(EXAM.length).fill(''),exScores=new Array(EXAM.length).fill(null);
+function renderExam(){
+  const e=EXAM[exIdx];
+  document.getElementById('ex-topic').textContent=e.topic;
+  document.getElementById('ex-marks').textContent=`${e.marks} mark${e.marks>1?'s':''}`;
+  document.getElementById('ex-q').textContent=e.q;
+  document.getElementById('ex-ans').value=exAnswers[exIdx]||'';
+  document.getElementById('ex-count').textContent=`${exIdx+1} / ${EXAM.length}`+(exScores[exIdx]!==null?`  ·  ✅ ${exScores[exIdx]}/${e.marks}`:'');
+  document.getElementById('ex-mark').style.display='none';
+  document.getElementById('ex-reveal').style.display='inline-flex';
+  document.getElementById('ex-result').textContent='';
+  document.getElementById('ex-submit').style.display='inline-flex';
+  document.getElementById('ex-model').textContent=e.model;
+  const pts=document.getElementById('ex-points');pts.innerHTML='';
+  e.points.forEach((p,i)=>{
+    const l=document.createElement('label');l.className='ex-point';
+    l.innerHTML=`<input type="checkbox" id="ex-p${i}"> <span></span>`;l.querySelector('span').textContent=p;
+    pts.appendChild(l);
+  });
+}
+function exReveal(){
+  playFlip();
+  document.getElementById('ex-mark').style.display='block';
+  document.getElementById('ex-reveal').style.display='none';
+}
+function exSubmit(){
+  const e=EXAM[exIdx];
+  const got=e.points.filter((p,i)=>document.getElementById('ex-p'+i).checked).length;
+  const first=exScores[exIdx]===null;
+  exScores[exIdx]=Math.max(got,exScores[exIdx]||0);
+  const r=document.getElementById('ex-result');
+  if(got===e.points.length){playHappy();confetti(40);r.textContent=`🎉 Full marks: ${got}/${e.marks}!`;}
+  else if(got>0){playCoin();r.textContent=`👍 ${got}/${e.marks}. Add the missing points and try again later!`;}
+  else{playSad();r.textContent='💜 Read the model answer, then try writing it from memory.';}
+  if(first&&got>0){addCoins(got);totalCorrect+=got;checkUnlocks(0);}
+  document.getElementById('ex-submit').style.display='none';
+  saveState();
+}
+function exNav(d){exIdx=(exIdx+d+EXAM.length)%EXAM.length;renderExam();}
+
+// ═══════════════════════════════════════════════════════════
+// SAVE PROGRESS (this device only)
+// ═══════════════════════════════════════════════════════════
+const SAVE_KEY='margot-spanish-preterite-v1';
+function saveState(){
+  try{localStorage.setItem(SAVE_KEY,JSON.stringify({coins,totalCorrect,unlocked,avatarOwned,avatarEquipped,exAnswers,exScores}));}catch(e){}
+}
+function loadState(){
+  try{
+    const s=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');if(!s)return;
+    coins=s.coins||0;totalCorrect=s.totalCorrect||0;
+    Object.assign(unlocked,s.unlocked||{});Object.assign(avatarOwned,s.avatarOwned||{});Object.assign(avatarEquipped,s.avatarEquipped||{});
+    if(Array.isArray(s.exAnswers))s.exAnswers.forEach((a,i)=>{if(i<EXAM.length)exAnswers[i]=a||''});
+    if(Array.isArray(s.exScores))s.exScores.forEach((a,i)=>{if(i<EXAM.length)exScores[i]=a});
+  }catch(e){}
+}
+setInterval(saveState,3000);
+window.addEventListener('pagehide',saveState);
+loadState();updateCoinDisplay();
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+buildFilterButtons();renderFC();buildUnlockGrid();drawAvatar();
+</script>
+</body>
+</html>
