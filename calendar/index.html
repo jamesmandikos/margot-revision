@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#121C26">
+<title>Tests and homework</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#121C26;--text:#16222E;--muted:#5E6E7E;--line:#DCE3EA;--paper:#EEF2F5;
+  --display:'Space Grotesk',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);background:var(--paper);color:var(--text);min-height:100vh;-webkit-tap-highlight-color:transparent}
+.hero{background:var(--ink);color:#fff;padding:calc(28px + env(safe-area-inset-top)) 20px 34px}
+.hero-in{max-width:1080px;margin:0 auto}
+.back{color:#fff;opacity:.7;text-decoration:none;font-size:.9rem;font-weight:600}
+.back:hover{opacity:1}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(2rem,4.5vw,2.8rem);letter-spacing:-.03em;margin-top:14px}
+.lede{opacity:.75;margin-top:8px;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding:22px 16px 56px;display:grid;gap:20px}
+@media(min-width:960px){.wrap{grid-template-columns:340px 1fr;align-items:start}.side{position:sticky;top:16px}}
+.card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 1px 2px rgba(18,28,38,.06),0 10px 28px rgba(18,28,38,.08)}
+/* month grid */
+.month h3{font-family:var(--display);font-weight:700;font-size:1.05rem;margin-bottom:10px}
+.month+.month{margin-top:18px}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.dow{font-family:var(--mono);font-size:.66rem;color:var(--muted);text-align:center;padding-bottom:4px}
+.day{aspect-ratio:1;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.86rem;font-weight:600;color:var(--text);position:relative;text-decoration:none}
+.day.out{color:#B7C1CB}
+.day.today{outline:2px solid var(--ink)}
+.day.has{background:var(--paper);cursor:pointer}
+.day.test{background:#FBE4E4}
+.dots{display:flex;gap:2px;margin-top:3px;height:6px}
+.dots i{width:6px;height:6px;border-radius:50%}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;font-size:.78rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:4px;display:inline-block}
+/* agenda */
+.agenda{display:grid;gap:14px}
+.date-h{font-family:var(--display);font-weight:700;font-size:1.1rem;display:flex;align-items:baseline;gap:10px;margin:6px 2px 0}
+.date-h .rel{font-family:var(--mono);font-size:.74rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.item{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:16px;padding:14px 16px;text-decoration:none;color:inherit;border-left:6px solid var(--c);box-shadow:0 1px 2px rgba(18,28,38,.05),0 8px 22px rgba(18,28,38,.06);transition:transform .15s}
+.item:hover{transform:translateY(-2px)}
+.item .main{flex:1;min-width:0}
+.kind{display:inline-block;font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;margin-right:6px}
+.k-test{background:#D64545;color:#fff}.k-homework{background:#DCEAF6;color:#164A73}.k-form{background:var(--paper);color:var(--muted)}
+.subj{font-size:.78rem;font-weight:700;color:var(--c)}
+.title{font-family:var(--display);font-weight:600;font-size:1.08rem;margin-top:6px;line-height:1.3}
+.note{color:var(--muted);font-size:.88rem;margin-top:4px;line-height:1.45}
+.time{font-family:var(--mono);font-weight:600;font-size:.9rem;color:var(--text);white-space:nowrap}
+.miss h2{font-family:var(--display);font-size:1.05rem;margin-bottom:4px}
+.miss p{color:var(--muted);font-size:.85rem;line-height:1.45;margin-bottom:10px}
+.miss li{list-style:none;display:flex;gap:10px;align-items:baseline;padding:8px 0;border-top:1px solid var(--line);font-size:.9rem}
+.miss li b{color:var(--c);font-size:.78rem;min-width:84px}
+.miss .d{font-family:var(--mono);font-size:.76rem;color:var(--muted);margin-left:auto;white-space:nowrap}
+.updated{color:var(--muted);font-size:.8rem;text-align:center;margin-top:6px}
+.empty{color:var(--muted);text-align:center;padding:30px}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-in">
+  <a class="back" href="../">← All revision</a>
+  <h1>Tests and homework</h1>
+  <p class="lede">Everything coming up from Google Classroom. Tap a test to open its revision app.</p>
+</div></header>
+<div class="wrap">
+  <div class="side">
+    <div class="card" id="months"></div>
+    <div class="card miss" id="miss" style="margin-top:20px"></div>
+  </div>
+  <div>
+    <div class="agenda" id="agenda"></div>
+    <p class="updated" id="updated"></p>
+  </div>
+</div>
+<script>
+const DATA={"items": [{"date": "2026-11-16", "time": "", "kind": "test", "subject": "Geography", "title": "Meteorology test", "note": "Revise with the Weather Station app.", "link": "../meteorology/", "colour": "#3A86C8"}, {"date": "2026-11-16", "time": "", "kind": "homework", "subject": "Geography", "title": "Home Learning 1: Meteorology test revision", "note": "Weeks 1–2 of the Population Dynamics booklet: rate the 10 topics, then answer questions on the weakest.", "link": "../materials/", "colour": "#3A86C8"}, {"date": "2026-11-16", "time": "10:45", "kind": "form", "subject": "Eco Committee", "title": "Extra Curricular and Eco Form", "note": "", "link": "https://classroom.google.com/a/not-turned-in/all", "colour": "#2E9E6B"}, {"date": "2026-11-17", "time": "11:15", "kind": "test", "subject": "Maths", "title": "Averages quiz", "note": "Mean, median, mode, range, frequency and grouped tables.", "link": "../maths/", "colour": "#3D348B"}, {"date": "2026-11-17", "time": "", "kind": "test", "subject": "Spanish", "title": "November Assessment: el pretérito", "note": "Preterite endings, fui/fue, a/en/con, listening, grammar, writing about holidays.", "link": "../spanish/", "colour": "#A13D24"}, {"date": "2026-11-17", "time": "", "kind": "form", "subject": "RAISE Club", "title": "Snow Ball: baking sign-up", "note": "", "link": "https://classroom.google.com/a/not-turned-in/all", "colour": "#C98F12"}, {"date": "2026-11-30", "time": "", "kind": "test", "subject": "Biology", "title": "Young Medics test (week of 30 Nov)", "note": "Use the Young Medics learning objectives, lesson worksheets, the Biology Google Site and Educake.", "link": "https://classroom.google.com/a/not-turned-in/all", "colour": "#B0337C"}, {"date": "2026-12-01", "time": "14:30", "kind": "homework", "subject": "Biology", "title": "Test revision homework: Young Medics", "note": "Check your knowledge against the learning objectives.", "link": "https://classroom.google.com/a/not-turned-in/all", "colour": "#B0337C"}], "missing": [{"date": "2026-11-13", "subject": "Spanish", "title": "Homelearning: revision worksheet (Las vacaciones / preterite)", "colour": "#A13D24"}, {"date": "2026-11-12", "subject": "Maths", "title": "HW: frequency tables Q1–4", "colour": "#3D348B"}, {"date": "2026-11-12", "subject": "Maths", "title": "Frequency tables sheet 2.1", "colour": "#3D348B"}, {"date": "2026-11-12", "subject": "Entrepreneur Club", "title": "Week 4: create your own fireworks display", "colour": "#5E6E7E"}, {"date": "2026-11-11", "subject": "Mandarin", "title": "Home learning: telling the time vocab test", "colour": "#D64545"}, {"date": "2026-11-05", "subject": "Maths", "title": "HW: forming and solving equations sheet 3.5", "colour": "#3D348B"}, {"date": "2026-11-03", "subject": "Spanish", "title": "Deberes", "colour": "#A13D24"}], "updated": "Saturday 14 November 2026"};
+(function(){
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const today=new Date();today.setHours(0,0,0,0);
+  const D=iso=>new Date(iso+'T00:00:00');
+  const diff=iso=>Math.round((D(iso)-today)/864e5);
+  const rel=n=>n===0?'Today':n===1?'Tomorrow':'In '+n+' days';
+  const items=DATA.items.filter(i=>diff(i.date)>=0).sort((a,b)=>{const r={test:0,homework:1,form:2};return a.date.localeCompare(b.date)||r[a.kind]-r[b.kind]||a.time.localeCompare(b.time);});
+  // agenda
+  const ag=document.getElementById('agenda');
+  if(!items.length)ag.innerHTML='<div class="empty">Nothing coming up. Enjoy it!</div>';
+  let last='';
+  items.forEach(i=>{
+    if(i.date!==last){last=i.date;const h=document.createElement('div');h.className='date-h';h.id='d-'+i.date;
+      h.innerHTML=esc(D(i.date).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'}))+'<span class="rel">'+rel(diff(i.date))+'</span>';ag.appendChild(h);}
+    const a=document.createElement('a');a.className='item';a.href=i.link;if(/^https?:/.test(i.link)){a.target='_blank';a.rel='noopener';}
+    a.style.setProperty('--c',i.colour);
+    a.innerHTML='<div class="main"><span class="kind k-'+i.kind+'">'+i.kind+'</span><span class="subj">'+esc(i.subject)+'</span>'
+      +'<div class="title">'+esc(i.title)+'</div>'+(i.note?'<div class="note">'+esc(i.note)+'</div>':'')+'</div>'
+      +(i.time?'<div class="time">'+esc(i.time)+'</div>':'');
+    ag.appendChild(a);
+  });
+  // month grids: this month and next
+  const byDate={};items.forEach(i=>(byDate[i.date]=byDate[i.date]||[]).push(i));
+  const m=document.getElementById('months');
+  for(let k=0;k<2;k++){
+    const first=new Date(today.getFullYear(),today.getMonth()+k,1);
+    const box=document.createElement('div');box.className='month';
+    box.innerHTML='<h3>'+first.toLocaleDateString('en-GB',{month:'long',year:'numeric'})+'</h3>';
+    const g=document.createElement('div');g.className='grid';
+    ['M','T','W','T','F','S','S'].forEach(d=>{const e=document.createElement('div');e.className='dow';e.textContent=d;g.appendChild(e);});
+    const start=(first.getDay()+6)%7;
+    for(let s=0;s<start;s++){const e=document.createElement('div');g.appendChild(e);}
+    const days=new Date(first.getFullYear(),first.getMonth()+1,0).getDate();
+    for(let d=1;d<=days;d++){
+      const dt=new Date(first.getFullYear(),first.getMonth(),d);
+      const iso=dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+      const its=byDate[iso]||[];
+      const e=document.createElement(its.length?'a':'div');
+      e.className='day'+(dt<today?' out':'')+(+dt===+today?' today':'')+(its.length?' has':'')+(its.some(x=>x.kind==='test')?' test':'');
+      if(its.length)e.href='#d-'+iso;
+      e.innerHTML='<span>'+d+'</span><span class="dots">'+its.slice(0,4).map(x=>'<i style="background:'+x.colour+'"></i>').join('')+'</span>';
+      g.appendChild(e);
+    }
+    box.appendChild(g);m.appendChild(box);
+  }
+  m.insertAdjacentHTML('beforeend','<div class="legend"><span><i class="sw" style="background:#FBE4E4"></i>Test day</span><span><i class="sw" style="background:#EEF2F5"></i>Homework or form due</span></div>');
+  // missing
+  const ms=document.getElementById('miss');
+  if(DATA.missing.length){
+    ms.innerHTML='<h2>Not marked as done in Classroom</h2><p>If you did these on paper, ignore them, or tap <b>Mark as done</b> in Classroom.</p><ul>'
+      +DATA.missing.map(x=>'<li style="--c:'+x.colour+'"><b>'+esc(x.subject)+'</b><span>'+esc(x.title)+'</span><span class="d">'+esc(D(x.date).toLocaleDateString('en-GB',{day:'numeric',month:'short'}))+'</span></li>').join('')+'</ul>';
+  }else ms.remove();
+  document.getElementById('updated').textContent='From Google Classroom · updated '+DATA.updated;
+})();
+</script>
+</body>
+</html>

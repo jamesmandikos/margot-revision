@@ -24,6 +24,8 @@ body{font-family:var(--body);background:var(--paper);color:var(--text);min-heigh
 .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;opacity:.6;margin-bottom:10px}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:-.03em;line-height:1}
 .lede{margin-top:12px;opacity:.75;font-size:1rem;max-width:460px;line-height:1.5}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.links .mat{margin-top:0}
 .mat{display:inline-flex;align-items:center;gap:6px;margin-top:16px;min-height:44px;padding:10px 16px;border-radius:12px;background:#fff;color:var(--ink);text-decoration:none;font-weight:700;font-size:.92rem;box-shadow:0 6px 18px rgba(0,0,0,.18);transition:transform .15s}
 .mat:hover{transform:translateY(-2px)}
 .next{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:16px 20px;min-width:250px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -78,7 +80,7 @@ main{max-width:1080px;margin:-56px auto 0;padding:0 16px 56px;position:relative}
       <div class="eyebrow">Margot · Year 8</div>
       <h1>Revision</h1>
       <p class="lede">Pick a subject. Every correct answer earns coins, and your progress is saved on this device.</p>
-      <a class="mat" href="materials/">📂 Class materials from Google Classroom →</a>
+      <div class="links"><a class="mat" href="calendar/">📅 Tests and homework →</a><a class="mat" href="materials/">📂 Class materials →</a></div>
     </div>
     <div class="next" id="next" hidden>
       <div class="lbl">Next test</div>
