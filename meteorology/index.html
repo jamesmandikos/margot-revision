@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0E2A3F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Weather Station">
+<meta name="robots" content="noindex, nofollow">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>Weather Station · Meteorology</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* Palette: synoptic chart. Old variable names kept so the template's inline styles and JS still resolve. */
+:root{
+  --navy:#0E2A3F;--ink:#0F2233;--deep:#164A73;--sky:#3A86C8;--sky2:#8DB9DE;--line:#D3E0EB;--mist:#F2F7FB;--paper:#EDF2F6;
+  --pink:var(--sky);--pink2:var(--sky2);--pink3:var(--line);--pink4:var(--mist);
+  --hot:var(--deep);--purple:var(--navy);--lavender:#C9D6E3;
+  --mint:#2E9E6B;--mintl:#DDF2E8;--red:#D64545;--redl:#FBE4E4;
+  --yellow:#F2B33D;--yellowl:#FDF2DA;--orange:#E0892B;
+  --blue:var(--sky);--bluel:#DCEAF6;--text:var(--ink);--muted:#5F7385;--coin:#C98F12;
+  --display:'Space Grotesk',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  --radius:14px;--shadow:0 1px 2px rgba(15,34,51,.06),0 6px 20px rgba(15,34,51,.07);
+}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--paper);min-height:100vh;color:var(--text);overflow-x:hidden;
+  padding-bottom:env(safe-area-inset-bottom);-webkit-tap-highlight-color:transparent}
+button,textarea,label{touch-action:manipulation}
+.deco{display:none}
+
+/* HEADER — synoptic chart: isobars + a weather front along the bottom */
+header{position:relative;z-index:1;color:#fff;background-color:var(--navy);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='260' viewBox='0 0 900 260'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.09' stroke-width='1.4'%3E%3Cellipse cx='700' cy='120' rx='70' ry='45'/%3E%3Cellipse cx='700' cy='120' rx='140' ry='92'/%3E%3Cellipse cx='700' cy='120' rx='215' ry='142'/%3E%3Cellipse cx='700' cy='120' rx='295' ry='196'/%3E%3Cellipse cx='120' cy='230' rx='80' ry='50'/%3E%3Cellipse cx='120' cy='230' rx='170' ry='105'/%3E%3Cellipse cx='120' cy='230' rx='265' ry='165'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='.22' font-family='Arial' font-weight='700'%3E%3Ctext x='690' y='128' font-size='22'%3EL%3C/text%3E%3Ctext x='112' y='238' font-size='22'%3EH%3C/text%3E%3Ctext x='812' y='62' font-size='10'%3E1004%3C/text%3E%3Ctext x='300' y='160' font-size='10'%3E1020%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-size:cover;background-position:center;padding:calc(18px + env(safe-area-inset-top)) 20px 30px}
+header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='14' viewBox='0 0 56 14'%3E%3Cpath d='M0 7H56' stroke='%23EDF2F6' stroke-width='2'/%3E%3Cpath d='M4 7l7 -6l7 6z' fill='%233A86C8'/%3E%3Cpath d='M32 7a7 7 0 0 0 14 0z' fill='%23D64545'/%3E%3C/svg%3E") repeat-x bottom left;opacity:.95}
+.hdr-inner{max-width:980px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-bottom:6px}
+header h1{font-family:var(--display);font-weight:700;font-size:2.1rem;letter-spacing:-.02em;line-height:1.05}
+.hdr-sub{font-size:.9rem;opacity:.8;margin-top:6px}
+.coin-bar{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:8px 14px;font-family:var(--mono);font-weight:600;font-size:1.05rem}
+.coin-lbl{font-family:var(--body);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7}
+
+/* TABS — segmented control */
+.tabs{display:flex;justify-content:center;gap:4px;margin:18px auto 0;padding:4px;max-width:max-content;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);position:relative;z-index:2;flex-wrap:wrap}
+.tab{background:transparent;color:var(--muted);border:0;border-radius:9px;padding:10px 16px;font-family:var(--body);font-weight:700;font-size:.88rem;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap;min-height:44px}
+.tab.active{background:var(--navy);color:#fff}
+.tab:not(.active):hover{color:var(--ink);background:var(--mist)}
+
+/* SECTION */
+.section{display:none;padding:22px 16px 64px;max-width:760px;margin:0 auto;position:relative;z-index:1}
+.section.active{display:block}
+.sec-title{font-family:var(--display);font-weight:700;font-size:1.45rem;color:var(--ink);letter-spacing:-.01em;margin-bottom:4px}
+.sec-sub{color:var(--muted);font-size:.9rem;line-height:1.5}
+
+/* BANNER */
+.streak-banner{text-align:center;padding:10px 16px;font-weight:700;font-size:.9rem;color:#fff;background:var(--deep);display:none;position:sticky;top:0;z-index:50}
+.streak-banner.show{display:block}
+
+/* FLASHCARDS */
+.topic-filter{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:18px}
+.filter-btn{background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px 12px;font-family:var(--body);font-weight:600;font-size:.78rem;cursor:pointer;color:var(--muted);transition:all .15s;min-height:36px}
+.filter-btn.active{background:var(--deep);color:#fff;border-color:var(--deep)}
+.filter-btn:hover:not(.active){border-color:var(--sky);color:var(--deep)}
+.fc-meta{text-align:center;margin-bottom:12px}
+.fc-progress{font-family:var(--mono);font-size:.85rem;color:var(--muted);margin-bottom:6px}
+.fc-topic-badge{display:inline-block;background:var(--bluel);color:var(--deep);font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;padding:5px 12px;border-radius:6px}
+.card-scene{perspective:1400px;width:100%;max-width:680px;margin:0 auto;height:270px;cursor:pointer}
+.card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.card-inner.flipped{transform:rotateY(180deg)}
+/* Belt and braces for Safari: hide the face that should be at the back, switching halfway through the turn */
+.card-back{opacity:0;transition:opacity 0s linear .25s}
+.card-inner.flipped .card-back{opacity:1}
+.card-front{transition:opacity 0s linear .25s}
+.card-inner.flipped .card-front{opacity:0}
+.card-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center}
+.card-front{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+.card-back{background:var(--navy);color:#fff;transform:rotateY(180deg);box-shadow:var(--shadow);
+  background-image:linear-gradient(160deg,rgba(58,134,200,.25),transparent 60%)}
+.q-label,.a-label{font-family:var(--mono);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.18em;margin-bottom:12px;opacity:.6}
+.card-front .q-label{color:var(--muted)}
+.q-text{font-family:var(--display);font-weight:600;font-size:1.35rem;color:var(--ink);line-height:1.35}
+.a-text{font-size:1rem;line-height:1.6;font-weight:500}
+.card-hint{text-align:center;color:var(--muted);font-size:.8rem;margin-top:10px}
+.fc-rating{display:none;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.fc-rating.show{display:flex}
+.fc-controls{display:flex;justify-content:center;gap:10px;margin-top:14px;align-items:center}
+.fc-score-bar{display:flex;gap:4px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.score-dot{width:10px;height:10px;border-radius:3px;background:var(--line);transition:all .3s}
+.score-dot.got-it{background:var(--mint)}
+.score-dot.almost{background:var(--yellow)}
+.score-dot.missed{background:var(--red)}
+
+/* BUTTONS */
+.btn{font-family:var(--body);font-weight:700;border:none;border-radius:10px;cursor:pointer;transition:background .15s,transform .1s,box-shadow .15s;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px}
+.btn:active{transform:translateY(1px)}
+.btn-nav{background:#fff;color:var(--deep);border:1px solid var(--line);padding:9px 18px;font-size:.9rem}
+.btn-nav:hover{border-color:var(--sky)}
+.btn-nav:disabled{opacity:.35;cursor:not-allowed}
+.btn-got{background:var(--mint);color:#fff;padding:9px 16px;font-size:.86rem}
+.btn-almost{background:var(--yellow);color:#4A3500;padding:9px 16px;font-size:.86rem}
+.btn-miss{background:var(--red);color:#fff;padding:9px 16px;font-size:.86rem}
+.btn-primary{background:var(--deep);color:#fff;padding:11px 24px;font-size:.95rem}
+.btn-primary:hover{background:var(--navy)}
+.btn-mint{background:var(--mint);color:#fff;padding:11px 22px;font-size:.95rem}
+.btn-game{background:var(--sky);color:#fff;padding:11px 22px;font-size:.95rem}
+.btn-game:hover{background:var(--deep)}
+.btn-shop{background:#fff;color:var(--deep);border:1px solid var(--line);padding:11px 22px;font-size:.95rem}
+
+/* QUIZ */
+.quiz-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px}
+.q-progress-label,.q-score-live{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+.progress-wrap{background:var(--line);border-radius:4px;height:6px;margin-bottom:18px;overflow:hidden}
+.progress-fill{height:100%;background:var(--sky);transition:width .4s}
+.quiz-card{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:26px;margin-bottom:14px;border:1px solid var(--line)}
+.quiz-topic{font-family:var(--mono);font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--sky);margin-bottom:8px}
+.quiz-q{font-family:var(--display);font-weight:600;font-size:1.2rem;color:var(--ink);line-height:1.45;margin-bottom:18px}
+.options{display:grid;gap:8px}
+.option{background:var(--mist);border:1px solid var(--line);border-radius:12px;padding:13px 15px;cursor:pointer;font-weight:600;font-size:.93rem;color:var(--ink);text-align:left;transition:border-color .15s,background .15s;display:flex;align-items:center;gap:12px;min-height:52px;font-family:var(--body)}
+.option:hover:not(.locked){border-color:var(--sky);background:#fff}
+.opt-letter{background:#fff;color:var(--deep);font-family:var(--mono);font-weight:600;font-size:.85rem;width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--line)}
+.option.correct{background:var(--mintl);border-color:var(--mint);color:#0B5234}
+.option.correct .opt-letter{background:var(--mint);color:#fff;border-color:var(--mint)}
+.option.wrong{background:var(--redl);border-color:var(--red);color:#7A1616}
+.option.wrong .opt-letter{background:var(--red);color:#fff;border-color:var(--red)}
+.option.locked{cursor:default}
+.feedback-box{display:none;border-radius:12px;padding:13px 16px;font-size:.92rem;line-height:1.6;font-weight:500;margin-top:14px}
+.feedback-box.show{display:block;animation:popIn .3s}
+.feedback-box.correct-fb{background:var(--mintl);color:#0B5234;border-left:4px solid var(--mint)}
+.feedback-box.wrong-fb{background:var(--yellowl);color:#4A3500;border-left:4px solid var(--yellow)}
+@keyframes popIn{0%{opacity:0;transform:translateY(4px)}100%{opacity:1;transform:translateY(0)}}
+.quiz-next-wrap{display:flex;justify-content:flex-end}
+
+/* GAMES HUB */
+.unlock-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:20px}
+.unlock-card{background:#fff;border-radius:16px;padding:20px;text-align:left;border:1px solid var(--line);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.unlock-card.locked{opacity:.6}
+.unlock-card.unlocked{border-top:4px solid var(--sky)}
+.unlock-card h3{font-family:var(--display);font-weight:700;font-size:1.05rem;margin-bottom:4px;color:var(--ink)}
+.unlock-card p{font-size:.82rem;color:var(--muted);margin-bottom:12px;line-height:1.45}
+.unlock-emoji{font-size:1.8rem;margin-bottom:8px}
+.unlock-req{display:inline-block;font-size:.72rem;font-weight:700;padding:4px 9px;border-radius:6px;margin-bottom:8px}
+.unlock-req.done{background:var(--mintl);color:#0B5234}
+.unlock-req.todo{background:var(--mist);color:var(--muted)}
+
+/* GAMES */
+.game-wrap{background:#fff;border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden;margin-bottom:14px}
+.game-hdr{background:var(--navy);color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.game-hdr h2{font-family:var(--display);font-weight:700;font-size:1.15rem}
+.game-stats{display:flex;gap:16px;flex-wrap:wrap}
+.gstat{text-align:center}
+.gstat-val{font-family:var(--mono);font-weight:600;font-size:1.05rem}
+.gstat-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;opacity:.65}
+canvas{display:block;width:100%;background:#E3EEF7}
+.game-q-box{padding:16px 18px;border-top:1px solid var(--line);text-align:center}
+.game-q-text{font-family:var(--display);font-weight:600;font-size:1.08rem;color:var(--ink);margin-bottom:10px;line-height:1.4}
+.game-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 16px}
+.game-opt{background:var(--mist);border:1px solid var(--line);border-radius:11px;padding:12px;cursor:pointer;font-weight:600;font-size:.9rem;color:var(--ink);transition:border-color .15s,background .15s;text-align:center;font-family:var(--body);min-height:48px}
+.game-opt:hover:not(.locked){border-color:var(--sky);background:#fff}
+.game-opt.correct{background:var(--mintl);border-color:var(--mint);color:#0B5234}
+.game-opt.wrong{background:var(--redl);border-color:var(--red);color:#7A1616}
+.game-opt.locked{cursor:default}
+.blitz-q{font-family:var(--display);font-weight:600;font-size:1.25rem;color:var(--ink);text-align:center;padding:20px 18px 12px;line-height:1.4}
+.blitz-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 16px 16px}
+.blitz-opt{background:var(--mist);border:1px solid var(--line);border-radius:11px;padding:13px;cursor:pointer;font-weight:600;font-size:.9rem;color:var(--ink);transition:border-color .12s,background .12s;text-align:center;font-family:var(--body);min-height:52px}
+.blitz-opt:hover:not(.locked){background:#fff;border-color:var(--sky)}
+.blitz-opt.correct{background:var(--mintl);border-color:var(--mint);color:#0B5234}
+.blitz-opt.wrong{background:var(--redl);border-color:var(--red)}
+.blitz-opt.locked{cursor:default}
+.blitz-timer-bar{height:6px;background:var(--line);margin:0 16px 4px;border-radius:3px;overflow:hidden}
+.blitz-timer-fill{height:100%;transition:width .1s linear}
+.game-over-box{padding:32px;text-align:center}
+.game-over-box h2{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--ink);margin-bottom:8px}
+.game-over-box p{color:var(--muted);margin-bottom:20px;line-height:1.5}
+
+/* PROCESS BUILDER */
+.pb-built{list-style:none;counter-reset:step;margin:14px 16px 4px;min-height:4px}
+.pb-built li{counter-increment:step;position:relative;background:var(--mintl);border:1px solid var(--mint);border-radius:11px;padding:10px 12px 10px 44px;margin-bottom:6px;font-weight:600;font-size:.9rem;color:#0B5234;animation:popIn .25s ease;line-height:1.4}
+.pb-built li::before{content:counter(step);position:absolute;left:10px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:6px;background:var(--mint);color:#fff;font-family:var(--mono);font-size:.8rem;display:flex;align-items:center;justify-content:center}
+.pb-pool{display:grid;grid-template-columns:1fr;gap:8px;padding:8px 16px 18px}
+.pb-step{background:var(--mist);border:1px dashed var(--sky2);border-radius:11px;padding:12px 14px;cursor:pointer;font-weight:600;font-size:.9rem;color:var(--ink);text-align:left;font-family:var(--body);transition:border-color .15s,background .15s;min-height:48px;line-height:1.4}
+.pb-step:hover{border-style:solid;border-color:var(--sky);background:#fff}
+.pb-wrong{background:var(--redl)!important;border-color:var(--red)!important;animation:shake .4s}
+
+/* RESULTS */
+.results-card{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:34px 24px;text-align:center;border:1px solid var(--line)}
+.score-circle{width:120px;height:120px;border-radius:50%;margin:0 auto 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid currentColor}
+.score-num{font-family:var(--mono);font-weight:600;font-size:2.4rem}
+.score-den{font-family:var(--mono);font-size:.85rem;opacity:.7}
+.results-card h2{font-family:var(--display);font-weight:700;font-size:1.6rem;color:var(--ink);margin-bottom:6px}
+.results-card>p{color:var(--muted);margin-bottom:22px}
+.result-item{display:flex;align-items:flex-start;gap:9px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.88rem;text-align:left}
+.result-item:last-child{border-bottom:none}
+.ri-q{font-weight:600;color:var(--ink)}
+.ri-a{color:var(--muted);font-size:.8rem;margin-top:2px}
+
+/* EXAM */
+.ex-marks{font-family:var(--mono);background:var(--yellowl);color:#6B4D00;font-weight:600;font-size:.76rem;border-radius:6px;padding:4px 9px}
+.ex-ans{width:100%;min-height:150px;margin-top:6px;border:1px solid var(--line);border-radius:12px;padding:14px;font-family:var(--body);font-size:16px;line-height:1.55;color:var(--ink);resize:vertical;background:var(--mist)}
+.ex-ans:focus{outline:none;border-color:var(--sky);background:#fff}
+.ex-h{font-family:var(--mono);font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--sky);margin-bottom:8px}
+.ex-model{background:var(--mist);border-left:4px solid var(--sky);border-radius:10px;padding:14px 16px;margin-top:16px;line-height:1.6;font-size:.95rem}
+.ex-point{display:flex;gap:10px;align-items:flex-start;padding:8px 4px;font-weight:500;font-size:.93rem;cursor:pointer;line-height:1.45;min-height:44px}
+.ex-point input{margin-top:2px;width:20px;height:20px;accent-color:var(--deep);flex-shrink:0}
+.ex-result{text-align:center;font-weight:700;margin-top:12px;color:var(--deep)}
+.ex-count{font-family:var(--mono);font-weight:600;color:var(--muted);align-self:center;font-size:.85rem}
+
+/* AVATAR */
+.shop-layout{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:start}
+@media(max-width:600px){.shop-layout{grid-template-columns:1fr}}
+.avatar-preview{background:#fff;border-radius:18px;padding:18px;text-align:center;border:1px solid var(--line);box-shadow:var(--shadow);position:sticky;top:10px}
+.avatar-preview h3{font-family:var(--display);font-weight:700;font-size:1rem;color:var(--ink);margin-bottom:10px}
+.avatar-canvas-wrap{width:140px;height:180px;margin:0 auto 10px;position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.avatar-coin-display{font-family:var(--mono);font-weight:600;font-size:1rem;color:var(--coin)}
+.shop-panel{display:flex;flex-direction:column;gap:12px}
+.shop-cat{background:#fff;border-radius:16px;padding:16px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.shop-cat h3{font-family:var(--display);font-weight:600;font-size:.98rem;color:var(--ink);margin-bottom:12px}
+.shop-items{display:flex;flex-wrap:wrap;gap:8px}
+.shop-item{background:var(--mist);border:1px solid var(--line);border-radius:11px;padding:8px 10px;cursor:pointer;text-align:center;transition:border-color .15s;min-width:76px;min-height:64px}
+.shop-item:hover:not(.owned):not(.active-item){border-color:var(--sky)}
+.shop-item.active-item{border:2px solid var(--deep);background:#fff}
+.shop-item.owned{border-color:var(--mint)}
+.shop-item .si-emoji{font-size:1.4rem;display:block;margin-bottom:2px}
+.shop-item .si-name{font-size:.68rem;font-weight:600;color:var(--ink);display:block}
+.shop-item .si-price{font-family:var(--mono);font-size:.66rem;font-weight:600;color:var(--coin);display:block}
+.shop-item .si-price.free{color:var(--mint)}
+.shop-item .si-price.equipped{color:var(--deep)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(14,42,63,.55);z-index:200;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.modal-box{background:#fff;border-radius:20px;padding:32px 28px;text-align:center;max-width:420px;width:90%;box-shadow:0 20px 56px rgba(14,42,63,.3);animation:popIn .3s}
+.modal-box h2{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--ink);margin-bottom:8px}
+.modal-box p{color:var(--muted);margin-bottom:22px;line-height:1.6}
+.modal-emoji{font-size:2.8rem;margin-bottom:10px;display:block}
+
+/* FX */
+.confetti-piece{position:fixed;pointer-events:none;z-index:9999;animation:confettiFall linear forwards}
+@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(540deg);opacity:0}}
+.starburst{position:fixed;pointer-events:none;z-index:9998;animation:starBurst .7s ease forwards}
+@keyframes starBurst{0%{transform:scale(0);opacity:1}60%{transform:scale(1.3);opacity:1}100%{transform:scale(1);opacity:0}}
+.coin-pop{position:fixed;pointer-events:none;z-index:9997;font-family:var(--mono);font-weight:600;font-size:1.1rem;color:var(--coin);animation:coinFloat .9s ease forwards}
+@keyframes coinFloat{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-50px)}}
+@keyframes bounceIn{0%{transform:scale(.97)}60%{transform:scale(1.01)}100%{transform:scale(1)}}
+.bounce{animation:bounceIn .35s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.shake{animation:shake .4s}
+
+/* Touch screens: no hover lift, bigger targets */
+@media (hover:none){
+  .option:hover:not(.locked),.game-opt:hover:not(.locked),.blitz-opt:hover:not(.locked),.pb-step:hover{background:var(--mist);border-color:var(--line)}
+  .pb-step:hover{border-style:dashed;border-color:var(--sky2)}
+}
+
+/* Phone */
+@media (max-width:560px){
+  header h1{font-size:1.7rem}
+  .tabs{max-width:calc(100% - 24px)}
+  .tab{padding:9px 11px;font-size:.8rem}
+  .quiz-card{padding:20px}
+}
+
+/* iPad portrait and up */
+@media (min-width:768px){
+  .section{max-width:900px;padding:28px 28px 72px}
+  header{padding-left:32px;padding-right:32px;padding-bottom:36px}
+  header h1{font-size:2.6rem}
+  .tab{padding:11px 22px;font-size:.95rem}
+  .card-scene{height:340px;max-width:760px}
+  .q-text{font-size:1.65rem}
+  .a-text{font-size:1.12rem}
+  .quiz-card{padding:32px 36px}
+  .quiz-q{font-size:1.4rem}
+  .options{grid-template-columns:1fr 1fr;gap:10px}
+  .option{font-size:1rem;min-height:64px}
+  .game-opts{grid-template-columns:repeat(4,1fr)}
+  .blitz-q{font-size:1.5rem}
+  .blitz-opt{font-size:1rem;min-height:64px}
+  .pb-pool{grid-template-columns:1fr 1fr}
+  .pb-step,.pb-built li{font-size:.98rem}
+  .ex-ans{min-height:200px}
+  .ex-model{font-size:1.02rem}
+  .ex-point{font-size:1rem}
+  .shop-layout{grid-template-columns:230px 1fr}
+}
+
+/* iPad landscape: exam answer and marking side by side */
+@media (min-width:1080px){
+  .section{max-width:1040px}
+  .hdr-inner{max-width:1040px}
+  .ex-layout{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .ex-layout #ex-mark .ex-model{margin-top:0}
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="hdr-inner">
+    <div>
+      <div class="eyebrow">Margot · Year 8 Geography</div>
+      <h1>Weather Station</h1>
+      <div class="hdr-sub">Meteorology revision · test on Monday 16 November</div>
+    </div>
+    <div class="coin-bar"><span>🪙</span><span id="coin-display">0</span><span class="coin-lbl">coins</span></div>
+  </div>
+</header>
+
+<div class="streak-banner" id="streak-banner"></div>
+
+<div class="tabs">
+  <button class="tab active" id="tab-fc"    onclick="showTab('flashcards',this)">Flashcards</button>
+  <button class="tab"        id="tab-quiz"  onclick="showTab('quiz',this)">Quiz</button>
+  <button class="tab"        id="tab-exam"  onclick="showTab('exam',this)">Exam practice</button>
+  <button class="tab"        id="tab-games" onclick="showTab('games',this)">Games</button>
+  <button class="tab"        id="tab-shop"  onclick="showTab('shop',this)">Avatar</button>
+</div>
+
+<!-- ═══ FLASHCARDS ═══ -->
+<div id="flashcards" class="section active">
+  <div class="topic-filter" id="fc-filter"></div>
+  <div class="fc-meta">
+    <div class="fc-progress" id="fc-progress"></div>
+    <span class="fc-topic-badge" id="fc-badge"></span>
+  </div>
+  <div class="card-scene" onclick="flipCard()">
+    <div class="card-inner" id="card-inner">
+      <div class="card-face card-front">
+        <div class="q-label">Question</div>
+        <div class="q-text" id="fc-question"></div>
+      </div>
+      <div class="card-face card-back">
+        <div class="a-label">Answer</div>
+        <div class="a-text" id="fc-answer"></div>
+      </div>
+    </div>
+  </div>
+  <p class="card-hint">Tap the card to flip it</p>
+  <div class="fc-rating" id="fc-rating">
+    <button class="btn btn-got" onclick="rateCard('got-it')">Got it</button>
+    <button class="btn btn-almost" onclick="rateCard('almost')">Almost</button>
+    <button class="btn btn-miss" onclick="rateCard('missed')">Missed</button>
+  </div>
+  <div class="fc-controls">
+    <button class="btn btn-nav" id="fc-prev" onclick="fcNav(-1)">← Previous</button>
+    <button class="btn btn-nav" id="fc-next" onclick="fcNav(1)">Next →</button>
+  </div>
+  <div class="fc-score-bar" id="fc-dots"></div>
+</div>
+
+<!-- ═══ QUIZ ═══ -->
+<div id="quiz" class="section">
+  <div id="quiz-body">
+    <div class="quiz-top">
+      <span class="q-progress-label" id="q-progress">Q 1/27</span>
+      <span class="q-score-live" id="q-score-live">⭐0 🔥0 🪙0</span>
+    </div>
+    <div class="progress-wrap"><div class="progress-fill" id="q-bar" style="width:0%"></div></div>
+    <div class="quiz-card" id="quiz-card-el">
+      <div class="quiz-topic" id="q-topic"></div>
+      <div class="quiz-q" id="q-text"></div>
+      <div class="options" id="q-options"></div>
+      <div class="feedback-box" id="q-feedback"></div>
+    </div>
+    <div class="quiz-next-wrap">
+      <button class="btn btn-primary" id="q-next" onclick="nextQuestion()" style="display:none">Next →</button>
+    </div>
+  </div>
+  <div id="quiz-results" style="display:none">
+    <div class="results-card">
+      <div class="score-circle" id="r-circle"><span class="score-num" id="r-num"></span><span class="score-den" id="r-den"></span></div>
+      <h2 id="r-title"></h2><p id="r-sub"></p>
+      <div style="text-align:left;margin-bottom:20px" id="r-breakdown"></div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="restartQuiz()">Try again</button>
+        <button class="btn btn-game" onclick="showTab('games',document.getElementById('tab-games'))">Games</button>
+        <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Avatar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GAMES HUB ═══ -->
+<div id="games" class="section">
+  <div style="margin-bottom:18px">
+    <div class="sec-title">Games</div>
+    <p class="sec-sub">Correct answers anywhere in the app unlock more games.</p>
+  </div>
+  <div class="unlock-grid" id="unlock-grid"></div>
+
+  <!-- CREATURE CATCHER -->
+  <div id="game-creature" style="display:none">
+    <div class="game-wrap">
+      <div class="game-hdr">
+        <h2>🌪️ Sky Sorter</h2>
+        <div class="game-stats">
+          <div class="gstat"><div class="gstat-val" id="cc-score">0</div><div class="gstat-label">Score</div></div>
+          <div class="gstat"><div class="gstat-val" id="cc-streak">0🔥</div><div class="gstat-label">Streak</div></div>
+          <div class="gstat"><div class="gstat-val" id="cc-lives">❤️❤️❤️</div><div class="gstat-label">Lives</div></div>
+          <div class="gstat"><div class="gstat-val" id="cc-level">1</div><div class="gstat-label">Level</div></div>
+        </div>
+      </div>
+      <canvas id="cc-canvas" width="720" height="200"></canvas>
+      <div class="game-q-box">
+        <div class="game-q-text" id="cc-q">Get ready...</div>
+      </div>
+      <div class="game-opts" id="cc-opts"></div>
+      <div class="game-over-box" id="cc-over" style="display:none">
+        <div style="font-size:3.5rem;margin-bottom:8px" id="cc-over-emoji">😢</div>
+        <h2 id="cc-over-title">Game Over!</h2>
+        <p id="cc-over-msg"></p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-game" onclick="startCreatureCatcher()">Play again</button>
+          <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Spend coins</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS BUILDER -->
+  <div id="game-cell" style="display:none">
+    <div class="game-wrap">
+      <div class="game-hdr">
+        <h2>🧩 Process Builder</h2>
+        <div class="game-stats">
+          <div class="gstat"><div class="gstat-val" id="pb-score">0</div><div class="gstat-label">Score</div></div>
+          <div class="gstat"><div class="gstat-val" id="pb-lives">❤️❤️❤️❤️❤️</div><div class="gstat-label">Lives</div></div>
+          <div class="gstat"><div class="gstat-val" id="pb-round">1/9</div><div class="gstat-label">Process</div></div>
+        </div>
+      </div>
+      <div id="pb-play">
+        <div class="game-q-box"><div class="game-q-text" id="pb-title">Tap the steps in the right order!</div></div>
+        <ol class="pb-built" id="pb-built"></ol>
+        <div class="pb-pool" id="pb-pool"></div>
+      </div>
+      <div class="game-over-box" id="pb-over" style="display:none">
+        <div style="font-size:3.5rem;margin-bottom:8px" id="pb-over-emoji">😢</div>
+        <h2 id="pb-over-title">Out of lives!</h2>
+        <p id="pb-over-msg"></p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-game" onclick="startProcessBuilder()">Play again</button>
+          <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Spend coins</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KINGDOM BLITZ -->
+  <div id="game-blitz" style="display:none">
+    <div class="game-wrap">
+      <div class="game-hdr">
+        <h2>⚡ Weather Blitz</h2>
+        <div class="game-stats">
+          <div class="gstat"><div class="gstat-val" id="bl-score">0</div><div class="gstat-label">Score</div></div>
+          <div class="gstat"><div class="gstat-val" id="bl-q-num">1/15</div><div class="gstat-label">Q</div></div>
+          <div class="gstat"><div class="gstat-val" id="bl-streak">0🔥</div><div class="gstat-label">Streak</div></div>
+        </div>
+      </div>
+      <div style="padding:8px 16px 0">
+        <div class="blitz-timer-bar"><div class="blitz-timer-fill" id="bl-timer-fill" style="width:100%;background:var(--mint)"></div></div>
+        <div style="text-align:right;font-family:var(--display);font-size:.85rem;color:var(--muted);margin-bottom:6px" id="bl-timer-label">10s</div>
+      </div>
+      <div class="blitz-q" id="bl-q"></div>
+      <div class="blitz-opts" id="bl-opts"></div>
+      <div class="game-over-box" id="bl-over" style="display:none">
+        <div style="font-size:3.5rem;margin-bottom:8px" id="bl-over-emoji">⚡</div>
+        <h2 id="bl-over-title">Blitz Over!</h2>
+        <p id="bl-over-msg"></p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-game" onclick="startBlitz()">Play again</button>
+          <button class="btn btn-shop" onclick="showTab('shop',document.getElementById('tab-shop'))">Spend coins</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EXAM PRACTICE ═══ -->
+<div id="exam" class="section">
+  <div style="margin-bottom:16px">
+    <div class="sec-title">Exam practice</div>
+    <p class="sec-sub">Write your answer, compare it with the model answer, then tick the points you made (1 coin per point). For "explain" questions use <b>point → develop → further develop</b>, and key terms.</p>
+  </div>
+  <div class="quiz-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+      <div class="quiz-topic" id="ex-topic"></div>
+      <span class="ex-marks" id="ex-marks"></span>
+    </div>
+    <div class="quiz-q" id="ex-q"></div>
+    <div class="ex-layout">
+      <div>
+        <textarea class="ex-ans" id="ex-ans" placeholder="Write your answer here…" oninput="exAnswers[exIdx]=this.value"></textarea>
+        <div style="text-align:center;margin-top:12px"><button class="btn btn-primary" id="ex-reveal" onclick="exReveal()">Check my answer</button></div>
+      </div>
+      <div id="ex-mark" style="display:none">
+        <div class="ex-model"><div class="ex-h">Model answer</div><p id="ex-model"></p></div>
+        <div class="ex-h" style="margin-top:16px">Tick the points you made</div>
+        <div id="ex-points"></div>
+        <div style="text-align:center;margin-top:10px"><button class="btn btn-game" id="ex-submit" onclick="exSubmit()">Mark it</button></div>
+        <div class="ex-result" id="ex-result"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fc-controls">
+    <button class="btn btn-nav" onclick="exNav(-1)">← Previous</button>
+    <span class="ex-count" id="ex-count"></span>
+    <button class="btn btn-nav" onclick="exNav(1)">Next →</button>
+  </div>
+</div>
+
+<!-- ═══ AVATAR SHOP ═══ -->
+<div id="shop" class="section">
+  <div style="margin-bottom:16px">
+    <div class="sec-title">Avatar</div>
+    <p class="sec-sub">Spend the coins you earn revising.</p>
+  </div>
+  <div class="shop-layout">
+    <div class="avatar-preview">
+      <h3>✨ Your Look</h3>
+      <div class="avatar-canvas-wrap">
+        <canvas id="avatar-canvas" width="140" height="180"></canvas>
+      </div>
+      <div class="avatar-coin-display">🪙 <span id="shop-coins">0</span></div>
+    </div>
+    <div class="shop-panel" id="shop-panel"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="unlock-modal" style="display:none">
+  <div class="modal-box">
+    <span class="modal-emoji" id="modal-emoji">🎮</span>
+    <h2 id="modal-title">Unlocked!</h2>
+    <p id="modal-msg"></p>
+    <button class="btn btn-game" id="modal-btn" style="font-size:1rem;padding:12px 32px" onclick="closeModal()">Let's go</button>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// AUDIO
+// ═══════════════════════════════════════════════════════════
+const AC=new(window.AudioContext||window.webkitAudioContext)();
+function tone(f,t,v,s,d){const o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.value=f;g.gain.setValueAtTime(0,AC.currentTime+s);g.gain.linearRampToValueAtTime(v,AC.currentTime+s+.04);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+s+d);o.connect(g);g.connect(AC.destination);o.start(AC.currentTime+s);o.stop(AC.currentTime+s+d+.05)}
+function playHappy(){[523,659,784,1047].forEach((f,i)=>tone(f,'sine',.2,i*.11,.26))}
+function playSad(){[392,349,311,261].forEach((f,i)=>tone(f,'triangle',.16,i*.13,.3))}
+function playFlip(){const o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.setValueAtTime(300,AC.currentTime);o.frequency.linearRampToValueAtTime(600,AC.currentTime+.12);g.gain.setValueAtTime(.09,AC.currentTime);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+.18);o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+.22)}
+function playUnlock(){[523,659,784,1047,1319,1568].forEach((f,i)=>tone(f,'sine',.18,i*.09,.32))}
+function playCoin(){tone(1200,'sine',.14,0,.12);tone(1500,'sine',.12,.08,.1)}
+function playCatch(){[880,1108].forEach((f,i)=>tone(f,'sine',.16,i*.07,.18))}
+function playMiss(){tone(200,'sawtooth',.13,0,.38)}
+function playTick(){tone(800,'square',.06,0,.06)}
+function playBlitzRight(){[660,880].forEach((f,i)=>tone(f,'sine',.15,i*.06,.18))}
+function playBlitzWrong(){tone(180,'sawtooth',.12,0,.3)}
+
+// ═══════════════════════════════════════════════════════════
+// FX
+// ═══════════════════════════════════════════════════════════
+const CC=['#3A86C8','#164A73','#F2B33D','#2E9E6B','#D64545','#8DB9DE','#0E2A3F'];
+function confetti(n=50){for(let i=0;i<n;i++){const e=document.createElement('div');e.className='confetti-piece';e.style.cssText=`left:${Math.random()*100}vw;top:-20px;background:${CC[Math.floor(Math.random()*CC.length)]};width:${6+Math.random()*8}px;height:${6+Math.random()*8}px;border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${1.2+Math.random()*1.8}s;animation-delay:${Math.random()*.5}s`;document.body.appendChild(e);setTimeout(()=>e.remove(),3500)}}
+function burst(emoji,x,y,sz=2){const e=document.createElement('div');e.className='starburst';e.textContent=emoji;e.style.cssText=`left:${x}px;top:${y}px;font-size:${sz}rem`;document.body.appendChild(e);setTimeout(()=>e.remove(),800)}
+function coinPop(x,y,amt){const e=document.createElement('div');e.className='coin-pop';e.textContent=`+${amt}🪙`;e.style.cssText=`left:${x}px;top:${y}px`;document.body.appendChild(e);setTimeout(()=>e.remove(),1000)}
+
+// ═══════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════
+let coins=0,totalCorrect=0,quizStreak=0,sessionStreak=0;
+const UNLOCKS={creature:2,cell:8,blitz:15};
+let unlocked={creature:false,cell:false,blitz:false};
+let activeGame=null;
+
+// ═══════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════
+const FLASHCARDS=[
+  {topic:"Weather & Climate",q:"What is WEATHER?",a:"The day-to-day conditions of the atmosphere, e.g. warm and dry, or windy."},
+  {topic:"Weather & Climate",q:"What is CLIMATE?",a:"The long-term pattern of weather in a particular area, usually over a period of 30 years."},
+  {topic:"Weather & Climate",q:"What does METEOROLOGY mean?",a:"The branch of science concerned with the processes and phenomena of the atmosphere, especially as a means of forecasting the weather."},
+  {topic:"Weather & Climate",q:"Name the SIX factors affecting climate.",a:"1. Distance from the Equator (differential heating)  2. Tilt of the Earth  3. Distance from the coast  4. Prevailing wind  5. Ocean currents  6. Altitude"},
+  {topic:"Weather & Climate",q:"Global (spatial) vs seasonal (temporal) differences in climate?",a:"Spatial: different parts of the world have different climates. Temporal: the same place has different conditions at different times of year."},
+  {topic:"Weather & Climate",q:"What is DIFFERENTIAL HEATING?",a:"Solar radiation is more concentrated at the Equator because, due to the curvature of the Earth, it covers a smaller surface area. At the poles the same energy is spread over a larger area, so it is colder."},
+  {topic:"Weather & Climate",q:"What is OBLIQUITY?",a:"The tilt of the Earth, currently 23.4°. It is the main driver of the seasons. The hemisphere tilted towards the Sun has summer: more direct, concentrated sunlight and longer days."},
+  {topic:"Weather & Climate",q:"What happens if the Earth's tilt angle is bigger?",a:"The seasons are more extreme: more solar radiation in summer and less in winter. The tilt changes slowly over a cycle of about 41,000 years."},
+  {topic:"Weather & Climate",q:"How does distance from the COAST affect climate?",a:"Oceans heat up and cool down much more slowly than land, so coastal places are cooler in summer and warmer in winter than inland places at the same latitude and altitude."},
+  {topic:"Weather & Climate",q:"What is PREVAILING WIND?",a:"The most frequent wind direction a place experiences. It is named by the direction it comes FROM. The UK's is south-westerly."},
+  {topic:"Weather & Climate",q:"What does the UK's south-westerly wind bring?",a:"Tropical maritime air, which is warm and moist. This contributes to frequent rainfall in the UK."},
+  {topic:"Weather & Climate",q:"How do OCEAN CURRENTS affect climate?",a:"Oceans store solar radiation. Currents flow because of differences in heat and salinity (thermohaline circulation) and carry heat around the world. The UK is warmed by the Gulf Stream."},
+  {topic:"Weather & Climate",q:"How does ALTITUDE affect temperature?",a:"Temperature usually falls by 1°C for every 100 metres you go up."},
+  {topic:"Weather & Climate",q:"What is the ITCZ and how does it cause the Indian monsoon?",a:"The Intertropical Convergence Zone is a band of low pressure near the Equator that migrates with the Earth's tilt. In summer the warm Indian subcontinent pulls it north, dragging the trade winds over the Indian Ocean and bringing heavy monsoon rain to India, Pakistan and Bangladesh."},
+
+  {topic:"Rainfall",q:"Define PRECIPITATION.",a:"Water released from clouds as rain, freezing rain, sleet, snow or hail."},
+  {topic:"Rainfall",q:"Define RELIEF.",a:"The height and shape of the land."},
+  {topic:"Rainfall",q:"Define CONVECTION.",a:"The transfer of heat by the movement of a heated fluid such as air or water."},
+  {topic:"Rainfall",q:"What are the THREE types of rainfall?",a:"Frontal, relief (orographic) and convectional."},
+  {topic:"Rainfall",q:"Why does warm air rise?",a:"It expands and becomes LESS dense (lighter), so it rises. Cold air is denser, so it sinks."},
+  {topic:"Rainfall",q:"Explain FRONTAL rainfall.",a:"A cold polar air mass meets a warm tropical air mass and they don't mix, forming a front. The lighter warm air rises over the heavier cold air, cools and condenses into clouds, and it rains."},
+  {topic:"Rainfall",q:"Explain RELIEF (orographic) rainfall.",a:"Prevailing winds bring warm, moist air. It is forced up over hills or mountains, cools and condenses into clouds, and it rains. The air descends on the other side, warms and becomes drier (rain shadow)."},
+  {topic:"Rainfall",q:"Explain CONVECTIONAL rainfall.",a:"The land warms up and heats the air above it. The air expands, becomes less dense and rises, then cools and condenses into clouds, and it rains. Common in the tropics and in SE England in warm, sunny spells."},
+  {topic:"Rainfall",q:"Why are the Lake District, Snowdonia and the Scottish Highlands the wettest parts of the UK?",a:"They are mountainous and in the west, so warm, moist air from the prevailing south-westerly wind is forced to rise, giving lots of relief rainfall."},
+  {topic:"Rainfall",q:"Why does Brazil get more convectional rain than the UK?",a:"Brazil is at a lower latitude, near the Equator, so the Sun's radiation is more concentrated. The land heats the air more strongly, more air rises, and more convectional rain forms."},
+
+  {topic:"Air Pressure",q:"What is AIR PRESSURE?",a:"The force exerted on a surface by the air above it as gravity pulls it to Earth. Measured with a barometer in millibars (mb). Standard pressure at sea level is 1013 mb."},
+  {topic:"Air Pressure",q:"Another name for HIGH pressure? For LOW pressure?",a:"High pressure is an ANTICYCLONE. Low pressure is a DEPRESSION (or cyclone)."},
+  {topic:"Air Pressure",q:"What are ISOBARS?",a:"Lines on a map joining places with the same atmospheric pressure."},
+  {topic:"Air Pressure",q:"LOW pressure: air movement, pressure, weather?",a:"Air is rising (ascending), with air rushing in at ground level to fill the gap. Below 1016 mb. Summer: cloudy and rainy. Winter: rain, sometimes snow, and nights can be warmer."},
+  {topic:"Air Pressure",q:"HIGH pressure: air movement, pressure, weather?",a:"Air is sinking (descending). Above 1016 mb. Summer: dry and sunny, hot days but cold nights, can cause drought and fires. Winter: sunny but cold, with frost in the morning."},
+  {topic:"Air Pressure",q:"Why can it get very cold at night under high pressure (e.g. in deserts)?",a:"Sinking air means no clouds. With no cloud cover to act as insulation, heat escapes at night."},
+  {topic:"Air Pressure",q:"Why does low pressure bring rain?",a:"Air is rising. As it rises it cools and condenses, forming clouds and then rain."},
+
+  {topic:"Fronts & Wind",q:"Why does the wind blow?",a:"Air moves from areas of HIGHER pressure to areas of LOWER pressure. Buildings, trees and hills change its direction near the ground."},
+  {topic:"Fronts & Wind",q:"How is wind speed measured?",a:"With an ANEMOMETER (the faster it spins, the stronger the wind), or with the BEAUFORT SCALE, which describes the wind's effect on things like trees."},
+  {topic:"Fronts & Wind",q:"What is a WEATHER FRONT?",a:"The boundary separating two different types of air (air masses)."},
+  {topic:"Fronts & Wind",q:"What happens at a WARM front?",a:"Warm air replaces cold air at the surface. The warm air rises over the colder air because it is less dense, cools and condenses into clouds. Rain is heaviest along the front and clouds remain after the rain."},
+  {topic:"Fronts & Wind",q:"What happens at a COLD front?",a:"Cold air replaces warm air. Denser cold air wedges under the warm air, making a steep boundary. The warm air is forced up quickly, giving thick clouds, heavy rain and thunderstorms. Then the sky clears dramatically, but clouds build again and bring showers."},
+  {topic:"Fronts & Wind",q:"What is an OCCLUDED front?",a:"When a cold front catches up with a warm front and lifts the warm air off the ground, hiding (occluding) it from the surface. It has features of both warm and cold fronts."},
+  {topic:"Fronts & Wind",q:"What is a SYNOPTIC CHART?",a:"A weather map showing pressure (isobars) and fronts, used to forecast the weather."},
+
+  {topic:"Global Circulation",q:"What is the TRICELLULAR model?",a:"In each hemisphere air circulates in three cells: the Hadley cell, the Ferrel cell and the Polar cell. Together they move heat from the Equator towards the poles."},
+  {topic:"Global Circulation",q:"Which cell is where? (latitudes)",a:"Hadley cell: 0–30°. Ferrel cell: 30–60°. Polar cell: 60–90°."},
+  {topic:"Global Circulation",q:"What is the CORIOLIS EFFECT?",a:"Because the Earth rotates, moving air is deflected: to the RIGHT in the Northern Hemisphere and to the LEFT in the Southern Hemisphere."},
+  {topic:"Global Circulation",q:"Your slides' definition of the TROPOPAUSE?",a:"The part of the atmosphere from the surface up to 10–15 km where most weather takes place. (Strictly, that layer is the troposphere and the tropopause is its top.)"},
+  {topic:"Global Circulation",q:"What happens at the EQUATOR (0°)?",a:"Air is heated strongly and RISES, making LOW pressure. It cools and condenses, so it is hot and wet all year: tropical rainforests."},
+  {topic:"Global Circulation",q:"What happens at about 30° north and south?",a:"Air SINKS, making HIGH pressure. Sinking air is dry, so there are few clouds and little rain: hot deserts like the Sahara."},
+  {topic:"Global Circulation",q:"What happens at about 60° north and south?",a:"Warm air from the Ferrel cell meets cold polar air and RISES, making LOW pressure, so it is cloudy and wet. The UK is near here."},
+  {topic:"Global Circulation",q:"Name the surface winds in each cell.",a:"Hadley cell: trade winds. Ferrel cell: westerlies (why the UK's winds come mostly from the west). Polar cell: polar easterlies."},
+
+  {topic:"Climate Zones",q:"What are CLIMATE ZONES?",a:"Areas of the world with distinct patterns of rainfall and temperature. They shape the biomes there, giving unique flora (plants) and fauna (animals)."},
+  {topic:"Climate Zones",q:"Equatorial climate example from class?",a:"Democratic Republic of Congo, about 4°S. Rainfall 62–176 mm a month and temperature 17–31°C: hot and wet all year."},
+  {topic:"Climate Zones",q:"Where are hot deserts (arid zones) and why?",a:"Around 30° north and south, where air sinks to form high pressure. Sinking air is dry, so there is very little rain."},
+  {topic:"Climate Zones",q:"What climate zone is the UK in?",a:"Temperate. It is mild all year with no extremes, and rain falls in every season."},
+
+  {topic:"UK Climate",q:"What type of climate does the UK have?",a:"A temperate maritime climate: four seasons, cool wet winters and warm wet summers, with mild temperatures and rare extremes."},
+  {topic:"UK Climate",q:"Three main influences on the UK's climate?",a:"1. Ocean currents of different temperatures (Gulf Stream)  2. Cold air travelling from the polar regions  3. Westerly wind bringing moisture"},
+  {topic:"UK Climate",q:"West Scotland & North West England?",a:"COLD (6–7°C) and WET (1500–2500 mm). Cold because of higher latitude and polar air masses. Wet because moist Atlantic air hits the mountains, giving relief rainfall."},
+  {topic:"UK Climate",q:"East Scotland & North East England?",a:"COLD (8–9°C) and DRY (800–1000 mm). Cold because of higher latitude. Dry because it is in the rain shadow after relief rainfall and gets dry continental air from Europe."},
+  {topic:"UK Climate",q:"South West England & Wales?",a:"WARM (10–11°C) and WET (1000–1500 mm). Warm because of lower latitude and tropical air. Wet because of warm, moist air from the Atlantic (Gulf Stream)."},
+  {topic:"UK Climate",q:"South East England?",a:"WARM (10–11°C) and DRY (600–800 mm). Warm because of lower latitude and tropical air from the continent; in summer hot air from Africa often reaches it. Dry because it gets dry continental air from Europe."},
+  {topic:"UK Climate",q:"Why is the WEST of the UK wetter than the EAST?",a:"The mountains are in the north and west. The prevailing south-westerly wind brings moist Atlantic air, which is forced to rise over them (relief rainfall). The east is in the rain shadow."},
+
+  {topic:"Clouds",q:"CUMULUS cloud?",a:"Latin 'heap'. Fluffy, cauliflower shaped, base 1,200–6,500 ft. Forms by convection. Usually fair weather, with occasional showers."},
+  {topic:"Clouds",q:"CUMULONIMBUS cloud?",a:"Latin 'heap' + 'rain cloud'. The 'King of Clouds': towering, with an anvil top. Forms by convection or along cold fronts. Heavy rain, thunderstorms, hail and lightning. It is the ONLY cloud that makes hail, thunder and lightning."},
+  {topic:"Clouds",q:"STRATUS cloud?",a:"Latin 'flattened or spread out'. A low (0–1,200 ft), grey, layered blanket. Forms in calm, stable conditions. Light drizzle at most; can appear as mist or fog."},
+  {topic:"Clouds",q:"CIRRUS cloud?",a:"Latin 'lock or tuft of hair'. Wispy and very high (20,000–40,000 ft), made of ice crystals. No rain reaches the ground. Often comes before a warm front, so a change in the weather is on the way."},
+  {topic:"Clouds",q:"What is the OKTA scale?",a:"It measures cloud cover in eighths of the sky: 0 oktas is completely clear and 8 oktas is completely overcast."},
+
+  {topic:"Climate Graphs",q:"What is a CLIMATE GRAPH?",a:"A combined bar and line graph of average monthly temperature and rainfall over a year. Temperature is a RED LINE; rainfall (precipitation) is BLUE BARS."},
+  {topic:"Climate Graphs",q:"Rules for drawing a climate graph?",a:"Bars must NOT touch. Temperature points are crosses (X) in the middle of each month, joined with a FREEHAND line (no ruler). It needs a title and labelled axes."},
+  {topic:"Climate Graphs",q:"How do you work out temperature RANGE?",a:"Highest minus lowest. Kew Gardens: 23.8°C (Jul) − 8.6°C (Jan) = 15.2°C."},
+  {topic:"Climate Graphs",q:"How do you work out AVERAGE rainfall?",a:"Add all 12 months and divide by 12. Kew Gardens: 631.3 ÷ 12 = 52.6 mm."},
+  {topic:"Climate Graphs",q:"Evidence that Kew Gardens is TEMPERATE?",a:"Mild temperatures with no extremes (8.6°C to 23.8°C), and rain in every month (39–70 mm), with no dry season."},
+
+  {topic:"Climate Change",q:"Five NATURAL causes of climate change?",a:"Volcanic eruptions, ocean currents, changes in the Earth's orbit, solar variations and internal variability (e.g. El Niño)."},
+  {topic:"Climate Change",q:"How do VOLCANIC ERUPTIONS affect climate?",a:"Short-term COOLING. Ash blocks sunlight but falls within about 3 months. Sulfur dioxide forms sulfate aerosols that reflect sunlight for a year or more. Mount Pinatubo (1991) cooled the world by 0.5°C."},
+  {topic:"Climate Change",q:"How much CO₂ do volcanoes emit compared with humans?",a:"Less than 1% of the CO₂ from current human activities."},
+  {topic:"Climate Change",q:"What is the ocean 'global conveyor belt'?",a:"Surface and deep ocean currents that circulate the globe in about a 1,000-year cycle. Warm surface water flows towards the poles and cold, dense deep water flows back towards the Equator, spreading heat. Colder, saltier water is denser."},
+  {topic:"Climate Change",q:"How do ORBITAL changes affect climate?",a:"Shifts and wobbles in the Earth's orbit and tilt change the strength of the seasons and can start or end ice ages. They are very slow (thousands of years). The last ice age ended about 12,000 years ago."},
+  {topic:"Climate Change",q:"How do SOLAR VARIATIONS affect climate?",a:"Small changes in the Sun's output can change the climate. Low solar activity may have caused the Little Ice Age (about 1650–1850). But they CANNOT explain today's warming, because the upper atmosphere is cooling while the surface warms."},
+  {topic:"Climate Change",q:"What is INTERNAL VARIABILITY?",a:"Changes from inside the climate system with no outside trigger. For example, El Niño warms the world and La Niña cools it (about a 5-year cycle), and the Arctic Oscillation changes air pressure in the north."},
+  {topic:"Climate Change",q:"HUMAN causes of climate change?",a:"Burning fossil fuels (coal, oil, gas) releases CO₂; deforestation means fewer trees absorb CO₂; farming releases methane (cattle, rice). These gases trap heat: the enhanced greenhouse effect."},
+  {topic:"Climate Change",q:"Two reasons for the rise in CO₂ since 1900?",a:"1. Burning fossil fuels for energy, industry and transport. 2. Deforestation (fewer trees to absorb CO₂, and burning trees releases it)."},
+  {topic:"Climate Change",q:"What is a POSITIVE FEEDBACK cycle?",a:"When an initial change causes further changes that amplify (speed up) the original change."},
+  {topic:"Climate Change",q:"Explain the ice / ALBEDO feedback.",a:"Temperatures rise, so ice melts. There is less light ice to reflect sunlight (the albedo effect) and more dark ocean to absorb it, so more radiation is absorbed and temperatures rise further."},
+  {topic:"Climate Change",q:"Can natural causes explain warming since 1970?",a:"No. Scientists can only explain the warming since 1970 by including human greenhouse gas emissions."},
+];
+
+const QUIZ=[
+  {topic:"Weather & Climate",q:"Which most accurately describes differential heating?",opts:["Radiation is concentrated at the Equator because it travels a shorter distance","Radiation is concentrated at the Equator because it covers a smaller surface area, due to the Earth's curvature","Radiation is absorbed faster at the Equator","The Equator is closer to the Sun"],ans:1,explain:"It's all about surface area: the curve of the Earth spreads the same energy over a bigger area near the poles."},
+  {topic:"Weather & Climate",q:"What is the geographical term for the tilt of the Earth?",opts:["Altitude","Obliquity","Angle","Latitude"],ans:1,explain:"Obliquity. The Earth is tilted at 23.4°."},
+  {topic:"Weather & Climate",q:"Which does NOT describe prevailing wind?",opts:["The most frequent wind direction","The direction the wind blows TO","The direction the wind blows FROM","The UK's is south-westerly"],ans:1,explain:"Prevailing winds are named by where they come FROM, not where they're going."},
+  {topic:"Weather & Climate",q:"Climate is the pattern of weather over usually how long?",opts:["1 year","10 years","30 years","100 years"],ans:2,explain:"Climate is the long-term pattern, usually over 30 years."},
+  {topic:"Weather & Climate",q:"How much does temperature usually drop for every 100 m of altitude?",opts:["0.1°C","1°C","5°C","10°C"],ans:1,explain:"About 1°C per 100 m. That's why the top of Scafell Pike is around 10°C colder than the valley."},
+  {topic:"Weather & Climate",q:"Compared with inland places, coastal places are…",opts:["Warmer in summer, colder in winter","Cooler in summer, warmer in winter","Always warmer","Always wetter and colder"],ans:1,explain:"Oceans heat up and cool down slowly, so they keep coasts cooler in summer and milder in winter."},
+  {topic:"Weather & Climate",q:"Which ocean current warms the UK?",opts:["The Gulf Stream","The Humboldt Current","The Canary Current","El Niño"],ans:0,explain:"The Gulf Stream brings warm water across the Atlantic to the UK."},
+  {topic:"Weather & Climate",q:"What does the UK's prevailing wind bring?",opts:["Cold, dry polar air","Warm, moist tropical maritime air","Dry continental air","Hot desert air"],ans:1,explain:"The south-westerly brings warm, moist tropical maritime air, which is why it rains so often."},
+  {topic:"Weather & Climate",q:"The ITCZ is…",opts:["A band of high pressure at 30°","A band of low pressure near the Equator that moves with the seasons","A cold ocean current","A type of cloud"],ans:1,explain:"It migrates north and south with the Earth's tilt, which causes the Indian monsoon."},
+
+  {topic:"Rainfall",q:"Warm air rises because it is…",opts:["More dense","Less dense","Wetter","Heavier"],ans:1,explain:"Warm air expands and becomes LESS dense. (In class: 'warm air rises because it is more dense' was FALSE.)"},
+  {topic:"Rainfall",q:"Orographic rainfall is another name for…",opts:["Frontal rainfall","Convectional rainfall","Relief rainfall","Acid rain"],ans:2,explain:"Orographic = relief rainfall, caused by air rising over high land."},
+  {topic:"Rainfall",q:"When a warm air mass meets a cold air mass, they…",opts:["Mix to form a front","Don't mix, and form a front","Both sink","Both rise"],ans:1,explain:"They do NOT mix. The boundary between them is the front."},
+  {topic:"Rainfall",q:"Which rainfall starts with the land heating the air above it?",opts:["Frontal","Relief","Convectional","Orographic"],ans:2,explain:"Convectional: hot ground heats the air, which rises, cools and condenses."},
+  {topic:"Rainfall",q:"What happens to air AFTER it goes over a mountain in relief rainfall?",opts:["It rises further and rains more","It descends, warms up and becomes drier","It forms a cold front","It turns into snow"],ans:1,explain:"The descending side is drier. This is the rain shadow."},
+  {topic:"Rainfall",q:"Why are the Lake District and Snowdonia so wet?",opts:["Convectional rain from hot ground","They're mountainous, so moist westerly air gives relief rain","They're near London","High pressure"],ans:1,explain:"Mountains plus moist south-westerly winds give lots of relief rainfall."},
+  {topic:"Rainfall",q:"Which word means the height and shape of the land?",opts:["Altitude","Relief","Precipitation","Convection"],ans:1,explain:"Relief = the height and shape of the land."},
+  {topic:"Rainfall",q:"Convectional rainfall is common in…",opts:["The poles","The tropics and SE England on hot sunny days","Only mountains","Only at night"],ans:1,explain:"It needs strong heating of the ground, so the tropics, and SE England in warm sunny spells."},
+
+  {topic:"Air Pressure",q:"Air pressure is measured with a…",opts:["Thermometer","Anemometer","Barometer","Rain gauge"],ans:2,explain:"Barometer, in millibars (mb). An anemometer measures wind speed."},
+  {topic:"Air Pressure",q:"Standard air pressure at sea level is…",opts:["1000 mb","1013 mb","1016 mb","1100 mb"],ans:1,explain:"1013 mb is standard sea-level pressure."},
+  {topic:"Air Pressure",q:"High pressure systems are called…",opts:["Depressions","Cyclones","Anticyclones","Fronts"],ans:2,explain:"Anticyclone = high pressure. Depression (cyclone) = low pressure."},
+  {topic:"Air Pressure",q:"In a LOW pressure system the air is…",opts:["Sinking","Rising","Not moving","Always cold"],ans:1,explain:"Rising air cools and condenses, so low pressure brings cloud and rain."},
+  {topic:"Air Pressure",q:"High pressure in WINTER usually brings…",opts:["Heavy rain and storms","Sunny but cold weather, with morning frost","Warm nights","Snow every day"],ans:1,explain:"Clear skies, so it's sunny but cold, and heat escapes at night, giving frost."},
+  {topic:"Air Pressure",q:"Why are desert nights so cold under high pressure?",opts:["The Sun is further away","No clouds to insulate, so heat escapes","Cold ocean currents","Wind from the poles"],ans:1,explain:"No cloud blanket, so the heat escapes quickly at night."},
+  {topic:"Air Pressure",q:"Lines on a map joining places of equal pressure are called…",opts:["Contours","Isobars","Isotherms","Fronts"],ans:1,explain:"Isobars join places with the same air pressure."},
+  {topic:"Air Pressure",q:"Correct the mistake: 'Areas of less than 1016 mb are high pressure.'",opts:["Below 1016 mb is LOW pressure","Below 1016 mb is an anticyclone","It's right","Pressure isn't measured in mb"],ans:0,explain:"In class: below 1016 mb is low pressure and above 1016 mb is high pressure."},
+
+  {topic:"Fronts & Wind",q:"Wind blows from…",opts:["Low to high pressure","High to low pressure","Cold to warm land","East to west only"],ans:1,explain:"Air moves from HIGH pressure to LOW pressure."},
+  {topic:"Fronts & Wind",q:"Correct the mistake: 'Wind is created by cold air descending.'",opts:["Wind is created by differences in air pressure","Wind is created by clouds","Wind is created by warm air descending","It's right"],ans:0,explain:"Wind is air moving from high to low pressure."},
+  {topic:"Fronts & Wind",q:"An anemometer measures…",opts:["Air pressure","Rainfall","Wind speed","Temperature"],ans:2,explain:"The faster it spins, the stronger the wind."},
+  {topic:"Fronts & Wind",q:"Which front gives thunderstorms followed by clear blue skies?",opts:["Warm front","Cold front","Occluded front","Stationary front"],ans:1,explain:"At a cold front the warm air is forced up fast, giving heavy rain and thunderstorms, then a dramatic clearance."},
+  {topic:"Fronts & Wind",q:"At a warm front…",opts:["Cold air replaces warm air","Warm air replaces cold air and rises over it","The fronts meet and lift the warm air off the ground","No rain falls"],ans:1,explain:"Warm air replaces cold air and rises over it because it is less dense."},
+  {topic:"Fronts & Wind",q:"An occluded front is when…",opts:["Two warm fronts meet","A cold front catches up with a warm front and lifts the warm air off the surface","High pressure meets low pressure","A front stops moving"],ans:1,explain:"The warm air is 'hidden' (occluded) from the surface. It has features of both fronts."},
+
+  {topic:"Global Circulation",q:"The three cells in each hemisphere are…",opts:["Hadley, Ferrel, Polar","Hadley, Coriolis, Polar","Ferrel, Gulf, Polar","Tropical, Temperate, Polar"],ans:0,explain:"Hadley (0–30°), Ferrel (30–60°), Polar (60–90°)."},
+  {topic:"Global Circulation",q:"The Coriolis effect deflects air in the Northern Hemisphere to the…",opts:["Left","Right","North","Up"],ans:1,explain:"Right in the Northern Hemisphere, left in the Southern Hemisphere."},
+  {topic:"Global Circulation",q:"At about 30° N and S, air is…",opts:["Rising, so it's wet","Sinking, so it's dry (deserts)","Always stormy","Frozen"],ans:1,explain:"Sinking air makes high pressure with little rain, so the hot deserts are there."},
+  {topic:"Global Circulation",q:"At the Equator the air…",opts:["Sinks, giving high pressure","Rises, giving low pressure and heavy rain","Doesn't move","Is cold"],ans:1,explain:"Strong heating makes air rise: low pressure, clouds and rain, so rainforests grow there."},
+  {topic:"Global Circulation",q:"The cell that the UK sits in, with westerly winds, is the…",opts:["Hadley cell","Ferrel cell","Polar cell","Walker cell"],ans:1,explain:"The UK (about 50–60°N) is in the Ferrel cell, where the westerlies blow."},
+
+  {topic:"Climate Zones",q:"Climate zones influence…",opts:["Biomes, plants and animals","Only the weather today","Ocean salinity","Earthquakes"],ans:0,explain:"Climate zones shape biomes, which have their own flora and fauna."},
+  {topic:"Climate Zones",q:"Hot deserts are found mainly around…",opts:["0°","30° N and S","60° N and S","The poles"],ans:1,explain:"Around 30°, where sinking air makes high pressure."},
+
+  {topic:"UK Climate",q:"The UK's climate is…",opts:["Tropical","Temperate maritime","Polar","Arid"],ans:1,explain:"Temperate maritime: mild, four seasons, wet all year, rare extremes."},
+  {topic:"UK Climate",q:"Which region is WARM and DRY?",opts:["West Scotland","North East England","South West England","South East England"],ans:3,explain:"SE England: lower latitude, warm continental air, and dry air from Europe."},
+  {topic:"UK Climate",q:"Which region is COLD and WET?",opts:["West Scotland & NW England","South East England","East Anglia","Kent"],ans:0,explain:"High latitude, polar air, and moist Atlantic air forced over mountains."},
+  {topic:"UK Climate",q:"Why is NE England fairly dry?",opts:["It's in the rain shadow and gets dry continental air","It's on the Equator","It's mountainous","The Gulf Stream"],ans:0,explain:"The air has already rained out over the western mountains, so the east is in the rain shadow."},
+  {topic:"UK Climate",q:"Average temperature in the warm southern regions (from class)?",opts:["6–7°C","8–9°C","10–11°C","15–16°C"],ans:2,explain:"South West and South East are both about 10–11°C."},
+
+  {topic:"Clouds",q:"Which cloud is the ONLY one that makes hail, thunder and lightning?",opts:["Cumulus","Stratus","Cirrus","Cumulonimbus"],ans:3,explain:"Cumulonimbus, the 'King of Clouds', with its anvil top."},
+  {topic:"Clouds",q:"'Cirrus' comes from the Latin for…",opts:["Heap","Rain cloud","Lock or tuft of hair","Flattened"],ans:2,explain:"Cirrus = lock or tuft of hair. Wispy and very high."},
+  {topic:"Clouds",q:"Low, grey, layered cloud that can be fog?",opts:["Stratus","Cumulus","Cirrus","Cumulonimbus"],ans:0,explain:"Stratus means 'spread out' and is the lowest cloud."},
+  {topic:"Clouds",q:"Cloud cover of 8 oktas means…",opts:["Clear sky","Half cloudy","Completely overcast","8 clouds"],ans:2,explain:"Oktas are eighths: 0 is clear, 8 is completely overcast."},
+
+  {topic:"Climate Graphs",q:"On a climate graph, temperature is shown as…",opts:["Blue bars","A red line","A green line","Red bars"],ans:1,explain:"Temperature is a red line and rainfall is blue bars."},
+  {topic:"Climate Graphs",q:"Kew Gardens: max 23.8°C, min 8.6°C. What is the range?",opts:["32.4°C","15.2°C","16.2°C","14.8°C"],ans:1,explain:"23.8 − 8.6 = 15.2°C."},
+  {topic:"Climate Graphs",q:"How should the temperature points be joined?",opts:["With a ruler","Freehand line","Not at all","With bars"],ans:1,explain:"Plot crosses in the middle of each month, then draw a freehand line, no ruler."},
+
+  {topic:"Climate Change",q:"What is the main effect of a volcanic eruption on climate?",opts:["Long-term warming","Short-term cooling","No effect","Sea level rise"],ans:1,explain:"Ash and sulfate aerosols block or reflect sunlight. Pinatubo cooled the world by 0.5°C."},
+  {topic:"Climate Change",q:"El Niño…",opts:["Cools the world","Warms the world","Is a volcano","Is a human cause"],ans:1,explain:"El Niño warms and La Niña cools. It's natural internal variability."},
+  {topic:"Climate Change",q:"Which is a HUMAN cause of climate change?",opts:["Solar variations","Orbital changes","Burning fossil fuels","El Niño"],ans:2,explain:"Burning coal, oil and gas releases CO₂. The other three are natural."},
+  {topic:"Climate Change",q:"Why can't solar variations explain current warming?",opts:["The Sun is shrinking","The upper atmosphere is cooling while the surface warms","There's no evidence of warming","Volcanoes cancel it out"],ans:1,explain:"A stronger Sun would warm ALL layers. Greenhouse gases trap heat low down instead."},
+  {topic:"Climate Change",q:"In a positive feedback cycle…",opts:["The change is cancelled out","The change gets amplified","Nothing happens","Temperatures always fall"],ans:1,explain:"Positive feedback amplifies (speeds up) the original change."},
+  {topic:"Climate Change",q:"Why does melting ice speed up warming?",opts:["Ice is dark","Less reflective ice and more dark ocean, so more radiation is absorbed","Ice releases CO₂","Ice cools the air"],ans:1,explain:"The albedo effect: light ice reflects sunlight and dark ocean absorbs it."},
+];
+
+const CREATURES=[
+  {emoji:"☀️",name:"Sunny days, frosty mornings in winter",q:"Which pressure system?",correct:"High pressure",wrong:["Low pressure","Warm front","Occluded front"]},
+  {emoji:"🌧️",name:"Rising air, under 1016 mb",q:"Which pressure system?",correct:"Low pressure",wrong:["High pressure","Anticyclone","Cold front"]},
+  {emoji:"🏜️",name:"Hot days, freezing desert nights",q:"Which pressure system?",correct:"High pressure",wrong:["Low pressure","Depression","Warm front"]},
+  {emoji:"🌀",name:"A depression",q:"Which pressure system?",correct:"Low pressure",wrong:["High pressure","Anticyclone","Rain shadow"]},
+  {emoji:"⛰️",name:"Moist air forced over the fells",q:"Which type of rainfall?",correct:"Relief",wrong:["Frontal","Convectional","Occluded"]},
+  {emoji:"🔥",name:"Hot ground heats the air above",q:"Which type of rainfall?",correct:"Convectional",wrong:["Relief","Frontal","Orographic"]},
+  {emoji:"🥶",name:"Polar air meets tropical air",q:"Which type of rainfall?",correct:"Frontal",wrong:["Relief","Convectional","Orographic"]},
+  {emoji:"🏔️",name:"Orographic rain",q:"Another name for…",correct:"Relief",wrong:["Frontal","Convectional","Cyclonic"]},
+  {emoji:"⛈️",name:"Thunderstorms, then blue skies",q:"Which front?",correct:"Cold front",wrong:["Warm front","Occluded front","No front"]},
+  {emoji:"🌦️",name:"Warm air replaces cold air",q:"Which front?",correct:"Warm front",wrong:["Cold front","Occluded front","Anticyclone"]},
+  {emoji:"🫥",name:"Warm air lifted off the ground",q:"Which front?",correct:"Occluded front",wrong:["Warm front","Cold front","High pressure"]},
+  {emoji:"🌋",name:"Mount Pinatubo erupts",q:"Cause of climate change?",correct:"Natural",wrong:["Human"]},
+  {emoji:"🏭",name:"Coal power station",q:"Cause of climate change?",correct:"Human",wrong:["Natural"]},
+  {emoji:"🪓",name:"Deforestation",q:"Cause of climate change?",correct:"Human",wrong:["Natural"]},
+  {emoji:"🌊",name:"El Niño",q:"Cause of climate change?",correct:"Natural",wrong:["Human"]},
+  {emoji:"🐄",name:"Methane from cattle farming",q:"Cause of climate change?",correct:"Human",wrong:["Natural"]},
+  {emoji:"🌞",name:"Change in the Sun's output",q:"Cause of climate change?",correct:"Natural",wrong:["Human"]},
+  {emoji:"🚗",name:"Petrol cars",q:"Cause of climate change?",correct:"Human",wrong:["Natural"]},
+  {emoji:"🌍",name:"Wobble in Earth's orbit",q:"Cause of climate change?",correct:"Natural",wrong:["Human"]},
+  {emoji:"☁️",name:"Fluffy cauliflower, fair weather",q:"Which cloud?",correct:"Cumulus",wrong:["Cirrus","Stratus","Cumulonimbus"]},
+  {emoji:"🌩️",name:"Anvil top, hail and lightning",q:"Which cloud?",correct:"Cumulonimbus",wrong:["Cumulus","Stratus","Cirrus"]},
+  {emoji:"🌫️",name:"Low grey blanket, drizzle",q:"Which cloud?",correct:"Stratus",wrong:["Cirrus","Cumulus","Cumulonimbus"]},
+  {emoji:"🪶",name:"Wispy ice crystals, very high",q:"Which cloud?",correct:"Cirrus",wrong:["Stratus","Cumulus","Cumulonimbus"]},
+  {emoji:"🏴󠁧󠁢󠁳󠁣󠁴󠁿",name:"West Scotland",q:"What is its climate?",correct:"Cold & wet",wrong:["Cold & dry","Warm & wet","Warm & dry"]},
+  {emoji:"🏙️",name:"South East England",q:"What is its climate?",correct:"Warm & dry",wrong:["Cold & wet","Cold & dry","Warm & wet"]},
+  {emoji:"🏴󠁧󠁢󠁷󠁬󠁳󠁿",name:"Wales & South West England",q:"What is its climate?",correct:"Warm & wet",wrong:["Cold & dry","Warm & dry","Cold & wet"]},
+  {emoji:"🏰",name:"East Scotland & NE England",q:"What is its climate?",correct:"Cold & dry",wrong:["Warm & wet","Cold & wet","Warm & dry"]},
+  {emoji:"🌴",name:"0–30° latitude",q:"Which cell?",correct:"Hadley cell",wrong:["Ferrel cell","Polar cell","Gulf cell"]},
+  {emoji:"🇬🇧",name:"30–60° latitude (the UK)",q:"Which cell?",correct:"Ferrel cell",wrong:["Hadley cell","Polar cell","Coriolis cell"]},
+  {emoji:"🐧",name:"60–90° latitude",q:"Which cell?",correct:"Polar cell",wrong:["Hadley cell","Ferrel cell","Arctic cell"]},
+  {emoji:"🌡️",name:"Measures air pressure",q:"Which instrument?",correct:"Barometer",wrong:["Anemometer","Thermometer","Rain gauge"]},
+  {emoji:"🌬️",name:"Measures wind speed",q:"Which instrument?",correct:"Anemometer",wrong:["Barometer","Thermometer","Okta scale"]},
+];
+
+const PROCESSES=[
+  {name:"Frontal rainfall",emoji:"🥶",steps:["A cold polar air mass meets a warm tropical air mass. They don't mix and form a front","The lighter, warmer air rises over the heavier, colder air","As the warm air rises it cools","It condenses, forming clouds","Rain falls"]},
+  {name:"Relief rainfall",emoji:"⛰️",steps:["Prevailing winds bring warm, moist air to the western British Isles","The air is forced to rise over hills and mountains","As it rises it cools and condenses","Clouds form and it rains","The air descends on the other side","It warms up and becomes drier (rain shadow)"]},
+  {name:"Convectional rainfall",emoji:"🔥",steps:["The land warms up and heats the air above it","The air expands, becomes less dense and rises","As it rises it cools and condenses","Clouds form, causing rain"]},
+  {name:"Cold front",emoji:"⛈️",steps:["Cold air replaces warm air at the surface","Denser cold air wedges under the warm air","The warm air is forced to rise quickly","Thick clouds form: heavy rain and thunderstorms","The sky clears dramatically: blue skies and sunshine","Clouds gradually build again, bringing showers"]},
+  {name:"Warm front",emoji:"🌦️",steps:["Warm air replaces cold air at the surface","The warm air rises over the colder air because it is less dense","It cools and condenses, forming clouds","Rain is heaviest along the front","Clouds remain after the rain"]},
+  {name:"Low pressure weather",emoji:"🌧️",steps:["Air is heated and rises","Air rushes in at ground level to fill the gap","The rising air cools","Water vapour condenses into clouds","It rains"]},
+  {name:"Volcanic cooling",emoji:"🌋",steps:["A volcano erupts, sending ash and sulfur dioxide into the air","Ash blocks some sunlight but falls within about 3 months","Sulfur dioxide forms sulfate aerosols","The aerosols reflect sunlight for a year or more","Global temperatures drop (Pinatubo: 0.5°C)"]},
+  {name:"Ice–albedo feedback",emoji:"🧊",steps:["Global temperatures rise","Ice melts","There is less light, reflective ice and more dark ocean","More solar radiation is absorbed","Global temperatures rise even more"]},
+  {name:"Wildfire feedback",emoji:"🔥",steps:["More wildfires","More CO₂ is released into the atmosphere","More heat is trapped and temperatures rise","Vegetation becomes drier","It ignites and burns more easily, so there are even more wildfires"]},
+];
+
+const EXAM=[
+  {topic:"Weather & Climate",marks:2,q:"What is the difference between weather and climate?",points:["Weather = day-to-day conditions of the atmosphere","Climate = long-term pattern of weather, usually over 30 years"],model:"Weather is the day-to-day condition of the atmosphere, such as whether it is warm, dry or windy. Climate is the long-term pattern of weather in an area, usually averaged over 30 years."},
+  {topic:"Weather & Climate",marks:4,q:"Explain why the poles are colder than the Equator. (Use point > develop > further develop.)",points:["Uses the term differential heating / latitude","The Earth is curved","At the Equator solar radiation hits a smaller surface area, so it is concentrated","At the poles the same energy is spread over a larger area, so it heats each part less"],model:"This is due to differential heating. Because the Earth is curved, the Sun's radiation hits the Equator almost directly and is concentrated on a small surface area, so it heats it strongly. At the poles the same amount of radiation is spread over a much larger surface area, so each part receives less energy and is colder."},
+  {topic:"Weather & Climate",marks:3,q:"At the base of Scafell Pike it can be 20°C but only 8–12°C at the peak. Explain why. (Use a key term and numbers.)",points:["Key term: altitude","Temperature falls about 1°C for every 100 m","The peak is about 1,000 m (978 m) higher, so it is about 8–12°C cooler"],model:"This is because of altitude. Temperature usually falls by about 1°C for every 100 m in height. Scafell Pike is 978 m high, so the peak is roughly 10°C cooler than the valley: about 8–12°C compared with 20°C."},
+  {topic:"Rainfall",marks:4,q:"Explain how relief rainfall happens.",points:["Prevailing winds bring warm, moist air (from the Atlantic)","Air is forced to rise over hills or mountains","It cools and condenses, forming clouds and rain","Air descends, warms and becomes drier on the other side (rain shadow)"],model:"Prevailing south-westerly winds bring warm, moist air from the Atlantic. When it reaches hills or mountains it is forced to rise. As it rises it cools and condenses, forming clouds, and it rains. The air then descends on the other side, warms up and becomes drier, creating a rain shadow."},
+  {topic:"Rainfall",marks:4,q:"Explain why Brazil experiences more convectional rainfall than the UK. (Refer to latitude.)",points:["Brazil is at a lower latitude / nearer the Equator","The Sun's radiation is more concentrated there, so the ground heats more","Hot ground heats the air, which expands, becomes less dense and rises","Rising air cools and condenses into clouds and rain"],model:"Brazil is at a lower latitude, near the Equator, so solar radiation is more concentrated and the land heats up strongly. The hot ground heats the air above it, which expands, becomes less dense and rises. As it rises it cools and condenses, forming clouds and convectional rain. The UK is at a higher latitude, so it is heated less and gets less convectional rain."},
+  {topic:"Air Pressure",marks:4,q:"Describe the weather that high pressure brings in summer and in winter.",points:["Air is sinking, so there are few clouds","Summer: dry and sunny, hot days","Summer nights cold (no cloud insulation) / can cause drought and fires","Winter: sunny but cold, with frost in the morning"],model:"In high pressure (an anticyclone) air is sinking, so few clouds form. In summer this gives dry, sunny weather with hot days, but nights can be cold because there are no clouds to insulate, and long spells can cause drought and fires. In winter it is sunny but cold, especially at night, and frost is common in the morning."},
+  {topic:"Fronts & Wind",marks:4,q:"Explain how a cold front produces heavy rain.",points:["Cold air replaces warm air","Cold air is denser and wedges under the warm air","The warm air is forced to rise quickly / steeply","It cools and condenses into thick clouds, giving heavy rain and thunderstorms"],model:"At a cold front cold air replaces warm air. Because cold air is denser, it pushes under the warm air like a wedge, making a steep boundary. The warm air is forced to rise quickly, cools and condenses into thick clouds, giving heavy rain and thunderstorms. Afterwards the sky clears, but showers can follow."},
+  {topic:"Global Circulation",marks:4,q:"Describe the tricellular model and how it creates deserts at 30°.",points:["Three cells in each hemisphere: Hadley, Ferrel, Polar","Air rises at the Equator (low pressure, rain)","Air sinks at about 30° (high pressure)","Sinking air is dry, so there is little rain and deserts form"],model:"In each hemisphere there are three cells: Hadley (0–30°), Ferrel (30–60°) and Polar (60–90°). At the Equator air is heated, rises and forms low pressure with heavy rain. It moves towards the poles at high level and sinks at about 30°, forming high pressure. Sinking air is dry, so clouds don't form and there is little rain, which is why hot deserts like the Sahara are found there."},
+  {topic:"UK Climate",marks:6,q:"Explain why West Scotland is cold and wet but South East England is warm and dry.",points:["West Scotland: higher latitude, so colder","West Scotland gets cold polar air masses","West Scotland: moist Atlantic air plus mountains give relief rainfall","SE England: lower latitude, so warmer","SE England gets warm tropical / continental air (hot air from Africa in summer)","SE England gets dry continental air from Europe / is in the rain shadow"],model:"West Scotland is at a higher latitude, so it receives less concentrated solar radiation, and it is affected by cold polar air masses, so it is cold (6–7°C). It is wet (1500–2500 mm) because the prevailing south-westerly wind brings moist air off the Atlantic, which is forced up over the mountains, giving relief rainfall. South East England is at a lower latitude and receives tropical air from the continent, sometimes hot air from Africa in summer, so it is warm (10–11°C). It is dry (600–800 mm) because it gets dry continental air from Europe and is sheltered from the moist westerly air."},
+  {topic:"Climate Change",marks:4,q:"Explain how a large volcanic eruption can affect the climate.",points:["Short-term cooling","Ash blocks sunlight but falls within about 3 months","Sulfur dioxide forms sulfate aerosols that reflect sunlight for a year or more","Example: Pinatubo 1991 cooled the world by 0.5°C"],model:"A large eruption causes short-term cooling. Clouds of ash block out some sunlight, but the heavy ash falls within about three months. Sulfur dioxide combines with water vapour and dust to form sulfate aerosols, which reflect sunlight away from the Earth for a year or more. For example, Mount Pinatubo in 1991 lowered global temperatures by 0.5°C."},
+  {topic:"Climate Change",marks:2,q:"State two reasons for the increase in atmospheric CO₂ since 1900.",points:["Burning fossil fuels (coal, oil, gas) for energy, industry or transport","Deforestation (fewer trees to absorb CO₂ / burning releases it)"],model:"1. Burning fossil fuels such as coal, oil and gas in power stations, factories and cars. 2. Deforestation, which means fewer trees absorb CO₂, and burning the trees releases more."},
+  {topic:"Climate Change",marks:3,q:"Using an example, explain what a positive feedback cycle is.",points:["An initial change causes further changes that amplify the original change","Example: rising temperatures melt ice","Less reflective ice and more dark ocean, so more radiation is absorbed and temperatures rise further (albedo)"],model:"A positive feedback cycle is when an initial change causes further changes that amplify it. For example, rising global temperatures melt ice. Ice is light and reflects sunlight (the albedo effect), so losing it exposes more dark ocean, which absorbs more radiation, making temperatures rise even more."},
+  {topic:"Climate Graphs",marks:3,q:"Kew Gardens: max temperature 23.8°C (Jul), min 8.6°C (Jan); rainfall totals 631.3 mm for the year. Calculate the temperature range and the average monthly rainfall.",points:["Range = 23.8 − 8.6","= 15.2°C","Average rainfall = 631.3 ÷ 12 = 52.6 mm"],model:"Temperature range = 23.8 − 8.6 = 15.2°C. Average monthly rainfall = 631.3 ÷ 12 = 52.6 mm (to 1 d.p.)."},
+];
+
+// ═══════════════════════════════════════════════════════════
+// SHOP DATA
+// ═══════════════════════════════════════════════════════════
+const SHOP_CATS=[
+  {id:'bg',label:'🎨 Background',items:[
+    {id:'bg0',name:'Plain',emoji:'⬜',price:0,free:true},
+    {id:'bg1',name:'Starry',emoji:'🌌',price:15},
+    {id:'bg2',name:'Rainbow',emoji:'🌈',price:20},
+    {id:'bg3',name:'Flowers',emoji:'🌸',price:25},
+    {id:'bg4',name:'Lab',emoji:'🔬',price:30},
+    {id:'bg5',name:'Space',emoji:'🚀',price:40},
+  ]},
+  {id:'skin',label:'👤 Skin Tone',items:[
+    {id:'sk0',name:'Peach',emoji:'🎀',price:0,free:true},
+    {id:'sk1',name:'Honey',emoji:'🍯',price:5},
+    {id:'sk2',name:'Bronze',emoji:'🤎',price:5},
+    {id:'sk3',name:'Ebony',emoji:'🖤',price:5},
+  ]},
+  {id:'hair',label:'💇 Hair',items:[
+    {id:'h0',name:'Brown',emoji:'🟫',price:0,free:true},
+    {id:'h1',name:'Blonde',emoji:'💛',price:10},
+    {id:'h2',name:'Pink',emoji:'🩷',price:15},
+    {id:'h3',name:'Purple',emoji:'💜',price:15},
+    {id:'h4',name:'Rainbow',emoji:'🌈',price:30},
+    {id:'h5',name:'Silver',emoji:'🩶',price:20},
+  ]},
+  {id:'outfit',label:'👗 Outfit',items:[
+    {id:'o0',name:'Lab Coat',emoji:'🥼',price:0,free:true},
+    {id:'o1',name:'Princess',emoji:'👑',price:20},
+    {id:'o2',name:'Space Suit',emoji:'👩‍🚀',price:35},
+    {id:'o3',name:'Butterfly',emoji:'🦋',price:25},
+    {id:'o4',name:'Witch',emoji:'🧙‍♀️',price:30},
+    {id:'o5',name:'Superhero',emoji:'🦸‍♀️',price:40},
+  ]},
+  {id:'acc',label:'✨ Accessory',items:[
+    {id:'ac0',name:'None',emoji:'❌',price:0,free:true},
+    {id:'ac1',name:'Glasses',emoji:'🤓',price:8},
+    {id:'ac2',name:'Crown',emoji:'👑',price:20},
+    {id:'ac3',name:'Flowers',emoji:'💐',price:12},
+    {id:'ac4',name:'Stars',emoji:'⭐',price:15},
+    {id:'ac5',name:'Wand',emoji:'🪄',price:25},
+  ]},
+  {id:'pet',label:'🐾 Pet',items:[
+    {id:'p0',name:'None',emoji:'❌',price:0,free:true},
+    {id:'p1',name:'Cat',emoji:'🐱',price:15},
+    {id:'p2',name:'Bunny',emoji:'🐰',price:15},
+    {id:'p3',name:'Dragon',emoji:'🐉',price:40},
+    {id:'p4',name:'Unicorn',emoji:'🦄',price:50},
+    {id:'p5',name:'Frog',emoji:'🐸',price:20},
+  ]},
+];
+let avatarOwned={bg:'bg0',skin:'sk0',hair:'h0',outfit:'o0',acc:'ac0',pet:'p0'};
+let avatarEquipped={bg:'bg0',skin:'sk0',hair:'h0',outfit:'o0',acc:'ac0',pet:'p0'};
+
+// ═══════════════════════════════════════════════════════════
+// COINS + UNLOCK
+// ═══════════════════════════════════════════════════════════
+function addCoins(n,x,y){
+  coins+=n;
+  updateCoinDisplay();
+  playCoin();
+  if(x&&y) coinPop(x,y,n);
+}
+function updateCoinDisplay(){
+  document.getElementById('coin-display').textContent=coins;
+  document.getElementById('shop-coins').textContent=coins;
+}
+function checkUnlocks(streak){
+  if(!unlocked.creature&&streak>=UNLOCKS.creature){
+    unlocked.creature=true;
+    showModal('🌪️','Sky Sorter Unlocked!',`You got ${UNLOCKS.creature} in a row — amazing! 🌟 Sort each falling weather card before it hits the ground!`,'🌪️ Play Now!',()=>openGame('creature'));
+    playUnlock();confetti(60);buildUnlockGrid();
+  }else if(!unlocked.cell&&totalCorrect>=UNLOCKS.cell){
+    unlocked.cell=true;
+    showModal('🧩','Process Builder Unlocked!',`${UNLOCKS.cell} correct answers — brilliant! 🌧️ Put each weather process in the right order!`,'🧩 Play Now!',()=>openGame('cell'));
+    playUnlock();confetti(70);buildUnlockGrid();
+  }else if(!unlocked.blitz&&totalCorrect>=UNLOCKS.blitz){
+    unlocked.blitz=true;
+    showModal('⚡','Weather Blitz Unlocked!',`${UNLOCKS.blitz} correct answers — you legend! ⚡ Answer as fast as you can before the timer runs out!`,'⚡ Play Now!',()=>openGame('blitz'));
+    playUnlock();confetti(80);buildUnlockGrid();
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// TABS
+// ═══════════════════════════════════════════════════════════
+function showTab(id,el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(el)el.classList.add('active');
+  if(id==='quiz'&&qIdx===0&&!qAnswered)initQuiz();
+  if(id==='shop'){buildShop();drawAvatar();}
+  if(id==='games')buildUnlockGrid();
+  if(id==='exam')renderExam();
+}
+
+// ═══════════════════════════════════════════════════════════
+// BANNER + MODAL
+// ═══════════════════════════════════════════════════════════
+function showBanner(msg,dur=3200){
+  const b=document.getElementById('streak-banner');
+  b.textContent=msg;b.classList.add('show');
+  clearTimeout(b._t);b._t=setTimeout(()=>b.classList.remove('show'),dur);
+}
+let _modalCb=null;
+function showModal(emoji,title,msg,btnLabel,cb){
+  document.getElementById('modal-emoji').textContent=emoji;
+  document.getElementById('modal-title').textContent=title;
+  document.getElementById('modal-msg').textContent=msg;
+  document.getElementById('modal-btn').textContent=btnLabel;
+  _modalCb=cb;
+  document.getElementById('unlock-modal').style.display='flex';
+}
+function closeModal(){
+  document.getElementById('unlock-modal').style.display='none';
+  if(_modalCb){_modalCb();_modalCb=null;}
+}
+
+// ═══════════════════════════════════════════════════════════
+// FLASHCARDS
+// ═══════════════════════════════════════════════════════════
+let fcCards=[...FLASHCARDS],fcIdx=0,fcFlipped=false;
+let fcRatings=new Array(FLASHCARDS.length).fill(null),fcFilter='All';
+const allTopics=['All',...new Set(FLASHCARDS.map(f=>f.topic))];
+function buildFilterButtons(){
+  const w=document.getElementById('fc-filter');w.innerHTML='';
+  allTopics.forEach(t=>{
+    const b=document.createElement('button');
+    b.className='filter-btn'+(t===fcFilter?' active':'');
+    b.textContent=t;b.onclick=()=>{fcFilter=t;applyFCFilter();buildFilterButtons()};
+    w.appendChild(b);
+  });
+}
+function applyFCFilter(){
+  fcCards=fcFilter==='All'?[...FLASHCARDS]:FLASHCARDS.filter(f=>f.topic===fcFilter);
+  fcIdx=0;fcRatings=new Array(fcCards.length).fill(null);renderFC();
+}
+function renderFC(){
+  const c=fcCards[fcIdx];
+  document.getElementById('fc-question').textContent=c.q;
+  document.getElementById('fc-answer').textContent=c.a;
+  document.getElementById('fc-badge').textContent='🏷 '+c.topic;
+  document.getElementById('fc-progress').textContent=`Card ${fcIdx+1} of ${fcCards.length}`;
+  document.getElementById('fc-prev').disabled=fcIdx===0;
+  document.getElementById('fc-next').disabled=fcIdx===fcCards.length-1;
+  document.getElementById('card-inner').classList.remove('flipped');
+  document.getElementById('fc-rating').classList.remove('show');
+  fcFlipped=false;renderDots();
+}
+function flipCard(){
+  fcFlipped=!fcFlipped;
+  document.getElementById('card-inner').classList.toggle('flipped',fcFlipped);
+  if(fcFlipped){playFlip();document.getElementById('fc-rating').classList.add('show');}
+  else document.getElementById('fc-rating').classList.remove('show');
+}
+function rateCard(r){
+  fcRatings[fcIdx]=r;
+  if(r==='got-it')playHappy();else if(r==='missed')playSad();
+  renderDots();if(fcIdx<fcCards.length-1){fcIdx++;renderFC();}
+}
+function fcNav(dir){fcIdx=Math.max(0,Math.min(fcCards.length-1,fcIdx+dir));renderFC();}
+function renderDots(){
+  const w=document.getElementById('fc-dots');w.innerHTML='';
+  fcRatings.forEach((r,i)=>{
+    const d=document.createElement('div');d.className='score-dot'+(r?' '+r:'');
+    d.style.outline=i===fcIdx?'2px solid #164A73':'none';d.style.outlineOffset='2px';
+    w.appendChild(d);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// QUIZ
+// ═══════════════════════════════════════════════════════════
+let qIdx=0,qScore=0,qAnswered=false,qResults=[],quizOrder=[];
+function shuffle(a){const r=[...a];for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]]}return r}
+function initQuiz(){
+  quizOrder=shuffle(QUIZ).slice(0,20);qIdx=0;qScore=0;qAnswered=false;qResults=[];quizStreak=0;
+  document.getElementById('quiz-body').style.display='block';
+  document.getElementById('quiz-results').style.display='none';
+  renderQuestion();
+}
+function renderQuestion(){
+  const q=quizOrder[qIdx];
+  document.getElementById('q-progress').textContent=`Q ${qIdx+1}/${quizOrder.length}`;
+  document.getElementById('q-score-live').textContent=`⭐${qScore} 🔥${quizStreak} 🪙${coins}`;
+  document.getElementById('q-bar').style.width=`${(qIdx/quizOrder.length)*100}%`;
+  document.getElementById('q-topic').textContent=q.topic;
+  document.getElementById('q-text').textContent=q.q;
+  document.getElementById('q-next').style.display='none';
+  const fb=document.getElementById('q-feedback');fb.className='feedback-box';fb.textContent='';
+  qAnswered=false;
+  const opts=document.getElementById('q-options');opts.innerHTML='';
+  const letters=['A','B','C','D'];
+  q.opts.forEach((opt,i)=>{
+    const btn=document.createElement('button');
+    btn.className='option';
+    btn.innerHTML=`<span class="opt-letter">${letters[i]}</span>${opt}`;
+    btn.onclick=()=>quizAnswer(i,btn);opts.appendChild(btn);
+  });
+}
+function quizAnswer(chosen,btnEl){
+  if(qAnswered)return;qAnswered=true;
+  const q=quizOrder[qIdx];const correct=chosen===q.ans;
+  let coinEarned=0;
+  if(correct){
+    qScore++;quizStreak++;sessionStreak++;totalCorrect++;
+    coinEarned=1+(quizStreak>=5?2:quizStreak>=3?1:0);
+    addCoins(coinEarned);
+    checkUnlocks(quizStreak);
+  }else{quizStreak=0;sessionStreak=0;}
+  document.querySelectorAll('.option').forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===q.ans)b.classList.add('correct');
+    else if(i===chosen&&!correct)b.classList.add('wrong');
+  });
+  const fb=document.getElementById('q-feedback');
+  fb.className='feedback-box show '+(correct?'correct-fb':'wrong-fb');
+  fb.textContent=(correct?'🎉 Correct! ':'💡 Not quite — ')+q.explain;
+  const card=document.getElementById('quiz-card-el');
+  const r=btnEl.getBoundingClientRect();
+  if(correct){
+    playHappy();confetti(28);
+    card.classList.add('bounce');setTimeout(()=>card.classList.remove('bounce'),500);
+    burst('⭐',r.left+r.width/2-16,r.top-36);
+    coinPop(r.left+r.width/2,r.top-10,coinEarned);
+    const left=UNLOCKS.creature-quizStreak;
+    if(!unlocked.creature&&left>0)showBanner(`🔥 ${quizStreak} in a row! ${left} more to unlock Sky Sorter 🌪️`);
+    if(quizStreak>0&&quizStreak%5===0&&unlocked.creature)showBanner(`🔥 ${quizStreak} in a row! You're unstoppable!`);
+  }else{playSad();card.classList.add('shake');setTimeout(()=>card.classList.remove('shake'),450);}
+  qResults.push({q:q.q,correct,topic:q.topic,explain:q.explain,chosen,right:q.ans,opts:q.opts});
+  document.getElementById('q-next').style.display='inline-flex';
+  document.getElementById('q-score-live').textContent=`⭐${qScore} 🔥${quizStreak} 🪙${coins}`;
+}
+function nextQuestion(){qIdx++;if(qIdx>=quizOrder.length)showResults();else renderQuestion();}
+function showResults(){
+  document.getElementById('quiz-body').style.display='none';
+  document.getElementById('quiz-results').style.display='block';
+  const pct=Math.round((qScore/quizOrder.length)*100);
+  const circle=document.getElementById('r-circle');
+  circle.style.color=pct>=80?'#3DD68C':pct>=60?'#F59E0B':'#FF4D6D';
+  document.getElementById('r-num').textContent=qScore;
+  document.getElementById('r-den').textContent=`/ ${quizOrder.length}`;
+  if(pct>=80){playHappy();confetti(70);}else if(pct>=60)playFlip();else playSad();
+  let title,sub;
+  if(pct===100){title="Perfect score";sub="Every answer right. Excellent.";}
+  else if(pct>=80){title="Great work";sub="Nearly perfect. Check the ones you missed below.";}
+  else if(pct>=60){title="Good effort";sub="Revise the topics below on the flashcards, then try again.";}
+  else{title="Keep going";sub="Work through the flashcards for these topics, then try again.";}
+  document.getElementById('r-title').textContent=title;
+  document.getElementById('r-sub').textContent=sub;
+  const bd=document.getElementById('r-breakdown');
+  bd.innerHTML='<div style="font-family:var(--display);font-size:1rem;color:var(--hot);margin-bottom:10px">Your answers:</div>';
+  qResults.forEach(r=>{
+    const d=document.createElement('div');d.className='result-item';
+    d.innerHTML=`<div>${r.correct?'✅':'❌'}</div><div><div class="ri-q">${r.q}</div>${!r.correct?`<div class="ri-a">✔ ${r.opts[r.right]}</div>`:''}</div>`;
+    bd.appendChild(d);
+  });
+}
+function restartQuiz(){initQuiz();}
+
+// ═══════════════════════════════════════════════════════════
+// GAMES HUB
+// ═══════════════════════════════════════════════════════════
+const GAME_DEFS=[
+  {id:'creature',emoji:'🌪️',name:'Sky Sorter',desc:'Sort the falling weather before it hits the ground!',unlock:UNLOCKS.creature,unlockDesc:'Get 2 in a row in the quiz',fn:startCreatureCatcher},
+  {id:'cell',emoji:'🧩',name:'Process Builder',desc:'Put the steps of rainfall, fronts and feedback loops in order!',unlock:UNLOCKS.cell,unlockDesc:`Get ${UNLOCKS.cell} correct answers`,fn:startProcessBuilder},
+  {id:'blitz',emoji:'⚡',name:'Weather Blitz',desc:'Fast-fire questions — answer before the timer runs out!',unlock:UNLOCKS.blitz,unlockDesc:`Get ${UNLOCKS.blitz} correct answers`,fn:startBlitz},
+];
+function buildUnlockGrid(){
+  const g=document.getElementById('unlock-grid');g.innerHTML='';
+  ['game-creature','game-cell','game-blitz'].forEach(id=>document.getElementById(id).style.display='none');
+  GAME_DEFS.forEach(gd=>{
+    const isUnlocked=unlocked[gd.id];
+    const div=document.createElement('div');
+    div.className='unlock-card'+(isUnlocked?'  unlocked':' locked');
+    const progress=gd.id==='creature'?`${Math.min(quizStreak,gd.unlock)}/${gd.unlock} streak`:
+                   `${Math.min(totalCorrect,gd.unlock)}/${gd.unlock} correct`;
+    div.innerHTML=`
+      <div class="unlock-emoji">${gd.emoji}</div>
+      <h3>${gd.name}</h3>
+      <p>${gd.desc}</p>
+      <span class="unlock-req ${isUnlocked?'done':'todo'}">${isUnlocked?'✅ Unlocked!':'🔒 '+gd.unlockDesc}</span>
+      ${!isUnlocked?`<div style="font-size:.72rem;color:var(--muted);font-weight:700;margin-bottom:8px">${progress}</div>`:''}
+    `;
+    if(isUnlocked){
+      const btn=document.createElement('button');
+      btn.className='btn btn-game';btn.textContent='▶ Play';btn.style.fontSize='.88rem';btn.style.padding='8px 18px';
+      btn.onclick=()=>openGame(gd.id);
+      div.appendChild(btn);
+    }
+    g.appendChild(div);
+  });
+}
+function openGame(id){
+  buildUnlockGrid();
+  document.getElementById(`game-${id}`).style.display='block';
+  GAME_DEFS.find(g=>g.id===id).fn();
+  document.getElementById(`game-${id}`).scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 1: CREATURE CATCHER
+// ═══════════════════════════════════════════════════════════
+let ccScore=0,ccStreak=0,ccLives=3,ccLevel=1,ccRunning=false;
+let ccCreature=null,ccY=0,ccSpeed=0.5,ccAnswered=false,ccRAF=null;
+const ccCanvas=document.getElementById('cc-canvas');
+const ccCtx=ccCanvas.getContext('2d');
+
+function startCreatureCatcher(){
+  ccScore=0;ccStreak=0;ccLives=3;ccLevel=1;ccAnswered=false;ccRunning=true;
+  document.getElementById('cc-over').style.display='none';
+  document.getElementById('cc-opts').style.display='grid';
+  document.getElementById('cc-q').parentElement.style.display='block';
+  updateCCStats();ccNextCreature();
+  if(ccRAF)cancelAnimationFrame(ccRAF);ccLoop();
+}
+function ccNextCreature(){
+  const c=CREATURES[Math.floor(Math.random()*CREATURES.length)];
+  const opts=shuffle([c.correct,...shuffle(c.wrong).slice(0,3)]);
+  ccCreature={...c,opts};ccY=0;ccAnswered=false;
+  ccSpeed=0.38+ccLevel*0.14;
+  document.getElementById('cc-q').textContent=`${c.emoji} ${c.name} — ${c.q}`;
+  const w=document.getElementById('cc-opts');w.innerHTML='';
+  opts.forEach(o=>{
+    const btn=document.createElement('button');btn.className='game-opt';btn.textContent=o;
+    btn.onclick=()=>ccAnswer(o,c.correct,btn);w.appendChild(btn);
+  });
+}
+function ccAnswer(chosen,correct,btnEl){
+  if(ccAnswered)return;ccAnswered=true;
+  const ok=chosen===correct;
+  document.querySelectorAll('.game-opt').forEach(b=>{
+    b.classList.add('locked');
+    if(b.textContent===correct)b.classList.add('correct');
+    else if(b===btnEl&&!ok)b.classList.add('wrong');
+  });
+  if(ok){
+    playCatch();ccStreak++;ccScore+=10+ccStreak*2;
+    totalCorrect++;addCoins(1);checkUnlocks(0);
+    burst('⭐',window.innerWidth/2-16,window.innerHeight/2-50);
+    showBanner(ccStreak>1?`🔥 ${ccStreak} in a row! Caught it!`:'✅ Caught it! +coins');
+    if(ccStreak%3===0){ccLevel=Math.min(6,ccLevel+1);showBanner(`⬆️ Level ${ccLevel}! Faster now...`,2000);}
+  }else{
+    playMiss();ccStreak=0;ccLives--;
+    showBanner(`💔 That was a ${correct}! ${ccLives} lives left`);
+    if(ccLives<=0){ccEnd();return;}
+  }
+  updateCCStats();setTimeout(ccNextCreature,800);
+}
+function ccLoop(){
+  if(!ccRunning)return;
+  ccCtx.clearRect(0,0,ccCanvas.width,ccCanvas.height);
+  // sky gradient
+  const grad=ccCtx.createLinearGradient(0,0,0,ccCanvas.height);
+  grad.addColorStop(0,'#CFE2F2');grad.addColorStop(1,'#F2F7FB');
+  ccCtx.fillStyle=grad;ccCtx.fillRect(0,0,ccCanvas.width,ccCanvas.height);
+  // clouds
+  [[60,40],[180,25],[320,50],[480,30],[600,45]].forEach(([x,y])=>{
+    ccCtx.fillStyle='rgba(255,255,255,0.7)';
+    ccCtx.beginPath();ccCtx.ellipse(x,y,30,18,0,0,Math.PI*2);ccCtx.fill();
+    ccCtx.beginPath();ccCtx.ellipse(x+20,y+5,22,14,0,0,Math.PI*2);ccCtx.fill();
+  });
+  // ground
+  ccCtx.fillStyle='#B9CBDA';ccCtx.fillRect(0,ccCanvas.height-16,ccCanvas.width,16);
+  ccCtx.fillStyle='#164A73';ccCtx.fillRect(0,ccCanvas.height-18,ccCanvas.width,4);
+  if(ccCreature&&!ccAnswered){
+    ccY+=ccSpeed;
+    if(ccY>=ccCanvas.height-68&&!ccAnswered){
+      ccAnswered=true;playMiss();ccStreak=0;ccLives--;
+      showBanner(`💔 ${ccCreature.name} got away! It was a ${ccCreature.correct}. ${ccLives} lives left`);
+      updateCCStats();
+      if(ccLives<=0){ccEnd();return;}else setTimeout(ccNextCreature,1200);
+    }
+    const x=ccCanvas.width/2;
+    // shadow
+    ccCtx.fillStyle='rgba(15,34,51,0.10)';
+    ccCtx.beginPath();const sw=28*(ccY/(ccCanvas.height-68));
+    ccCtx.ellipse(x,ccCanvas.height-20,sw,6,0,0,Math.PI*2);ccCtx.fill();
+    // creature
+    ccCtx.font=`${50+Math.sin(Date.now()*.005)*3}px serif`;
+    ccCtx.textAlign='center';ccCtx.textBaseline='middle';
+    ccCtx.fillText(ccCreature.emoji,x,ccY+20);
+    // name tag
+    ccCtx.fillStyle='#0F2233';ccCtx.font='bold 13px Inter,sans-serif';
+    ccCtx.fillText(ccCreature.name,x,ccY+50);
+  }
+  ccRAF=requestAnimationFrame(ccLoop);
+}
+function updateCCStats(){
+  document.getElementById('cc-score').textContent=ccScore;
+  document.getElementById('cc-streak').textContent=ccStreak+'🔥';
+  document.getElementById('cc-lives').textContent='❤️'.repeat(Math.max(0,ccLives));
+  document.getElementById('cc-level').textContent=ccLevel;
+}
+function ccEnd(){
+  ccRunning=false;cancelAnimationFrame(ccRAF);
+  document.getElementById('cc-opts').style.display='none';
+  document.getElementById('cc-q').parentElement.style.display='none';
+  const ov=document.getElementById('cc-over');ov.style.display='block';
+  const emoji=ccScore>=200?'🏆':ccScore>=100?'🌟':ccScore>=50?'😊':'😢';
+  const msg=ccScore>=200?`Score: ${ccScore} — you're a champion! 🌟`:ccScore>=100?`Score: ${ccScore} — brilliant catching! 💪`:`Score: ${ccScore} — try again to beat your score!`;
+  document.getElementById('cc-over-emoji').textContent=emoji;
+  document.getElementById('cc-over-title').textContent=ccScore>=100?'Amazing!':'Game Over!';
+  document.getElementById('cc-over-msg').textContent=msg;
+  if(ccScore>=100)confetti(50);
+  ccCtx.clearRect(0,0,ccCanvas.width,ccCanvas.height);
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 2: PROCESS BUILDER — tap the steps of each process in order
+// ═══════════════════════════════════════════════════════════
+const PB_MAX_LIVES=5;
+let pbOrder=[],pbIdx=0,pbNext=0,pbLives=PB_MAX_LIVES,pbScore=0;
+function startProcessBuilder(){
+  pbOrder=shuffle(PROCESSES);pbIdx=0;pbLives=PB_MAX_LIVES;pbScore=0;
+  document.getElementById('pb-over').style.display='none';
+  document.getElementById('pb-play').style.display='block';
+  pbRound();
+}
+function pbRound(){
+  if(pbIdx>=pbOrder.length){pbWin();return;}
+  const p=pbOrder[pbIdx];pbNext=0;
+  document.getElementById('pb-title').textContent=`${p.emoji} ${p.name}: tap the steps in order`;
+  document.getElementById('pb-built').innerHTML='';
+  const pool=document.getElementById('pb-pool');pool.innerHTML='';
+  shuffle(p.steps.map((s,i)=>i)).forEach(i=>{
+    const b=document.createElement('button');b.className='pb-step';b.textContent=p.steps[i];
+    b.onclick=()=>pbTap(i,b);pool.appendChild(b);
+  });
+  updatePBStats();
+}
+function pbTap(i,btn){
+  const p=pbOrder[pbIdx];
+  if(i===pbNext){
+    playCatch();pbNext++;pbScore+=5;
+    const li=document.createElement('li');li.textContent=p.steps[i];
+    document.getElementById('pb-built').appendChild(li);btn.remove();
+    if(pbNext===p.steps.length){
+      pbScore+=10;totalCorrect++;addCoins(2);checkUnlocks(0);confetti(30);
+      pbLives=Math.min(PB_MAX_LIVES,pbLives+1);
+      showBanner(`🧩 ${p.name} built! +2 coins`);
+      pbIdx++;updatePBStats();setTimeout(pbRound,1600);return;
+    }
+  }else{
+    playMiss();pbLives--;
+    btn.classList.add('pb-wrong');setTimeout(()=>btn.classList.remove('pb-wrong'),450);
+    showBanner(pbNext===0?'🤔 Not the first step — what starts it off?':'🤔 Not next — what happens straight after?');
+    if(pbLives<=0){updatePBStats();pbEnd();return;}
+  }
+  updatePBStats();
+}
+function updatePBStats(){
+  document.getElementById('pb-score').textContent=pbScore;
+  document.getElementById('pb-lives').textContent='❤️'.repeat(Math.max(0,pbLives));
+  document.getElementById('pb-round').textContent=`${Math.min(pbIdx+1,pbOrder.length)}/${pbOrder.length}`;
+}
+function pbEnd(){
+  document.getElementById('pb-play').style.display='none';
+  document.getElementById('pb-over').style.display='block';
+  document.getElementById('pb-over-emoji').textContent=pbIdx>=5?'🌟':'😢';
+  document.getElementById('pb-over-title').textContent='Out of lives!';
+  document.getElementById('pb-over-msg').textContent=`You built ${pbIdx} of ${pbOrder.length} processes (score ${pbScore}). Check the flashcards and try again!`;
+}
+function pbWin(){
+  confetti(80);playUnlock();addCoins(10);
+  document.getElementById('pb-play').style.display='none';
+  document.getElementById('pb-over').style.display='block';
+  document.getElementById('pb-over-emoji').textContent='🏆';
+  document.getElementById('pb-over-title').textContent='All processes built!';
+  document.getElementById('pb-over-msg').textContent=`Score ${pbScore}. You can explain every process in order. +10 bonus coins! 🪙`;
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 3: KINGDOM BLITZ
+// ═══════════════════════════════════════════════════════════
+let blScore=0,blStreak=0,blQIdx=0,blOrder=[],blRunning=false;
+let blTimer=10,blTimerInterval=null,blAnswered=false;
+const BLITZ_TOTAL=15;
+
+function startBlitz(){
+  blScore=0;blStreak=0;blQIdx=0;blAnswered=false;blRunning=true;
+  blOrder=shuffle(QUIZ).slice(0,BLITZ_TOTAL);
+  document.getElementById('bl-over').style.display='none';
+  updateBlitzStats();blNextQ();
+}
+function blNextQ(){
+  if(blQIdx>=BLITZ_TOTAL){blEnd();return;}
+  const q=blOrder[blQIdx];
+  blAnswered=false;blTimer=10;
+  document.getElementById('bl-q').textContent=q.q;
+  const opts=document.getElementById('bl-opts');opts.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const btn=document.createElement('button');btn.className='blitz-opt';btn.textContent=o;
+    btn.onclick=()=>blAnswer(i,q.ans,btn);opts.appendChild(btn);
+  });
+  document.getElementById('bl-q-num').textContent=`${blQIdx+1}/${BLITZ_TOTAL}`;
+  updateBlitzTimer();
+  clearInterval(blTimerInterval);
+  blTimerInterval=setInterval(()=>{
+    if(!blRunning)return;
+    blTimer-=.1;updateBlitzTimer();
+    if(blTimer<=0){clearInterval(blTimerInterval);blTimeOut();}
+  },100);
+}
+function updateBlitzTimer(){
+  const pct=Math.max(0,(blTimer/10)*100);
+  const fill=document.getElementById('bl-timer-fill');
+  fill.style.width=pct+'%';
+  fill.style.background=pct>60?'var(--mint)':pct>30?'var(--yellow)':'var(--red)';
+  document.getElementById('bl-timer-label').textContent=Math.ceil(Math.max(0,blTimer))+'s';
+}
+function blAnswer(chosen,correct,btnEl){
+  if(blAnswered)return;blAnswered=true;clearInterval(blTimerInterval);
+  const ok=chosen===correct;
+  document.querySelectorAll('.blitz-opt').forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===correct)b.classList.add('correct');
+    else if(b===btnEl&&!ok)b.classList.add('wrong');
+  });
+  if(ok){
+    playBlitzRight();blStreak++;
+    const bonus=Math.ceil(blTimer);blScore+=10+bonus+(blStreak>=3?5:0);
+    totalCorrect++;addCoins(1);checkUnlocks(0);
+    showBanner(`✅ +${10+bonus}pts! (speed bonus: +${bonus}) ${blStreak>=3?'🔥 STREAK!':''}`);
+  }else{
+    playBlitzWrong();blStreak=0;
+    showBanner('❌ Wrong! No points this round.');
+  }
+  updateBlitzStats();
+  blQIdx++;
+  setTimeout(blNextQ,700);
+}
+function blTimeOut(){
+  if(blAnswered)return;blAnswered=true;
+  playMiss();blStreak=0;
+  document.querySelectorAll('.blitz-opt').forEach((b,i)=>{
+    b.classList.add('locked');
+    if(i===blOrder[blQIdx].ans)b.classList.add('correct');
+  });
+  showBanner('⏱️ Time\'s up!');updateBlitzStats();
+  blQIdx++;setTimeout(blNextQ,800);
+}
+function updateBlitzStats(){
+  document.getElementById('bl-score').textContent=blScore;
+  document.getElementById('bl-streak').textContent=blStreak+'🔥';
+}
+function blEnd(){
+  blRunning=false;clearInterval(blTimerInterval);
+  document.getElementById('bl-over').style.display='block';
+  const pct=Math.round((blScore/150)*100);
+  const emoji=blScore>=120?'⚡🏆':blScore>=80?'⚡🌟':blScore>=40?'⚡😊':'⚡😅';
+  let title=blScore>=100?'Blitz Champion!':blScore>=60?'Great Speed!':'Keep Practising!';
+  let msg=`Score: ${blScore}/150. ${blScore>=100?'You were lightning fast! ⚡':'Try to answer faster for speed bonuses! ⏱️'}`;
+  document.getElementById('bl-over-emoji').textContent=emoji;
+  document.getElementById('bl-over-title').textContent=title;
+  document.getElementById('bl-over-msg').textContent=msg;
+  if(blScore>=80)confetti(50);
+  if(blScore>=100)addCoins(5);
+}
+
+// ═══════════════════════════════════════════════════════════
+// AVATAR SHOP
+// ═══════════════════════════════════════════════════════════
+const BG_COLORS={bg0:'#FFF0F8',bg1:'#1A0A2E',bg2:null,bg3:'#FFF0F8',bg4:'#0A1A2E',bg5:'#050510'};
+const BG_STARS={bg1:true,bg4:false,bg5:true};
+
+function buildShop(){
+  const panel=document.getElementById('shop-panel');panel.innerHTML='';
+  SHOP_CATS.forEach(cat=>{
+    const div=document.createElement('div');div.className='shop-cat';
+    div.innerHTML=`<h3>${cat.label}</h3><div class="shop-items" id="si-${cat.id}"></div>`;
+    panel.appendChild(div);
+    const wrap=div.querySelector('.shop-items');
+    cat.items.forEach(item=>{
+      const isOwned=avatarOwned[cat.id]===item.id||item.free;
+      const isEquipped=avatarEquipped[cat.id]===item.id;
+      const canAfford=coins>=item.price;
+      const el=document.createElement('div');
+      el.className='shop-item'+(isEquipped?' active-item':isOwned?' owned':'');
+      el.innerHTML=`<span class="si-emoji">${item.emoji}</span><span class="si-name">${item.name}</span><span class="si-price ${isEquipped?'equipped':item.free?'free':''}">${isEquipped?'Equipped ✓':isOwned?'Equip ✨':item.price===0?'Free!':'🪙'+item.price}</span>`;
+      el.onclick=()=>shopAction(cat.id,item,isOwned||item.free,canAfford);
+      wrap.appendChild(el);
+    });
+  });
+}
+function shopAction(catId,item,owned,canAfford){
+  if(avatarEquipped[catId]===item.id)return;
+  if(!owned){
+    if(!canAfford){showBanner(`💸 Need ${item.price-coins} more coins! Keep answering questions! 🎯`);return;}
+    coins-=item.price;updateCoinDisplay();
+    avatarOwned[catId]=item.id;
+    playCoin();burst('🪙',window.innerWidth/2,window.innerHeight/2);
+  }
+  avatarEquipped[catId]=item.id;
+  playFlip();drawAvatar();buildShop();
+  showBanner('Avatar updated ✓');
+}
+
+function drawAvatar(){
+  const canvas=document.getElementById('avatar-canvas');
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height;
+  ctx.clearRect(0,0,W,H);
+
+  const bg=avatarEquipped.bg,sk=avatarEquipped.skin,hr=avatarEquipped.hair;
+  const ot=avatarEquipped.outfit,ac=avatarEquipped.acc,pt=avatarEquipped.pet;
+
+  // Background
+  const bgDef=SHOP_CATS[0].items.find(i=>i.id===bg);
+  if(bg==='bg2'){
+    const rg=['#FF6EB4','#FFAA00','#FFD600','#3DD68C','#4488FF','#C855F0'];
+    rg.forEach((c,i)=>{ctx.fillStyle=c;ctx.fillRect(0,i*(H/rg.length),W,H/rg.length+1)});
+  }else if(bg==='bg3'){
+    ctx.fillStyle='#FFF0F8';ctx.fillRect(0,0,W,H);
+    ['🌸','🌺','🌷','✿','🌼'].forEach((f,i)=>{
+      ctx.font='20px serif';ctx.textAlign='center';
+      ctx.fillText(f,(i%3)*50+25,Math.floor(i/3)*50+25);
+    });
+  }else{
+    ctx.fillStyle=BG_COLORS[bg]||'#FFF0F8';ctx.fillRect(0,0,W,H);
+    if(BG_STARS[bg]){
+      for(let i=0;i<30;i++){
+        ctx.fillStyle=`rgba(255,255,255,${.4+Math.random()*.6})`;
+        ctx.beginPath();ctx.arc(Math.random()*W,Math.random()*H,Math.random()*1.5+.5,0,Math.PI*2);ctx.fill();
+      }
+    }
+    if(bg==='bg4'){ctx.fillStyle='rgba(100,200,255,.1)';ctx.font='18px serif';ctx.textAlign='center';ctx.fillText('🔬',110,30);ctx.fillText('⚗️',30,80);ctx.fillText('🧬',20,160);}
+  }
+
+  // Skin tones
+  const skinColors={sk0:'#FFCBA4',sk1:'#D4956A',sk2:'#A0633C',sk3:'#4A2915'};
+  const skinC=skinColors[sk]||'#FFCBA4';
+
+  // Body / outfit
+  const outfitEmojis={o0:'🥼',o1:'👑',o2:'👩‍🚀',o3:'🦋',o4:'🧙‍♀️',o5:'🦸‍♀️'};
+  const outfitColors={o0:'#EEEEFF',o1:'#FFD700',o2:'#CCDDEE',o3:'#FFB3D9',o4:'#2D0044',o5:'#FF3366'};
+  ctx.fillStyle=outfitColors[ot]||'#EEEEFF';
+  // torso
+  ctx.beginPath();ctx.roundRect(W/2-30,H/2+10,60,55,10);ctx.fill();
+  // arms
+  ctx.fillStyle=skinC;
+  ctx.beginPath();ctx.roundRect(W/2-50,H/2+14,22,40,8);ctx.fill();
+  ctx.beginPath();ctx.roundRect(W/2+28,H/2+14,22,40,8);ctx.fill();
+  // outfit emoji overlay
+  ctx.font='28px serif';ctx.textAlign='center';
+  ctx.fillText(outfitEmojis[ot]||'🥼',W/2,H/2+45);
+
+  // Neck
+  ctx.fillStyle=skinC;ctx.beginPath();ctx.roundRect(W/2-10,H/2-5,20,20,4);ctx.fill();
+
+  // Face
+  ctx.fillStyle=skinC;ctx.beginPath();ctx.ellipse(W/2,H/2-28,30,34,0,0,Math.PI*2);ctx.fill();
+  // eyes
+  ctx.fillStyle='#3D1A4E';
+  ctx.beginPath();ctx.ellipse(W/2-11,H/2-28,5,6,0,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(W/2+11,H/2-28,5,6,0,0,Math.PI*2);ctx.fill();
+  // eye shine
+  ctx.fillStyle='white';
+  ctx.beginPath();ctx.ellipse(W/2-9,H/2-31,2,2,0,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(W/2+13,H/2-31,2,2,0,0,Math.PI*2);ctx.fill();
+  // smile
+  ctx.strokeStyle='#3D1A4E';ctx.lineWidth=2;ctx.lineCap='round';
+  ctx.beginPath();ctx.arc(W/2,H/2-22,12,0.2,Math.PI-0.2);ctx.stroke();
+  // rosy cheeks
+  ctx.fillStyle='rgba(255,110,180,.25)';
+  ctx.beginPath();ctx.ellipse(W/2-20,H/2-20,9,6,-.2,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.ellipse(W/2+20,H/2-20,9,6,.2,0,Math.PI*2);ctx.fill();
+
+  // Hair
+  const hairColors={h0:'#6B3A2A',h1:'#F4C430',h2:'#FF6EB4',h3:'#9B59B6',h4:null,h5:'#C0C0C0'};
+  if(hr==='h4'){
+    // rainbow hair
+    const rc=['#FF6EB4','#FFAA00','#FFD600','#3DD68C','#4488FF','#C855F0'];
+    rc.forEach((c,i)=>{
+      ctx.fillStyle=c;
+      ctx.beginPath();ctx.ellipse(W/2+(i-2.5)*10,H/2-60,6,30,0,0,Math.PI*2);ctx.fill();
+    });
+  }else{
+    ctx.fillStyle=hairColors[hr]||'#6B3A2A';
+    // top
+    ctx.beginPath();ctx.ellipse(W/2,H/2-52,32,22,0,Math.PI,Math.PI*2);ctx.fill();
+    // sides
+    ctx.beginPath();ctx.ellipse(W/2-28,H/2-36,9,22,-.2,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.ellipse(W/2+28,H/2-36,9,22,.2,0,Math.PI*2);ctx.fill();
+  }
+
+  // Accessory
+  const accEmojis={ac0:'',ac1:'🤓',ac2:'👑',ac3:'💐',ac4:'⭐',ac5:'🪄'};
+  const accE=accEmojis[ac];
+  if(accE){
+    ctx.font=ac==='ac1'?'20px serif':'22px serif';ctx.textAlign='center';
+    if(ac==='ac1')ctx.fillText(accE,W/2,H/2-18);
+    else if(ac==='ac2')ctx.fillText(accE,W/2,H/2-75);
+    else if(ac==='ac3')ctx.fillText(accE,W/2-2,H/2-70);
+    else if(ac==='ac4'){ctx.fillText('⭐',W/2-38,H/2-55);ctx.fillText('⭐',W/2+38,H/2-55);}
+    else ctx.fillText(accE,W/2+44,H/2+30);
+  }
+
+  // Pet
+  const petEmojis={p0:'',p1:'🐱',p2:'🐰',p3:'🐉',p4:'🦄',p5:'🐸'};
+  const petE=petEmojis[pt];
+  if(petE){ctx.font='26px serif';ctx.textAlign='center';ctx.fillText(petE,W/2+52,H/2+65);}
+}
+
+// ═══════════════════════════════════════════════════════════
+// EXAM PRACTICE
+// ═══════════════════════════════════════════════════════════
+let exIdx=0,exAnswers=new Array(EXAM.length).fill(''),exScores=new Array(EXAM.length).fill(null);
+function renderExam(){
+  const e=EXAM[exIdx];
+  document.getElementById('ex-topic').textContent=e.topic;
+  document.getElementById('ex-marks').textContent=`${e.marks} mark${e.marks>1?'s':''}`;
+  document.getElementById('ex-q').textContent=e.q;
+  document.getElementById('ex-ans').value=exAnswers[exIdx]||'';
+  document.getElementById('ex-count').textContent=`${exIdx+1} / ${EXAM.length}`+(exScores[exIdx]!==null?`  ·  ✅ ${exScores[exIdx]}/${e.marks}`:'');
+  document.getElementById('ex-mark').style.display='none';
+  document.getElementById('ex-reveal').style.display='inline-flex';
+  document.getElementById('ex-result').textContent='';
+  document.getElementById('ex-submit').style.display='inline-flex';
+  document.getElementById('ex-model').textContent=e.model;
+  const pts=document.getElementById('ex-points');pts.innerHTML='';
+  e.points.forEach((p,i)=>{
+    const l=document.createElement('label');l.className='ex-point';
+    l.innerHTML=`<input type="checkbox" id="ex-p${i}"> <span></span>`;l.querySelector('span').textContent=p;
+    pts.appendChild(l);
+  });
+}
+function exReveal(){
+  playFlip();
+  document.getElementById('ex-mark').style.display='block';
+  document.getElementById('ex-reveal').style.display='none';
+}
+function exSubmit(){
+  const e=EXAM[exIdx];
+  const got=e.points.filter((p,i)=>document.getElementById('ex-p'+i).checked).length;
+  const first=exScores[exIdx]===null;
+  exScores[exIdx]=Math.max(got,exScores[exIdx]||0);
+  const r=document.getElementById('ex-result');
+  if(got===e.points.length){playHappy();confetti(40);r.textContent=`🎉 Full marks: ${got}/${e.marks}!`;}
+  else if(got>0){playCoin();r.textContent=`👍 ${got}/${e.marks}. Add the missing points and try again later!`;}
+  else{playSad();r.textContent='💜 Read the model answer, then try writing it from memory.';}
+  if(first&&got>0){addCoins(got);totalCorrect+=got;checkUnlocks(0);}
+  document.getElementById('ex-submit').style.display='none';
+  saveState();
+}
+function exNav(d){exIdx=(exIdx+d+EXAM.length)%EXAM.length;renderExam();}
+
+// ═══════════════════════════════════════════════════════════
+// SAVE PROGRESS (this device only)
+// ═══════════════════════════════════════════════════════════
+const SAVE_KEY='margot-weather-world-v1';
+function saveState(){
+  try{localStorage.setItem(SAVE_KEY,JSON.stringify({coins,totalCorrect,unlocked,avatarOwned,avatarEquipped,exAnswers,exScores}));}catch(e){}
+}
+function loadState(){
+  try{
+    const s=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');if(!s)return;
+    coins=s.coins||0;totalCorrect=s.totalCorrect||0;
+    Object.assign(unlocked,s.unlocked||{});Object.assign(avatarOwned,s.avatarOwned||{});Object.assign(avatarEquipped,s.avatarEquipped||{});
+    if(Array.isArray(s.exAnswers))s.exAnswers.forEach((a,i)=>{if(i<EXAM.length)exAnswers[i]=a||''});
+    if(Array.isArray(s.exScores))s.exScores.forEach((a,i)=>{if(i<EXAM.length)exScores[i]=a});
+  }catch(e){}
+}
+setInterval(saveState,3000);
+window.addEventListener('pagehide',saveState);
+loadState();updateCoinDisplay();
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+buildFilterButtons();renderFC();buildUnlockGrid();drawAvatar();
+</script>
+</body>
+</html>
